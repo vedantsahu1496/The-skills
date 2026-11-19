@@ -3,274 +3,336 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>THE MILLIONAIRE SKILLS</title>
+  <title>THE MILLIONAIRE SKILLS | Executive Mastery</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;scroll-behavior:smooth}
-    body{background:#f8fafc;color:#0f172a;overflow-x:hidden}
-    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e2e8f0;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-    .logo{font-weight:800;font-size:15px;color:#28254d;text-decoration:none}
-    .logo small{display:block;font-size:10px;color:#64748b;font-weight:500}
-    .btn{border:none;border-radius:8px;padding:12px 16px;font-weight:700;cursor:pointer;font-size:14px;text-decoration:none;display:inline-block;text-align:center}
-    .btn-primary{background:#3b386c;color:#fff;width:100%}
-    .btn-accent{background:#e11d48;color:#fff;width:100%}
-    .btn-wa{background:#25D366;color:#fff;width:100%}
-    .menu-btn{background:none;border:none;font-size:24px;cursor:pointer;color:#28254d}
-    .drawer{position:fixed;inset:0 0 auto 0;background:#fff;z-index:100;padding:18px;box-shadow:0 10px 25px rgba(0,0,0,.15);display:none}
+    :root{
+      --bg:#070b14;
+      --card:#0f172a;
+      --card2:#131c31;
+      --gold:#f59e0b;
+      --gold-light:#fde68a;
+      --gold-grad:linear-gradient(135deg,#fbbf24,#d97706);
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --border:rgba(251,191,36,0.22);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);overflow-x:hidden}
+    
+    /* Glass Header */
+    header{position:sticky;top:0;z-index:60;background:rgba(7,11,20,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-weight:900;font-size:15px;letter-spacing:0.8px;background:var(--gold-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+    .logo small{display:block;font-size:9.5px;letter-spacing:1.8px;color:var(--muted);-webkit-text-fill-color:var(--muted);margin-top:2px}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .btn-login-top{background:rgba(251,191,36,0.12);border:1px solid var(--gold);color:var(--gold-light);padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+    .menu-btn{background:none;border:none;color:var(--text);font-size:24px;cursor:pointer}
+
+    /* Slide Drawer */
+    .drawer{position:fixed;inset:0 0 auto 0;background:#0b1120;border-bottom:1px solid var(--border);z-index:100;padding:22px;box-shadow:0 20px 40px rgba(0,0,0,0.8);display:none}
     .drawer.show{display:block}
-    .drawer a{display:block;padding:12px 0;color:#0f172a;text-decoration:none;font-weight:700;border-bottom:1px solid #f1f5f9}
-    .hero{background:linear-gradient(180deg,#3b386c,#25224b);color:#fff;padding:32px 18px;text-align:center}
-    .hero h1{font-size:26px;margin:12px 0;line-height:1.25}
-    .hero p{font-size:14px;opacity:.9;margin-bottom:20px;line-height:1.5}
-    .hero-actions{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto 24px}
-    .btn-light{background:#fff;color:#25224b}
-    .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .stat{background:rgba(255,255,255,.1);padding:14px;border-radius:12px;text-align:left}
-    .stat strong{display:block;font-size:20px}
-    .stat span{font-size:12px;opacity:.85}
-    .wrap{max-width:600px;margin:0 auto;padding:28px 16px}
-    .sec-title{text-align:center;margin-bottom:18px}
-    .sec-title h2{font-size:22px;margin-bottom:6px}
-    .sec-title p{font-size:13px;color:#64748b}
-    .cat-card{background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:14px;text-align:center;font-weight:700;cursor:pointer}
-    .cat-card.active{border-color:#3b386c;background:#eef2ff}
-    .cat-box{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;margin-top:12px;text-align:center;font-size:13px;color:#334155}
-    .card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 4px 12px rgba(0,0,0,.04)}
-    .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
-    .card h3{font-size:18px;color:#25224b}
-    .price{font-size:20px;font-weight:800;color:#e11d48;white-space:nowrap}
-    .card p{font-size:13px;color:#475569;margin-bottom:12px;line-height:1.45}
-    .meta{font-size:12px;color:#64748b;margin-bottom:14px}
-    .feat{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;margin-bottom:10px}
-    .feat h4{font-size:15px;margin-bottom:4px}
-    .feat p{font-size:13px;color:#64748b}
-    footer{background:#25224b;color:#fff;text-align:center;padding:28px 16px;font-size:13px}
-    footer a{color:#fff;margin:0 8px;text-decoration:none;font-weight:700}
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;display:none;align-items:center;justify-content:center;padding:14px}
+    .drawer a{display:block;padding:14px 0;color:var(--text);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.07);font-size:15px}
+
+    /* Hero Section */
+    .hero{position:relative;padding:44px 18px 36px;text-align:center;background:radial-gradient(circle at top,#1e293b 0%,#070b14 70%);border-bottom:1px solid var(--border)}
+    .pill{display:inline-block;background:rgba(251,191,36,0.12);border:1px solid var(--border);color:var(--gold-light);padding:6px 14px;border-radius:50px;font-size:11.5px;font-weight:700;letter-spacing:0.5px;margin-bottom:16px}
+    .hero h1{font-size:30px;font-weight:900;line-height:1.2;margin-bottom:14px;letter-spacing:-0.5px}
+    .hero h1 span{background:var(--gold-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{font-size:14.5px;color:var(--muted);max-width:440px;margin:0 auto 24px;line-height:1.6}
+    
+    .btn{border:none;border-radius:10px;padding:14px 20px;font-weight:800;font-size:14.5px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;transition:0.2s}
+    .btn-gold{background:var(--gold-grad);color:#090d16;box-shadow:0 8px 24px rgba(245,158,11,0.3);width:100%}
+    .btn-outline{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.18);color:#fff;width:100%}
+    .btn-wa{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;width:100%}
+    .hero-btns{display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto 30px}
+
+    /* Stats Grid */
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px;margin:0 auto}
+    .stat-box{background:rgba(15,23,42,0.8);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:left}
+    .stat-box strong{display:block;font-size:22px;color:var(--gold-light);font-weight:900}
+    .stat-box span{font-size:12px;color:var(--muted)}
+
+    /* Sections */
+    .wrap{max-width:560px;margin:0 auto;padding:36px 16px}
+    .sec-head{text-align:center;margin-bottom:24px}
+    .sec-head small{color:var(--gold);font-weight:800;letter-spacing:1.5px;font-size:11px;text-transform:uppercase}
+    .sec-head h2{font-size:24px;font-weight:900;margin:6px 0}
+    .sec-head p{font-size:13.5px;color:var(--muted)}
+
+    /* Category Selector */
+    .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .cat-btn{background:var(--card);border:1px solid rgba(255,255,255,0.08);color:var(--text);padding:14px;border-radius:12px;font-weight:700;font-size:13.5px;cursor:pointer;text-align:center}
+    .cat-btn.active{border-color:var(--gold);background:rgba(245,158,11,0.12);color:var(--gold-light)}
+    .cat-desc{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:12px;font-size:13.5px;color:#cbd5e1;line-height:1.5;text-align:center}
+
+    /* Luxury Package Cards + 3D Book Mockup */
+    .pkg-card{background:linear-gradient(180deg,#11192e 0%,#0b1120 100%);border:1px solid var(--border);border-radius:20px;padding:20px;margin-bottom:24px;box-shadow:0 16px 35px rgba(0,0,0,0.55);position:relative;overflow:hidden}
+    .badge-tag{position:absolute;top:14px;right:14px;background:var(--gold-grad);color:#090d16;font-size:10.5px;font-weight:900;padding:4px 10px;border-radius:20px;letter-spacing:0.5px}
+    
+    /* 3D Studio Book Visual */
+    .book-stage{padding:22px 16px;border-radius:14px;margin-bottom:18px;display:flex;justify-content:center;align-items:center;position:relative}
+    .b-blue{background:radial-gradient(circle,#1d4ed8 0%,#090d16 80%)}
+    .b-amber{background:radial-gradient(circle,#b45309 0%,#090d16 80%)}
+    .b-emerald{background:radial-gradient(circle,#047857 0%,#090d16 80%)}
+    .b-purple{background:radial-gradient(circle,#6d28d9 0%,#090d16 80%)}
+    .b-gold{background:radial-gradient(circle,#ca8a04 0%,#090d16 80%)}
+
+    .book-3d{width:155px;height:205px;border-radius:6px 14px 14px 6px;padding:16px 14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:-10px 12px 24px rgba(0,0,0,0.85), inset 4px 0 8px rgba(255,255,255,0.25);border-left:6px solid rgba(255,255,255,0.35);text-align:center;position:relative}
+    .book-3d small{font-size:8px;letter-spacing:1.4px;font-weight:800;opacity:0.85}
+    .book-3d h4{font-size:17px;font-weight:900;line-height:1.15;letter-spacing:0.5px;text-transform:uppercase}
+    .book-3d span{font-size:9px;padding:4px 8px;border-radius:4px;background:rgba(0,0,0,0.35);font-weight:700}
+
+    .pkg-title{font-size:21px;font-weight:900;margin-bottom:6px;color:#fff}
+    .pkg-desc{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+    .pkg-meta{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#cbd5e1;padding:10px 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:16px}
+    .price-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+    .price-now{font-size:26px;font-weight:900;color:var(--gold-light)}
+    .price-old{font-size:14px;color:#64748b;text-decoration:line-through;margin-left:8px}
+
+    /* Features */
+    .feat-item{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:16px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start}
+    .feat-icon{background:rgba(245,158,11,0.15);color:var(--gold);width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .feat-item h4{font-size:15px;margin-bottom:4px;color:#fff}
+    .feat-item p{font-size:13px;color:var(--muted);line-height:1.45}
+
+    /* Footer */
+    footer{background:#04070d;border-top:1px solid var(--border);padding:34px 18px;text-align:center;font-size:13px;color:var(--muted)}
+    footer strong{color:var(--gold-light);font-size:15px;letter-spacing:1px}
+    footer a{color:#fff;margin:0 10px;text-decoration:none;font-weight:600}
+
+    /* Modals */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.82);backdrop-filter:blur(6px);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
     .modal.show{display:flex}
-    .modal-box{background:#fff;width:100%;max-width:400px;border-radius:16px;padding:18px;max-height:90vh;overflow-y:auto}
-    .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    .close-x{background:#f1f5f9;border:none;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer}
+    .modal-box{background:#0f172a;border:1px solid var(--border);width:100%;max-width:410px;border-radius:20px;padding:22px;max-height:92vh;overflow-y:auto;color:#fff}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+    .close-x{background:rgba(255,255,255,0.1);color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer}
+    .qr-panel{background:#fff;color:#0f172a;border-radius:14px;padding:14px;text-align:center;margin-bottom:16px}
+    .qr-panel img{width:155px;height:155px;margin:8px auto;display:block}
     .field{margin-bottom:12px}
-    .field label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
-    .field input{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px}
-    .qr-box{text-align:center;background:#f8fafc;border:1px dashed #94a3b8;border-radius:12px;padding:12px;margin-bottom:12px}
-    .qr-box img{width:150px;height:150px;margin:6px auto;display:block}
-    .apps{font-size:11px;font-weight:700;color:#334155}
+    .field label{display:block;font-size:12px;font-weight:700;color:var(--gold-light);margin-bottom:5px}
+    .field input{width:100%;padding:12px;background:#1e293b;border:1px solid rgba(255,255,255,0.15);border-radius:10px;color:#fff;font-size:14px}
+
+    /* Student Portal Dashboard */
     #dash{display:none}
-    .dash-head{background:#3b386c;color:#fff;padding:18px;border-radius:14px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
+    .dash-banner{background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid var(--gold);border-radius:18px;padding:20px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center}
   </style>
 </head>
 <body>
 
 <header>
-  <a href="#" class="logo" onclick="goHome()">THE MILLIONAIRE SKILLS<small>" Unlock Your Potential "</small></a>
-  <div>
-    <button class="btn" style="padding:8px 12px;background:#eef2ff;color:#28254d;margin-right:6px" onclick="openModal('loginModal')">Login</button>
+  <a href="#" class="logo" onclick="goHome()">THE MILLIONAIRE SKILLS<small>EXECUTIVE ACADEMY</small></a>
+  <div class="nav-actions">
+    <button class="btn-login-top" onclick="openModal('loginModal')">Member Login</button>
     <button class="menu-btn" onclick="toggleDrawer()">☰</button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="modal-head">
-    <strong>Menu</strong>
+    <strong style="color:var(--gold-light)">NAVIGATION</strong>
     <button class="close-x" onclick="toggleDrawer()">×</button>
   </div>
-  <a href="#courses" onclick="toggleDrawer();goHome()">Courses</a>
-  <a href="#about" onclick="toggleDrawer();goHome()">About Us</a>
-  <a href="#contact" onclick="toggleDrawer();goHome()">Contact</a>
-  <a href="javascript:void(0)" onclick="toggleDrawer();openModal('loginModal')">Student Login</a>
-  <div style="margin-top:14px">
-    <a href="#courses" class="btn btn-primary" style="color:#fff;border:none" onclick="toggleDrawer();goHome()">Get Started</a>
-  </div>
+  <a href="#courses" onclick="toggleDrawer();goHome()">Mastery Packages</a>
+  <a href="#why" onclick="toggleDrawer();goHome()">Why Choose Us</a>
+  <a href="#contact" onclick="toggleDrawer();goHome()">Support Desk</a>
+  <a href="javascript:void(0)" onclick="toggleDrawer();openModal('loginModal')">Student Portal Login</a>
 </div>
 
 <div id="site">
   <section class="hero">
-    <span style="background:rgba(255,255,255,.15);padding:5px 12px;border-radius:20px;font-size:12px">⭐ Rated 4.9/5 by 10,000+ Students</span>
-    <h1>Learn Skills That Matter for Your Career</h1>
-    <p>Practical skill training in marketing, branding, traffic, influence & finance.</p>
-    <div class="hero-actions">
-      <a href="#courses" class="btn btn-light">Explore Courses →</a>
-      <button class="btn btn-ghost" onclick="openModal('loginModal')">Login</button>
+    <div class="pill">★ RATED 4.9/5 BY 10,000+ ACTION TAKERS</div>
+    <h1>Master High-Income <span>Digital Skills</span> & Build Wealth</h1>
+    <p>Step-by-step practical mastery in Marketing, Branding, Traffic, Influence & Finance designed for modern earners.</p>
+    <div class="hero-btns">
+      <a href="#courses" class="btn btn-gold">Explore Mastery Packages →</a>
+      <button class="btn btn-outline" onclick="openModal('loginModal')">Student Portal Login</button>
     </div>
-    <div class="grid-2">
-      <div class="stat"><strong>85+</strong><span>Exclusive Modules</span></div>
-      <div class="stat"><strong>24/7</strong><span>Practical Skills</span></div>
-      <div class="stat"><strong>98%</strong><span>Growth Focused</span></div>
-      <div class="stat"><strong>98%</strong><span>World Results</span></div>
+    <div class="stats">
+      <div class="stat-box"><strong>85+</strong><span>HD Video Modules</span></div>
+      <div class="stat-box"><strong>10K+</strong><span>Active Community</span></div>
+      <div class="stat-box"><strong>24/7</strong><span>Mobile Portal Access</span></div>
+      <div class="stat-box"><strong>100%</strong><span>Practical Blueprint</span></div>
     </div>
   </section>
 
   <section class="wrap">
-    <div class="sec-title">
-      <h2>Who Is This For?</h2>
-      <p>Tap a category to see how it helps you</p>
+    <div class="sec-head">
+      <small>TAILORED ROADMAP</small>
+      <h2>Who Is This Academy For?</h2>
+      <p>Select your profile to see your growth path</p>
     </div>
-    <div class="grid-2">
-      <div class="cat-card active" onclick="pickCat(this,'Students: Build side-income skills alongside studies.')">🎓 Students</div>
-      <div class="cat-card" onclick="pickCat(this,'Creators: Grow your personal brand and audience.')">🎥 Creators</div>
-      <div class="cat-card" onclick="pickCat(this,'Business Owners: Generate daily leads and sales.')">💼 Business</div>
-      <div class="cat-card" onclick="pickCat(this,'Individuals: Start from zero and build wealth skills.')">🚀 Individuals</div>
+    <div class="cat-grid">
+      <div class="cat-btn active" onclick="pickCat(this,'Students: Build a high-income digital side hustle alongside college without needing prior experience.')">🎓 College Students</div>
+      <div class="cat-btn" onclick="pickCat(this,'Creators: Turn views into authority, brand deals, and loyal followers with proven content frameworks.')">🎥 Content Creators</div>
+      <div class="cat-btn" onclick="pickCat(this,'Business Owners: Build predictable client acquisition funnels and scale daily sales.')">💼 Business Owners</div>
+      <div class="cat-btn" onclick="pickCat(this,'Action Takers: Transition from beginner to confident closer with step-by-step mentorship.')">🚀 Career Switchers</div>
     </div>
-    <div class="cat-box" id="catBox">Students: Build side-income skills alongside studies.</div>
+    <div class="cat-desc" id="catBox">Students: Build a high-income digital side hustle alongside college without needing prior experience.</div>
   </section>
 
   <section class="wrap" id="courses" style="padding-top:0">
-    <div class="sec-title">
-      <h2>Mastery Packages</h2>
-      <p>Choose your package and enroll via UPI + WhatsApp</p>
+    <div class="sec-head">
+      <small>OFFICIAL CURRICULUM</small>
+      <h2>Choose Your Mastery Package</h2>
+      <p>Instant WhatsApp verification & private portal credentials</p>
     </div>
 
-    <div class="card">
-      <div class="card-top"><h3>Marketing Mastery</h3><div class="price">₹1,499</div></div>
-      <p>Funnels, digital marketing basics, customer psychology & sales systems.</p>
-      <div class="meta">⭐ 4.8 • 3.4k+ Students</div>
-      <button class="btn btn-accent" onclick="buyNow('Marketing Mastery',1499)">Buy Now →</button>
+    <!-- 1. MARKETING -->
+    <div class="pkg-card">
+      <span class="badge-tag">STARTER CHOICE</span>
+      <div class="book-stage b-blue">
+        <div class="book-3d" style="background:linear-gradient(145deg,#1e3a8a,#0f172a)">
+          <small>THE MILLIONAIRE SKILLS</small>
+          <h4>MARKETING MASTERY</h4>
+          <span>EDITION 01 • FUNNELS</span>
+        </div>
+      </div>
+      <div class="pkg-title">Marketing Mastery</div>
+      <p class="pkg-desc">Master high-converting sales funnels, buyer psychology, and digital marketing foundations.</p>
+      <div class="pkg-meta"><span>⭐⭐⭐⭐⭐ 4.8 (3.5k+)</span><span>📚 12 Modules</span></div>
+      <div class="price-row">
+        <div><span class="price-now">₹1,499</span><span class="price-old">₹2,999</span></div>
+        <span style="font-size:12px;color:#4ade80;font-weight:700">Save 50%</span>
+      </div>
+      <button class="btn btn-gold" onclick="buyNow('Marketing Mastery',1499)">Enroll Now →</button>
     </div>
 
-    <div class="card">
-      <div class="card-top"><h3>Branding Mastery</h3><div class="price">₹2,199</div></div>
-      <p>Build a strong social media identity, content style & audience trust.</p>
-      <div class="meta">⭐ 4.7 • 2.7k+ Students</div>
-      <button class="btn btn-accent" onclick="buyNow('Branding Mastery',2199)">Buy Now →</button>
+    <!-- 2. BRANDING -->
+    <div class="pkg-card">
+      <div class="book-stage b-amber">
+        <div class="book-3d" style="background:linear-gradient(145deg,#78350f,#0f172a)">
+          <small>THE MILLIONAIRE SKILLS</small>
+          <h4>BRANDING MASTERY</h4>
+          <span>EDITION 02 • AUTHORITY</span>
+        </div>
+      </div>
+      <div class="pkg-title">Branding Mastery</div>
+      <p class="pkg-desc">Position yourself as an authority on Instagram & YouTube with magnetic visual storytelling.</p>
+      <div class="pkg-meta"><span>⭐⭐⭐⭐⭐ 4.8 (2.8k+)</span><span>📚 16 Modules</span></div>
+      <div class="price-row">
+        <div><span class="price-now">₹2,199</span><span class="price-old">₹4,499</span></div>
+        <span style="font-size:12px;color:#4ade80;font-weight:700">Save 51%</span>
+      </div>
+      <button class="btn btn-gold" onclick="buyNow('Branding Mastery',2199)">Enroll Now →</button>
     </div>
 
-    <div class="card">
-      <div class="card-top"><h3>Traffic Mastery</h3><div class="price">₹3,499</div></div>
-      <p>Drive targeted leads using ads, reach growth & conversion systems.</p>
-      <div class="meta">⭐ 4.6 • 2.9k+ Students</div>
-      <button class="btn btn-accent" onclick="buyNow('Traffic Mastery',3499)">Buy Now →</button>
+    <!-- 3. TRAFFIC -->
+    <div class="pkg-card">
+      <span class="badge-tag">TRENDING</span>
+      <div class="book-stage b-emerald">
+        <div class="book-3d" style="background:linear-gradient(145deg,#065f46,#0f172a)">
+          <small>THE MILLIONAIRE SKILLS</small>
+          <h4>TRAFFIC MASTERY</h4>
+          <span>EDITION 03 • LEADS</span>
+        </div>
+      </div>
+      <div class="pkg-title">Traffic Mastery</div>
+      <p class="pkg-desc">Generate daily targeted leads using Meta Ads, organic reach engines & conversion tracking.</p>
+      <div class="pkg-meta"><span>⭐⭐⭐⭐⭐ 4.9 (3.1k+)</span><span>📚 20 Modules</span></div>
+      <div class="price-row">
+        <div><span class="price-now">₹3,499</span><span class="price-old">₹6,999</span></div>
+        <span style="font-size:12px;color:#4ade80;font-weight:700">Save 50%</span>
+      </div>
+      <button class="btn btn-gold" onclick="buyNow('Traffic Mastery',3499)">Enroll Now →</button>
     </div>
 
-    <div class="card">
-      <div class="card-top"><h3>Influence Mastery</h3><div class="price">₹4,999</div></div>
-      <p>Communication, speaking confidence, closing & persuasion skills.</p>
-      <div class="meta">⭐ 4.9 • 1.9k+ Students</div>
-      <button class="btn btn-accent" onclick="buyNow('Influence Mastery',4999)">Buy Now →</button>
+    <!-- 4. INFLUENCE -->
+    <div class="pkg-card">
+      <div class="book-stage b-purple">
+        <div class="book-3d" style="background:linear-gradient(145deg,#581c87,#0f172a)">
+          <small>THE MILLIONAIRE SKILLS</small>
+          <h4>INFLUENCE MASTERY</h4>
+          <span>EDITION 04 • CLOSING</span>
+        </div>
+      </div>
+      <div class="pkg-title">Influence Mastery</div>
+      <p class="pkg-desc">High-ticket communication, objection handling, persuasion psychology & confident closing.</p>
+      <div class="pkg-meta"><span>⭐⭐⭐⭐⭐ 4.9 (2.1k+)</span><span>📚 22 Modules</span></div>
+      <div class="price-row">
+        <div><span class="price-now">₹4,999</span><span class="price-old">₹9,999</span></div>
+        <span style="font-size:12px;color:#4ade80;font-weight:700">Save 50%</span>
+      </div>
+      <button class="btn btn-gold" onclick="buyNow('Influence Mastery',4999)">Enroll Now →</button>
     </div>
 
-    <div class="card">
-      <div class="card-top"><h3>Finance Mastery</h3><div class="price">₹6,999</div></div>
-      <p>Money management, wealth building & full access bundle.</p>
-      <div class="meta">⭐ 4.9 • 1.5k+ Students</div>
-      <button class="btn btn-accent" onclick="buyNow('Finance Mastery',6999)">Buy Now →</button>
+    <!-- 5. FINANCE -->
+    <div class="pkg-card" style="border-color:var(--gold)">
+      <span class="badge-tag">👑 ALL-IN-ONE VIP</span>
+      <div class="book-stage b-gold">
+        <div class="book-3d" style="background:linear-gradient(145deg,#854d0e,#090d16);border-left-color:#fbbf24">
+          <small style="color:#fde68a">THE MILLIONAIRE SKILLS</small>
+          <h4 style="color:#fde68a">FINANCE MASTERY</h4>
+          <span>VIP BUNDLE • WEALTH</span>
+        </div>
+      </div>
+      <div class="pkg-title">Finance Mastery (Complete Bundle)</div>
+      <p class="pkg-desc">Wealth creation, smart investing, cashflow systems + full access to all mastery modules.</p>
+      <div class="pkg-meta"><span>⭐⭐⭐⭐⭐ 5.0 (1.8k+)</span><span>📚 All 85+ Modules</span></div>
+      <div class="price-row">
+        <div><span class="price-now">₹6,999</span><span class="price-old">₹14,999</span></div>
+        <span style="font-size:12px;color:#4ade80;font-weight:700">Best Value</span>
+      </div>
+      <button class="btn btn-gold" onclick="buyNow('Finance Mastery VIP',6999)">Unlock VIP Access →</button>
     </div>
   </section>
 
-  <section class="wrap" id="about" style="padding-top:0">
-    <div class="sec-title"><h2>Why Choose Us</h2></div>
-    <div class="feat"><h4>Practical Skill-Based Learning</h4><p>Actionable lessons focused on real execution.</p></div>
-    <div class="feat"><h4>Mobile-Friendly Access</h4><p>Learn smoothly anytime from your phone.</p></div>
-    <div class="feat"><h4>Direct WhatsApp Support</h4><p>Quick manual onboarding after payment verification.</p></div>
+  <section class="wrap" id="why" style="padding-top:0">
+    <div class="sec-head">
+      <small>THE ADVANTAGE</small>
+      <h2>Why Top Learners Choose Us</h2>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">⚡</div>
+      <div><h4>Execution-First Training</h4><p>No fluff theory—every lesson ends with an actionable checklist you can apply the same day.</p></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🔐</div>
+      <div><h4>Verified Private Portal</h4><p>Dedicated student ID & password issued personally after payment verification.</p></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">💬</div>
+      <div><h4>Direct WhatsApp Desk</h4><p>Fast onboarding and support directly on WhatsApp (+91 7999886983).</p></div>
+    </div>
   </section>
 
   <footer id="contact">
     <strong>THE MILLIONAIRE SKILLS</strong>
-    <p style="margin:8px 0">WhatsApp Support: +91 7999886983</p>
-    <div>
-      <a href="#courses">Courses</a>
-      <a href="#about">About</a>
+    <p style="margin:10px 0">Official WhatsApp Support: +91 7999886983</p>
+    <div style="margin-top:12px">
+      <a href="#courses">Packages</a>
+      <a href="javascript:void(0)" onclick="openModal('loginModal')">Student Login</a>
       <a href="https://wa.me/917999886983" target="_blank">WhatsApp</a>
     </div>
   </footer>
 </div>
 
+<!-- STUDENT DASHBOARD -->
 <section class="wrap" id="dash">
-  <div class="dash-head">
+  <div class="dash-banner">
     <div>
-      <small>STUDENT DASHBOARD</small>
-      <h3 style="color:#fff">Welcome, Student</h3>
+      <small style="color:var(--gold);font-weight:800">VERIFIED MEMBER</small>
+      <h3 id="dashName" style="margin-top:4px">Welcome</h3>
     </div>
-    <button class="btn btn-light" style="padding:8px 12px" onclick="logout()">Logout</button>
+    <button class="btn-login-top" onclick="logout()">Logout</button>
   </div>
-  <div class="card"><h3>Module 1: Foundation & Setup</h3><p>Lesson 1 to 5 unlocked.</p><button class="btn btn-primary" onclick="alert('Demo Lesson Ready!')">Open Module</button></div>
-  <div class="card"><h3>Module 2: Growth & Execution</h3><p>Lesson 6 to 10 unlocked.</p><button class="btn btn-primary" onclick="alert('Demo Lesson Ready!')">Open Module</button></div>
+  <div class="pkg-card">
+    <small style="color:var(--gold);font-weight:800">ACTIVE ENROLLMENT</small>
+    <h3 id="dashCourse" style="font-size:20px;margin:6px 0 12px">Course Title</h3>
+    <p class="pkg-desc">Your private training modules are unlocked below. Bookmark your portal for quick access.</p>
+    <a href="#" id="mod1Link" class="btn btn-gold" target="_blank">▶ Start Training Modules</a>
+  </div>
 </section>
 
+<!-- BUY MODAL -->
 <div class="modal" id="buyModal">
   <div class="modal-box">
     <div class="modal-head">
-      <strong id="buyTitle">Buy Course</strong>
+      <strong id="buyTitle" style="color:var(--gold-light)">Enroll Now</strong>
       <button class="close-x" onclick="closeModal('buyModal')">×</button>
     </div>
-    <div class="qr-box">
-      <div style="font-size:13px;font-weight:700">Pay ₹<span id="buyAmt">0</span> via UPI QR</div>
+    <div class="qr-panel">
+      <div style="font-size:13px;font-weight:800">Scan & Pay ₹<span id="buyAmt">0</span></div>
       <img id="qrImg" src="" alt="UPI QR" />
-      <div class="apps">PhonePe • GPay • Paytm • Navi</div>
-      <div style="font-size:11px;color:#64748b;margin-top:4px">UPI ID: 7999886983@upi (Demo)</div>
+      <div style="font-size:11.5px;font-weight:700;color:#334155">UPI: 7999886983@upi • GPay / PhonePe / Paytm</div>
     </div>
-    <div class="field"><label>Your Name *</label><input id="uName" placeholder="Enter name" /></div>
-    <div class="field"><label>Your WhatsApp Number *</label><input id="uPhone" placeholder="10-digit number" /></div>
-    <div class="field"><label>UPI UTR / Transaction ID *</label><input id="uUtr" placeholder="Enter UTR number" /></div>
-    <button class="btn btn-wa" onclick="sendWA()">Send Order on WhatsApp →</button>
-  </div>
-</div>
-
-<div class="modal" id="loginModal">
-  <div class="modal-box">
-    <div class="modal-head">
-      <strong>Student Login</strong>
-      <button class="close-x" onclick="closeModal('loginModal')">×</button>
-    </div>
-    <p style="font-size:12px;background:#f1f5f9;padding:8px;border-radius:8px;margin-bottom:10px">
-      Demo ID: <b>demo@tms.com</b> | Pass: <b>12345</b>
-    </p>
-    <div class="field"><label>Student ID</label><input id="lId" placeholder="demo@tms.com" /></div>
-    <div class="field"><label>Password</label><input type="password" id="lPass" placeholder="12345" /></div>
-    <button class="btn btn-primary" onclick="doLogin()">Login →</button>
-  </div>
-</div>
-
-<script>
-  const WA_NUM = "917999886983";
-  let selCourse = "", selPrice = 0;
-
-  function toggleDrawer(){ document.getElementById("drawer").classList.toggle("show"); }
-  function openModal(id){ document.getElementById(id).classList.add("show"); }
-  function closeModal(id){ document.getElementById(id).classList.remove("show"); }
-
-  function pickCat(el, msg){
-    document.querySelectorAll(".cat-card").forEach(c=>c.classList.remove("active"));
-    el.classList.add("active");
-    document.getElementById("catBox").innerText = msg;
-  }
-
-  function buyNow(name, amt){
-    selCourse = name; selPrice = amt;
-    document.getElementById("buyTitle").innerText = name + " - ₹" + amt;
-    document.getElementById("buyAmt").innerText = amt;
-    document.getElementById("qrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent("upi://pay?pa=7999886983@upi&pn=TheMillionaireSkills&am="+amt+"&cu=INR");
-    openModal("buyModal");
-  }
-
-  function sendWA(){
-    const n = document.getElementById("uName").value.trim();
-    const p = document.getElementById("uPhone").value.trim();
-    const u = document.getElementById("uUtr").value.trim();
-    if(!n || !p || !u){ alert("Name, WhatsApp number aur UTR bharo."); return; }
-    const txt = `Hello THE MILLIONAIRE SKILLS,%0AOrder Details:%0AName: ${encodeURIComponent(n)}%0AWhatsApp: ${encodeURIComponent(p)}%0ACourse: ${encodeURIComponent(selCourse)}%0AAmount: ₹${selPrice}%0AUTR: ${encodeURIComponent(u)}`;
-    window.open(`https://wa.me/${WA_NUM}?text=${txt}`, "_blank");
-  }
-
-  function doLogin(){
-    const id = document.getElementById("lId").value.trim();
-    const pw = document.getElementById("lPass").value.trim();
-    if(id === "demo@tms.com" && pw === "12345"){
-      closeModal("loginModal");
-      document.getElementById("site").style.display = "none";
-      document.getElementById("dash").style.display = "block";
-    } else {
-      alert("Demo ID: demo@tms.com aur Pass: 12345 daalo.");
-    }
-  }
-
-  function logout(){
-    document.getElementById("dash").style.display = "none";
-    document.getElementById("site").style.display = "block";
-  }
-
-  function goHome(){ logout(); }
-</script>
-</body>
-</html>
+    <div class="field"><label>Full Name *</label><input id="uName" placeholder="Enter your name" /></div>
+    <div class="field"><label>WhatsApp Number (For Login ID) *</label><input id="uPhone" placeholder="10-digit WhatsApp 

@@ -249,7 +249,7 @@ button{cursor:pointer;font-family:inherit}
   padding:16px;
   overflow-y:auto;
 }
-.modal-screen.active{display:block}
+.modal-screen.active{display:block !important}
 .modal-card{
   background:#0b1224;
   border:1px solid rgba(251,191,36,0.42);
@@ -393,13 +393,13 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 </a>
 
 <div class="hdr-r">
-<a href="#signin-modal" class="btn-sm" onclick="openModal('signin-modal')">Sign In / Sign Up</a>
+<a href="#signin-modal" class="btn-sm" onclick="openModal('signin-modal');return false;">Sign In / Sign Up</a>
 <input type="checkbox" id="menu-toggle">
 <label for="menu-toggle" class="menu-btn">&#9776;</label>
 
 <div class="nav-drawer">
 <a href="#courses" onclick="uncheckMenu();closeAllModals()">Mastery Packages</a>
-<a href="#signin-modal" onclick="uncheckMenu();openModal('signin-modal')">Student Portal</a>
+<a href="#signin-modal" onclick="uncheckMenu();openModal('signin-modal');return false;">Student Portal</a>
 <a href="#contact" onclick="uncheckMenu();closeAllModals()">Contact Support</a>
 <a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
 </div>
@@ -412,7 +412,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment details and student registration.</p>
 <div class="hero-actions">
 <a href="#courses" class="btn btn-gold">Explore 5 Mastery Packages &rarr;</a>
-<a href="#signin-modal" class="btn btn-dark" onclick="openModal('signin-modal')">Student Portal Sign In</a>
+<a href="#signin-modal" class="btn btn-dark" onclick="openModal('signin-modal');return false;">Student Portal Sign In</a>
 </div>
 
 <div class="stats">
@@ -438,7 +438,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
 <div class="c-meta"><span>&#9733; 4.8</span><span>12 Modules</span></div>
 <div class="c-price">₹999 <span class="c-old">₹1,999</span></div>
-<button class="btn btn-gold" onclick="prepPackage('Marketing Mastery',999)">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="prepPackage('Marketing Mastery',999)">Buy Now &rarr;</button>
 </div>
 
 <div class="card">
@@ -450,7 +450,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
 <div class="c-meta"><span>&#9733; 4.7</span><span>16 Modules</span></div>
 <div class="c-price">₹2,499 <span class="c-old">₹4,999</span></div>
-<button class="btn btn-gold" onclick="prepPackage('Branding Mastery',2499)">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="prepPackage('Branding Mastery',2499)">Buy Now &rarr;</button>
 </div>
 
 <div class="card">
@@ -462,7 +462,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
 <div class="c-meta"><span>&#9733; 4.6</span><span>20 Modules</span></div>
 <div class="c-price">₹4,999 <span class="c-old">₹9,999</span></div>
-<button class="btn btn-gold" onclick="prepPackage('Traffic Mastery',4999)">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="prepPackage('Traffic Mastery',4999)">Buy Now &rarr;</button>
 </div>
 
 <div class="card">
@@ -474,7 +474,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
 <div class="c-meta"><span>&#9733; 4.9</span><span>22 Modules</span></div>
 <div class="c-price">₹9,999 <span class="c-old">₹19,999</span></div>
-<button class="btn btn-gold" onclick="prepPackage('Influence Mastery',9999)">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="prepPackage('Influence Mastery',9999)">Buy Now &rarr;</button>
 </div>
 
 <div class="card vip">
@@ -486,7 +486,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
 <div class="c-meta"><span>&#9733; 5.0</span><span>All 85+ Modules</span></div>
 <div class="c-price">₹14,999 <span class="c-old">₹29,999</span></div>
-<button class="btn btn-gold" onclick="prepPackage('Finance Mastery (VIP)',14999)">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="prepPackage('Finance Mastery (VIP)',14999)">Buy Now &rarr;</button>
 </div>
 </section>
 
@@ -524,7 +524,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="modal-card">
 <div class="m-top">
 <b id="modalPkgTitle">Package Checkout</b>
-<button class="m-close" onclick="closeAllModals()">Close ×</button>
+<button type="button" class="m-close" onclick="closeAllModals()">Close ×</button>
 </div>
 
 <div class="qr-box">
@@ -559,7 +559,7 @@ Payment details submit karne ke baad manual payment verification ka wait karein.
 <div class="modal-card">
 <div class="m-top">
 <b>Registration Submitted</b>
-<button class="m-close" onclick="closeAllModals()">Close ×</button>
+<button type="button" class="m-close" onclick="closeAllModals()">Close ×</button>
 </div>
 
 <div class="success-box">
@@ -574,7 +574,7 @@ Your payment is NOT automatically verified. The administrator must confirm the t
 </div>
 
 <a id="outWaBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-green">Send Payment Details on WhatsApp &rarr;</a>
-<button class="btn btn-dark" onclick="closeAllModals()">Back to Packages</button>
+<button type="button" class="btn btn-dark" onclick="closeAllModals()">Back to Packages</button>
 </div>
 </div>
 
@@ -583,7 +583,7 @@ Your payment is NOT automatically verified. The administrator must confirm the t
 <div class="modal-card">
 <div class="m-top">
 <b>Student Portal Sign In</b>
-<button class="m-close" onclick="closeAllModals()">Close ×</button>
+<button type="button" class="m-close" onclick="closeAllModals()">Close ×</button>
 </div>
 
 <div class="note-box">
@@ -607,14 +607,9 @@ This is a front-end demo login, not a secure student account system.
 <div class="modal-card">
 <div class="m-top">
 <b>Student Dashboard</b>
-<button class="m-close" onclick="closeAllModals()">Logout</button>
+<button type="button" class="m-close" onclick="closeAllModals()">Logout</button>
 </div>
 
 <div class="success-box">
 <b id="pWelcome">Welcome, Student</b>
-<div class="cred-row" id="pPkg">Demo Portal Access</div>
-<div class="cred-row">Demo Dashboard</div>
-</div>
-
-<div class="note-box">
-This demonstration dashboard does not unlock or deliver paid course content. Connect a secure student account and c
+<div class="cred-row" id="pPkg">Demo Portal Access</d

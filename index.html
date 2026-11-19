@@ -30,7 +30,7 @@ details.menu-dd summary::-webkit-details-marker{display:none}
 .hero h1 span{color:#fbbf24}
 .hero p{font-size:13.5px;color:#cbd5e1;max-width:440px;margin:0 auto 18px}
 
-.btn{display:block;width:100%;border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:900;text-align:center;margin-top:8px}
+.btn{display:block;width:100%;border:none;border-radius:10px;padding:13px 14px;font-size:14px;font-weight:900;text-align:center;margin-top:8px}
 .btn-gold{background:#fbbf24;color:#050811;border:2px solid #fde68a}
 .btn-dark{background:#111827;color:#ffffff;border:2px solid #475569}
 .btn-green{background:#16a34a;color:#ffffff;border:2px solid #4ade80}
@@ -63,13 +63,16 @@ details.menu-dd summary::-webkit-details-marker{display:none}
 .c-price{font-size:24px;font-weight:900;color:#fbbf24;margin-bottom:10px}
 .c-old{font-size:13.5px;color:#64748b;text-decoration:line-through;margin-left:6px}
 
-.action-panel{display:none;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px;margin-bottom:20px}
-.ap-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.ap-top b{color:#fbbf24;font-size:16px;font-weight:900}
-.ap-close{background:#1e293b;color:#fde68a;border:1px solid #f59e0b;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:900}
+/* FIXED OVERLAY MODAL (ALWAYS VISIBLE WHEN OPEN) */
+.pop-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:999;padding:14px;overflow-y:auto}
+.pop-box{background:#0b1224;border:2px solid #fbbf24;border-radius:16px;max-width:420px;margin:18px auto;padding:18px}
+.pop-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.pop-top b{color:#fbbf24;font-size:16px;font-weight:900}
+.pop-x{background:#1e293b;color:#fde68a;border:1px solid #f59e0b;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:900}
+
 .qr-box{background:#ffffff;color:#050811;border-radius:10px;padding:12px;text-align:center;margin:10px 0;border:2px solid #fbbf24}
-.qr-box img{width:145px;height:145px;display:block;margin:8px auto}
-.inp{width:100%;padding:12px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:14px;margin-bottom:10px}
+.qr-box img{width:140px;height:140px;display:block;margin:8px auto}
+.inp{width:100%;padding:11px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:14px;margin-bottom:10px}
 .lbl{display:block;font-size:11.5px;color:#fde68a;font-weight:900;margin-bottom:4px}
 .note-box{background:#10192e;border-left:3px solid #fbbf24;padding:9px 11px;border-radius:6px;font-size:11.5px;color:#cbd5e1;margin-bottom:12px}
 .err-box{display:none;background:#450a0a;border:1px solid #f87171;color:#fecaca;padding:10px;border-radius:8px;font-size:12.5px;font-weight:800;margin-bottom:10px}
@@ -93,12 +96,12 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <small>EXECUTIVE MASTERY</small>
   </a>
   <div class="hdr-r">
-    <button type="button" class="btn-sm" onclick="openAccountPanel()">Sign In / Sign Up</button>
+    <button type="button" class="btn-sm" onclick="openAccountPop()">Sign In / Sign Up</button>
     <details class="menu-dd" id="navMenu">
       <summary>&#9776;</summary>
       <div class="dd-list">
         <a href="#courses" onclick="closeNavMenu()">Mastery Packages</a>
-        <button type="button" onclick="closeNavMenu();openAccountPanel()">Student Portal Sign In</button>
+        <button type="button" onclick="closeNavMenu();openAccountPop()">Student Portal Sign In</button>
         <a href="#contact" onclick="closeNavMenu()">Contact &amp; Support</a>
         <a href="https://wa.me/916289841691" target="_blank" rel="noopener">WhatsApp Support</a>
       </div>
@@ -112,75 +115,13 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
     <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI QR verification &amp; instant portal credentials.</p>
     <a href="#courses" class="btn btn-gold">Explore 5 Mastery Packages &rarr;</a>
-    <button type="button" class="btn btn-dark" onclick="openAccountPanel()">Sign In / Sign Up Portal</button>
+    <button type="button" class="btn btn-dark" onclick="openAccountPop()">Sign In / Sign Up Portal</button>
 
     <div class="stats">
       <div class="stat"><b>85+</b><span>Practical Modules</span></div>
       <div class="stat"><b>10K+</b><span>Active Students</span></div>
       <div class="stat"><b>24/7</b><span>Mobile Access</span></div>
       <div class="stat"><b>Auto ID</b><span>Instant Credentials</span></div>
-    </div>
-  </section>
-
-  <section class="sec" id="panels">
-    <!-- ACCOUNT PANEL -->
-    <div class="action-panel" id="account-box">
-      <div class="ap-top">
-        <b>Student Portal (Sign In)</b>
-        <button type="button" class="ap-close" onclick="closeAccountPanel()">Close &times;</button>
-      </div>
-      <div class="note-box">
-        Demo IDs: <b>student1@tms.com</b> / <b>pass1</b> &bull; <b>student2@tms.com</b> / <b>pass2</b> &bull; <b>vip@tms.com</b> / <b>vip123</b>
-      </div>
-      <div class="err-box" id="loginErr"></div>
-      <form onsubmit="return handleLogin(event)">
-        <label class="lbl">Student ID / Email</label>
-        <input type="text" class="inp" id="inId" placeholder="student1@tms.com">
-        <label class="lbl">Password</label>
-        <input type="password" class="inp" id="inPw" placeholder="Enter password">
-        <button type="submit" class="btn btn-gold">Sign In to Portal &rarr;</button>
-      </form>
-      <a href="#courses" class="btn btn-dark" onclick="closeAccountPanel()">New Student? Select a Package to Enroll &rarr;</a>
-    </div>
-
-    <!-- CHECKOUT / UTR VERIFICATION PANEL -->
-    <div class="action-panel" id="checkout-box">
-      <div class="ap-top">
-        <b id="buyHead">Package Checkout</b>
-        <button type="button" class="ap-close" onclick="closeCheckoutPanel()">Close &times;</button>
-      </div>
-      <div class="qr-box">
-        <div style="font-size:13px;font-weight:900" id="qrTitle">Scan QR or Pay via UPI</div>
-        <img id="qrPic" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26cu%3DINR" alt="UPI QR">
-        <div style="font-size:12px;font-weight:900">UPI ID: 7999886983@upi</div>
-      </div>
-
-      <div class="note-box">Pay via UPI, fill your details &amp; UTR below, then tap the green/gold button to verify and generate your User ID &amp; Password.</div>
-      <div class="err-box" id="buyErr"></div>
-
-      <form onsubmit="return handleVerifySubmit(event)">
-        <label class="lbl">Amount (&#8377;) *</label>
-        <input type="number" class="inp" id="bAmt" placeholder="Enter amount" oninput="updateQrAmount(this.value)">
-
-        <label class="lbl">Your Full Name *</label>
-        <input type="text" class="inp" id="bName" placeholder="Enter full name">
-
-        <label class="lbl">Your WhatsApp Number *</label>
-        <input type="tel" class="inp" id="bPhone" placeholder="10-digit WhatsApp number">
-
-        <label class="lbl">UPI UTR / Transaction Ref No. *</label>
-        <input type="text" class="inp" id="bUtr" placeholder="Enter 12-digit UTR number">
-
-        <button type="submit" class="btn btn-gold" id="verifyUtrBtn">Verify UTR &amp; Generate User ID / Password &rarr;</button>
-      </form>
-
-      <div class="cred-box" id="credBox">
-        <b>&#10004; UTR Verified — Credentials Generated</b>
-        <div class="cred-row" id="genUserRow">User ID: -</div>
-        <div class="cred-row" id="genPassRow">Password: -</div>
-        <a id="waReceiptLink" href="https://wa.me/916289841691" target="_blank" rel="noopener" class="btn btn-green">Send Receipt &amp; ID on WhatsApp &rarr;</a>
-        <button type="button" class="btn btn-dark" onclick="openGeneratedPortal()">Open Student Portal Now &rarr;</button>
-      </div>
     </div>
   </section>
 
@@ -293,6 +234,66 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   </div>
 </section>
 
+<!-- BUY / UTR POPUP -->
+<div class="pop-bg" id="buyPop">
+  <div class="pop-box">
+    <div class="pop-top">
+      <b id="buyHead">Package Checkout</b>
+      <button type="button" class="pop-x" onclick="closeBuyPop()">Close &times;</button>
+    </div>
+    <div class="qr-box">
+      <div style="font-size:13px;font-weight:900" id="qrTitle">Scan QR or Pay via UPI</div>
+      <img id="qrPic" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26cu%3DINR" alt="UPI QR">
+      <div style="font-size:12px;font-weight:900">UPI ID: 7999886983@upi</div>
+    </div>
+
+    <div class="note-box">Amount, Name, WhatsApp aur UTR bharo—phir neeche button dabakar ID &amp; Password generate karo.</div>
+    <div class="err-box" id="buyErr"></div>
+
+    <label class="lbl">Amount (&#8377;) *</label>
+    <input type="number" class="inp" id="bAmt" placeholder="Enter amount" oninput="updateQrAmount(this.value)">
+
+    <label class="lbl">Your Full Name *</label>
+    <input type="text" class="inp" id="bName" placeholder="Enter full name">
+
+    <label class="lbl">Your WhatsApp Number *</label>
+    <input type="tel" class="inp" id="bPhone" placeholder="10-digit WhatsApp number">
+
+    <label class="lbl">UPI UTR / Transaction Ref No. *</label>
+    <input type="text" class="inp" id="bUtr" placeholder="Enter 12-digit UTR number">
+
+    <button type="button" class="btn btn-gold" onclick="runUtrVerify()">Verify UTR &amp; Generate User ID / Password &rarr;</button>
+
+    <div class="cred-box" id="credBox">
+      <b>&#10004; UTR Verified — Credentials Generated</b>
+      <div class="cred-row" id="genUserRow">User ID: -</div>
+      <div class="cred-row" id="genPassRow">Password: -</div>
+      <a id="waReceiptLink" href="https://wa.me/916289841691" target="_blank" rel="noopener" class="btn btn-green">Send Receipt &amp; ID on WhatsApp &rarr;</a>
+      <button type="button" class="btn btn-dark" onclick="openGeneratedPortal()">Open Student Portal Now &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACCOUNT POPUP -->
+<div class="pop-bg" id="accPop">
+  <div class="pop-box">
+    <div class="pop-top">
+      <b>Student Portal (Sign In)</b>
+      <button type="button" class="pop-x" onclick="closeAccPop()">Close &times;</button>
+    </div>
+    <div class="note-box">
+      Demo IDs: <b>student1@tms.com</b> / <b>pass1</b> &bull; <b>student2@tms.com</b> / <b>pass2</b> &bull; <b>vip@tms.com</b> / <b>vip123</b>
+    </div>
+    <div class="err-box" id="loginErr"></div>
+    <label class="lbl">Student ID / Email</label>
+    <input type="text" class="inp" id="inId" placeholder="student1@tms.com">
+    <label class="lbl">Password</label>
+    <input type="password" class="inp" id="inPw" placeholder="Enter password">
+    <button type="button" class="btn btn-gold" onclick="runLogin()">Sign In to Portal &rarr;</button>
+    <button type="button" class="btn btn-dark" onclick="closeAccPop()">New Student? Pick a Package Below</button>
+  </div>
+</div>
+
 <script>
 var WA_NO = "916289841691";
 var selectedPkg = "Mastery Package";
@@ -335,61 +336,75 @@ function showMainSite(){
   el("site").style.display = "block";
 }
 
-function openAccountPanel(){
+function openAccountPop(){
   showMainSite();
-  el("checkout-box").style.display = "none";
-  el("account-box").style.display = "block";
+  el("buyPop").style.display = "none";
   showError("loginErr", "");
-  el("panels").scrollIntoView({ behavior: "smooth" });
+  el("accPop").style.display = "block";
 }
 
-function closeAccountPanel(){
-  el("account-box").style.display = "none";
+function closeAccPop(){
+  el("accPop").style.display = "none";
 }
 
-function closeCheckoutPanel(){
-  el("checkout-box").style.display = "none";
+function closeBuyPop(){
+  el("buyPop").style.display = "none";
 }
 
 function updateQrAmount(amt){
   var d = getDigits(amt);
   el("qrTitle").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
   var upi = "upi://pay?pa=7999886983@upi&pn=TheMillionaireSkills" + (d ? ("&am=" + d) : "") + "&cu=INR";
-  el("qrPic").src = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(upi);
+  el("qrPic").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(upi);
 }
 
 function startBuy(pkg, amt){
   selectedPkg = pkg;
   showMainSite();
-  el("account-box").style.display = "none";
-  el("checkout-box").style.display = "block";
+  el("accPop").style.display = "none";
   el("buyHead").innerHTML = pkg + " Checkout";
   el("bAmt").value = amt;
   el("credBox").style.display = "none";
   showError("buyErr", "");
   updateQrAmount(amt);
-  el("panels").scrollIntoView({ behavior: "smooth" });
+  el("buyPop").style.display = "block";
 }
 
-function handleVerifySubmit(e){
-  if(e && e.preventDefault) e.preventDefault();
-  try {
-    var amt = (el("bAmt").value || "").trim();
-    var name = (el("bName").value || "").trim();
-    var phone = getDigits(el("bPhone").value);
-    var utrRaw = (el("bUtr").value || "").trim();
-    var utrDigits = getDigits(utrRaw);
+function runUtrVerify(){
+  var amt = (el("bAmt").value || "").trim();
+  var name = (el("bName").value || "").trim();
+  var phone = getDigits(el("bPhone").value);
+  var utrRaw = (el("bUtr").value || "").trim();
+  var utrDigits = getDigits(utrRaw);
 
-    if(!amt || Number(amt) <= 0){
-      showError("buyErr", "Please enter valid amount.");
-      return false;
-    }
-    if(!name){
-      showError("buyErr", "Please enter your full name.");
-      return false;
-    }
-    if(phone.length < 10){
-      showError("buyErr", "Please enter a valid 10-digit WhatsApp number.");
-      return false;
-    }
-    if(utrDigit
+  if(!amt || Number(amt) <= 0){
+    showError("buyErr", "Please enter valid amount.");
+    return;
+  }
+  if(!name){
+    showError("buyErr", "Please enter your full name.");
+    return;
+  }
+  if(phone.length < 10){
+    showError("buyErr", "Please enter a valid 10-digit WhatsApp number.");
+    return;
+  }
+  if(utrDigits.length < 10){
+    showError("buyErr", "Please enter a valid UTR / Transaction ID (minimum 10 digits).");
+    return;
+  }
+
+  showError("buyErr", "");
+
+  var suffix = utrDigits.slice(-4);
+  var newId = "tms_" + suffix + "@student";
+  var newPass = "TMS@" + utrDigits.slice(-6);
+
+  PORTAL_USERS[newId.toLowerCase()] = {
+    pw: newPass,
+    name: name,
+    pkg: selectedPkg + " (Rs." + amt + ")"
+  };
+
+  generatedUser = {
+    id: newId.toLow

@@ -29,7 +29,7 @@ a{color:inherit;text-decoration:none}
 .hero h1 span{color:#fbbf24}
 .hero p{font-size:13.5px;color:#cbd5e1;max-width:440px;margin:0 auto 18px}
 
-.btn{display:block;width:100%;border-radius:10px;padding:13px 14px;font-size:14px;font-weight:900;text-align:center;margin-top:8px}
+.btn{display:block;width:100%;border-radius:10px;padding:13px 14px;font-size:14px;font-weight:900;text-align:center;margin-top:8px;cursor:pointer;border:none}
 .btn-gold{background:#fbbf24;color:#050811;border:2px solid #fde68a}
 .btn-dark{background:#111827;color:#ffffff;border:2px solid #475569}
 .btn-green{background:#16a34a;color:#ffffff;border:2px solid #4ade80}
@@ -108,7 +108,8 @@ a{color:inherit;text-decoration:none}
 .c-old{font-size:13.5px;color:#64748b;text-decoration:line-through;margin-left:6px}
 
 .modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:500;padding:14px;overflow-y:auto}
-.modal-screen:target{display:block}
+.modal-screen:target,
+.modal-screen.force-open{display:block}
 .modal-card{background:#0b1224;border:2px solid #fbbf24;border-radius:16px;max-width:430px;margin:16px auto;padding:18px}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .m-top b{color:#fbbf24;font-size:16px;font-weight:900}
@@ -260,7 +261,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b id="modalPkgTitle">Package Checkout</b>
-      <a href="#courses" class="m-close">Close &times;</a>
+      <a href="#courses" class="m-close" onclick="clearForceOpen()">Close &times;</a>
     </div>
 
     <div class="qr-box">
@@ -283,7 +284,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <label class="lbl">UPI UTR / Transaction Ref No. (12 Digits)</label>
     <input type="text" class="inp" id="fUtr" maxlength="12" placeholder="Enter 12-digit UTR number" oninput="this.value=digitsOnly(this.value)">
 
-    <a href="javascript:void(0)" class="btn btn-gold" onclick="buildCredentials()">Verify UTR &amp; Generate User ID / Password &rarr;</a>
+    <button type="button" id="btnVerifyUtr" class="btn btn-gold" onclick="buildCredentials()">Verify UTR &amp; Generate User ID / Password &rarr;</button>
     <div class="err-box" id="buyErrBox"></div>
   </div>
 </div>
@@ -293,7 +294,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b>&#10004; UTR Verified &amp; ID Ready</b>
-      <a href="#courses" class="m-close">Close &times;</a>
+      <a href="#courses" class="m-close" onclick="clearForceOpen()">Close &times;</a>
     </div>
 
     <div class="cred-box">
@@ -306,7 +307,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="note-box">Apni payment aur generated ID ko WhatsApp par verify karne ke liye neeche green button par tap karein.</div>
 
     <a id="outWaBtn" href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20have%20completed%20my%20UPI%20payment%20and%20verified%20my%20UTR.%20Please%20activate%20my%20Student%20ID%3A%20tms_8899%40student" target="_blank" rel="noopener" class="btn btn-green">Send Receipt &amp; ID on WhatsApp &rarr;</a>
-    <a href="#portal-modal" class="btn btn-dark">Open Student Portal Now &rarr;</a>
+    <a href="#portal-modal" class="btn btn-dark" onclick="showModalDirect('portal-modal')">Open Student Portal Now &rarr;</a>
   </div>
 </div>
 
@@ -315,7 +316,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b>Student Portal (Sign In)</b>
-      <a href="#top" class="m-close">Close &times;</a>
+      <a href="#top" class="m-close" onclick="clearForceOpen()">Close &times;</a>
     </div>
     <div class="note-box">
       Demo IDs: <b>student1@tms.com</b> / <b>pass1</b> &bull; <b>student2@tms.com</b> / <b>pass2</b> &bull; <b>vip@tms.com</b> / <b>vip123</b>
@@ -324,9 +325,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <input type="text" class="inp" id="lId" placeholder="student1@tms.com">
     <label class="lbl">Password</label>
     <input type="password" class="inp" id="lPw" placeholder="Enter password">
-    <a href="javascript:void(0)" class="btn btn-gold" onclick="syncPortalLogin()">Sign In to Portal &rarr;</a>
+    <button type="button" id="btnPortalLogin" class="btn btn-gold" onclick="syncPortalLogin()">Sign In to Portal &rarr;</button>
     <div class="err-box" id="loginErrBox"></div>
-    <a href="#courses" class="btn btn-dark">New Student? Pick a Package Below</a>
+    <a href="#courses" class="btn btn-dark" onclick="clearForceOpen()">New Student? Pick a Package Below</a>
   </div>
 </div>
 
@@ -335,7 +336,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b>Student Learning Dashboard</b>
-      <a href="#top" class="m-close">Logout</a>
+      <a href="#top" class="m-close" onclick="clearForceOpen()">Logout</a>
     </div>
     <div class="cred-box">
       <b id="pWelcome">Welcome, Verified Student</b>
@@ -343,7 +344,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div class="cred-row">Access: All Video Modules &amp; Notes Unlocked</div>
     </div>
     <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20am%20logged%20into%20the%20Student%20Portal%20and%20need%20my%20training%20links." target="_blank" rel="noopener" class="btn btn-gold">Get Training Links on WhatsApp &rarr;</a>
-    <a href="#top" class="btn btn-dark">Back to Home</a>
+    <a href="#top" class="btn btn-dark" onclick="clearForceOpen()">Back to Home</a>
   </div>
 </div>
 
@@ -353,6 +354,25 @@ var activePackage = "Marketing Mastery";
 
 function g(id){
   return document.getElementById(id);
+}
+
+function clearForceOpen(){
+  var modals = document.querySelectorAll(".modal-screen");
+  for(var i = 0; i < modals.length; i++){
+    modals[i].classList.remove("force-open");
+  }
+}
+
+function showModalDirect(modalId){
+  clearForceOpen();
+  var el = g(modalId);
+  if(el){
+    el.classList.add("force-open");
+    el.scrollTop = 0;
+  }
+  try {
+    window.location.hash = "#" + modalId;
+  } catch(e) {}
 }
 
 function digitsOnly(v){
@@ -399,30 +419,4 @@ function syncQr(amt){
   g("modalQrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(uri);
 }
 
-function prepPackage(pkgName, price){
-  activePackage = pkgName;
-  g("modalPkgTitle").innerHTML = pkgName + " Checkout";
-  g("fAmt").value = price;
-  clearFieldErrs();
-  hideErr("buyErrBox");
-  syncQr(price);
-}
-
-function buildCredentials(){
-  clearFieldErrs();
-  hideErr("buyErrBox");
-
-  var amtNum = Number(digitsOnly(g("fAmt").value));
-  var amt = String(amtNum);
-  var name = (g("fName").value || "").trim();
-  var phone = digitsOnly(g("fPhone").value);
-  var utr = digitsOnly(g("fUtr").value);
-
-  if(!amtNum || amtNum < 1){
-    g("fAmt").classList.add("inp-err");
-    showErr("buyErrBox", "Sahi amount daalein (kam se kam Rs.1).");
-    return;
-  }
-
-  if(name.length < 2){
-    g("fName").classL
+functi

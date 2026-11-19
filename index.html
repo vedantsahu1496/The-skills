@@ -9,20 +9,20 @@
 html{scroll-behavior:smooth}
 body{background:#050811;color:#f8fafc;line-height:1.45;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer}
+button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 
 .hdr{position:sticky;top:0;z-index:50;background:#090e1c;border-bottom:2px solid #f59e0b;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
 .brand b{display:block;font-size:14px;font-weight:900;color:#fbbf24;letter-spacing:0.6px}
 .brand small{display:block;font-size:9px;font-weight:700;color:#cbd5e1;letter-spacing:1.2px}
 .hdr-r{display:flex;gap:8px;align-items:center}
-.btn-sm{background:#fbbf24;color:#050811;border-radius:7px;padding:8px 11px;font-size:12px;font-weight:900;display:inline-block}
+.btn-sm{background:#fbbf24;color:#050811;border:none;border-radius:7px;padding:8px 11px;font-size:12px;font-weight:900}
 
 details.menu-dd{position:relative}
 details.menu-dd summary{list-style:none;background:#111827;color:#fbbf24;border:1px solid #f59e0b;border-radius:7px;width:38px;height:38px;font-size:21px;font-weight:900;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none}
 details.menu-dd summary::-webkit-details-marker{display:none}
 .dd-list{position:fixed;top:62px;left:0;right:0;background:#0b1224;border-bottom:2px solid #f59e0b;padding:10px 14px;z-index:60;box-shadow:0 12px 25px rgba(0,0,0,0.8)}
-.dd-list a{display:block;padding:13px 6px;border-bottom:1px solid #1e293b;color:#fff;font-size:14px;font-weight:800}
-.dd-list a:last-child{border-bottom:none}
+.dd-list a,.dd-list button{display:block;width:100%;text-align:left;background:none;border:none;padding:13px 6px;border-bottom:1px solid #1e293b;color:#fff;font-size:14px;font-weight:800}
+.dd-list a:last-child,.dd-list button:last-child{border-bottom:none}
 
 .hero{padding:32px 14px;text-align:center;background:#0c1428;border-bottom:2px solid #1e293b}
 .hero-tag{display:inline-block;background:#1e1b0b;border:1px solid #fbbf24;color:#fde68a;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:900}
@@ -30,7 +30,7 @@ details.menu-dd summary::-webkit-details-marker{display:none}
 .hero h1 span{color:#fbbf24}
 .hero p{font-size:13.5px;color:#cbd5e1;max-width:440px;margin:0 auto 18px}
 
-.btn{display:block;width:100%;border:none;border-radius:10px;padding:13px 14px;font-size:14px;font-weight:900;text-align:center;margin-top:8px}
+.btn{display:block;width:100%;border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:900;text-align:center;margin-top:8px}
 .btn-gold{background:#fbbf24;color:#050811;border:2px solid #fde68a}
 .btn-dark{background:#111827;color:#ffffff;border:2px solid #475569}
 .btn-green{background:#16a34a;color:#ffffff;border:2px solid #4ade80}
@@ -64,20 +64,19 @@ details.menu-dd summary::-webkit-details-marker{display:none}
 .c-old{font-size:13.5px;color:#64748b;text-decoration:line-through;margin-left:6px}
 
 .action-panel{display:none;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px;margin-bottom:20px}
-.action-panel:target,.action-panel.open-now{display:block}
 .ap-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .ap-top b{color:#fbbf24;font-size:16px;font-weight:900}
-.ap-close{background:#1e293b;color:#fde68a;border:1px solid #f59e0b;padding:5px 10px;border-radius:6px;font-size:12px;font-weight:900}
+.ap-close{background:#1e293b;color:#fde68a;border:1px solid #f59e0b;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:900}
 .qr-box{background:#ffffff;color:#050811;border-radius:10px;padding:12px;text-align:center;margin:10px 0;border:2px solid #fbbf24}
 .qr-box img{width:145px;height:145px;display:block;margin:8px auto}
-.inp{width:100%;padding:11px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:14px;margin-bottom:10px}
+.inp{width:100%;padding:12px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:14px;margin-bottom:10px}
 .lbl{display:block;font-size:11.5px;color:#fde68a;font-weight:900;margin-bottom:4px}
 .note-box{background:#10192e;border-left:3px solid #fbbf24;padding:9px 11px;border-radius:6px;font-size:11.5px;color:#cbd5e1;margin-bottom:12px}
 .err-box{display:none;background:#450a0a;border:1px solid #f87171;color:#fecaca;padding:10px;border-radius:8px;font-size:12.5px;font-weight:800;margin-bottom:10px}
 
-.cred-box{display:none;background:#052e16;border:2px solid #4ade80;border-radius:12px;padding:14px;margin-top:12px;color:#dcfce7}
-.cred-box b{display:block;color:#4ade80;font-size:14px;margin-bottom:6px}
-.cred-row{font-size:13.5px;font-weight:900;margin:5px 0;color:#ffffff}
+.cred-box{display:none;background:#052e16;border:2px solid #4ade80;border-radius:12px;padding:14px;margin-top:14px;color:#dcfce7}
+.cred-box b{display:block;color:#4ade80;font-size:15px;margin-bottom:6px}
+.cred-row{font-size:14px;font-weight:900;margin:6px 0;color:#ffffff}
 
 #dash{display:none}
 footer{background:#04060c;border-top:2px solid #f59e0b;padding:24px 14px;text-align:center;font-size:12.5px;color:#cbd5e1;font-weight:700}
@@ -89,18 +88,18 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 <body id="top">
 
 <header class="hdr">
-  <a href="#top" class="brand" id="brandLogo">
+  <a href="#top" class="brand" onclick="showMainSite()">
     <b>THE MILLIONAIRE SKILLS</b>
     <small>EXECUTIVE MASTERY</small>
   </a>
   <div class="hdr-r">
-    <a href="#account-box" class="btn-sm">Sign In / Sign Up</a>
+    <button type="button" class="btn-sm" onclick="openAccountPanel()">Sign In / Sign Up</button>
     <details class="menu-dd" id="navMenu">
       <summary>&#9776;</summary>
       <div class="dd-list">
-        <a href="#courses" class="nav-item">Mastery Packages</a>
-        <a href="#account-box" class="nav-item">Student Portal Sign In</a>
-        <a href="#contact" class="nav-item">Contact &amp; Support</a>
+        <a href="#courses" onclick="closeNavMenu()">Mastery Packages</a>
+        <button type="button" onclick="closeNavMenu();openAccountPanel()">Student Portal Sign In</button>
+        <a href="#contact" onclick="closeNavMenu()">Contact &amp; Support</a>
         <a href="https://wa.me/916289841691" target="_blank" rel="noopener">WhatsApp Support</a>
       </div>
     </details>
@@ -113,7 +112,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
     <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI QR verification &amp; instant portal credentials.</p>
     <a href="#courses" class="btn btn-gold">Explore 5 Mastery Packages &rarr;</a>
-    <a href="#account-box" class="btn btn-dark">Sign In / Sign Up Portal</a>
+    <button type="button" class="btn btn-dark" onclick="openAccountPanel()">Sign In / Sign Up Portal</button>
 
     <div class="stats">
       <div class="stat"><b>85+</b><span>Practical Modules</span></div>
@@ -128,25 +127,27 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="action-panel" id="account-box">
       <div class="ap-top">
         <b>Student Portal (Sign In)</b>
-        <a href="#top" class="ap-close" id="closeAccBtn">Close &times;</a>
+        <button type="button" class="ap-close" onclick="closeAccountPanel()">Close &times;</button>
       </div>
       <div class="note-box">
         Demo IDs: <b>student1@tms.com</b> / <b>pass1</b> &bull; <b>student2@tms.com</b> / <b>pass2</b> &bull; <b>vip@tms.com</b> / <b>vip123</b>
       </div>
       <div class="err-box" id="loginErr"></div>
-      <label class="lbl">Student ID / Email</label>
-      <input type="text" class="inp" id="inId" placeholder="student1@tms.com">
-      <label class="lbl">Password</label>
-      <input type="password" class="inp" id="inPw" placeholder="Enter password">
-      <button type="button" class="btn btn-gold" id="doLoginBtn">Sign In to Portal &rarr;</button>
-      <a href="#courses" class="btn btn-dark">New Student? Select a Package to Enroll &rarr;</a>
+      <form onsubmit="return handleLogin(event)">
+        <label class="lbl">Student ID / Email</label>
+        <input type="text" class="inp" id="inId" placeholder="student1@tms.com">
+        <label class="lbl">Password</label>
+        <input type="password" class="inp" id="inPw" placeholder="Enter password">
+        <button type="submit" class="btn btn-gold">Sign In to Portal &rarr;</button>
+      </form>
+      <a href="#courses" class="btn btn-dark" onclick="closeAccountPanel()">New Student? Select a Package to Enroll &rarr;</a>
     </div>
 
     <!-- CHECKOUT / UTR VERIFICATION PANEL -->
     <div class="action-panel" id="checkout-box">
       <div class="ap-top">
         <b id="buyHead">Package Checkout</b>
-        <a href="#courses" class="ap-close" id="closeBuyBtn">Close &times;</a>
+        <button type="button" class="ap-close" onclick="closeCheckoutPanel()">Close &times;</button>
       </div>
       <div class="qr-box">
         <div style="font-size:13px;font-weight:900" id="qrTitle">Scan QR or Pay via UPI</div>
@@ -154,29 +155,31 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
         <div style="font-size:12px;font-weight:900">UPI ID: 7999886983@upi</div>
       </div>
 
-      <div class="note-box">Pay via UPI, fill your details &amp; UTR below, then tap the button to verify and generate your User ID &amp; Password.</div>
+      <div class="note-box">Pay via UPI, fill your details &amp; UTR below, then tap the green/gold button to verify and generate your User ID &amp; Password.</div>
       <div class="err-box" id="buyErr"></div>
 
-      <label class="lbl">Amount (&#8377;) *</label>
-      <input type="number" class="inp" id="bAmt" placeholder="Enter amount">
+      <form onsubmit="return handleVerifySubmit(event)">
+        <label class="lbl">Amount (&#8377;) *</label>
+        <input type="number" class="inp" id="bAmt" placeholder="Enter amount" oninput="updateQrAmount(this.value)">
 
-      <label class="lbl">Your Full Name *</label>
-      <input type="text" class="inp" id="bName" placeholder="Enter full name">
+        <label class="lbl">Your Full Name *</label>
+        <input type="text" class="inp" id="bName" placeholder="Enter full name">
 
-      <label class="lbl">Your WhatsApp Number *</label>
-      <input type="tel" class="inp" id="bPhone" placeholder="10-digit WhatsApp number">
+        <label class="lbl">Your WhatsApp Number *</label>
+        <input type="tel" class="inp" id="bPhone" placeholder="10-digit WhatsApp number">
 
-      <label class="lbl">UPI UTR / Transaction Ref No. *</label>
-      <input type="text" class="inp" id="bUtr" placeholder="Enter 12-digit UTR number">
+        <label class="lbl">UPI UTR / Transaction Ref No. *</label>
+        <input type="text" class="inp" id="bUtr" placeholder="Enter 12-digit UTR number">
 
-      <button type="button" class="btn btn-gold" id="verifyUtrBtn" onclick="runUtrVerify()">Verify UTR &amp; Generate User ID / Password &rarr;</button>
+        <button type="submit" class="btn btn-gold" id="verifyUtrBtn">Verify UTR &amp; Generate User ID / Password &rarr;</button>
+      </form>
 
       <div class="cred-box" id="credBox">
-        <b>UTR Verified — Credentials Generated</b>
+        <b>&#10004; UTR Verified — Credentials Generated</b>
         <div class="cred-row" id="genUserRow">User ID: -</div>
         <div class="cred-row" id="genPassRow">Password: -</div>
         <a id="waReceiptLink" href="https://wa.me/916289841691" target="_blank" rel="noopener" class="btn btn-green">Send Receipt &amp; ID on WhatsApp &rarr;</a>
-        <button type="button" class="btn btn-dark" id="directPortalBtn" onclick="openGenPortal()">Open Student Portal Now &rarr;</button>
+        <button type="button" class="btn btn-dark" onclick="openGeneratedPortal()">Open Student Portal Now &rarr;</button>
       </div>
     </div>
   </section>
@@ -200,7 +203,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
       <div class="c-meta"><span>&#9733; 4.8 (3.4k+)</span><span>12 Modules</span></div>
       <div class="c-price">&#8377;1,499 <span class="c-old">&#8377;2,999</span></div>
-      <a href="#checkout-box" class="btn btn-gold pkg-select" data-pkg="Marketing Mastery" data-amt="1499" onclick="selectPackage('Marketing Mastery','1499')">Buy Now &rarr;</a>
+      <button type="button" class="btn btn-gold" onclick="startBuy('Marketing Mastery','1499')">Buy Now &rarr;</button>
     </div>
 
     <div class="card">
@@ -216,7 +219,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
       <div class="c-meta"><span>&#9733; 4.7 (2.7k+)</span><span>16 Modules</span></div>
       <div class="c-price">&#8377;2,199 <span class="c-old">&#8377;4,499</span></div>
-      <a href="#checkout-box" class="btn btn-gold pkg-select" data-pkg="Branding Mastery" data-amt="2199" onclick="selectPackage('Branding Mastery','2199')">Buy Now &rarr;</a>
+      <button type="button" class="btn btn-gold" onclick="startBuy('Branding Mastery','2199')">Buy Now &rarr;</button>
     </div>
 
     <div class="card">
@@ -232,7 +235,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
       <div class="c-meta"><span>&#9733; 4.6 (2.9k+)</span><span>20 Modules</span></div>
       <div class="c-price">&#8377;3,499 <span class="c-old">&#8377;6,999</span></div>
-      <a href="#checkout-box" class="btn btn-gold pkg-select" data-pkg="Traffic Mastery" data-amt="3499" onclick="selectPackage('Traffic Mastery','3499')">Buy Now &rarr;</a>
+      <button type="button" class="btn btn-gold" onclick="startBuy('Traffic Mastery','3499')">Buy Now &rarr;</button>
     </div>
 
     <div class="card">
@@ -248,7 +251,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
       <div class="c-meta"><span>&#9733; 4.9 (1.9k+)</span><span>22 Modules</span></div>
       <div class="c-price">&#8377;4,999 <span class="c-old">&#8377;9,999</span></div>
-      <a href="#checkout-box" class="btn btn-gold pkg-select" data-pkg="Influence Mastery" data-amt="4999" onclick="selectPackage('Influence Mastery','4999')">Buy Now &rarr;</a>
+      <button type="button" class="btn btn-gold" onclick="startBuy('Influence Mastery','4999')">Buy Now &rarr;</button>
     </div>
 
     <div class="card vip">
@@ -264,7 +267,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
       <div class="c-meta"><span>&#9733; 5.0 (1.5k+)</span><span>All 85+ Modules</span></div>
       <div class="c-price">&#8377;6,999 <span class="c-old">&#8377;14,999</span></div>
-      <a href="#checkout-box" class="btn btn-gold pkg-select" data-pkg="Finance Mastery (VIP)" data-amt="6999" onclick="selectPackage('Finance Mastery (VIP)','6999')">Buy Now &rarr;</a>
+      <button type="button" class="btn btn-gold" onclick="startBuy('Finance Mastery (VIP)','6999')">Buy Now &rarr;</button>
     </div>
   </section>
 
@@ -286,113 +289,107 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="c-title" id="dName">Welcome, Student</div>
     <div class="c-desc" id="dPkg">Enrolled Package</div>
     <a href="https://wa.me/916289841691" target="_blank" rel="noopener" class="btn btn-gold">Access Training &amp; Support &rarr;</a>
-    <button type="button" class="btn btn-dark" id="logoutBtn" onclick="doLogout()">Logout</button>
+    <button type="button" class="btn btn-dark" onclick="showMainSite()">Logout</button>
   </div>
 </section>
 
 <script>
 var WA_NO = "916289841691";
-var curPkg = "Mastery Package";
-var lastUser = null;
+var selectedPkg = "Mastery Package";
+var generatedUser = null;
 
-var USERS = {
+var PORTAL_USERS = {
   "student1@tms.com": { pw: "pass1", name: "Student 1", pkg: "Marketing & Branding Mastery" },
   "student2@tms.com": { pw: "pass2", name: "Student 2", pkg: "Traffic & Influence Mastery" },
   "vip@tms.com": { pw: "vip123", name: "VIP Member", pkg: "Finance Mastery (All-Access VIP)" }
 };
 
-function byId(id){
+function el(id){
   return document.getElementById(id);
 }
 
-function onlyDigits(str){
+function getDigits(val){
+  var s = String(val || "");
   var out = "";
-  for(var i = 0; i < str.length; i++){
-    var c = str.charAt(i);
-    if(c >= "0" && c <= "9"){
-      out += c;
-    }
+  for(var i = 0; i < s.length; i++){
+    var ch = s.charAt(i);
+    if(ch >= "0" && ch <= "9") out += ch;
   }
   return out;
 }
 
-function cleanStr(str){
-  return str ? str.trim() : "";
+function showError(boxId, text){
+  var box = el(boxId);
+  if(!box) return;
+  box.innerHTML = text;
+  box.style.display = text ? "block" : "none";
 }
 
-function showMsg(id, txt){
-  var el = byId(id);
-  if(!el) return;
-  el.innerHTML = txt;
-  el.style.display = txt ? "block" : "none";
+function closeNavMenu(){
+  var m = el("navMenu");
+  if(m) m.removeAttribute("open");
 }
 
-function setQr(amt){
-  var d = onlyDigits(String(amt));
-  byId("qrTitle").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
+function showMainSite(){
+  el("dash").style.display = "none";
+  el("site").style.display = "block";
+}
+
+function openAccountPanel(){
+  showMainSite();
+  el("checkout-box").style.display = "none";
+  el("account-box").style.display = "block";
+  showError("loginErr", "");
+  el("panels").scrollIntoView({ behavior: "smooth" });
+}
+
+function closeAccountPanel(){
+  el("account-box").style.display = "none";
+}
+
+function closeCheckoutPanel(){
+  el("checkout-box").style.display = "none";
+}
+
+function updateQrAmount(amt){
+  var d = getDigits(amt);
+  el("qrTitle").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
   var upi = "upi://pay?pa=7999886983@upi&pn=TheMillionaireSkills" + (d ? ("&am=" + d) : "") + "&cu=INR";
-  byId("qrPic").src = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(upi);
+  el("qrPic").src = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(upi);
 }
 
-function selectPackage(pkg, amt){
-  curPkg = pkg;
-  byId("buyHead").innerHTML = pkg + " Checkout";
-  byId("bAmt").value = amt;
-  byId("credBox").style.display = "none";
-  showMsg("buyErr", "");
-  setQr(amt);
-  byId("checkout-box").className = "action-panel open-now";
+function startBuy(pkg, amt){
+  selectedPkg = pkg;
+  showMainSite();
+  el("account-box").style.display = "none";
+  el("checkout-box").style.display = "block";
+  el("buyHead").innerHTML = pkg + " Checkout";
+  el("bAmt").value = amt;
+  el("credBox").style.display = "none";
+  showError("buyErr", "");
+  updateQrAmount(amt);
+  el("panels").scrollIntoView({ behavior: "smooth" });
 }
 
-function runUtrVerify(){
-  var amt = cleanStr(byId("bAmt").value);
-  var name = cleanStr(byId("bName").value);
-  var phone = onlyDigits(cleanStr(byId("bPhone").value));
-  var utrRaw = cleanStr(byId("bUtr").value);
-  var utrDigits = onlyDigits(utrRaw);
+function handleVerifySubmit(e){
+  if(e && e.preventDefault) e.preventDefault();
+  try {
+    var amt = (el("bAmt").value || "").trim();
+    var name = (el("bName").value || "").trim();
+    var phone = getDigits(el("bPhone").value);
+    var utrRaw = (el("bUtr").value || "").trim();
+    var utrDigits = getDigits(utrRaw);
 
-  if(!amt || Number(amt) <= 0){
-    showMsg("buyErr", "Please enter valid amount.");
-    return;
-  }
-  if(!name){
-    showMsg("buyErr", "Please enter your full name.");
-    return;
-  }
-  if(phone.length < 10){
-    showMsg("buyErr", "Please enter a valid 10-digit WhatsApp number.");
-    return;
-  }
-  if(utrDigits.length < 10){
-    showMsg("buyErr", "Please enter a valid UTR / Transaction ID (minimum 10 digits).");
-    return;
-  }
-
-  showMsg("buyErr", "");
-
-  var suffix = utrDigits.slice(-4);
-  var genId = "tms_" + suffix + "@student";
-  var genPass = "TMS@" + utrDigits.slice(-6);
-
-  USERS[genId.toLowerCase()] = {
-    pw: genPass,
-    name: name,
-    pkg: curPkg + " (Rs." + amt + ")"
-  };
-
-  lastUser = {
-    id: genId.toLowerCase(),
-    pw: genPass,
-    name: name,
-    pkg: curPkg + " (Rs." + amt + ")"
-  };
-
-  byId("genUserRow").innerHTML = "User ID: " + genId;
-  byId("genPassRow").innerHTML = "Password: " + genPass;
-
-  var msg = "Hello THE MILLIONAIRE SKILLS%0A" +
-    "UTR VERIFIED & CREDENTIALS GENERATED%0A" +
-    "Name: " + encodeURIComponent(name) + "%0A" +
-    "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
-    "Package: " + encodeURIComponent(curPkg) + "%0A" +
-    "Amount: Rs." + encodeUR
+    if(!amt || Number(amt) <= 0){
+      showError("buyErr", "Please enter valid amount.");
+      return false;
+    }
+    if(!name){
+      showError("buyErr", "Please enter your full name.");
+      return false;
+    }
+    if(phone.length < 10){
+      showError("buyErr", "Please enter a valid 10-digit WhatsApp number.");
+      return false;
+    }
+    if(utrDigit

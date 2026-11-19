@@ -78,6 +78,7 @@ button{cursor:pointer}
 .cred-row{font-size:14px;font-weight:900;margin:6px 0;color:white;background:#064e3b;padding:8px 10px;border-radius:8px;word-break:break-all}
 
 .support-inline-box{display:block;max-width:430px;margin:14px auto 0;background:#0b1224;border:2px solid #fbbf24;border-radius:14px;padding:14px;text-align:center}
+.support-inline-box.wa-box{border-color:#4ade80}
 .support-inline-box.highlight{border-color:#4ade80;box-shadow:0 0 18px rgba(74,222,128,0.25)}
 .support-email-pill{margin:8px 0;padding:9px 10px;background:#1e293b;border-radius:8px;color:#ffffff;font-size:13px;font-weight:900;word-break:break-all}
 .copy-msg{display:none;margin-top:8px;padding:8px;border-radius:8px;background:#052e16;border:1px solid #4ade80;color:#dcfce7;font-size:12px;font-weight:800}
@@ -207,10 +208,20 @@ footer b{color:#fbbf24;display:block;font-size:14px;margin-bottom:6px}
   <div class="copy-msg" id="emailCopyMsg"></div>
 </div>
 
+<div class="support-inline-box wa-box" id="whatsappSupportBox">
+  <b style="color:#4ade80;margin-bottom:4px">WhatsApp Support</b>
+  <div class="support-email-pill">+91 62898 41691 &bull; +91 7999886983</div>
+  <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20need%20support." target="_blank" rel="noopener noreferrer" class="btn btn-green">Chat on WhatsApp 1 (+91 62898 41691) &rarr;</a>
+  <a href="https://wa.me/917999886983?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20need%20support." target="_blank" rel="noopener noreferrer" class="btn btn-gold">Chat on WhatsApp 2 (+91 7999886983) &rarr;</a>
+  <button type="button" class="btn btn-dark" onclick="copyWhatsappNumber()">Copy WhatsApp Number</button>
+  <div class="copy-msg" id="waCopyMsg"></div>
+</div>
+
 <div class="f-links">
 <a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp 1</a>
 <a href="https://wa.me/917999886983" target="_blank" rel="noopener noreferrer">WhatsApp 2</a>
-<a href="#emailSupportBox" onclick="focusEmailSupport();return false;">Email Support</a>
+<a href="#emailSupportBox" onclick="focusSupportBox('emailSupportBox');return false;">Email Support</a>
+<a href="#whatsappSupportBox" onclick="focusSupportBox('whatsappSupportBox');return false;">WhatsApp Box</a>
 </div>
 </footer>
 
@@ -323,6 +334,7 @@ This demonstration dashboard does not unlock or deliver paid course content. Con
 "use strict";
 
 var WA_NUMBER = "916289841691";
+var WA_DISPLAY_NUMBER = "+91 62898 41691";
 var SUPPORT_EMAIL = "mdaadilalam123123@gmail.com";
 var activePackage = "";
 var activePrice = 0;
@@ -362,8 +374,8 @@ function openModal(id){
   history.replaceState(null,"","#"+id);
 }
 
-function focusEmailSupport(){
-  var box = g("emailSupportBox");
+function focusSupportBox(boxId){
+  var box = g(boxId);
   if(box){
     box.classList.add("highlight");
     box.scrollIntoView({behavior:"smooth",block:"center"});
@@ -373,24 +385,32 @@ function focusEmailSupport(){
   }
 }
 
-function copySupportEmail(){
-  var msgBox = g("emailCopyMsg");
+function copyTextToBox(text, msgBoxId){
+  var msgBox = g(msgBoxId);
   if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(SUPPORT_EMAIL).then(function(){
+    navigator.clipboard.writeText(text).then(function(){
       if(msgBox){
-        msgBox.textContent = "Copied: " + SUPPORT_EMAIL;
+        msgBox.textContent = "Copied: " + text;
         msgBox.style.display = "block";
       }
     }).catch(function(){
       if(msgBox){
-        msgBox.textContent = SUPPORT_EMAIL;
+        msgBox.textContent = text;
         msgBox.style.display = "block";
       }
     });
   }else if(msgBox){
-    msgBox.textContent = SUPPORT_EMAIL;
+    msgBox.textContent = text;
     msgBox.style.display = "block";
   }
+}
+
+function copySupportEmail(){
+  copyTextToBox(SUPPORT_EMAIL, "emailCopyMsg");
+}
+
+function copyWhatsappNumber(){
+  copyTextToBox(WA_DISPLAY_NUMBER, "waCopyMsg");
 }
 
 function uncheckMenu(){
@@ -434,55 +454,4 @@ function prepPackage(pkgName,price){
   g("fAmt").value = activePrice;
 
   g("fName").value = "";
-  g("fPhone").value = "";
-  g("fUtr").value = "";
-
-  hideError("buyErrBox");
-  syncQr(activePrice);
-
-  openModal("buy-modal");
-}
-
-function handleBuySubmit(){
-  hideError("buyErrBox");
-
-  var amt = Number(g("fAmt").value);
-  var name = g("fName").value.trim();
-  var phone = onlyDigits(g("fPhone").value);
-  var utr = onlyDigits(g("fUtr").value);
-
-  if(!activePackage || !activePrice){
-    showError("buyErrBox","Please select a package first.");
-    return;
-  }
-
-  if(amt !== activePrice){
-    showError("buyErrBox","Package amount does not match.");
-    return;
-  }
-
-  if(name.length < 2){
-    showError("buyErrBox","Please enter your full name.");
-    return;
-  }
-
-  if(phone.length !== 10){
-    showError("buyErrBox","WhatsApp number must contain exactly 10 digits.");
-    return;
-  }
-
-  if(utr.length !== 12){
-    showError("buyErrBox","UTR must contain exactly 12 digits.");
-    return;
-  }
-
-  var requestId = "TMS-" + Date.now().toString().slice(-8);
-
-  g("outPkg").textContent =
-    "Package: " + activePackage + " (Rs. " + amt + ")";
-
-  g("outUser").textContent =
-    "Request ID: " + requestId;
-
-  var message =
-    "Hello THE MILLIONAIRE SKILL
+  g("fPhone").va

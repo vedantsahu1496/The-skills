@@ -503,14 +503,14 @@ function logout(){
 
 /* ENTER KEY LOGIN */
 
-document.getElementById("lPw").addEventListener("keydown",function(event){
+getElement("lPw").addEventListener("keydown",function(event){
   if(event.key === "Enter"){
     event.preventDefault();
     submitLogin();
   }
 });
 
-document.getElementById("lId").addEventListener("keydown",function(event){
+getElement("lId").addEventListener("keydown",function(event){
   if(event.key === "Enter"){
     event.preventDefault();
     getElement("lPw").focus();
@@ -539,8 +539,9 @@ function copyText(value,msgId){
     }
   }
 
-  if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(value)
-      .then(showCopied)
-      .catch(function(){
-        showErro
+  function fallbackCopy(){
+    var textarea = document.createElement("textarea");
+    textarea.value = value;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+  

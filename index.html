@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,72 +47,33 @@ a{color:inherit;text-decoration:none}
 .card{background:#0e1629;border:2px solid #334155;border-radius:16px;padding:16px;margin-bottom:20px}
 .card.vip{border:2px solid #fbbf24;background:#131c33}
 
-/* Full Graphic Cover Banner */
+/* Single Sprite Image Cropped For Each of the 5 Course Covers */
 .cover-banner{
   position:relative;
   width:100%;
-  height:245px;
+  height:250px;
   border-radius:14px;
   margin-bottom:14px;
   overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border:1px solid rgba(255,255,255,0.22);
+  border:1px solid rgba(255,255,255,0.2);
   box-shadow:0 12px 26px rgba(0,0,0,0.65);
 }
-.cover-banner::before{
-  content:"";
-  position:absolute;
-  width:170px;
-  height:170px;
-  border-radius:50%;
-  border:14px solid rgba(255,255,255,0.12);
-  top:-35px;
-  left:-35px;
-  pointer-events:none;
-}
-.cover-banner::after{
-  content:"";
-  position:absolute;
-  width:190px;
-  height:190px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,0.22) 0%,transparent 70%);
-  bottom:-45px;
-  right:-35px;
-  pointer-events:none;
-}
-.cover-photo{
-  position:absolute;
-  inset:0;
+.book-crop{
   width:100%;
   height:100%;
-  object-fit:cover;
-  z-index:2;
+  background-image:url('covers-5.jpg');
+  background-repeat:no-repeat;
+  background-size:335% 225%;
 }
-.cover-box-3d{
-  position:relative;
-  z-index:3;
-  width:158px;
-  height:202px;
-  border-radius:6px 14px 14px 6px;
-  padding:14px 11px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  align-items:center;
-  text-align:center;
-  border-left:9px solid rgba(255,255,255,0.35);
-  border-top:2px solid rgba(255,255,255,0.55);
-  border-right:3px solid rgba(0,0,0,0.45);
-  border-bottom:5px solid rgba(0,0,0,0.85);
-  box-shadow:0 16px 28px rgba(0,0,0,0.65),0 0 24px rgba(255,255,255,0.18);
-  transform:perspective(600px) rotateY(-8deg);
-}
-.cover-box-3d small{font-size:7.5px;font-weight:900;color:#fef08a;background:rgba(0,0,0,0.45);padding:3px 7px;border-radius:4px;letter-spacing:0.6px}
-.cover-box-3d h3{font-size:16px;font-weight:900;color:#ffffff;line-height:1.15;text-transform:uppercase;text-shadow:0 2px 6px rgba(0,0,0,0.6)}
-.cover-box-3d span{font-size:8.5px;font-weight:900;background:#fbbf24;color:#050811;padding:4px 8px;border-radius:5px;letter-spacing:0.4px}
+
+/* Row 1 (Top 3 Boxes) */
+.crop-marketing{background-position:3% 2%}
+.crop-branding{background-position:50% 2%}
+.crop-traffic{background-position:97% 2%}
+
+/* Row 2 (Bottom 2 Boxes) */
+.crop-influence{background-position:22% 98%}
+.crop-finance{background-position:78% 98%}
 
 .badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .pill-b{background:#f59e0b;color:#050811;font-size:10px;font-weight:900;padding:3px 9px;border-radius:6px}
@@ -190,13 +150,8 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 1. MARKETING MASTERY -->
   <div class="card">
-    <div class="cover-banner" style="background:linear-gradient(135deg,#0f172a 0%,#1d4ed8 55%,#38bdf8 100%)">
-      <img src="marketing.jpg" alt="Marketing Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
-      <div class="cover-box-3d" style="background:linear-gradient(160deg,#1e40af,#0f172a)">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>MARKETING MASTERY</h3>
-        <span>FUNNELS &amp; SALES</span>
-      </div>
+    <div class="cover-banner" style="background:#ffffff">
+      <div class="book-crop crop-marketing" role="img" aria-label="Marketing Mastery"></div>
     </div>
     <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Marketing Mastery</div>
@@ -208,13 +163,8 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 2. BRANDING MASTERY -->
   <div class="card">
-    <div class="cover-banner" style="background:linear-gradient(135deg,#1c1917 0%,#b45309 55%,#fbbf24 100%)">
-      <img src="branding.jpg" alt="Branding Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
-      <div class="cover-box-3d" style="background:linear-gradient(160deg,#d97706,#451a03)">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>BRANDING MASTERY</h3>
-        <span>PERSONAL BRAND</span>
-      </div>
+    <div class="cover-banner" style="background:#ffffff">
+      <div class="book-crop crop-branding" role="img" aria-label="Branding Mastery"></div>
     </div>
     <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Branding Mastery</div>
@@ -226,13 +176,8 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 3. TRAFFIC MASTERY -->
   <div class="card">
-    <div class="cover-banner" style="background:linear-gradient(135deg,#022c22 0%,#047857 55%,#34d399 100%)">
-      <img src="traffic.jpg" alt="Traffic Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
-      <div class="cover-box-3d" style="background:linear-gradient(160deg,#059669,#064e3b)">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>TRAFFIC MASTERY</h3>
-        <span>LEADS &amp; ADS</span>
-      </div>
+    <div class="cover-banner" style="background:#ffffff">
+      <div class="book-crop crop-traffic" role="img" aria-label="Traffic Mastery"></div>
     </div>
     <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Traffic Mastery</div>
@@ -244,13 +189,8 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 4. INFLUENCE MASTERY -->
   <div class="card">
-    <div class="cover-banner" style="background:linear-gradient(135deg,#1e1b4b 0%,#6d28d9 55%,#c084fc 100%)">
-      <img src="influence.jpg" alt="Influence Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
-      <div class="cover-box-3d" style="background:linear-gradient(160deg,#7c3aed,#3b0764)">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>INFLUENCE MASTERY</h3>
-        <span>CLOSING &amp; SPEAKING</span>
-      </div>
+    <div class="cover-banner" style="background:#ffffff">
+      <div class="book-crop crop-influence" role="img" aria-label="Influence Mastery"></div>
     </div>
     <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Influence Mastery</div>
@@ -262,13 +202,8 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 5. FINANCE MASTERY -->
   <div class="card vip">
-    <div class="cover-banner" style="background:linear-gradient(135deg,#271704 0%,#a16207 55%,#facc15 100%)">
-      <img src="finance.jpg" alt="Finance Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
-      <div class="cover-box-3d" style="background:linear-gradient(160deg,#ca8a04,#422006)">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>FINANCE MASTERY</h3>
-        <span>WEALTH &amp; FULL ACCESS</span>
-      </div>
+    <div class="cover-banner" style="background:#ffffff">
+      <div class="book-crop crop-finance" role="img" aria-label="Finance Mastery"></div>
     </div>
     <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
     <div class="c-title">Finance Mastery (VIP Bundle)</div>
@@ -399,4 +334,61 @@ function digitsOnly(v){
 }
 
 function uncheckMenu(){
-  var chk = g("menu-t
+  var chk = g("menu-toggle");
+  if(chk) chk.checked = false;
+}
+
+function syncQr(amt){
+  var d = digitsOnly(amt);
+  g("modalQrLabel").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
+  var uri = "upi://pay?pa=7999886983@upi&pn=TheMillionaireSkills" + (d ? ("&am=" + d) : "") + "&cu=INR";
+  g("modalQrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(uri);
+}
+
+function prepPackage(pkgName, price){
+  activePackage = pkgName;
+  g("modalPkgTitle").innerHTML = pkgName + " Checkout";
+  g("fAmt").value = price;
+  syncQr(price);
+}
+
+function buildCredentials(){
+  var amt = (g("fAmt").value || "999").trim();
+  var name = (g("fName").value || "Student").trim();
+  var phone = (g("fPhone").value || "-").trim();
+  var utrRaw = (g("fUtr").value || "20268899").trim();
+  var utrNum = digitsOnly(utrRaw);
+
+  var tail = utrNum.slice(-4);
+  if(tail.length < 4) tail = "8899";
+  var userId = "tms_" + tail + "@student";
+  var userPass = "TMS@" + (utrNum.slice(-6) || "2026");
+
+  g("outPkg").innerHTML = "Package: " + activePackage + " (Rs." + amt + ")";
+  g("outUser").innerHTML = "User ID: " + userId;
+  g("outPass").innerHTML = "Password: " + userPass;
+
+  g("pWelcome").innerHTML = "Welcome, " + name + " (" + userId + ")";
+  g("pPkg").innerHTML = "Enrolled: " + activePackage + " (Rs." + amt + ")";
+
+  var text = "Hello THE MILLIONAIRE SKILLS%0A" +
+    "UTR VERIFIED & CREDENTIALS GENERATED%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
+    "Package: " + encodeURIComponent(activePackage) + "%0A" +
+    "Amount: Rs." + encodeURIComponent(amt) + "%0A" +
+    "UTR: " + encodeURIComponent(utrRaw) + "%0A" +
+    "User ID: " + encodeURIComponent(userId) + "%0A" +
+    "Password: " + encodeURIComponent(userPass);
+
+  g("outWaBtn").href = "https://wa.me/" + WA_NUMBER + "?text=" + text;
+}
+
+function syncPortalLogin(){
+  var id = (g("lId").value || "student1@tms.com").trim();
+  g("pWelcome").innerHTML = "Welcome, " + id;
+  g("pPkg").innerHTML = "Status: Verified Student Account";
+}
+</script>
+</body>
+</html>

@@ -47,10 +47,52 @@ a{color:inherit;text-decoration:none}
 .card{background:#0e1629;border:2px solid #334155;border-radius:16px;padding:16px;margin-bottom:20px}
 .card.vip{border:2px solid #fbbf24;background:#131c33}
 
-/* Updated Course Image Container */
-.book-wrap{padding:18px 14px;border-radius:12px;margin-bottom:14px;display:flex;justify-content:center;align-items:center}
-.course-img{width:190px;max-width:100%;height:auto;border-radius:10px;display:block;box-shadow:0 12px 26px rgba(0,0,0,0.75);transition:transform 0.25s ease}
-.card:hover .course-img{transform:scale(1.03)}
+/* Large Showcase Box Like Reference Image */
+.showcase-box{
+  position:relative;
+  min-height:230px;
+  border-radius:14px;
+  padding:20px 14px;
+  margin-bottom:14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.16);
+  box-shadow:0 12px 26px rgba(0,0,0,0.65);
+}
+.showcase-img{
+  width:100%;
+  max-width:260px;
+  height:auto;
+  border-radius:10px;
+  display:block;
+  z-index:2;
+  box-shadow:0 10px 24px rgba(0,0,0,0.7);
+}
+.fallback-3d{
+  display:none;
+  width:154px;
+  height:202px;
+  border-radius:5px 14px 14px 5px;
+  padding:14px 11px;
+  flex-direction:column;
+  justify-content:space-between;
+  text-align:center;
+  border-left:8px solid #fbbf24;
+  border-top:2px solid rgba(255,255,255,0.45);
+  border-bottom:4px solid rgba(0,0,0,0.85);
+  transform:rotate(-2deg);
+  box-shadow:10px 14px 26px rgba(0,0,0,0.75);
+  z-index:2;
+}
+.showcase-box.img-broken .showcase-img{display:none}
+.showcase-box.img-broken .fallback-3d{display:flex}
+
+.fallback-3d small{font-size:7.5px;font-weight:900;color:#fde68a;background:rgba(0,0,0,0.45);padding:3px 6px;border-radius:4px}
+.fallback-3d h3{font-size:16px;font-weight:900;color:#ffffff;line-height:1.15;text-transform:uppercase}
+.fallback-3d span{font-size:8.5px;font-weight:900;background:#fbbf24;color:#050811;padding:4px 7px;border-radius:5px}
 
 .badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .pill-b{background:#f59e0b;color:#050811;font-size:10px;font-weight:900;padding:3px 9px;border-radius:6px}
@@ -127,8 +169,13 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 1. MARKETING MASTERY -->
   <div class="card">
-    <div class="book-wrap" style="background:#172554">
-      <img src="marketing.jpg" alt="Marketing Mastery" class="course-img">
+    <div class="showcase-box" style="background:radial-gradient(circle at top right,#3b82f6,#172554 70%)">
+      <img src="marketing.jpg" alt="Marketing Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
+      <div class="fallback-3d" style="background:#1d4ed8">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>MARKETING MASTERY</h3>
+        <span>FUNNELS &amp; SALES</span>
+      </div>
     </div>
     <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Marketing Mastery</div>
@@ -140,8 +187,13 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 2. BRANDING MASTERY -->
   <div class="card">
-    <div class="book-wrap" style="background:#451a03">
-      <img src="branding.jpg" alt="Branding Mastery" class="course-img">
+    <div class="showcase-box" style="background:radial-gradient(circle at top right,#f59e0b,#451a03 70%)">
+      <img src="branding.jpg" alt="Branding Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
+      <div class="fallback-3d" style="background:#b45309">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>BRANDING MASTERY</h3>
+        <span>PERSONAL BRAND</span>
+      </div>
     </div>
     <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Branding Mastery</div>
@@ -153,8 +205,13 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 3. TRAFFIC MASTERY -->
   <div class="card">
-    <div class="book-wrap" style="background:#064e3b">
-      <img src="traffic.jpg" alt="Traffic Mastery" class="course-img">
+    <div class="showcase-box" style="background:radial-gradient(circle at top right,#10b981,#064e3b 70%)">
+      <img src="traffic.jpg" alt="Traffic Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
+      <div class="fallback-3d" style="background:#047857">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>TRAFFIC MASTERY</h3>
+        <span>LEADS &amp; ADS</span>
+      </div>
     </div>
     <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Traffic Mastery</div>
@@ -166,8 +223,13 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 4. INFLUENCE MASTERY -->
   <div class="card">
-    <div class="book-wrap" style="background:#3b0764">
-      <img src="influence.jpg" alt="Influence Mastery" class="course-img">
+    <div class="showcase-box" style="background:radial-gradient(circle at top right,#a855f7,#3b0764 70%)">
+      <img src="influence.jpg" alt="Influence Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
+      <div class="fallback-3d" style="background:#6d28d9">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>INFLUENCE MASTERY</h3>
+        <span>CLOSING &amp; SPEAKING</span>
+      </div>
     </div>
     <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Influence Mastery</div>
@@ -179,8 +241,13 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 5. FINANCE MASTERY -->
   <div class="card vip">
-    <div class="book-wrap" style="background:#422006">
-      <img src="finance.jpg" alt="Finance Mastery" class="course-img">
+    <div class="showcase-box" style="background:radial-gradient(circle at top right,#eab308,#422006 70%)">
+      <img src="finance.jpg" alt="Finance Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
+      <div class="fallback-3d" style="background:#a16207">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>FINANCE MASTERY</h3>
+        <span>WEALTH &amp; FULL ACCESS</span>
+      </div>
     </div>
     <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
     <div class="c-title">Finance Mastery (VIP Bundle)</div>
@@ -334,38 +401,4 @@ function buildCredentials(){
   var name = (g("fName").value || "Student").trim();
   var phone = (g("fPhone").value || "-").trim();
   var utrRaw = (g("fUtr").value || "20268899").trim();
-  var utrNum = digitsOnly(utrRaw);
-
-  var tail = utrNum.slice(-4);
-  if(tail.length < 4) tail = "8899";
-  var userId = "tms_" + tail + "@student";
-  var userPass = "TMS@" + (utrNum.slice(-6) || "2026");
-
-  g("outPkg").innerHTML = "Package: " + activePackage + " (Rs." + amt + ")";
-  g("outUser").innerHTML = "User ID: " + userId;
-  g("outPass").innerHTML = "Password: " + userPass;
-
-  g("pWelcome").innerHTML = "Welcome, " + name + " (" + userId + ")";
-  g("pPkg").innerHTML = "Enrolled: " + activePackage + " (Rs." + amt + ")";
-
-  var text = "Hello THE MILLIONAIRE SKILLS%0A" +
-    "UTR VERIFIED & CREDENTIALS GENERATED%0A" +
-    "Name: " + encodeURIComponent(name) + "%0A" +
-    "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
-    "Package: " + encodeURIComponent(activePackage) + "%0A" +
-    "Amount: Rs." + encodeURIComponent(amt) + "%0A" +
-    "UTR: " + encodeURIComponent(utrRaw) + "%0A" +
-    "User ID: " + encodeURIComponent(userId) + "%0A" +
-    "Password: " + encodeURIComponent(userPass);
-
-  g("outWaBtn").href = "https://wa.me/" + WA_NUMBER + "?text=" + text;
-}
-
-function syncPortalLogin(){
-  var id = (g("lId").value || "student1@tms.com").trim();
-  g("pWelcome").innerHTML = "Welcome, " + id;
-  g("pPkg").innerHTML = "Status: Verified Student Account";
-}
-</script>
-</body>
-</html>
+  var utrN

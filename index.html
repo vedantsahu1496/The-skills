@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +30,7 @@ a{color:inherit;text-decoration:none}
 .hero h1 span{color:#fbbf24}
 .hero p{font-size:13.5px;color:#cbd5e1;max-width:440px;margin:0 auto 18px}
 
-.btn{display:block;width:100%;border-radius:10px;padding:13px 14px;font-size:14px;font-weight:900;text-align:center;margin-top:8px}
+.btn{display:block;width:100%;border-radius:10px;padding:13px 14px;font-size:14px;font-weight:900;text-align:center;margin-top:8px;cursor:pointer;border:none}
 .btn-gold{background:#fbbf24;color:#050811;border:2px solid #fde68a}
 .btn-dark{background:#111827;color:#ffffff;border:2px solid #475569}
 .btn-green{background:#16a34a;color:#ffffff;border:2px solid #4ade80}
@@ -117,8 +118,10 @@ a{color:inherit;text-decoration:none}
 .qr-box{background:#ffffff;color:#050811;border-radius:10px;padding:12px;text-align:center;margin:10px 0;border:2px solid #fbbf24}
 .qr-box img{width:140px;height:140px;display:block;margin:8px auto}
 .inp{width:100%;padding:11px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:14px;margin-bottom:10px}
+.inp-err{border-color:#f87171}
 .lbl{display:block;font-size:11.5px;color:#fde68a;font-weight:900;margin-bottom:4px}
 .note-box{background:#10192e;border-left:3px solid #fbbf24;padding:9px 11px;border-radius:6px;font-size:11.5px;color:#cbd5e1;margin-bottom:12px}
+.err-box{display:none;background:#450a0a;border:1px solid #f87171;color:#fecaca;padding:10px 11px;border-radius:8px;font-size:12px;font-weight:700;margin-top:8px}
 
 .cred-box{background:#052e16;border:2px solid #4ade80;border-radius:12px;padding:15px;margin:12px 0;color:#dcfce7}
 .cred-box b{display:block;color:#4ade80;font-size:16px;margin-bottom:8px}
@@ -267,21 +270,22 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div style="font-size:12px;font-weight:900">UPI ID: 7999886983@upi</div>
     </div>
 
-    <div class="note-box">Amount, Name, WhatsApp aur UTR bharo—phir neeche Generate button par tap karo.</div>
+    <div class="note-box">Sahi Amount, Full Name, 10-digit WhatsApp aur 12-digit UTR daalein—tabhi ID generate hogi.</div>
 
     <label class="lbl">Amount (&#8377;)</label>
-    <input type="number" class="inp" id="fAmt" value="999" oninput="syncQr(this.value)">
+    <input type="number" class="inp" id="fAmt" value="999" min="1" oninput="syncQr(this.value)">
 
     <label class="lbl">Your Full Name</label>
     <input type="text" class="inp" id="fName" placeholder="Enter full name">
 
-    <label class="lbl">Your WhatsApp Number</label>
-    <input type="tel" class="inp" id="fPhone" placeholder="10-digit WhatsApp number">
+    <label class="lbl">Your WhatsApp Number (10 Digits)</label>
+    <input type="tel" class="inp" id="fPhone" maxlength="10" placeholder="10-digit WhatsApp number" oninput="this.value=digitsOnly(this.value)">
 
-    <label class="lbl">UPI UTR / Transaction Ref No.</label>
-    <input type="text" class="inp" id="fUtr" placeholder="Enter 12-digit UTR number">
+    <label class="lbl">UPI UTR / Transaction Ref No. (12 Digits)</label>
+    <input type="text" class="inp" id="fUtr" maxlength="12" placeholder="Enter 12-digit UTR number" oninput="this.value=digitsOnly(this.value)">
 
-    <a href="#verified-modal" class="btn btn-gold" onclick="buildCredentials()">Verify UTR &amp; Generate User ID / Password &rarr;</a>
+    <button type="button" class="btn btn-gold" onclick="buildCredentials()">Verify UTR &amp; Generate User ID / Password &rarr;</button>
+    <div class="err-box" id="buyErrBox"></div>
   </div>
 </div>
 
@@ -321,7 +325,8 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <input type="text" class="inp" id="lId" placeholder="student1@tms.com">
     <label class="lbl">Password</label>
     <input type="password" class="inp" id="lPw" placeholder="Enter password">
-    <a href="#portal-modal" class="btn btn-gold" onclick="syncPortalLogin()">Sign In to Portal &rarr;</a>
+    <button type="button" class="btn btn-gold" onclick="syncPortalLogin()">Sign In to Portal &rarr;</button>
+    <div class="err-box" id="loginErrBox"></div>
     <a href="#courses" class="btn btn-dark">New Student? Pick a Package Below</a>
   </div>
 </div>
@@ -366,6 +371,27 @@ function uncheckMenu(){
   if(chk) chk.checked = false;
 }
 
+function showErr(boxId, msg){
+  var box = g(boxId);
+  if(!box) return;
+  box.innerHTML = msg;
+  box.style.display = "block";
+}
+
+function hideErr(boxId){
+  var box = g(boxId);
+  if(!box) return;
+  box.innerHTML = "";
+  box.style.display = "none";
+}
+
+function clearFieldErrs(){
+  ["fAmt", "fName", "fPhone", "fUtr", "lId", "lPw"].forEach(function(id){
+    var el = g(id);
+    if(el) el.classList.remove("inp-err");
+  });
+}
+
 function syncQr(amt){
   var d = digitsOnly(amt);
   g("modalQrLabel").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
@@ -377,42 +403,26 @@ function prepPackage(pkgName, price){
   activePackage = pkgName;
   g("modalPkgTitle").innerHTML = pkgName + " Checkout";
   g("fAmt").value = price;
+  clearFieldErrs();
+  hideErr("buyErrBox");
   syncQr(price);
 }
 
 function buildCredentials(){
-  var amt = (g("fAmt").value || "999").trim();
-  var name = (g("fName").value || "Student").trim();
-  var phone = (g("fPhone").value || "-").trim();
-  var utrRaw = (g("fUtr").value || "20268899").trim();
-  var utrNum = digitsOnly(utrRaw);
+  clearFieldErrs();
+  hideErr("buyErrBox");
 
-  var tail = utrNum.slice(-4);
-  if(tail.length < 4) tail = "8899";
-  var userId = "tms_" + tail + "@student";
-  var userPass = "TMS@" + (utrNum.slice(-6) || "2026");
+  var amtNum = Number(digitsOnly(g("fAmt").value));
+  var amt = String(amtNum);
+  var name = (g("fName").value || "").trim();
+  var phone = digitsOnly(g("fPhone").value);
+  var utr = digitsOnly(g("fUtr").value);
 
-  g("outPkg").innerHTML = "Package: " + activePackage + " (Rs." + amt + ")";
-  g("outUser").innerHTML = "User ID: " + userId;
-  g("outPass").innerHTML = "Password: " + userPass;
+  if(!amtNum || amtNum < 1){
+    g("fAmt").classList.add("inp-err");
+    showErr("buyErrBox", "Sahi amount daalein (kam se kam Rs.1).");
+    return;
+  }
 
-  g("pWelcome").innerHTML = "Welcome, " + name + " (" + userId + ")";
-  g("pPkg").innerHTML = "Enrolled: " + activePackage + " (Rs." + amt + ")";
-
-  var text = "Hello THE MILLIONAIRE SKILLS%0A" +
-    "UTR VERIFIED & CREDENTIALS GENERATED%0A" +
-    "Name: " + encodeURIComponent(name) + "%0A" +
-    "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
-    "Package: " + encodeURIComponent(activePackage) + "%0A" +
-    "Amount: Rs." + encodeURIComponent(amt) + "%0A" +
-    "UTR: " + encodeURIComponent(utrRaw) + "%0A" +
-    "User ID: " + encodeURIComponent(userId) + "%0A" +
-    "Password: " + encodeURIComponent(userPass);
-
-  var btn = g("outWaBtn");
-  if(btn) btn.href = "https://wa.me/" + WA_NUMBER + "?text=" + text;
-}
-
-function syncPortalLogin(){
-  var uid = (g("lId").value || "student1@tms.com").trim();
-  g("pWelcome").in
+  if(name.length < 2){
+    g("fName").classList.add

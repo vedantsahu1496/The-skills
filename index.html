@@ -1,285 +1,852 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Skills - Online Learning Platform</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background-color: #0f1020;
-            color: #ffffff;
-            padding-bottom: 50px;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: rgba(15, 16, 32, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            background: linear-gradient(45deg, #ff007f, #7928ca);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .btn-login {
-            background: transparent;
-            border: 1px solid #7928ca;
-            color: #fff;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .hero {
-            text-align: center;
-            padding: 30px 20px;
-        }
-        .hero h1 {
-            font-size: 22px;
-            margin-bottom: 8px;
-            background: linear-gradient(45deg, #fff, #b19cd9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 13px;
-            color: #aaa;
-        }
-        .container {
-            padding: 0 15px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .package-card {
-            background: linear-gradient(135deg, #1a1c38, #281c3d);
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-        }
-        .package-img {
-            width: 100%;
-            height: 160px;
-            background: #1e1f38;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #a78bfa;
-            font-size: 15px;
-            font-weight: 600;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .package-content {
-            padding: 18px;
-        }
-        .package-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #d8b4fe;
-        }
-        .package-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 12px 0 18px 0;
-            font-size: 13px;
-            color: #bbb;
-        }
-        .action-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .price-box span {
-            font-size: 12px;
-            color: #888;
-            text-decoration: line-through;
-            margin-right: 6px;
-        }
-        .price-box strong {
-            font-size: 20px;
-            color: #22c55e;
-        }
-        .btn-buy {
-            background: linear-gradient(45deg, #ff007f, #7928ca);
-            color: white;
-            border: none;
-            padding: 10px 22px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(255, 0, 127, 0.4);
-        }
-        /* Login Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background: #161832;
-            padding: 25px;
-            border-radius: 16px;
-            width: 90%;
-            max-width: 350px;
-            border: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-        }
-        .modal-content h2 { margin-bottom: 15px; font-size: 20px; color: #d8b4fe; }
-        .modal-content input {
-            width: 100%;
-            padding: 10px 14px;
-            margin-bottom: 12px;
-            background: #0f1020;
-            border: 1px solid #333;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 14px;
-        }
-        .modal-content button {
-            width: 100%;
-            padding: 10px;
-            background: linear-gradient(45deg, #ff007f, #7928ca);
-            border: none;
-            border-radius: 8px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .close-modal {
-            margin-top: 12px;
-            display: inline-block;
-            color: #aaa;
-            font-size: 13px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE MILLIONAIRE SKILLS | Unlock Your Potential</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b386c;
+      --primary-dark: #28254d;
+      --primary-light: #524e8a;
+      --accent: #e11d48;
+      --accent-hover: #be123c;
+      --bg-light: #f8fafc;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --success: #16a34a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.1;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-tagline {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: var(--primary-dark);
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 8px;
+    }
+
+    /* Drawer Menu */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      z-index: 998;
+      display: none;
+    }
+
+    .drawer-overlay.active {
+      display: block;
+    }
+
+    .nav-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: 420px;
+      background: var(--white);
+      z-index: 999;
+      padding: 20px;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .nav-drawer.active {
+      transform: translateY(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    .close-btn {
+      background: #f1f5f9;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 22px;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .drawer-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 6px 4px;
+    }
+
+    .drawer-cta {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(180deg, #3b386c 0%, #2b2854 100%);
+      color: var(--white);
+      padding: 36px 20px 44px;
+      text-align: center;
+    }
+
+    .rating-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 480px;
+      margin: 0 auto 26px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 380px;
+      margin: 0 auto 32px;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--primary-dark);
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-outline-white {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .stat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* Sections General */
+    .section {
+      padding: 42px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: #eef2ff;
+      color: var(--primary);
+      border: 1px solid #c7d2fe;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-header h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Category Cards */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .cat-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cat-card.active {
+      border-color: var(--primary);
+      background: #f5f3ff;
+    }
+
+    .cat-card-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .cat-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .cat-detail-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .cat-detail-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    /* Course Cards */
+    .courses-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .course-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    .course-banner {
+      padding: 22px 20px;
+      color: var(--white);
+    }
+
+    .banner-green { background: linear-gradient(135deg, #10b981, #047857); }
+    .banner-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+    .banner-purple { background: linear-gradient(135deg, #8b5cf6, #5b21b6); }
+    .banner-orange { background: linear-gradient(135deg, #f97316, #c2410c); }
+    .banner-dark { background: linear-gradient(135deg, #334155, #0f172a); }
+
+    .course-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .course-banner h3 {
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .course-banner p {
+      font-size: 13px;
+      opacity: 0.92;
+      line-height: 1.45;
+    }
+
+    .course-body {
+      padding: 18px 20px;
+    }
+
+    .course-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+
+    .meta-item span {
+      display: block;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .meta-item small {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .price-tag {
+      text-align: right;
+    }
+
+    .price-tag .old-price {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      display: block;
+    }
+
+    .price-tag .new-price {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .course-perks {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    .course-perks li {
+      font-size: 13px;
+      color: #334155;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-enroll {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-enroll:hover {
+      background: var(--accent-hover);
+    }
+
+    /* Why Choose Us */
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: #eef2ff;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 36px 20px;
+      text-align: center;
+    }
+
+    footer h3 {
+      color: var(--white);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      font-size: 13px;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Modals */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--white);
+      width: 100%;
+      max-width: 420px;
+      border-radius: 18px;
+      padding: 22px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-top h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+    }
+
+    .qr-box {
+      background: #f8fafc;
+      border: 1.5px dashed #cbd5e1;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .qr-box img {
+      width: 165px;
+      height: 165px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .upi-apps {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .upi-badge {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .btn-whatsapp {
+      width: 100%;
+      padding: 14px;
+      background: #25D366;
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* Student Dashboard View */
+    .dashboard-panel {
+      display: none;
+      padding: 24px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .dashboard-panel.active {
+      display: block;
+    }
+
+    .dash-banner {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .module-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-watch {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media (min-width: 640px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">The Skills</div>
-        <div class="nav-buttons">
-            <button class="btn-login" onclick="openLogin()">Student Login</button>
+  <!-- Header -->
+  <header>
+    <a href="#" class="brand" onclick="showHome()">
+      <div class="brand-icon">MS</div>
+      <div class="brand-text">
+        <span class="brand-title">THE MILLIONAIRE SKILLS</span>
+        <span class="brand-tagline">" Unlock Your Potential "</span>
+      </div>
+    </a>
+    <button class="menu-btn" onclick="toggleDrawer()" aria-label="Open Menu">☰</button>
+  </header>
+
+  <!-- Right/Top Slide Menu Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer()"></div>
+  <nav class="nav-drawer" id="navDrawer">
+    <div class="drawer-header">
+      <div class="brand">
+        <div class="brand-icon">MS</div>
+        <div class="brand-text">
+          <span class="brand-title">THE MILLIONAIRE SKILLS</span>
+          <span class="brand-tagline">" Unlock Your Potential "</span>
         </div>
-    </header>
-
-    <div class="hero">
-        <h1>Choose Your Course Package</h1>
-        <p>Learn high-income skills & build your future</p>
+      </div>
+      <button class="close-btn" onclick="toggleDrawer()">×</button>
     </div>
+    <div class="drawer-links">
+      <a href="#courses" onclick="toggleDrawer(); showHome();">Courses</a>
+      <a href="#why-us" onclick="toggleDrawer(); showHome();">About Us</a>
+      <a href="#contact" onclick="toggleDrawer(); showHome();">Contact</a>
+      <a href="javascript:void(0)" onclick="toggleDrawer(); openLoginModal();">Login</a>
+    </div>
+    <button class="drawer-cta" onclick="toggleDrawer(); document.getElementById('courses').scrollIntoView();">Get Started</button>
+  </nav>
 
-    <div class="container" id="courseList"></div>
+  <!-- Main Landing Page -->
+  <main id="mainSite">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="rating-pill">⭐ Rated 4.9/5 by 10,000+ students</div>
+      <h1>Learn Skills That Matter for Your Career</h1>
+      <p>Access high-income digital courses from industry experts. Build real-world projects and master skills designed for financial growth.</p>
+      
+      <div class="hero-buttons">
+        <a href="#courses" class="btn-white">Explore Courses →</a>
+        <button class="btn-outline-white" onclick="openLoginModal()">Login</button>
+      </div>
 
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <h2>Student Login</h2>
-            <input type="email" id="loginEmail" placeholder="Enter Email ID">
-            <input type="password" id="loginPassword" placeholder="Enter Password">
-            <button onclick="handleLogin()">Login to Dashboard</button>
-            <span class="close-modal" onclick="closeLogin()">Cancel</span>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📚</div>
+          <div class="stat-value">85+</div>
+          <div class="stat-label">Exclusive Modules</div>
         </div>
-    </div>
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">Practical Skills</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📈</div>
+          <div class="stat-value">98%</div>
+          <div class="stat-label">Growth Focused</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🌍</div>
+          <div class="stat-value">98%</div>
+          <div class="stat-label">World Results</div>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        const courses = [
-            {
-                title: "Intermediate Package",
-                coursesCount: "4 Courses",
-                rating: "★★★★☆",
-                price: "₹560",
-                originalPrice: "₹999",
-                imgText: "Intermediate Mastery Box"
-            },
-            {
-                title: "Master Package",
-                coursesCount: "15 Courses",
-                rating: "★★★★★",
-                price: "₹2,499",
-                originalPrice: "₹5,999",
-                imgText: "Master Business Package"
-            },
-            {
-                title: "Brahmastra Package",
-                coursesCount: "25+ Courses",
-                rating: "★★★★★",
-                price: "₹3,999",
-                originalPrice: "₹9,999",
-                imgText: "Brahmastra Ultimate Box"
-            }
-        ];
+    <!-- Category Selector Section -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-badge">Who Is This For?</span>
+        <h2>Tailored Learning Paths For Every Goal</h2>
+        <p>Select your profile below to see how The Millionaire Skills accelerates your journey.</p>
+      </div>
 
-        const container = document.getElementById('courseList');
+      <div class="cat-grid">
+        <div class="cat-card active" onclick="selectCategory(this, 'students')">
+          <div class="cat-card-icon">🎓</div>
+          <h4>Students</h4>
+        </div>
+        <div class="cat-card" onclick="selectCategory(this, 'creators')">
+          <div class="cat-card-icon">🎥</div>
+          <h4>Creators</h4>
+        </div>
+        <div class="cat-card" onclick="selectCategory(this, 'business')">
+          <div class="cat-card-icon">💼</div>
+          <h4>Business Owners</h4>
+        </div>
+        <div class="cat-card" onclick="selectCategory(this, 'individuals')">
+          <div class="cat-card-icon">🚀</div>
+          <h4>Individuals</h4>
+        </div>
+      </div>
 
-        courses.forEach(course => {
-            const card = document.createElement('div');
-            card.className = 'package-card';
-            card.innerHTML = `
-                <div class="package-img">${course.imgText}</div>
-                <div class="package-content">
-                    <div class="package-title">${course.title}</div>
-                    <div style="font-size:12px; color:#fbbf24; margin-bottom:5px;">${course.rating}</div>
-                    <div class="package-info">
-                        <span>📚 ${course.coursesCount}</span>
-                        <span>⚡ Lifetime Access</span>
-                    </div>
-                    <div class="action-row">
-                        <div class="price-box">
-                            <span>${course.originalPrice}</span><strong>${course.price}</strong>
-                        </div>
-                        <button class="btn-buy" onclick="buyCourse('${course.title}', '${course.price}')">Buy Now</button>
-                    </div>
-                </div>
-            `;
-            container.appendChild(card);
-        });
+      <div class="cat-detail-box" id="catDetailBox">
+        <p id="catDescription">Build side-income digital skills alongside your college studies with step-by-step practical training in Marketing & Traffic.</p>
+        <a href="#courses" class="btn-white" style="background: var(--primary); color: #fff; padding: 11px 20px; font-size: 13.5px;">View Recommended Packages →</a>
+      </div>
+    </section>
 
-        function buyCourse(courseName, price) {
-            const phoneNumber = "919876543210"; // Yahan apna WhatsApp number daal dena
-            const message = `Hello, I want to buy the *${courseName}* for *${price}*. Please share payment details.`;
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        function openLogin() {
-            document.getElementById('loginModal').style.display = 'flex';
-        }
-
-        function closeLogin() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-
-        function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const pass = document.getElementById('loginPassword').value;
-            if(email && pass) {
-                alert("Login successful! Redirecting to Student Dashboard...");
-                closeLogin();
-            } else {
-                alert("Please enter both email and password!");
-            }
-        }
-    </script>
-</body>
-</html>
+    <!-- Core Offerings / 5 Mastery Packages -->
+    <sec

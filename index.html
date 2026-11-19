@@ -188,7 +188,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Branding Mastery" class="anim-img" id="imgBranding">
+      <img src="file_000000002914821181cc5ff207a5f834.png" alt="Branding Mastery" class="anim-img" id="imgBranding">
     </div>
     <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Branding Mastery</div>
@@ -202,7 +202,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Traffic Mastery" class="anim-img" id="imgTraffic">
+      <img src="IMG-20261120-WA8600.jpg" alt="Traffic Mastery" class="anim-img" id="imgTraffic">
     </div>
     <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Traffic Mastery</div>
@@ -216,7 +216,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Influence Mastery" class="anim-img" id="imgInfluence">
+      <img src="IMG-20261120-WA5578.jpg" alt="Influence Mastery" class="anim-img" id="imgInfluence">
     </div>
     <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Influence Mastery</div>
@@ -230,7 +230,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card vip">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Finance Mastery" class="anim-img" id="imgFinance">
+      <img src="IMG-20261120-WA2541.jpg" alt="Finance Mastery" class="anim-img" id="imgFinance">
     </div>
     <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
     <div class="c-title">Finance Mastery (VIP Bundle)</div>
@@ -343,13 +343,25 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 </div>
 
 <script>
-var COURSE_IMG = "file_00000000a24082079bd1a0d07ce5ae90.png";
+var COURSE_IMAGES = {
+  marketing: "file_00000000a24082079bd1a0d07ce5ae90.png",
+  branding: "file_000000002914821181cc5ff207a5f834.png",
+  traffic: "IMG-20261120-WA8600.jpg",
+  influence: "IMG-20261120-WA5578.jpg",
+  finance: "IMG-20261120-WA2541.jpg"
+};
 
 (function initCourseImages(){
-  var ids = ["imgMarketing", "imgBranding", "imgTraffic", "imgInfluence", "imgFinance"];
-  for(var i = 0; i < ids.length; i++){
-    var el = document.getElementById(ids[i]);
-    if(el) el.src = COURSE_IMG;
+  var map = [
+    ["imgMarketing", COURSE_IMAGES.marketing],
+    ["imgBranding", COURSE_IMAGES.branding],
+    ["imgTraffic", COURSE_IMAGES.traffic],
+    ["imgInfluence", COURSE_IMAGES.influence],
+    ["imgFinance", COURSE_IMAGES.finance]
+  ];
+  for(var i = 0; i < map.length; i++){
+    var el = document.getElementById(map[i][0]);
+    if(el && map[i][1]) el.src = map[i][1];
   }
 })();
 
@@ -411,12 +423,4 @@ function buildCredentials(){
   var text = "Hello THE MILLIONAIRE SKILLS%0A" +
     "UTR VERIFIED & CREDENTIALS GENERATED%0A" +
     "Name: " + encodeURIComponent(name) + "%0A" +
-    "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
-    "Package: " + encodeURIComponent(activePackage) + "%0A" +
-    "Amount: Rs." + encodeURIComponent(amt) + "%0A" +
-    "UTR: " + encodeURIComponent(utrRaw) + "%0A" +
-    "User ID: " + encodeURIComponent(userId) + "%0A" +
-    "Password: " + encodeURIComponent(userPass);
-
-  var btn = g("outWaBtn");
-  if
+    "WhatsApp: " + encodeURIComponent(phone) + "%0

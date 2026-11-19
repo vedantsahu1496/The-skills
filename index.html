@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Millionaire Skills — High-Income Digital Mastery</title>
 <link rel="stylesheet" href="style.css">
+<style>
+.cred-box{display:none;background:#090c10;border:1px solid #eab308;border-radius:10px;padding:10px;margin-top:10px;text-align:left;font-size:12px}
+.cred-box.show{display:block}
+.cred-box b{color:#eab308;display:block;margin-bottom:4px;font-size:12.5px}
+.cred-box p{color:#e2e8f0;margin:2px 0;word-break:break-word}
+</style>
 </head>
 <body>
 
@@ -55,7 +61,7 @@
   </div>
   <div class="info-box">
     <b>Simple 3-Step Access</b>
-    <p>1. Pick a course &amp; scan UPI QR. 2. Fill your name and UTR. 3. Send confirmation on WhatsApp to get verified and start learning.</p>
+    <p>1. Pick a course &amp; scan UPI QR. 2. Fill your name and UTR. 3. Generate &amp; send confirmation on WhatsApp to get verified and start learning.</p>
   </div>
 </section>
 
@@ -94,9 +100,10 @@
           </div>
           <span class="upi-tip">Scan QR or pay &#8377;1,499 to <strong>7999886983@upi</strong> using any UPI app.</span>
         </div>
-        <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.1499%20for%20Marketing%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+        <div class="inp-g"><label>Full Name</label><input type="text" class="buyer-name" placeholder="Enter your name"></div>
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" class="buyer-utr" placeholder="Enter 12-digit UTR"></div>
+        <button type="button" class="btn btn-wa" onclick="processCheckout(this, 'Marketing Mastery', '1499')">Generate ID &amp; Confirm on WhatsApp &rarr;</button>
+        <div class="cred-box"></div>
       </div>
     </details>
   </div>
@@ -130,9 +137,10 @@
           </div>
           <span class="upi-tip">Scan QR or pay &#8377;2,199 to <strong>7999886983@upi</strong> using any UPI app.</span>
         </div>
-        <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.2199%20for%20Branding%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+        <div class="inp-g"><label>Full Name</label><input type="text" class="buyer-name" placeholder="Enter your name"></div>
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" class="buyer-utr" placeholder="Enter 12-digit UTR"></div>
+        <button type="button" class="btn btn-wa" onclick="processCheckout(this, 'Branding Mastery', '2199')">Generate ID &amp; Confirm on WhatsApp &rarr;</button>
+        <div class="cred-box"></div>
       </div>
     </details>
   </div>
@@ -166,9 +174,10 @@
           </div>
           <span class="upi-tip">Scan QR or pay &#8377;3,499 to <strong>7999886983@upi</strong> using any UPI app.</span>
         </div>
-        <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.3499%20for%20Traffic%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+        <div class="inp-g"><label>Full Name</label><input type="text" class="buyer-name" placeholder="Enter your name"></div>
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" class="buyer-utr" placeholder="Enter 12-digit UTR"></div>
+        <button type="button" class="btn btn-wa" onclick="processCheckout(this, 'Traffic Mastery', '3499')">Generate ID &amp; Confirm on WhatsApp &rarr;</button>
+        <div class="cred-box"></div>
       </div>
     </details>
   </div>
@@ -202,9 +211,10 @@
           </div>
           <span class="upi-tip">Scan QR or pay &#8377;4,999 to <strong>7999886983@upi</strong> using any UPI app.</span>
         </div>
-        <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.4999%20for%20Influence%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+        <div class="inp-g"><label>Full Name</label><input type="text" class="buyer-name" placeholder="Enter your name"></div>
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" class="buyer-utr" placeholder="Enter 12-digit UTR"></div>
+        <button type="button" class="btn btn-wa" onclick="processCheckout(this, 'Influence Mastery', '4999')">Generate ID &amp; Confirm on WhatsApp &rarr;</button>
+        <div class="cred-box"></div>
       </div>
     </details>
   </div>
@@ -238,9 +248,10 @@
           </div>
           <span class="upi-tip">Scan QR or pay &#8377;6,999 to <strong>7999886983@upi</strong> using any UPI app.</span>
         </div>
-        <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.6999%20for%20Finance%20Mastery%20VIP." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+        <div class="inp-g"><label>Full Name</label><input type="text" class="buyer-name" placeholder="Enter your name"></div>
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" class="buyer-utr" placeholder="Enter 12-digit UTR"></div>
+        <button type="button" class="btn btn-wa" onclick="processCheckout(this, 'Finance Mastery VIP', '6999')">Generate ID &amp; Confirm on WhatsApp &rarr;</button>
+        <div class="cred-box"></div>
       </div>
     </details>
   </div>
@@ -257,6 +268,34 @@
     <a href="https://wa.me/916289841691" target="_blank">WhatsApp Support</a>
   </div>
 </footer>
+
+<script>
+function processCheckout(btn, courseName, amount) {
+  var box = btn.parentElement;
+  var nameInput = box.querySelector(".buyer-name").value.trim() || "Student";
+  var utrInput = box.querySelector(".buyer-utr").value.trim() || "Not Entered";
+  var credDiv = box.querySelector(".cred-box");
+
+  var randNum = Math.floor(1000 + Math.random() * 9000);
+  var studentId = "TMS" + randNum;
+  var passWord = "MS@" + randNum;
+
+  credDiv.innerHTML =
+    "<b>Generated Login Credentials (Give after payment check)</b>" +
+    "<p>Student ID: <strong>" + studentId + "</strong></p>" +
+    "<p>Password: <strong>" + passWord + "</strong></p>";
+  credDiv.classList.add("show");
+
+  var msg = "Hello THE MILLIONAIRE SKILLS, I completed payment of Rs." + amount +
+    " for " + courseName + ". Name: " + nameInput +
+    ", UTR: " + utrInput +
+    ", Generated ID: " + studentId +
+    ", Pass: " + passWord;
+
+  var waUrl = "https://wa.me/916289841691?text=" + encodeURIComponent(msg);
+  window.open(waUrl, "_blank");
+}
+</script>
 
 </body>
 </html>

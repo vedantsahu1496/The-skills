@@ -4,126 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Millionaire Skills — High-Income Digital Mastery</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
-html{scroll-behavior:smooth}
-body{background:#090c10;color:#f1f5f9;line-height:1.5;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-button,input,select,summary{font-family:inherit}
-button,summary{cursor:pointer}
-
-/* Top Navigation */
-.hdr{position:sticky;top:0;z-index:60;background:rgba(13,17,23,0.96);border-bottom:1px solid #21262d;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-.brand b{display:block;font-size:14.5px;font-weight:800;color:#f8fafc;letter-spacing:0.6px}
-.brand small{display:block;font-size:9px;font-weight:700;color:#eab308;letter-spacing:1.6px;text-transform:uppercase}
-.hdr-right{display:flex;gap:8px;align-items:center}
-.btn-top{background:#eab308;color:#090c10;border:none;border-radius:8px;padding:8px 13px;font-size:12px;font-weight:800;display:inline-block}
-
-/* Hamburger Menu (<details>) */
-details.menu-det{position:relative;display:inline-block}
-summary.burger-sum{list-style:none;background:#161b22;color:#f8fafc;border:1px solid #30363d;border-radius:8px;width:38px;height:38px;font-size:19px;font-weight:800;display:flex;align-items:center;justify-content:center}
-summary.burger-sum::-webkit-details-marker{display:none}
-.menu-list{position:fixed;top:62px;left:0;right:0;background:#0d1117;border-bottom:1px solid #30363d;padding:10px 16px 14px;z-index:59;box-shadow:0 16px 32px rgba(0,0,0,0.75)}
-.menu-list a{display:block;padding:12px 6px;border-bottom:1px solid #1c2128;color:#e2e8f0;font-size:14px;font-weight:600}
-.menu-list a:last-child{border-bottom:none;color:#eab308;font-weight:700}
-
-/* Hero Section */
-.hero{padding:38px 16px 30px;text-align:center;background:#0d1117;border-bottom:1px solid #1c2128}
-.hero-tag{display:inline-block;background:#1c1917;border:1px solid rgba(234,179,8,0.45);color:#facc15;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.5px}
-.hero h1{font-size:29px;font-weight:900;color:#ffffff;margin:14px 0 10px;line-height:1.18;letter-spacing:-0.5px}
-.hero h1 span{color:#eab308}
-.hero p{font-size:14px;color:#94a3b8;max-width:450px;margin:0 auto 20px;font-weight:500}
-
-.btn{display:block;width:100%;border:none;border-radius:10px;padding:13px 16px;font-size:14px;font-weight:800;text-align:center;letter-spacing:0.2px}
-.btn-gold{background:#eab308;color:#090c10}
-.btn-ghost{background:#161b22;color:#f1f5f9;border:1px solid #30363d;margin-top:10px}
-.btn-wa{background:#16a34a;color:#ffffff;margin-top:10px}
-
-/* Trust & Stats */
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:520px;margin:22px auto 0}
-.stat{background:#161b22;border:1px solid #21262d;border-radius:12px;padding:13px;text-align:left}
-.stat b{display:block;font-size:20px;font-weight:800;color:#eab308}
-.stat span{font-size:12px;font-weight:600;color:#94a3b8}
-
-/* Sections */
-.sec{max-width:580px;margin:0 auto;padding:32px 16px}
-.sec-h{text-align:center;margin-bottom:20px}
-.sec-h h2{font-size:22px;font-weight:800;color:#ffffff;letter-spacing:-0.2px}
-.sec-h p{font-size:13px;color:#94a3b8;margin-top:4px}
-
-/* How It Works */
-.steps{display:grid;gap:10px;margin-bottom:8px}
-.step{background:#0d1117;border:1px solid #21262d;border-radius:12px;padding:13px 14px;display:flex;gap:12px;align-items:flex-start}
-.step-num{min-width:28px;height:28px;border-radius:8px;background:#eab308;color:#090c10;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
-.step b{display:block;font-size:13.5px;color:#f8fafc;margin-bottom:2px}
-.step span{font-size:12.5px;color:#94a3b8}
-
-/* Course Cards */
-.card{background:#0d1117;border:1px solid #21262d;border-radius:16px;padding:18px;margin-bottom:20px}
-.card.vip{border:1.5px solid #eab308;background:#111318}
-
-.book-wrap{padding:24px 16px;border-radius:12px;margin-bottom:16px;display:flex;justify-content:center;align-items:center;border:1px solid rgba(255,255,255,0.08)}
-.book{width:154px;height:204px;border-radius:4px 14px 14px 4px;padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;border-left:7px solid #eab308;border-top:1px solid rgba(255,255,255,0.35);border-right:1px solid rgba(255,255,255,0.15);border-bottom:4px solid rgba(0,0,0,0.75);transform:rotate(-2deg)}
-.book small{font-size:7.5px;font-weight:800;letter-spacing:1.2px;color:#f8fafc;background:rgba(0,0,0,0.5);padding:3px 6px;border-radius:4px}
-.book h3{font-size:16px;font-weight:900;color:#ffffff;line-height:1.15;text-transform:uppercase;letter-spacing:0.5px;text-shadow:0 2px 6px rgba(0,0,0,0.85)}
-.book span{font-size:8.5px;font-weight:800;letter-spacing:0.8px;background:#eab308;color:#090c10;padding:4px 7px;border-radius:5px;text-transform:uppercase}
-
-.badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.pill-b{background:#161b22;color:#eab308;border:1px solid rgba(234,179,8,0.35);font-size:10px;font-weight:800;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:0.4px}
-.save-b{color:#4ade80;font-size:11.5px;font-weight:800}
-
-.c-title{font-size:19px;font-weight:800;color:#ffffff;margin-bottom:5px}
-.c-desc{font-size:13px;color:#94a3b8;margin-bottom:12px}
-.c-meta{font-size:12px;font-weight:700;color:#cbd5e1;padding:9px 0;border-top:1px solid #1c2128;border-bottom:1px solid #1c2128;margin-bottom:12px;display:flex;justify-content:space-between}
-.c-price{font-size:24px;font-weight:900;color:#ffffff;margin-bottom:12px}
-.c-old{font-size:13.5px;color:#64748b;text-decoration:line-through;margin-left:6px;font-weight:600}
-
-/* Checkout Accordion (<details>) */
-details.pay-det{margin-top:8px;background:#161b22;border:1px solid #30363d;border-radius:12px;padding:12px}
-details.pay-det[open]{border-color:#eab308}
-summary.pay-sum{list-style:none;color:#eab308;font-weight:800;font-size:13.5px;text-align:center}
-summary.pay-sum::-webkit-details-marker{display:none}
-.pay-box{margin-top:12px;padding-top:12px;border-top:1px solid #21262d;text-align:center}
-.qr-card{background:#ffffff;color:#090c10;border-radius:10px;padding:12px;margin-bottom:12px}
-.qr-card img{width:148px;height:148px;display:block;margin:8px auto}
-.upi-id{font-size:12px;font-weight:800;color:#090c10;margin-bottom:6px}
-.upi-app-link{display:inline-block;background:#090c10;color:#eab308;padding:6px 12px;border-radius:6px;font-size:11.5px;font-weight:800}
-
-.inp-g{margin-bottom:9px;text-align:left}
-.inp-g label{display:block;font-size:11.5px;color:#cbd5e1;font-weight:700;margin-bottom:4px}
-.inp-g input{width:100%;padding:10px;border-radius:8px;border:1px solid #30363d;background:#090c10;color:#ffffff;font-size:13.5px}
-.inp-g input:focus{outline:none;border-color:#eab308}
-
-/* FAQ */
-details.faq-item{background:#0d1117;border:1px solid #21262d;border-radius:12px;padding:13px 14px;margin-bottom:10px}
-summary.faq-q{list-style:none;font-size:13.5px;font-weight:700;color:#f8fafc}
-summary.faq-q::-webkit-details-marker{display:none}
-.faq-a{margin-top:8px;padding-top:8px;border-top:1px solid #1c2128;font-size:12.5px;color:#94a3b8}
-
-/* Footer */
-footer{background:#06080b;border-top:1px solid #21262d;padding:28px 16px;text-align:center;font-size:12.5px;color:#94a3b8}
-footer b{color:#eab308;display:block;font-size:14px;font-weight:800;margin-bottom:6px;letter-spacing:0.5px}
-.f-links{margin-top:12px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.f-links a{color:#f1f5f9;font-weight:700;border-bottom:1px solid #30363d;padding-bottom:2px}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="hdr">
   <a href="#top" class="brand">
     <b>THE MILLIONAIRE SKILLS</b>
-    <small>GOLD EDITION &bull; DIGITAL MASTERY</small>
+    <small>DIGITAL MASTERY</small>
   </a>
   <div class="hdr-right">
-    <a href="#courses" class="btn-top">Packages</a>
+    <a href="#courses" class="btn-top">Courses</a>
     <details class="menu-det">
       <summary class="burger-sum">&#9776;</summary>
       <div class="menu-list">
-        <a href="#how-it-works">How Enrollment Works</a>
-        <a href="#courses">5 Mastery Packages</a>
-        <a href="#faq">Quick FAQs</a>
-        <a href="#contact">Contact &amp; Support</a>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20please%20share%20student%20login%20details." target="_blank">Request Student Login on WhatsApp &rarr;</a>
+        <a href="#courses">Courses</a>
+        <a href="#about">About Us</a>
+        <a href="login.html">Login</a>
+        <a href="#contact">Contact</a>
       </div>
     </details>
   </div>
@@ -132,57 +30,41 @@ footer b{color:#eab308;display:block;font-size:14px;font-weight:800;margin-botto
 <div id="top"></div>
 
 <section class="hero">
-  <div class="hero-tag">&#9733; TRUSTED BY 10,000+ ASPIRING LEARNERS</div>
-  <h1>Master Practical &amp; <span>High-Income Skills</span></h1>
-  <p>Structured playbooks on Marketing, Personal Branding, Traffic, Influence &amp; Finance with instant UPI QR checkout and WhatsApp onboarding.</p>
-  <a href="#courses" class="btn btn-gold">Explore Mastery Packages &rarr;</a>
-  <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20want%20guidance%20on%20choosing%20a%20package." target="_blank" class="btn btn-ghost">Talk to Support on WhatsApp</a>
+  <div class="hero-tag">&#9733; PRACTICAL &amp; ACTION-FOCUSED LEARNING</div>
+  <h1>Build High-Income &amp; <span>Digital Skills</span></h1>
+  <p>Structured playbooks on Marketing, Branding, Traffic, Influence &amp; Finance with UPI QR checkout and WhatsApp onboarding.</p>
+  <a href="#courses" class="btn btn-gold">Explore Courses &rarr;</a>
+  <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20want%20to%20know%20more%20about%20the%20courses." target="_blank" class="btn btn-ghost">Chat on WhatsApp</a>
 
   <div class="stats">
-    <div class="stat"><b>85+</b><span>Actionable Modules</span></div>
+    <div class="stat"><b>85+</b><span>Practical Modules</span></div>
     <div class="stat"><b>10K+</b><span>Active Learners</span></div>
-    <div class="stat"><b>24/7</b><span>Mobile-Ready Access</span></div>
-    <div class="stat"><b>1-on-1</b><span>WhatsApp Onboarding</span></div>
+    <div class="stat"><b>24/7</b><span>Mobile Access</span></div>
+    <div class="stat"><b>1-on-1</b><span>WhatsApp Support</span></div>
   </div>
 </section>
 
-<section class="sec" id="how-it-works">
+<section class="sec" id="about">
   <div class="sec-h">
-    <h2>Simple 3-Step Enrollment</h2>
-    <p>Clear, direct, and beginner-friendly access</p>
+    <h2>About Us</h2>
+    <p>Clear systems over fluff</p>
   </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div>
-        <b>Select Your Package &amp; Scan UPI QR</b>
-        <span>Open any course card below to view the exact amount QR code or launch your UPI app.</span>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div>
-        <b>Enter Name &amp; UTR Reference</b>
-        <span>Fill your details inside the payment box and tap send to open a pre-filled WhatsApp message.</span>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div>
-        <b>Get Verified &amp; Start Learning</b>
-        <span>Once your payment UTR is verified, receive your access &amp; support directly on WhatsApp.</span>
-      </div>
-    </div>
+  <div class="info-box">
+    <b>Why The Millionaire Skills?</b>
+    <p>We focus on practical execution—marketing funnels, personal branding, lead generation, communication, and money discipline—delivered in a simple, mobile-friendly flow with direct WhatsApp support.</p>
+  </div>
+  <div class="info-box">
+    <b>Simple 3-Step Access</b>
+    <p>1. Pick a course &amp; scan UPI QR. 2. Fill your name and UTR. 3. Send confirmation on WhatsApp to get verified and start learning.</p>
   </div>
 </section>
 
 <section class="sec" id="courses">
   <div class="sec-h">
-    <h2>Mastery Packages</h2>
-    <p>Choose a focused track or unlock the complete VIP bundle</p>
+    <h2>Mastery Courses</h2>
+    <p>Select a package to view UPI QR &amp; WhatsApp confirmation</p>
   </div>
 
-  <!-- 1. Marketing Mastery -->
   <div class="card">
     <div class="book-wrap" style="background:#0f172a">
       <div class="book" style="background:#1e3a8a">
@@ -201,17 +83,16 @@ footer b{color:#eab308;display:block;font-size:14px;font-weight:800;margin-botto
       <div class="pay-box">
         <div class="qr-card">
           <div class="upi-id">Pay &#8377;1,499 &bull; UPI: 7999886983@upi</div>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D1499%26cu%3DINR" alt="Marketing Mastery UPI QR Code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D1499%26cu%3DINR" alt="Marketing Mastery QR">
           <a href="upi://pay?pa=7999886983@upi&amp;pn=TheMillionaireSkills&amp;am=1499&amp;cu=INR" class="upi-app-link">Open UPI App</a>
         </div>
         <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR number"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20have%20completed%20payment%20of%20Rs.1499%20for%20Marketing%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
+        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.1499%20for%20Marketing%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
       </div>
     </details>
   </div>
 
-  <!-- 2. Branding Mastery -->
   <div class="card">
     <div class="book-wrap" style="background:#1c1917">
       <div class="book" style="background:#92400e">
@@ -230,17 +111,16 @@ footer b{color:#eab308;display:block;font-size:14px;font-weight:800;margin-botto
       <div class="pay-box">
         <div class="qr-card">
           <div class="upi-id">Pay &#8377;2,199 &bull; UPI: 7999886983@upi</div>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D2199%26cu%3DINR" alt="Branding Mastery UPI QR Code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D2199%26cu%3DINR" alt="Branding Mastery QR">
           <a href="upi://pay?pa=7999886983@upi&amp;pn=TheMillionaireSkills&amp;am=2199&amp;cu=INR" class="upi-app-link">Open UPI App</a>
         </div>
         <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR number"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20have%20completed%20payment%20of%20Rs.2199%20for%20Branding%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
+        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.2199%20for%20Branding%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
       </div>
     </details>
   </div>
 
-  <!-- 3. Traffic Mastery -->
   <div class="card">
     <div class="book-wrap" style="background:#06281e">
       <div class="book" style="background:#065f46">
@@ -259,17 +139,16 @@ footer b{color:#eab308;display:block;font-size:14px;font-weight:800;margin-botto
       <div class="pay-box">
         <div class="qr-card">
           <div class="upi-id">Pay &#8377;3,499 &bull; UPI: 7999886983@upi</div>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D3499%26cu%3DINR" alt="Traffic Mastery UPI QR Code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D3499%26cu%3DINR" alt="Traffic Mastery QR">
           <a href="upi://pay?pa=7999886983@upi&amp;pn=TheMillionaireSkills&amp;am=3499&amp;cu=INR" class="upi-app-link">Open UPI App</a>
         </div>
         <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR number"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20have%20completed%20payment%20of%20Rs.3499%20for%20Traffic%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
+        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.3499%20for%20Traffic%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
       </div>
     </details>
   </div>
 
-  <!-- 4. Influence Mastery -->
   <div class="card">
     <div class="book-wrap" style="background:#1e1035">
       <div class="book" style="background:#5b21b6">
@@ -288,17 +167,16 @@ footer b{color:#eab308;display:block;font-size:14px;font-weight:800;margin-botto
       <div class="pay-box">
         <div class="qr-card">
           <div class="upi-id">Pay &#8377;4,999 &bull; UPI: 7999886983@upi</div>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D4999%26cu%3DINR" alt="Influence Mastery UPI QR Code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D4999%26cu%3DINR" alt="Influence Mastery QR">
           <a href="upi://pay?pa=7999886983@upi&amp;pn=TheMillionaireSkills&amp;am=4999&amp;cu=INR" class="upi-app-link">Open UPI App</a>
         </div>
         <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR number"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20have%20completed%20payment%20of%20Rs.4999%20for%20Influence%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
+        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.4999%20for%20Influence%20Mastery." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
       </div>
     </details>
   </div>
 
-  <!-- 5. Finance Mastery (VIP Bundle) -->
   <div class="card vip">
     <div class="book-wrap" style="background:#291d06">
       <div class="book" style="background:#a16207">
@@ -317,9 +195,28 @@ footer b{color:#eab308;display:block;font-size:14px;font-weight:800;margin-botto
       <div class="pay-box">
         <div class="qr-card">
           <div class="upi-id">Pay &#8377;6,999 &bull; UPI: 7999886983@upi</div>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D6999%26cu%3DINR" alt="Finance Mastery VIP UPI QR Code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=upi%3A%2F%2Fpay%3Fpa%3D7999886983%40upi%26pn%3DTheMillionaireSkills%26am%3D6999%26cu%3DINR" alt="Finance Mastery VIP QR">
           <a href="upi://pay?pa=7999886983@upi&amp;pn=TheMillionaireSkills&amp;am=6999&amp;cu=INR" class="upi-app-link">Open UPI App</a>
         </div>
         <div class="inp-g"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
-        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR number"></div>
-        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIO
+        <div class="inp-g"><label>UPI UTR / Transaction ID</label><input type="text" placeholder="Enter 12-digit UTR"></div>
+        <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20completed%20payment%20of%20Rs.6999%20for%20Finance%20Mastery%20VIP." target="_blank" class="btn btn-wa">Confirm Payment on WhatsApp &rarr;</a>
+      </div>
+    </details>
+  </div>
+</section>
+
+<footer id="contact">
+  <b>THE MILLIONAIRE SKILLS</b>
+  <div>Support &amp; WhatsApp: +91 62898 41691 &bull; +91 7999886983</div>
+  <div style="margin-top:4px">Email: mdaadilalam123123@gmail.com</div>
+  <div class="f-links">
+    <a href="#courses">Courses</a>
+    <a href="#about">About Us</a>
+    <a href="login.html">Login</a>
+    <a href="https://wa.me/916289841691" target="_blank">WhatsApp Support</a>
+  </div>
+</footer>
+
+</body>
+</html>

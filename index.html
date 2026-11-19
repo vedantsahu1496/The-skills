@@ -51,7 +51,7 @@ button{cursor:pointer;font-family:inherit}
 .c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #334155;border-bottom:1px solid #334155;font-size:12px}
 .c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
 .c-old{font-size:13px;color:#64748b;text-decoration:line-through}
-.modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:99999;overflow-y:auto;padding:15px}
+.modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;overflow-y:auto;padding:15px}
 .modal-screen.active{display:block}
 .modal-card{background:#0b1224;border:1px solid #fbbf24;border-radius:16px;padding:20px;max-width:420px;margin:20px auto}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}
@@ -86,12 +86,12 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <small>EXECUTIVE MASTERY</small>
 </a>
 <div class="hdr-r">
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="uncheckMenu();openModal('signin-modal')">Student Login</button>
+<a href="#signin-modal" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="uncheckMenu();openModal('signin-modal');return false;">Student Login</a>
 <input type="checkbox" id="menu-toggle">
 <label for="menu-toggle" class="menu-btn">&#9776;</label>
 <div class="nav-drawer">
 <a href="#courses" onclick="uncheckMenu();closeAll()">Mastery Packages</a>
-<a href="javascript:void(0)" onclick="uncheckMenu();openModal('signin-modal')">Student Portal</a>
+<a href="#signin-modal" onclick="uncheckMenu();openModal('signin-modal');return false;">Student Portal</a>
 <a href="#contact" onclick="uncheckMenu();closeAll()">Contact Support</a>
 <a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer" onclick="uncheckMenu()">WhatsApp Support</a>
 </div>
@@ -310,7 +310,6 @@ function openModal(id){
   if(modal){
     modal.classList.add("active");
     modal.style.display = "block";
-    modal.scrollTop = 0;
   }
 }
 
@@ -441,4 +440,32 @@ function copyText(val,msgId){
         box.textContent = "Copied: " + val;
         box.style.display = "block";
       }
-    }).catch(function()
+    }).catch(function(){
+      if(box){
+        box.textContent = val;
+        box.style.display = "block";
+      }
+    });
+  }else if(box){
+    box.textContent = val;
+    box.style.display = "block";
+  }
+}
+
+document.addEventListener("click",function(event){
+  if(event.target.classList.contains("modal-screen")){
+    closeAll();
+  }
+});
+
+document.getElementById("fPhone").addEventListener("input",function(){
+  this.value = this.value.replace(/\D/g,"").slice(0,10);
+});
+
+document.getElementById("fUtr").addEventListener("input",function(){
+  this.value = this.value.replace(/\D/g,"").slice(0,12);
+});
+</script>
+
+</body>
+</html>

@@ -19,7 +19,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit;text-decoration:none}
-button{cursor:pointer;font-family:inherit;touch-action:manipulation}
+button{cursor:pointer;font-family:inherit}
 
 .hdr{
   position:sticky;
@@ -245,11 +245,10 @@ button{cursor:pointer;font-family:inherit;touch-action:manipulation}
   inset:0;
   background:rgba(3,6,14,0.9);
   backdrop-filter:blur(6px);
-  z-index:9999;
+  z-index:99999;
   padding:16px;
   overflow-y:auto;
 }
-.modal-screen.active{display:block}
 .modal-card{
   background:#0b1224;
   border:1px solid rgba(251,191,36,0.42);
@@ -393,14 +392,14 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 </a>
 
 <div class="hdr-r">
-<button type="button" class="btn-sm" data-open-modal="signin-modal">Sign In / Sign Up</button>
+<button type="button" class="btn-sm" onclick="openBox('signin-modal')">Sign In / Sign Up</button>
 <input type="checkbox" id="menu-toggle">
 <label for="menu-toggle" class="menu-btn">&#9776;</label>
 
 <div class="nav-drawer">
-<a href="#courses" data-close-all="1">Mastery Packages</a>
-<a href="#signin-modal" data-open-modal="signin-modal">Student Portal</a>
-<a href="#contact" data-close-all="1">Contact Support</a>
+<a href="#courses" onclick="hideMenuAndBoxes()">Mastery Packages</a>
+<a href="#signin-modal" onclick="hideMenuAndBoxes();openBox('signin-modal');return false;">Student Portal</a>
+<a href="#contact" onclick="hideMenuAndBoxes()">Contact Support</a>
 <a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
 </div>
 </div>
@@ -412,7 +411,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment details and student registration.</p>
 <div class="hero-actions">
 <a href="#courses" class="btn btn-gold">Explore 5 Mastery Packages &rarr;</a>
-<button type="button" class="btn btn-dark" data-open-modal="signin-modal">Student Portal Sign In</button>
+<button type="button" class="btn btn-dark" onclick="openBox('signin-modal')">Student Portal Sign In</button>
 </div>
 
 <div class="stats">
@@ -438,7 +437,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
 <div class="c-meta"><span>&#9733; 4.8</span><span>12 Modules</span></div>
 <div class="c-price">₹999 <span class="c-old">₹1,999</span></div>
-<button type="button" class="btn btn-gold" data-buy-btn="1" data-pkg="Marketing Mastery" data-price="999">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="openBuyBox('Marketing Mastery', 999)">Buy Now &rarr;</button>
 </div>
 
 <div class="card">
@@ -450,7 +449,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
 <div class="c-meta"><span>&#9733; 4.7</span><span>16 Modules</span></div>
 <div class="c-price">₹2,499 <span class="c-old">₹4,999</span></div>
-<button type="button" class="btn btn-gold" data-buy-btn="1" data-pkg="Branding Mastery" data-price="2499">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="openBuyBox('Branding Mastery', 2499)">Buy Now &rarr;</button>
 </div>
 
 <div class="card">
@@ -462,7 +461,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
 <div class="c-meta"><span>&#9733; 4.6</span><span>20 Modules</span></div>
 <div class="c-price">₹4,999 <span class="c-old">₹9,999</span></div>
-<button type="button" class="btn btn-gold" data-buy-btn="1" data-pkg="Traffic Mastery" data-price="4999">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="openBuyBox('Traffic Mastery', 4999)">Buy Now &rarr;</button>
 </div>
 
 <div class="card">
@@ -474,7 +473,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
 <div class="c-meta"><span>&#9733; 4.9</span><span>22 Modules</span></div>
 <div class="c-price">₹9,999 <span class="c-old">₹19,999</span></div>
-<button type="button" class="btn btn-gold" data-buy-btn="1" data-pkg="Influence Mastery" data-price="9999">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="openBuyBox('Influence Mastery', 9999)">Buy Now &rarr;</button>
 </div>
 
 <div class="card vip">
@@ -486,7 +485,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
 <div class="c-meta"><span>&#9733; 5.0</span><span>All 85+ Modules</span></div>
 <div class="c-price">₹14,999 <span class="c-old">₹29,999</span></div>
-<button type="button" class="btn btn-gold" data-buy-btn="1" data-pkg="Finance Mastery (VIP)" data-price="14999">Buy Now &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="openBuyBox('Finance Mastery (VIP)', 14999)">Buy Now &rarr;</button>
 </div>
 </section>
 
@@ -500,7 +499,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
   <div class="support-email-pill">mdaadilalam123123@gmail.com</div>
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaadilalam123123@gmail.com&su=Support%20Request%20-%20THE%20MILLIONAIRE%20SKILLS" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Open in Gmail &rarr;</a>
   <a href="mailto:mdaadilalam123123@gmail.com?subject=Support%20Request%20-%20THE%20MILLIONAIRE%20SKILLS" class="btn btn-green">Open Mail App &rarr;</a>
-  <button type="button" class="btn btn-dark" data-copy="email">Copy Email</button>
+  <button type="button" class="btn btn-dark" onclick="copyValue('mdaadilalam123123@gmail.com', 'emailCopyMsg')">Copy Email</button>
   <div class="copy-msg" id="emailCopyMsg"></div>
 </div>
 
@@ -508,23 +507,23 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
   <b style="color:#4ade80;margin-bottom:4px">WhatsApp Support</b>
   <div class="support-email-pill">+91 62898 41691</div>
   <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20need%20support." target="_blank" rel="noopener noreferrer" class="btn btn-green">Chat on WhatsApp (+91 62898 41691) &rarr;</a>
-  <button type="button" class="btn btn-dark" data-copy="wa">Copy WhatsApp Number</button>
+  <button type="button" class="btn btn-dark" onclick="copyValue('+91 62898 41691', 'waCopyMsg')">Copy WhatsApp Number</button>
   <div class="copy-msg" id="waCopyMsg"></div>
 </div>
 
 <div class="f-links">
 <a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
-<a href="#emailSupportBox" data-focus-box="emailSupportBox">Email Support</a>
-<a href="#whatsappSupportBox" data-focus-box="whatsappSupportBox">WhatsApp Box</a>
+<a href="#emailSupportBox" onclick="jumpToBox('emailSupportBox');return false;">Email Support</a>
+<a href="#whatsappSupportBox" onclick="jumpToBox('whatsappSupportBox');return false;">WhatsApp Box</a>
 </div>
 </footer>
 
 <!-- CHECKOUT MODAL -->
-<div class="modal-screen" id="buy-modal">
+<div class="modal-screen" id="buy-modal" onclick="if(event.target===this)hideMenuAndBoxes()">
 <div class="modal-card">
 <div class="m-top">
 <b id="modalPkgTitle">Package Checkout</b>
-<button type="button" class="m-close" data-close-all="1">Close ×</button>
+<button type="button" class="m-close" onclick="hideMenuAndBoxes()">Close ×</button>
 </div>
 
 <div class="qr-box">
@@ -544,22 +543,22 @@ Payment details submit karne ke baad manual payment verification ka wait karein.
 <input type="text" class="inp" id="fName" placeholder="Enter full name">
 
 <label class="lbl">Your WhatsApp Number (10 Digits)</label>
-<input type="tel" class="inp" id="fPhone" maxlength="10" inputmode="numeric" placeholder="10-digit WhatsApp number">
+<input type="tel" class="inp" id="fPhone" maxlength="10" inputmode="numeric" placeholder="10-digit WhatsApp number" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
 
 <label class="lbl">UPI UTR / Transaction Reference (12 Digits)</label>
-<input type="text" class="inp" id="fUtr" maxlength="12" inputmode="numeric" placeholder="Enter 12-digit UTR number">
+<input type="text" class="inp" id="fUtr" maxlength="12" inputmode="numeric" placeholder="Enter 12-digit UTR number" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
 
-<button type="button" class="btn btn-gold" id="submitBuyBtn">Submit Payment Details &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="submitBuyForm()">Submit Payment Details &rarr;</button>
 <div class="err-box" id="buyErrBox"></div>
 </div>
 </div>
 
 <!-- REGISTRATION RESULT -->
-<div class="modal-screen" id="verified-modal">
+<div class="modal-screen" id="verified-modal" onclick="if(event.target===this)hideMenuAndBoxes()">
 <div class="modal-card">
 <div class="m-top">
 <b>Registration Submitted</b>
-<button type="button" class="m-close" data-close-all="1">Close ×</button>
+<button type="button" class="m-close" onclick="hideMenuAndBoxes()">Close ×</button>
 </div>
 
 <div class="success-box">
@@ -574,16 +573,16 @@ Your payment is NOT automatically verified. The administrator must confirm the t
 </div>
 
 <a id="outWaBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-green">Send Payment Details on WhatsApp &rarr;</a>
-<button type="button" class="btn btn-dark" data-close-all="1">Back to Packages</button>
+<button type="button" class="btn btn-dark" onclick="hideMenuAndBoxes()">Back to Packages</button>
 </div>
 </div>
 
 <!-- SIGN IN -->
-<div class="modal-screen" id="signin-modal">
+<div class="modal-screen" id="signin-modal" onclick="if(event.target===this)hideMenuAndBoxes()">
 <div class="modal-card">
 <div class="m-top">
 <b>Student Portal Sign In</b>
-<button type="button" class="m-close" data-close-all="1">Close ×</button>
+<button type="button" class="m-close" onclick="hideMenuAndBoxes()">Close ×</button>
 </div>
 
 <div class="note-box">
@@ -597,24 +596,11 @@ This is a front-end demo login, not a secure student account system.
 <label class="lbl">Password</label>
 <input type="password" class="inp" id="lPw" placeholder="Enter Password">
 
-<button type="button" class="btn btn-gold" id="submitLoginBtn">Sign In to Portal &rarr;</button>
+<button type="button" class="btn btn-gold" onclick="submitLoginForm()">Sign In to Portal &rarr;</button>
 <div class="err-box" id="loginErrBox"></div>
 </div>
 </div>
 
 <!-- DASHBOARD -->
-<div class="modal-screen" id="portal-modal">
-<div class="modal-card">
-<div class="m-top">
-<b>Student Dashboard</b>
-<button type="button" class="m-close" data-close-all="1">Logout</button>
-</div>
-
-<div class="success-box">
-<b id="pWelcome">Welcome, Student</b>
-<div class="cred-row" id="pPkg">Demo Portal Access</div>
-<div class="cred-row">Demo Dashboard</div>
-</div>
-
-<div class="note-box">
-This demonstration dashboard does not unlock or deliver paid course content
+<div class="modal-screen" id="portal-modal" onclick="if(event.target===this)hideMenuAndBoxes()">
+<d

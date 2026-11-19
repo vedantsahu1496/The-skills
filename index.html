@@ -48,16 +48,15 @@ a{color:inherit;text-decoration:none}
 .card:hover{transform:translateY(-3px);border-color:#fbbf24}
 .card.vip{border:2px solid #fbbf24;background:#131c33}
 
-/* Animated High-Quality Showcase */
 .anim-showcase{
   position:relative;
   width:100%;
-  min-height:225px;
+  min-height:220px;
   border-radius:14px;
   margin-bottom:14px;
   padding:14px;
   overflow:hidden;
-  background:radial-gradient(circle at 50% 20%,rgba(59,130,246,0.32),rgba(9,14,28,0.96) 75%);
+  background:radial-gradient(circle at 50% 20%,rgba(59,130,246,0.28),rgba(9,14,28,0.96) 75%);
   border:1px solid rgba(251,191,36,0.28);
   box-shadow:0 12px 26px rgba(0,0,0,0.65);
   display:flex;
@@ -69,13 +68,13 @@ a{color:inherit;text-decoration:none}
   width:220px;
   height:220px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(251,191,36,0.24),rgba(59,130,246,0.16) 55%,transparent 75%);
+  background:radial-gradient(circle,rgba(251,191,36,0.22),rgba(59,130,246,0.14) 55%,transparent 75%);
   animation:pulseGlow 3.2s ease-in-out infinite;
   pointer-events:none;
 }
 .anim-img{
   position:relative;
-  z-index:3;
+  z-index:2;
   width:100%;
   max-width:340px;
   height:auto;
@@ -85,38 +84,9 @@ a{color:inherit;text-decoration:none}
   animation:floatBox 3.6s ease-in-out infinite;
   transition:transform 0.3s ease;
 }
-.card:hover .anim-img{transform:scale(1.03)}
-
-/* Clean 3D Fallback (only shown if image file is missing) */
-.fallback-3d-wrap{
-  display:none;
-  position:relative;
-  z-index:2;
-  justify-content:center;
-  align-items:center;
-  animation:floatBox 3.6s ease-in-out infinite;
+.card:hover .anim-img{
+  transform:scale(1.03);
 }
-.anim-showcase.no-img .anim-img{display:none}
-.anim-showcase.no-img .fallback-3d-wrap{display:flex}
-
-.box-3d{
-  width:156px;
-  height:200px;
-  border-radius:6px 14px 14px 6px;
-  padding:14px 11px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  align-items:center;
-  text-align:center;
-  border-left:9px solid rgba(255,255,255,0.35);
-  border-top:2px solid rgba(255,255,255,0.55);
-  border-bottom:5px solid rgba(0,0,0,0.85);
-  box-shadow:0 16px 28px rgba(0,0,0,0.7),0 0 22px rgba(59,130,246,0.35);
-}
-.box-3d small{font-size:7.5px;font-weight:900;color:#fef08a;background:rgba(0,0,0,0.45);padding:3px 7px;border-radius:4px}
-.box-3d h3{font-size:15.5px;font-weight:900;color:#ffffff;line-height:1.15;text-transform:uppercase}
-.box-3d span{font-size:8.5px;font-weight:900;background:#fbbf24;color:#050811;padding:4px 8px;border-radius:5px}
 
 @keyframes floatBox{
   0%,100%{transform:translateY(0px)}
@@ -200,18 +170,11 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <p>Tap Buy Now to pay via UPI, verify UTR &amp; get User ID</p>
   </div>
 
-  <!-- 1. MARKETING MASTERY -->
+  <!-- 1. MARKETING MASTERY (LINK ADDED) -->
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="covers-5.jpg" alt="Marketing Mastery" class="anim-img" data-cover="1" onerror="this.parentElement.classList.add('no-img')">
-      <div class="fallback-3d-wrap">
-        <div class="box-3d" style="background:linear-gradient(160deg,#1d4ed8,#090e1c)">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>MARKETING MASTERY</h3>
-          <span>FUNNELS &amp; SALES</span>
-        </div>
-      </div>
+      <img src="" alt="Marketing Mastery" class="anim-img" id="imgMarketing">
     </div>
     <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Marketing Mastery</div>
@@ -225,14 +188,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="covers-5.jpg" alt="Branding Mastery" class="anim-img" data-cover="1" onerror="this.parentElement.classList.add('no-img')">
-      <div class="fallback-3d-wrap">
-        <div class="box-3d" style="background:linear-gradient(160deg,#b45309,#1c1917)">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>BRANDING MASTERY</h3>
-          <span>PERSONAL BRAND</span>
-        </div>
-      </div>
+      <img src="" alt="Branding Mastery" class="anim-img" id="imgBranding">
     </div>
     <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Branding Mastery</div>
@@ -246,14 +202,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="covers-5.jpg" alt="Traffic Mastery" class="anim-img" data-cover="1" onerror="this.parentElement.classList.add('no-img')">
-      <div class="fallback-3d-wrap">
-        <div class="box-3d" style="background:linear-gradient(160deg,#047857,#022c22)">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>TRAFFIC MASTERY</h3>
-          <span>LEADS &amp; ADS</span>
-        </div>
-      </div>
+      <img src="" alt="Traffic Mastery" class="anim-img" id="imgTraffic">
     </div>
     <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Traffic Mastery</div>
@@ -267,14 +216,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="covers-5.jpg" alt="Influence Mastery" class="anim-img" data-cover="1" onerror="this.parentElement.classList.add('no-img')">
-      <div class="fallback-3d-wrap">
-        <div class="box-3d" style="background:linear-gradient(160deg,#6d28d9,#1e1b4b)">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>INFLUENCE MASTERY</h3>
-          <span>CLOSING &amp; SPEAKING</span>
-        </div>
-      </div>
+      <img src="" alt="Influence Mastery" class="anim-img" id="imgInfluence">
     </div>
     <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Influence Mastery</div>
@@ -288,14 +230,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card vip">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="covers-5.jpg" alt="Finance Mastery" class="anim-img" data-cover="1" onerror="this.parentElement.classList.add('no-img')">
-      <div class="fallback-3d-wrap">
-        <div class="box-3d" style="background:linear-gradient(160deg,#a16207,#271704)">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>FINANCE MASTERY</h3>
-          <span>WEALTH &amp; FULL ACCESS</span>
-        </div>
-      </div>
+      <img src="" alt="Finance Mastery" class="anim-img" id="imgFinance">
     </div>
     <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
     <div class="c-title">Finance Mastery (VIP Bundle)</div>
@@ -402,4 +337,88 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div class="cred-row" id="pPkg">Status: Active Enrollment</div>
       <div class="cred-row">Access: All Video Modules &amp; Notes Unlocked</div>
     </div>
-    <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20am%20logged%20into%20the%20Student%20Portal%20and%20need%20my%20training%20links." target="_blank" rel="noopener" class="btn btn-gold">Get Training Li
+    <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20am%20logged%20into%20the%20Student%20Portal%20and%20need%20my%20training%20links." target="_blank" rel="noopener" class="btn btn-gold">Get Training Links on WhatsApp &rarr;</a>
+    <a href="#top" class="btn btn-dark">Back to Home</a>
+  </div>
+</div>
+
+<script>
+// YAHAN HAR COURSE KA IMAGE LINK SET HOGA
+var COURSE_LINKS = {
+  marketing: "https://ibb.co/q35zdmvP",
+  branding: "",
+  traffic: "",
+  influence: "",
+  finance: ""
+};
+
+(function initCourseImages(){
+  if(COURSE_LINKS.marketing) document.getElementById("imgMarketing").src = COURSE_LINKS.marketing;
+  if(COURSE_LINKS.branding) document.getElementById("imgBranding").src = COURSE_LINKS.branding;
+  if(COURSE_LINKS.traffic) document.getElementById("imgTraffic").src = COURSE_LINKS.traffic;
+  if(COURSE_LINKS.influence) document.getElementById("imgInfluence").src = COURSE_LINKS.influence;
+  if(COURSE_LINKS.finance) document.getElementById("imgFinance").src = COURSE_LINKS.finance;
+})();
+
+var WA_NUMBER = "916289841691";
+var activePackage = "Marketing Mastery";
+
+function g(id){
+  return document.getElementById(id);
+}
+
+function digitsOnly(v){
+  var str = String(v || "");
+  var res = "";
+  for(var i = 0; i < str.length; i++){
+    var c = str.charAt(i);
+    if(c >= "0" && c <= "9") res += c;
+  }
+  return res;
+}
+
+function uncheckMenu(){
+  var chk = g("menu-toggle");
+  if(chk) chk.checked = false;
+}
+
+function syncQr(amt){
+  var d = digitsOnly(amt);
+  g("modalQrLabel").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
+  var uri = "upi://pay?pa=7999886983@upi&pn=TheMillionaireSkills" + (d ? ("&am=" + d) : "") + "&cu=INR";
+  g("modalQrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(uri);
+}
+
+function prepPackage(pkgName, price){
+  activePackage = pkgName;
+  g("modalPkgTitle").innerHTML = pkgName + " Checkout";
+  g("fAmt").value = price;
+  syncQr(price);
+}
+
+function buildCredentials(){
+  var amt = (g("fAmt").value || "999").trim();
+  var name = (g("fName").value || "Student").trim();
+  var phone = (g("fPhone").value || "-").trim();
+  var utrRaw = (g("fUtr").value || "20268899").trim();
+  var utrNum = digitsOnly(utrRaw);
+
+  var tail = utrNum.slice(-4);
+  if(tail.length < 4) tail = "8899";
+  var userId = "tms_" + tail + "@student";
+  var userPass = "TMS@" + (utrNum.slice(-6) || "2026");
+
+  g("outPkg").innerHTML = "Package: " + activePackage + " (Rs." + amt + ")";
+  g("outUser").innerHTML = "User ID: " + userId;
+  g("outPass").innerHTML = "Password: " + userPass;
+
+  g("pWelcome").innerHTML = "Welcome, " + name + " (" + userId + ")";
+  g("pPkg").innerHTML = "Enrolled: " + activePackage + " (Rs." + amt + ")";
+
+  var text = "Hello THE MILLIONAIRE SKILLS%0A" +
+    "UTR VERIFIED & CREDENTIALS GENERATED%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
+    "Package: " + encodeURIComponent(activePackage) + "%0A" +
+    "Amount: Rs." + encodeURIComponent(amt) + "%0A" +
+  

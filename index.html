@@ -349,75 +349,53 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 var WA_NUMBER = "916289841691";
 var activePackage = "Marketing Mastery";
 
-function g(id){
-  return document.getElementById(id);
-}
-
-function onlyDigits(val){
-  var s = String(val || "");
-  var out = "";
-  for(var i = 0; i < s.length; i++){
-    var c = s.charAt(i);
-    if(c >= "0" && c <= "9") out += c;
-  }
-  return out;
+function cleanNums(v){
+  return String(v || "").replace(/\D/g, "");
 }
 
 function uncheckMenu(){
-  var chk = g("menu-toggle");
-  if(chk) chk.checked = false;
+  var c = document.getElementById("menu-toggle");
+  if(c) c.checked = false;
 }
 
 function closeM(){
-  var modals = ["buy-modal", "verified-modal", "signin-modal", "portal-modal"];
-  for(var i = 0; i < modals.length; i++){
-    var el = g(modals[i]);
-    if(el) el.style.display = "none";
-  }
+  document.getElementById("buy-modal").style.display = "none";
+  document.getElementById("verified-modal").style.display = "none";
+  document.getElementById("signin-modal").style.display = "none";
+  document.getElementById("portal-modal").style.display = "none";
 }
 
 function openM(id){
   closeM();
-  var el = g(id);
-  if(el){
-    el.style.display = "block";
-    el.scrollTop = 0;
-  }
-}
-
-function showErr(boxId, text){
-  var box = g(boxId);
+  var box = document.getElementById(id);
   if(box){
-    box.innerHTML = text;
     box.style.display = "block";
-  }
-}
-
-function hideErr(boxId){
-  var box = g(boxId);
-  if(box){
-    box.innerHTML = "";
-    box.style.display = "none";
+    box.scrollTop = 0;
   }
 }
 
 function syncQr(amt){
-  var d = onlyDigits(amt);
-  g("modalQrLabel").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
+  var d = cleanNums(amt);
+  document.getElementById("modalQrLabel").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
   var uri = "upi://pay?pa=7999886983@upi&pn=TheMillionaireSkills" + (d ? ("&am=" + d) : "") + "&cu=INR";
-  g("modalQrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(uri);
+  document.getElementById("modalQrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(uri);
 }
 
 function prepPackage(pkgName, price){
   activePackage = pkgName;
-  g("modalPkgTitle").innerHTML = pkgName + " Checkout";
-  g("fAmt").value = price;
-  hideErr("buyErrBox");
+  document.getElementById("modalPkgTitle").innerHTML = pkgName + " Checkout";
+  document.getElementById("fAmt").value = price;
+  var eb = document.getElementById("buyErrBox");
+  eb.style.display = "none";
+  eb.innerHTML = "";
   syncQr(price);
   openM("buy-modal");
 }
 
 function doGenerate(){
-  hideErr("buyErrBox");
+  var eb = document.getElementById("buyErrBox");
+  eb.style.display = "none";
+  eb.innerHTML = "";
 
-  var amt = 
+  var amt = Number(cleanNums(document.getElementById("fAmt").value));
+  var name = String(d

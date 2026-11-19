@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,20 +12,22 @@ html{scroll-behavior:smooth}
 body{background:#060913;color:#f8fafc;line-height:1.55;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit}
+
 .hdr{position:sticky;top:0;z-index:100;background:#0b1224;padding:14px 18px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
 .brand b{display:block;color:#fbbf24;font-size:15px}
 .brand small{font-size:10px;color:#94a3b8;letter-spacing:1.2px}
 .hdr-r{display:flex;gap:8px;align-items:center}
 #menu-toggle{display:none}
-.menu-btn{background:#172033;color:#fbbf24;border:1px solid #b88624;border-radius:8px;width:38px;height:38px;font-size:20px;display:flex;align-items:center;justify-content:center;user-select:none}
-.nav-drawer{display:none;position:fixed;top:66px;left:0;right:0;background:#0b1224;padding:10px 16px;border-bottom:1px solid #b88624;z-index:120;box-shadow:0 14px 28px rgba(0,0,0,0.8)}
+.menu-btn{background:#172033;color:#fbbf24;border:1px solid #b88624;border-radius:8px;width:38px;height:38px;font-size:20px;display:flex;align-items:center;justify-content:center}
+.nav-drawer{display:none;position:fixed;top:66px;left:0;right:0;background:#0b1224;padding:10px 16px;border-bottom:1px solid #b88624;z-index:120}
 #menu-toggle:checked ~ .nav-drawer{display:block}
-.nav-drawer a{display:block;padding:13px 6px;border-bottom:1px solid #1e293b;font-size:14px;font-weight:bold;color:#f8fafc}
-.nav-drawer a:last-child{border-bottom:none}
+.nav-drawer a{display:block;padding:13px 6px;border-bottom:1px solid #334155;font-size:14px;font-weight:bold}
+
 .btn{display:block;width:100%;padding:13px;border:0;border-radius:10px;margin-top:10px;font-weight:bold;font-size:14px;text-align:center}
 .gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
 .dark{background:#172033;color:white;border:1px solid #475569}
 .green{background:#22c55e;color:#052e16}
+
 .hero{text-align:center;padding:45px 16px;background:linear-gradient(180deg,#111b33,#060913)}
 .hero-tag{display:inline-block;padding:6px 14px;border:1px solid #fbbf24;border-radius:30px;color:#fbbf24;font-size:12px}
 .hero h1{font-size:30px;margin:18px 0 10px}
@@ -35,6 +38,7 @@ button{cursor:pointer;font-family:inherit}
 .stat{padding:15px;background:#111b30;border:1px solid #604a21;border-radius:12px;text-align:left}
 .stat b{display:block;color:#fbbf24;font-size:21px}
 .stat span{font-size:12px;color:#94a3b8}
+
 .sec{max-width:540px;margin:auto;padding:30px 16px}
 .sec-h{text-align:center;margin-bottom:22px}
 .sec-h h2{font-size:23px}
@@ -51,7 +55,8 @@ button{cursor:pointer;font-family:inherit}
 .c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #334155;border-bottom:1px solid #334155;font-size:12px}
 .c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
 .c-old{font-size:13px;color:#64748b;text-decoration:line-through}
-.modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;overflow-y:auto;padding:15px}
+
+.modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;overflow-y:auto;padding:15px}
 .modal-screen.active{display:block}
 .modal-card{background:#0b1224;border:1px solid #fbbf24;border-radius:16px;padding:20px;max-width:420px;margin:20px auto}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}
@@ -66,15 +71,20 @@ button{cursor:pointer;font-family:inherit}
 .success-box{background:#064e3b;padding:15px;border-radius:12px;margin:12px 0}
 .success-box b{display:block;color:#4ade80;margin-bottom:8px}
 .cred-row{background:#07543c;padding:9px;border-radius:7px;margin:7px 0;font-size:13px;overflow-wrap:anywhere}
-footer{text-align:center;background:#050811;padding:28px 15px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
-footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
-.support-box{background:#111b30;border:1px solid #b88624;padding:16px;border-radius:13px;margin:15px auto;max-width:420px;transition:box-shadow 0.25s ease,border-color 0.25s ease}
-.support-box.highlight{border-color:#4ade80;box-shadow:0 0 18px rgba(74,222,128,0.28)}
+
+.support-box{background:#111b30;border:1px solid #b88624;padding:16px;border-radius:13px;margin:15px auto;max-width:420px}
 .support-email-pill{padding:10px;background:#263348;border-radius:8px;margin:10px 0;overflow-wrap:anywhere;color:white;font-weight:bold}
 .copy-msg{display:none;margin-top:8px;padding:8px;border-radius:8px;background:#064e3b;color:#dcfce7;font-size:12px;font-weight:bold}
 .f-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:15px}
 .f-links a{text-decoration:underline;color:#cbd5e1}
-@media(min-width:700px){.sec{max-width:850px}.courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.hero h1{font-size:42px}}
+footer{text-align:center;background:#050811;padding:28px 15px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
+footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
+
+@media(min-width:700px){
+.sec{max-width:850px}
+.courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.hero h1{font-size:42px}
+}
 </style>
 </head>
 
@@ -85,15 +95,16 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <b>THE MILLIONAIRE SKILLS</b>
 <small>EXECUTIVE MASTERY</small>
 </a>
+
 <div class="hdr-r">
-<a href="#signin-modal" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="uncheckMenu();openModal('signin-modal');return false;">Student Login</a>
+<button class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="openModal('signin-modal')">Student Login</button>
 <input type="checkbox" id="menu-toggle">
 <label for="menu-toggle" class="menu-btn">&#9776;</label>
 <div class="nav-drawer">
-<a href="#courses" onclick="uncheckMenu();closeAll()">Mastery Packages</a>
-<a href="#signin-modal" onclick="uncheckMenu();openModal('signin-modal');return false;">Student Portal</a>
-<a href="#contact" onclick="uncheckMenu();closeAll()">Contact Support</a>
-<a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer" onclick="uncheckMenu()">WhatsApp Support</a>
+<a href="#courses" onclick="uncheckMenu()">Mastery Packages</a>
+<a href="#" onclick="uncheckMenu();openModal('signin-modal');return false">Student Portal</a>
+<a href="#contact" onclick="uncheckMenu()">Contact Support</a>
+<a href="https://wa.me/916289841691" target="_blank" rel="noopener">WhatsApp Support</a>
 </div>
 </div>
 </header>
@@ -104,7 +115,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment and student registration.</p>
 <div class="hero-actions">
 <a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
-<button type="button" class="btn dark" onclick="openModal('signin-modal')">Student Portal Sign In</button>
+<button class="btn dark" onclick="openModal('signin-modal')">Student Portal Sign In</button>
 </div>
 <div class="stats">
 <div class="stat"><b>85+</b><span>Practical Modules</span></div>
@@ -129,7 +140,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
 <div class="c-meta"><span>★ 4.8</span><span>12 Modules</span></div>
 <div class="c-price">₹999 <span class="c-old">₹1,999</span></div>
-<button type="button" class="btn gold" onclick="buyPackage('Marketing Mastery',999)">Buy Now →</button>
+<button class="btn gold" onclick="buyPackage('Marketing Mastery',999)">Buy Now →</button>
 </div>
 
 <div class="card">
@@ -139,7 +150,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
 <div class="c-meta"><span>★ 4.7</span><span>16 Modules</span></div>
 <div class="c-price">₹2,499 <span class="c-old">₹4,999</span></div>
-<button type="button" class="btn gold" onclick="buyPackage('Branding Mastery',2499)">Buy Now →</button>
+<button class="btn gold" onclick="buyPackage('Branding Mastery',2499)">Buy Now →</button>
 </div>
 
 <div class="card">
@@ -149,7 +160,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
 <div class="c-meta"><span>★ 4.6</span><span>20 Modules</span></div>
 <div class="c-price">₹4,999 <span class="c-old">₹9,999</span></div>
-<button type="button" class="btn gold" onclick="buyPackage('Traffic Mastery',4999)">Buy Now →</button>
+<button class="btn gold" onclick="buyPackage('Traffic Mastery',4999)">Buy Now →</button>
 </div>
 
 <div class="card">
@@ -159,7 +170,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
 <div class="c-meta"><span>★ 4.9</span><span>22 Modules</span></div>
 <div class="c-price">₹9,999 <span class="c-old">₹19,999</span></div>
-<button type="button" class="btn gold" onclick="buyPackage('Influence Mastery',9999)">Buy Now →</button>
+<button class="btn gold" onclick="buyPackage('Influence Mastery',9999)">Buy Now →</button>
 </div>
 
 <div class="card vip">
@@ -169,7 +180,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
 <div class="c-meta"><span>★ 5.0</span><span>All 85+ Modules</span></div>
 <div class="c-price">₹14,999 <span class="c-old">₹29,999</span></div>
-<button type="button" class="btn gold" onclick="buyPackage('Finance Mastery (VIP)',14999)">Buy Now →</button>
+<button class="btn gold" onclick="buyPackage('Finance Mastery (VIP)',14999)">Buy Now →</button>
 </div>
 
 </div>
@@ -180,46 +191,41 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div>WhatsApp: +91 62898 41691</div>
 <div>Email: mdaadilalam123123@gmail.com</div>
 
-<div class="support-box" id="emailSupportBox">
+<div class="support-box">
 <b>Email Support</b>
 <div class="support-email-pill">mdaadilalam123123@gmail.com</div>
-<a class="btn gold" href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaadilalam123123@gmail.com&su=Support%20Request%20-%20THE%20MILLIONAIRE%20SKILLS" target="_blank" rel="noopener noreferrer">Open in Gmail →</a>
-<a class="btn green" href="mailto:mdaadilalam123123@gmail.com?subject=Support%20Request%20-%20THE%20MILLIONAIRE%20SKILLS">Open Mail App</a>
-<button type="button" class="btn dark" onclick="copyText('mdaadilalam123123@gmail.com','emailCopyMsg')">Copy Email</button>
+<a class="btn gold" href="mailto:mdaadilalam123123@gmail.com">Open Email</a>
+<button class="btn dark" onclick="copyText('mdaadilalam123123@gmail.com','emailCopyMsg')">Copy Email</button>
 <div class="copy-msg" id="emailCopyMsg"></div>
 </div>
 
-<div class="support-box" id="whatsappSupportBox">
+<div class="support-box">
 <b style="color:#4ade80">WhatsApp Support</b>
 <div class="support-email-pill">+91 62898 41691</div>
-<a class="btn green" href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20need%20support." target="_blank" rel="noopener noreferrer">Chat on WhatsApp →</a>
-<button type="button" class="btn dark" onclick="copyText('+91 62898 41691','waCopyMsg')">Copy WhatsApp Number</button>
+<a class="btn green" href="https://wa.me/916289841691" target="_blank" rel="noopener">Chat on WhatsApp</a>
+<button class="btn dark" onclick="copyText('+91 62898 41691','waCopyMsg')">Copy WhatsApp Number</button>
 <div class="copy-msg" id="waCopyMsg"></div>
 </div>
-
 <div class="f-links">
 <a href="#courses">Packages</a>
-<a href="#emailSupportBox" onclick="jumpToBox('emailSupportBox');return false;">Email Support</a>
-<a href="#whatsappSupportBox" onclick="jumpToBox('whatsappSupportBox');return false;">WhatsApp Support</a>
+<a href="#contact">Contact</a>
 <a href="#top">Back to Top</a>
 </div>
 </footer>
 
-<!-- CHECKOUT -->
+<!-- CHECKOUT MODAL -->
 <div class="modal-screen" id="buy-modal">
 <div class="modal-card">
 <div class="m-top">
 <b id="modalPkgTitle">Package Checkout</b>
-<button type="button" class="m-close" onclick="closeAll()">Close ×</button>
+<button class="m-close" onclick="closeAll()">Close ×</button>
 </div>
-
 <div class="qr-box">
 <b id="modalQrLabel">Scan QR or Pay via UPI</b>
 <img id="modalQrImg" src="" alt="UPI QR Code">
 <b>UPI ID: millionaireskills@upi</b>
 </div>
-
-<div class="note-box">Payment submit karne ke baad manual verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
+<div class="note-box">Payment submit karne ke baad manual verification ka wait karein.</div>
 
 <label class="lbl">Amount (₹)</label>
 <input class="inp" id="fAmt" readonly>
@@ -233,17 +239,17 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <label class="lbl">UPI UTR / Transaction Reference</label>
 <input class="inp" id="fUtr" maxlength="12" inputmode="numeric" placeholder="Enter 12-digit UTR">
 
-<button type="button" class="btn gold" onclick="submitPayment()">Submit Payment Details →</button>
+<button class="btn gold" onclick="submitPayment()">Submit Payment Details →</button>
 <div class="err-box" id="buyErrBox"></div>
 </div>
 </div>
 
-<!-- REGISTRATION -->
+<!-- REGISTRATION MODAL -->
 <div class="modal-screen" id="verified-modal">
 <div class="modal-card">
 <div class="m-top">
 <b>Registration Submitted</b>
-<button type="button" class="m-close" onclick="closeAll()">Close ×</button>
+<button class="m-close" onclick="closeAll()">Close ×</button>
 </div>
 <div class="success-box">
 <b>Registration Request Created</b>
@@ -252,42 +258,58 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="cred-row">Status: Awaiting Manual Verification</div>
 </div>
 <div class="note-box">Payment is not automatically verified. Administrator confirmation is required.</div>
-<a class="btn green" id="outWaBtn" href="#" target="_blank" rel="noopener noreferrer">Send Payment Details on WhatsApp →</a>
-<button type="button" class="btn dark" onclick="closeAll()">Back to Packages</button>
+<a class="btn green" id="outWaBtn" href="#" target="_blank" rel="noopener">Send Payment Details on WhatsApp →</a>
+<button class="btn dark" onclick="closeAll()">Back to Packages</button>
 </div>
 </div>
 
-<!-- SIGN IN -->
+<!-- STUDENT LOGIN -->
 <div class="modal-screen" id="signin-modal">
 <div class="modal-card">
 <div class="m-top">
-<b>Student Portal Sign In</b>
-<button type="button" class="m-close" onclick="closeAll()">Close ×</button>
+<b>Student Portal Login</b>
+<button class="m-close" onclick="closeAll()">Close ×</button>
 </div>
-<div class="note-box">Demo Login: student1@tms.com / pass1<br>This is a demo login only, not a secure account system.</div>
+
+<div class="note-box">
+<strong>Demo Login Credentials</strong><br>
+Student ID: student1@tms.com<br>
+Password: pass1
+</div>
+
 <label class="lbl">Student ID / Email</label>
-<input class="inp" id="lId" placeholder="Enter Student ID">
+<input class="inp" id="lId" type="text" placeholder="Enter Student ID" autocomplete="username">
+
 <label class="lbl">Password</label>
-<input class="inp" id="lPw" type="password" placeholder="Enter Password">
-<button type="button" class="btn gold" onclick="submitLogin()">Sign In →</button>
-<div class="err-box" id="loginErrBox"></div>
+<input class="inp" id="lPw" type="password" placeholder="Enter Password" autocomplete="current-password">
+
+<button type="button" class="btn gold" onclick="submitLogin()">Sign In to Student Portal →</button>
+
+<div class="err-box" id="loginErrBox" role="alert"></div>
 </div>
 </div>
 
-<!-- DASHBOARD -->
+<!-- STUDENT DASHBOARD -->
 <div class="modal-screen" id="portal-modal">
 <div class="modal-card">
 <div class="m-top">
 <b>Student Dashboard</b>
-<button type="button" class="m-close" onclick="closeAll()">Logout</button>
+<button class="m-close" onclick="logout()">Logout</button>
 </div>
+
 <div class="success-box">
 <b id="pWelcome">Welcome Student</b>
-<div class="cred-row">Demo Student Account</div>
+<div class="cred-row" id="pStudentId">Student ID</div>
+<div class="cred-row">Account: Demo Student</div>
+<div class="cred-row">Status: Demo Access</div>
 </div>
-<div class="note-box">This is a demonstration dashboard. Paid course content requires a secure course backend.</div>
-<a class="btn gold" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Contact Support</a>
-<button type="button" class="btn dark" onclick="closeAll()">Close</button>
+
+<div class="note-box">
+Welcome to The Millionaire Skills Student Portal. This is a demo dashboard. Real paid course content requires a secure backend.
+</div>
+
+<a class="btn gold" href="https://wa.me/916289841691" target="_blank" rel="noopener">Contact Support →</a>
+<button class="btn dark" onclick="logout()">Logout</button>
 </div>
 </div>
 
@@ -298,18 +320,27 @@ var WA_NUMBER = "916289841691";
 var UPI_ID = "millionaireskills@upi";
 var activePackage = "";
 var activePrice = 0;
+var currentStudent = null;
+
+function getElement(id){
+  return document.getElementById(id);
+}
 
 function uncheckMenu(){
-  var menu = document.getElementById("menu-toggle");
+  var menu = getElement("menu-toggle");
   if(menu) menu.checked = false;
 }
 
 function openModal(id){
   closeAll();
-  var modal = document.getElementById(id);
+  uncheckMenu();
+
+  var modal = getElement(id);
+
   if(modal){
     modal.classList.add("active");
     modal.style.display = "block";
+    document.body.style.overflow = "hidden";
   }
 }
 
@@ -318,46 +349,63 @@ function closeAll(){
     modal.classList.remove("active");
     modal.style.display = "none";
   });
+
+  document.body.style.overflow = "";
 }
 
+function showError(id,message){
+  var box = getElement(id);
+  if(box){
+    box.textContent = message;
+    box.style.display = "block";
+  }
+}
+
+function hideError(id){
+  var box = getElement(id);
+  if(box){
+    box.textContent = "";
+    box.style.display = "none";
+  }
+}
+
+/* BUY NOW */
+
 function buyPackage(pkg,price){
-  uncheckMenu();
   activePackage = pkg;
   activePrice = Number(price);
 
-  document.getElementById("modalPkgTitle").textContent = pkg + " Checkout";
-  document.getElementById("fAmt").value = activePrice;
-  document.getElementById("fName").value = "";
-  document.getElementById("fPhone").value = "";
-  document.getElementById("fUtr").value = "";
+  getElement("modalPkgTitle").textContent = pkg + " Checkout";
+  getElement("fAmt").value = activePrice;
 
-  document.getElementById("buyErrBox").style.display = "none";
+  getElement("fName").value = "";
+  getElement("fPhone").value = "";
+  getElement("fUtr").value = "";
 
-  var upiURL = "upi://pay?pa=" + encodeURIComponent(UPI_ID) +
-    "&pn=TheMillionaireSkills&am=" + activePrice + "&cu=INR";
+  hideError("buyErrBox");
 
-  document.getElementById("modalQrLabel").textContent = "Pay ₹" + activePrice + " via UPI";
+  var upiURL = "upi://pay?pa=" +
+    encodeURIComponent(UPI_ID) +
+    "&pn=TheMillionaireSkills&am=" +
+    activePrice + "&cu=INR";
 
-  document.getElementById("modalQrImg").src =
+  getElement("modalQrLabel").textContent = "Pay ₹" + activePrice + " via UPI";
+
+  getElement("modalQrImg").src =
     "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" +
     encodeURIComponent(upiURL);
 
   openModal("buy-modal");
 }
 
-function showError(id,msg){
-  var box = document.getElementById(id);
-  box.textContent = msg;
-  box.style.display = "block";
-}
+/* PAYMENT SUBMISSION */
 
 function submitPayment(){
-  var name = document.getElementById("fName").value.trim();
-  var phone = document.getElementById("fPhone").value.replace(/\D/g,"");
-  var utr = document.getElementById("fUtr").value.replace(/\D/g,"");
+  hideError("buyErrBox");
 
-  var error = document.getElementById("buyErrBox");
-  error.style.display = "none";
+  var name = getElement("fName").value.trim();
+  var phone = getElement("fPhone").value.replace(/\D/g,"");
+  var utr = getElement("fUtr").value.replace(/\D/g,"");
 
   if(!activePackage || !activePrice){
     showError("buyErrBox","Please select a package first.");
@@ -370,7 +418,7 @@ function submitPayment(){
   }
 
   if(phone.length !== 10){
-    showError("buyErrBox","Please enter a valid 10-digit WhatsApp number.");
+    showError("buyErrBox","Please enter a valid 10-digit number.");
     return;
   }
 
@@ -381,10 +429,10 @@ function submitPayment(){
 
   var requestId = "TMS-" + Date.now().toString().slice(-8);
 
-  document.getElementById("outPkg").textContent =
+  getElement("outPkg").textContent =
     "Package: " + activePackage + " | Amount: ₹" + activePrice;
 
-  document.getElementById("outUser").textContent =
+  getElement("outUser").textContent =
     "Request ID: " + requestId;
 
   var message =
@@ -398,74 +446,101 @@ function submitPayment(){
     "Request ID: " + requestId + "\n" +
     "Please manually verify my payment.";
 
-  document.getElementById("outWaBtn").href =
-    "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(message);
+  getElement("outWaBtn").href =
+    "https://wa.me/" + WA_NUMBER + "?text=" +
+    encodeURIComponent(message);
 
   openModal("verified-modal");
 }
 
-function submitLogin(){
-  var uid = document.getElementById("lId").value.trim();
-  var pw = document.getElementById("lPw").value;
-  var error = document.getElementById("loginErrBox");
+/* STUDENT LOGIN */
 
-  error.style.display = "none";
+function submitLogin(){
+  hideError("loginErrBox");
+
+  var uid = getElement("lId").value.trim().toLowerCase();
+  var pw = getElement("lPw").value;
+
+  if(uid === "" || pw === ""){
+    showError("loginErrBox","Please enter Student ID and Password.");
+    return;
+  }
 
   if(uid === "student1@tms.com" && pw === "pass1"){
-    document.getElementById("pWelcome").textContent = "Welcome, " + uid;
+
+    currentStudent = {
+      id: "student1@tms.com",
+      name: "Student 1"
+    };
+
+    getElement("pWelcome").textContent =
+      "Welcome, " + currentStudent.name;
+
+    getElement("pStudentId").textContent =
+      "Student ID: " + currentStudent.id;
+
+    getElement("lPw").value = "";
+
     openModal("portal-modal");
+
   }else{
-    showError("loginErrBox","Invalid demo login details.");
+    showError("loginErrBox","Invalid Student ID or Password. Please try again.");
   }
 }
 
-function jumpToBox(id){
-  uncheckMenu();
+/* LOGOUT */
+
+function logout(){
+  currentStudent = null;
+
+  getElement("lId").value = "";
+  getElement("lPw").value = "";
+
+  hideError("loginErrBox");
+
   closeAll();
-  var box = document.getElementById(id);
-  if(box){
-    box.classList.add("highlight");
-    box.scrollIntoView({behavior:"smooth",block:"center"});
-    setTimeout(function(){
-      box.classList.remove("highlight");
-    },1800);
-  }
 }
 
-function copyText(val,msgId){
-  var box = document.getElementById(msgId);
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(val).then(function(){
-      if(box){
-        box.textContent = "Copied: " + val;
-        box.style.display = "block";
-      }
-    }).catch(function(){
-      if(box){
-        box.textContent = val;
-        box.style.display = "block";
-      }
-    });
-  }else if(box){
-    box.textContent = val;
-    box.style.display = "block";
-  }
-}
+/* ENTER KEY LOGIN */
 
-document.addEventListener("click",function(event){
-  if(event.target.classList.contains("modal-screen")){
-    closeAll();
+document.getElementById("lPw").addEventListener("keydown",function(event){
+  if(event.key === "Enter"){
+    event.preventDefault();
+    submitLogin();
   }
 });
 
-document.getElementById("fPhone").addEventListener("input",function(){
+document.getElementById("lId").addEventListener("keydown",function(event){
+  if(event.key === "Enter"){
+    event.preventDefault();
+    getElement("lPw").focus();
+  }
+});
+
+/* INPUT VALIDATION */
+
+getElement("fPhone").addEventListener("input",function(){
   this.value = this.value.replace(/\D/g,"").slice(0,10);
 });
 
-document.getElementById("fUtr").addEventListener("input",function(){
+getElement("fUtr").addEventListener("input",function(){
   this.value = this.value.replace(/\D/g,"").slice(0,12);
 });
-</script>
 
-</body>
-</html>
+/* COPY SUPPORT DETAILS */
+
+function copyText(value,msgId){
+  var box = getElement(msgId);
+
+  function showCopied(){
+    if(box){
+      box.textContent = "Copied successfully: " + value;
+      box.style.display = "block";
+    }
+  }
+
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(value)
+      .then(showCopied)
+      .catch(function(){
+        showErro

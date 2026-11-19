@@ -108,8 +108,8 @@ a{color:inherit;text-decoration:none}
 .c-price{font-size:24px;font-weight:900;color:#fbbf24;margin-bottom:10px}
 .c-old{font-size:13.5px;color:#64748b;text-decoration:line-through;margin-left:6px}
 
-.modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;padding:14px;overflow-y:auto}
-.modal-card{background:#0b1224;border:2px solid #fbbf24;border-radius:16px;max-width:430px;margin:16px auto;padding:18px;position:relative;z-index:10000}
+.modal-screen{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:9999;padding:14px;overflow-y:auto}
+.modal-card{background:#0b1224;border:2px solid #fbbf24;border-radius:16px;max-width:430px;margin:16px auto;padding:18px;position:relative}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .m-top b{color:#fbbf24;font-size:16px;font-weight:900}
 .m-close{background:#1e293b;color:#fde68a;border:1px solid #f59e0b;border-radius:6px;padding:6px 11px;font-size:12px;font-weight:900;display:inline-block;cursor:pointer}
@@ -117,7 +117,6 @@ a{color:inherit;text-decoration:none}
 .qr-box{background:#ffffff;color:#050811;border-radius:10px;padding:12px;text-align:center;margin:10px 0;border:2px solid #fbbf24}
 .qr-box img{width:140px;height:140px;display:block;margin:8px auto}
 .inp{width:100%;padding:11px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:14px;margin-bottom:10px}
-.inp-err{border-color:#f87171}
 .lbl{display:block;font-size:11.5px;color:#fde68a;font-weight:900;margin-bottom:4px}
 .note-box{background:#10192e;border-left:3px solid #fbbf24;padding:9px 11px;border-radius:6px;font-size:11.5px;color:#cbd5e1;margin-bottom:12px}
 .err-box{display:none;background:#450a0a;border:1px solid #f87171;color:#fecaca;padding:10px 11px;border-radius:8px;font-size:12px;font-weight:700;margin-top:8px}
@@ -140,12 +139,12 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <small>EXECUTIVE MASTERY</small>
   </a>
   <div class="hdr-r">
-    <button type="button" class="btn-sm" onclick="openModalBox('signin-modal')">Sign In / Sign Up</button>
+    <button type="button" class="btn-sm" onclick="showModal('signin-modal')">Sign In / Sign Up</button>
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="menu-btn">&#9776;</label>
     <div class="nav-drawer">
       <a href="#courses" onclick="uncheckMenu()">Mastery Packages</a>
-      <a href="javascript:void(0)" onclick="uncheckMenu();openModalBox('signin-modal')">Student Portal Sign In</a>
+      <a href="javascript:void(0)" onclick="uncheckMenu();showModal('signin-modal')">Student Portal Sign In</a>
       <a href="#contact" onclick="uncheckMenu()">Contact &amp; Support</a>
       <a href="https://wa.me/916289841691" target="_blank" rel="noopener" onclick="uncheckMenu()">WhatsApp Support</a>
     </div>
@@ -157,7 +156,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
   <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI QR verification &amp; instant portal credentials.</p>
   <a href="#courses" class="btn btn-gold">Explore 5 Mastery Packages &rarr;</a>
-  <button type="button" class="btn btn-dark" onclick="openModalBox('signin-modal')">Sign In / Sign Up Portal</button>
+  <button type="button" class="btn btn-dark" onclick="showModal('signin-modal')">Sign In / Sign Up Portal</button>
 
   <div class="stats">
     <div class="stat"><b>85+</b><span>Practical Modules</span></div>
@@ -260,7 +259,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b id="modalPkgTitle">Package Checkout</b>
-      <button type="button" class="m-close" onclick="closeAllModals()">Close &times;</button>
+      <button type="button" class="m-close" onclick="closeModals()">Close &times;</button>
     </div>
 
     <div class="qr-box">
@@ -278,12 +277,12 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <input type="text" class="inp" id="fName" placeholder="Enter full name">
 
     <label class="lbl">Your WhatsApp Number (10 Digits)</label>
-    <input type="tel" class="inp" id="fPhone" maxlength="10" placeholder="10-digit WhatsApp number" oninput="this.value=digitsOnly(this.value)">
+    <input type="tel" class="inp" id="fPhone" maxlength="10" placeholder="10-digit WhatsApp number">
 
     <label class="lbl">UPI UTR / Transaction Ref No. (12 Digits)</label>
-    <input type="text" class="inp" id="fUtr" maxlength="12" placeholder="Enter 12-digit UTR number" oninput="this.value=digitsOnly(this.value)">
+    <input type="text" class="inp" id="fUtr" maxlength="12" placeholder="Enter 12-digit UTR number">
 
-    <button type="button" id="verifyUtrBtn" class="btn btn-gold">Verify UTR &amp; Generate User ID / Password &rarr;</button>
+    <button type="button" class="btn btn-gold" onclick="verifyAndGenerate()">Verify UTR &amp; Generate User ID / Password &rarr;</button>
     <div class="err-box" id="buyErrBox"></div>
   </div>
 </div>
@@ -293,7 +292,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b>&#10004; UTR Verified &amp; ID Ready</b>
-      <button type="button" class="m-close" onclick="closeAllModals()">Close &times;</button>
+      <button type="button" class="m-close" onclick="closeModals()">Close &times;</button>
     </div>
 
     <div class="cred-box">
@@ -306,7 +305,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="note-box">Apni payment aur generated ID ko WhatsApp par verify karne ke liye neeche green button par tap karein.</div>
 
     <a id="outWaBtn" href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20have%20completed%20my%20UPI%20payment%20and%20verified%20my%20UTR.%20Please%20activate%20my%20Student%20ID%3A%20tms_8899%40student" target="_blank" rel="noopener" class="btn btn-green">Send Receipt &amp; ID on WhatsApp &rarr;</a>
-    <button type="button" class="btn btn-dark" onclick="openModalBox('portal-modal')">Open Student Portal Now &rarr;</button>
+    <button type="button" class="btn btn-dark" onclick="showModal('portal-modal')">Open Student Portal Now &rarr;</button>
   </div>
 </div>
 
@@ -315,7 +314,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b>Student Portal (Sign In)</b>
-      <button type="button" class="m-close" onclick="closeAllModals()">Close &times;</button>
+      <button type="button" class="m-close" onclick="closeModals()">Close &times;</button>
     </div>
     <div class="note-box">
       Demo IDs: <b>student1@tms.com</b> / <b>pass1</b> &bull; <b>student2@tms.com</b> / <b>pass2</b> &bull; <b>vip@tms.com</b> / <b>vip123</b>
@@ -324,9 +323,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <input type="text" class="inp" id="lId" placeholder="student1@tms.com">
     <label class="lbl">Password</label>
     <input type="password" class="inp" id="lPw" placeholder="Enter password">
-    <button type="button" id="portalLoginBtn" class="btn btn-gold">Sign In to Portal &rarr;</button>
+    <button type="button" class="btn btn-gold" onclick="loginPortal()">Sign In to Portal &rarr;</button>
     <div class="err-box" id="loginErrBox"></div>
-    <button type="button" class="btn btn-dark" onclick="closeAllModals()">New Student? Pick a Package Below</button>
+    <button type="button" class="btn btn-dark" onclick="closeModals()">New Student? Pick a Package Below</button>
   </div>
 </div>
 
@@ -335,7 +334,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b>Student Learning Dashboard</b>
-      <button type="button" class="m-close" onclick="closeAllModals()">Logout</button>
+      <button type="button" class="m-close" onclick="closeModals()">Logout</button>
     </div>
     <div class="cred-box">
       <b id="pWelcome">Welcome, Verified Student</b>
@@ -343,7 +342,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div class="cred-row">Access: All Video Modules &amp; Notes Unlocked</div>
     </div>
     <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20am%20logged%20into%20the%20Student%20Portal%20and%20need%20my%20training%20links." target="_blank" rel="noopener" class="btn btn-gold">Get Training Links on WhatsApp &rarr;</a>
-    <button type="button" class="btn btn-dark" onclick="closeAllModals()">Back to Home</button>
+    <button type="button" class="btn btn-dark" onclick="closeModals()">Back to Home</button>
   </div>
 </div>
 
@@ -355,31 +354,8 @@ function g(id){
   return document.getElementById(id);
 }
 
-function closeAllModals(){
-  var ids = ["buy-modal", "verified-modal", "signin-modal", "portal-modal"];
-  for(var i = 0; i < ids.length; i++){
-    var el = g(ids[i]);
-    if(el) el.style.display = "none";
-  }
-}
-
-function openModalBox(id){
-  closeAllModals();
-  var el = g(id);
-  if(el){
-    el.style.display = "block";
-    el.scrollTop = 0;
-  }
-}
-
-function digitsOnly(v){
-  var str = String(v || "");
-  var res = "";
-  for(var i = 0; i < str.length; i++){
-    var c = str.charAt(i);
-    if(c >= "0" && c <= "9") res += c;
-  }
-  return res;
+function onlyDigits(val){
+  return String(val || "").replace(/[^0-9]/g, "");
 }
 
 function uncheckMenu(){
@@ -387,30 +363,57 @@ function uncheckMenu(){
   if(chk) chk.checked = false;
 }
 
-function showErr(boxId, msg){
-  var box = g(boxId);
-  if(!box) return;
-  box.innerHTML = msg;
-  box.style.display = "block";
+function closeModals(){
+  ["buy-modal", "verified-modal", "signin-modal", "portal-modal"].forEach(function(id){
+    var m = g(id);
+    if(m) m.style.display = "none";
+  });
 }
 
-function hideErr(boxId){
-  var box = g(boxId);
-  if(!box) return;
-  box.innerHTML = "";
-  box.style.display = "none";
+function showModal(id){
+  closeModals();
+  var m = g(id);
+  if(m){
+    m.style.display = "block";
+    m.scrollTop = 0;
+  }
 }
 
-function clearFieldErrs(){
-  var ids = ["fAmt", "fName", "fPhone", "fUtr", "lId", "lPw"];
-  for(var i = 0; i < ids.length; i++){
-    var el = g(ids[i]);
-    if(el) el.classList.remove("inp-err");
+function showError(boxId, text){
+  var box = g(boxId);
+  if(box){
+    box.innerHTML = text;
+    box.style.display = "block";
+  }
+}
+
+function hideError(boxId){
+  var box = g(boxId);
+  if(box){
+    box.innerHTML = "";
+    box.style.display = "none";
   }
 }
 
 function syncQr(amt){
-  var d = digitsOnly(amt);
+  var d = onlyDigits(amt);
   g("modalQrLabel").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
   var uri = "upi://pay?pa=7999886983@upi&pn=TheMillionaireSkills" + (d ? ("&am=" + d) : "") + "&cu=INR";
-  g("modalQrI
+  g("modalQrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(uri);
+}
+
+function prepPackage(pkgName, price){
+  activePackage = pkgName;
+  g("modalPkgTitle").innerHTML = pkgName + " Checkout";
+  g("fAmt").value = price;
+  hideError("buyErrBox");
+  syncQr(price);
+  showModal("buy-modal");
+}
+
+function verifyAndGenerate(){
+  hideError("buyErrBox");
+
+  var amt = Number(onlyDigits(g("fAmt").value));
+  var name = (g("fName").value || "").trim();
+  var

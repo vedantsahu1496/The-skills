@@ -170,11 +170,11 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <p>Tap Buy Now to pay via UPI, verify UTR &amp; get User ID</p>
   </div>
 
-  <!-- 1. MARKETING MASTERY (LINK ADDED) -->
+  <!-- 1. MARKETING MASTERY -->
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="" alt="Marketing Mastery" class="anim-img" id="imgMarketing">
+      <img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Marketing Mastery" class="anim-img" id="imgMarketing">
     </div>
     <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Marketing Mastery</div>
@@ -188,7 +188,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="" alt="Branding Mastery" class="anim-img" id="imgBranding">
+      <img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Branding Mastery" class="anim-img" id="imgBranding">
     </div>
     <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Branding Mastery</div>
@@ -202,7 +202,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="" alt="Traffic Mastery" class="anim-img" id="imgTraffic">
+      <img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Traffic Mastery" class="anim-img" id="imgTraffic">
     </div>
     <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Traffic Mastery</div>
@@ -216,7 +216,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="" alt="Influence Mastery" class="anim-img" id="imgInfluence">
+      <img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Influence Mastery" class="anim-img" id="imgInfluence">
     </div>
     <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Influence Mastery</div>
@@ -230,7 +230,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="card vip">
     <div class="anim-showcase">
       <div class="anim-glow"></div>
-      <img src="" alt="Finance Mastery" class="anim-img" id="imgFinance">
+      <img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Finance Mastery" class="anim-img" id="imgFinance">
     </div>
     <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
     <div class="c-title">Finance Mastery (VIP Bundle)</div>
@@ -343,21 +343,14 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 </div>
 
 <script>
-// YAHAN HAR COURSE KA IMAGE LINK SET HOGA
-var COURSE_LINKS = {
-  marketing: "https://ibb.co/q35zdmvP",
-  branding: "",
-  traffic: "",
-  influence: "",
-  finance: ""
-};
+var COURSE_IMG = "file_00000000a24082079bd1a0d07ce5ae90.png";
 
 (function initCourseImages(){
-  if(COURSE_LINKS.marketing) document.getElementById("imgMarketing").src = COURSE_LINKS.marketing;
-  if(COURSE_LINKS.branding) document.getElementById("imgBranding").src = COURSE_LINKS.branding;
-  if(COURSE_LINKS.traffic) document.getElementById("imgTraffic").src = COURSE_LINKS.traffic;
-  if(COURSE_LINKS.influence) document.getElementById("imgInfluence").src = COURSE_LINKS.influence;
-  if(COURSE_LINKS.finance) document.getElementById("imgFinance").src = COURSE_LINKS.finance;
+  var ids = ["imgMarketing", "imgBranding", "imgTraffic", "imgInfluence", "imgFinance"];
+  for(var i = 0; i < ids.length; i++){
+    var el = document.getElementById(ids[i]);
+    if(el) el.src = COURSE_IMG;
+  }
 })();
 
 var WA_NUMBER = "916289841691";
@@ -421,4 +414,9 @@ function buildCredentials(){
     "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
     "Package: " + encodeURIComponent(activePackage) + "%0A" +
     "Amount: Rs." + encodeURIComponent(amt) + "%0A" +
-  
+    "UTR: " + encodeURIComponent(utrRaw) + "%0A" +
+    "User ID: " + encodeURIComponent(userId) + "%0A" +
+    "Password: " + encodeURIComponent(userPass);
+
+  var btn = g("outWaBtn");
+  if

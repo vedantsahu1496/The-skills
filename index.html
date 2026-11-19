@@ -10,7 +10,7 @@
 html{scroll-behavior:smooth}
 body{background:#060913;color:#f8fafc;line-height:1.55;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-button,a,.menu-btn{cursor:pointer;font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color:rgba(251,191,36,0.25)}
+button,a,.menu-btn{cursor:pointer;font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color:rgba(251,191,36,0.3)}
 
 .hdr{position:sticky;top:0;z-index:1000;background:#0b1224;padding:13px 16px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .brand b{display:block;color:#fbbf24;font-size:15px;font-weight:800}
@@ -24,7 +24,7 @@ button,a,.menu-btn{cursor:pointer;font-family:inherit;touch-action:manipulation;
 .nav-drawer a:last-child{border-bottom:none}
 
 .btn{display:block;width:100%;padding:13px 14px;border:0;border-radius:10px;margin-top:10px;font-weight:700;font-size:14px;text-align:center}
-.btn:active{opacity:0.88}
+.btn:active{opacity:0.85}
 .gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
 .dark{background:#172033;color:#f8fafc;border:1px solid #475569}
 .green{background:#22c55e;color:#052e16}
@@ -35,6 +35,8 @@ button,a,.menu-btn{cursor:pointer;font-family:inherit;touch-action:manipulation;
 .hero h1 span{color:#fbbf24}
 .hero p{color:#94a3b8;font-size:14px;max-width:440px;margin:auto}
 .hero-actions{max-width:420px;margin:20px auto}
+
+.status-bar{max-width:440px;margin:12px auto 0;padding:8px 12px;border-radius:8px;background:#172033;border:1px solid #334155;color:#fbbf24;font-size:12px;font-weight:700;text-align:center}
 
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:460px;margin:24px auto 0}
 .stat{padding:15px;background:#111b30;border:1px solid #604a21;border-radius:12px;text-align:left}
@@ -99,21 +101,21 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <body id="top">
 
 <header class="hdr">
-  <a href="#top" class="brand" onclick="uncheckMenu();hideAllViews()">
+  <a href="#top" class="brand" id="brandReset">
     <b>THE MILLIONAIRE SKILLS</b>
     <small>EXECUTIVE MASTERY</small>
   </a>
 
   <div class="hdr-r">
-    <button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="openLoginView()">Student Login</button>
+    <button type="button" class="btn gold js-login-btn" style="width:auto;margin:0;padding:9px 12px">Student Login</button>
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="menu-btn" aria-label="Toggle Menu">&#9776;</label>
 
     <div class="nav-drawer">
-      <a href="#courses" onclick="uncheckMenu();hideAllViews()">Mastery Packages</a>
-      <a href="#inlineLoginBox" onclick="uncheckMenu();openLoginView();return false;">Student Portal</a>
-      <a href="#contact" onclick="uncheckMenu();hideAllViews()">Contact Support</a>
-      <a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer" onclick="uncheckMenu()">WhatsApp Support</a>
+      <a href="#courses" class="js-close-nav">Mastery Packages</a>
+      <a href="#inlineLoginBox" class="js-login-btn">Student Portal</a>
+      <a href="#contact" class="js-close-nav">Contact Support</a>
+      <a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer" class="js-close-nav">WhatsApp Support</a>
     </div>
   </div>
 </header>
@@ -124,21 +126,23 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
   <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment and student registration.</p>
   <div class="hero-actions">
     <a href="#courses" class="btn gold">Explore 5 Mastery Packages &rarr;</a>
-    <button type="button" class="btn dark" onclick="openLoginView()">Student Portal Sign In</button>
+    <button type="button" class="btn dark js-login-btn">Student Portal Sign In</button>
   </div>
 
-  <!-- INLINE STUDENT LOGIN PANEL (WORKS EVEN IF MODAL IS BLOCKED) -->
+  <div class="status-bar" id="actionStatus">Ready - Tap Student Login or any Buy Now button</div>
+
+  <!-- INLINE STUDENT LOGIN PANEL -->
   <div class="live-panel" id="inlineLoginBox">
     <div class="m-top">
       <b>Student Portal Sign In</b>
-      <button type="button" class="m-close" onclick="hideAllViews()">Close &times;</button>
+      <button type="button" class="m-close js-close-all">Close &times;</button>
     </div>
     <div class="note-box">Demo Login: <b>student1@tms.com</b> / <b>pass1</b></div>
     <label class="lbl">Student ID / Email</label>
     <input class="inp" id="inlineLoginId" type="text" placeholder="Enter Student ID or Email">
     <label class="lbl">Password</label>
     <input class="inp" id="inlineLoginPw" type="password" placeholder="Enter Password">
-    <button type="button" class="btn gold" onclick="processLogin('inlineLoginId','inlineLoginPw','inlineLoginErr')">Sign In &rarr;</button>
+    <button type="button" class="btn gold" id="inlineLoginSubmit">Sign In &rarr;</button>
     <div class="err-box" id="inlineLoginErr"></div>
   </div>
 
@@ -146,7 +150,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
   <div class="live-panel" id="inlinePortalBox">
     <div class="m-top">
       <b>Student Dashboard</b>
-      <button type="button" class="m-close" onclick="hideAllViews()">Logout</button>
+      <button type="button" class="m-close js-close-all">Logout</button>
     </div>
     <div class="success-box">
       <b id="inlineWelcomeText">Welcome Student</b>
@@ -169,11 +173,11 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
     <p>Select your package and continue to checkout</p>
   </div>
 
-  <!-- INLINE CHECKOUT PANEL (WORKS EVEN IF MODAL IS BLOCKED) -->
+  <!-- INLINE CHECKOUT PANEL -->
   <div class="live-panel" id="inlineCheckoutBox">
     <div class="m-top">
       <b id="inlinePkgTitle">Package Checkout</b>
-      <button type="button" class="m-close" onclick="hideAllViews()">Close &times;</button>
+      <button type="button" class="m-close js-close-all">Close &times;</button>
     </div>
     <div class="qr-box">
       <b id="inlineQrLabel">Scan QR or Pay via UPI</b>
@@ -186,10 +190,10 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
     <label class="lbl">Your Full Name</label>
     <input class="inp" id="inlineName" type="text" placeholder="Enter full name">
     <label class="lbl">WhatsApp Number (10 Digits)</label>
-    <input class="inp" id="inlinePhone" type="tel" maxlength="10" inputmode="numeric" placeholder="10-digit number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+    <input class="inp" id="inlinePhone" type="tel" maxlength="10" inputmode="numeric" placeholder="10-digit number">
     <label class="lbl">UPI UTR / Transaction Reference (12 Digits)</label>
-    <input class="inp" id="inlineUtr" type="text" maxlength="12" inputmode="numeric" placeholder="Enter 12-digit UTR" oninput="this.value=this.value.replace(/\D/g,'').slice(0,12)">
-    <button type="button" class="btn gold" onclick="processPayment('inlineName','inlinePhone','inlineUtr','inlineBuyErr')">Submit Payment Details &rarr;</button>
+    <input class="inp" id="inlineUtr" type="text" maxlength="12" inputmode="numeric" placeholder="Enter 12-digit UTR">
+    <button type="button" class="btn gold" id="inlinePaySubmit">Submit Payment Details &rarr;</button>
     <div class="err-box" id="inlineBuyErr"></div>
   </div>
 
@@ -197,7 +201,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
   <div class="live-panel" id="inlineVerifiedBox">
     <div class="m-top">
       <b>Registration Submitted</b>
-      <button type="button" class="m-close" onclick="hideAllViews()">Close &times;</button>
+      <button type="button" class="m-close js-close-all">Close &times;</button>
     </div>
     <div class="success-box">
       <b>Registration Request Created</b>
@@ -206,7 +210,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
       <div class="cred-row">Status: Awaiting Manual Verification</div>
     </div>
     <a class="btn green" id="inlineOutWaBtn" href="#" target="_blank" rel="noopener noreferrer">Send Payment Details on WhatsApp &rarr;</a>
-    <button type="button" class="btn dark" onclick="hideAllViews()">Back to Packages</button>
+    <button type="button" class="btn dark js-close-all">Back to Packages</button>
   </div>
 
   <div class="courses-grid">
@@ -217,7 +221,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
       <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
       <div class="c-meta"><span>&#9733; 4.8</span><span>12 Modules</span></div>
       <div class="c-price">&#8377;999 <span class="c-old">&#8377;1,999</span></div>
-      <button type="button" class="btn gold" onclick="openBuyView('Marketing Mastery', 999)">Buy Now &rarr;</button>
+      <button type="button" class="btn gold js-buy-btn" data-pkg="Marketing Mastery" data-price="999">Buy Now &rarr;</button>
     </div>
 
     <div class="card">
@@ -227,7 +231,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
       <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
       <div class="c-meta"><span>&#9733; 4.7</span><span>16 Modules</span></div>
       <div class="c-price">&#8377;2,499 <span class="c-old">&#8377;4,999</span></div>
-      <button type="button" class="btn gold" onclick="openBuyView('Branding Mastery', 2499)">Buy Now &rarr;</button>
+      <button type="button" class="btn gold js-buy-btn" data-pkg="Branding Mastery" data-price="2499">Buy Now &rarr;</button>
     </div>
 
     <div class="card">
@@ -237,7 +241,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
       <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
       <div class="c-meta"><span>&#9733; 4.6</span><span>20 Modules</span></div>
       <div class="c-price">&#8377;4,999 <span class="c-old">&#8377;9,999</span></div>
-      <button type="button" class="btn gold" onclick="openBuyView('Traffic Mastery', 4999)">Buy Now &rarr;</button>
+      <button type="button" class="btn gold js-buy-btn" data-pkg="Traffic Mastery" data-price="4999">Buy Now &rarr;</button>
     </div>
 
     <div class="card">
@@ -247,7 +251,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
       <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
       <div class="c-meta"><span>&#9733; 4.9</span><span>22 Modules</span></div>
       <div class="c-price">&#8377;9,999 <span class="c-old">&#8377;19,999</span></div>
-      <button type="button" class="btn gold" onclick="openBuyView('Influence Mastery', 9999)">Buy Now &rarr;</button>
+      <button type="button" class="btn gold js-buy-btn" data-pkg="Influence Mastery" data-price="9999">Buy Now &rarr;</button>
     </div>
 
     <div class="card vip">
@@ -257,7 +261,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
       <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
       <div class="c-meta"><span>&#9733; 5.0</span><span>All 85+ Modules</span></div>
       <div class="c-price">&#8377;14,999 <span class="c-old">&#8377;29,999</span></div>
-      <button type="button" class="btn gold" onclick="openBuyView('Finance Mastery (VIP)', 14999)">Buy Now &rarr;</button>
+      <button type="button" class="btn gold js-buy-btn" data-pkg="Finance Mastery (VIP)" data-price="14999">Buy Now &rarr;</button>
     </div>
   </div>
 </section>
@@ -272,7 +276,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
     <div class="support-email-pill">mdaadilalam123123@gmail.com</div>
     <a class="btn gold" href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaadilalam123123@gmail.com&su=Support%20Request%20-%20THE%20MILLIONAIRE%20SKILLS" target="_blank" rel="noopener noreferrer">Open in Gmail &rarr;</a>
     <a class="btn green" href="mailto:mdaadilalam123123@gmail.com?subject=Support%20Request%20-%20THE%20MILLIONAIRE%20SKILLS">Open Mail App</a>
-    <button type="button" class="btn dark" onclick="copyValue('mdaadilalam123123@gmail.com', 'emailCopyMsg')">Copy Email</button>
+    <button type="button" class="btn dark js-copy-btn" data-copy="mdaadilalam123123@gmail.com" data-target="emailCopyMsg">Copy Email</button>
     <div class="copy-msg" id="emailCopyMsg"></div>
   </div>
 
@@ -280,49 +284,49 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
     <b style="color:#4ade80">WhatsApp Support</b>
     <div class="support-email-pill">+91 62898 41691</div>
     <a class="btn green" href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20need%20support." target="_blank" rel="noopener noreferrer">Chat on WhatsApp &rarr;</a>
-    <button type="button" class="btn dark" onclick="copyValue('+91 62898 41691', 'waCopyMsg')">Copy WhatsApp Number</button>
+    <button type="button" class="btn dark js-copy-btn" data-copy="+91 62898 41691" data-target="waCopyMsg">Copy WhatsApp Number</button>
     <div class="copy-msg" id="waCopyMsg"></div>
   </div>
 
   <div class="f-links">
     <a href="#courses">Packages</a>
-    <a href="#emailSupportBox" onclick="jumpToBox('emailSupportBox');return false;">Email Support</a>
-    <a href="#whatsappSupportBox" onclick="jumpToBox('whatsappSupportBox');return false;">WhatsApp Support</a>
+    <a href="#emailSupportBox" class="js-jump-box" data-box="emailSupportBox">Email Support</a>
+    <a href="#whatsappSupportBox" class="js-jump-box" data-box="whatsappSupportBox">WhatsApp Support</a>
     <a href="#top">Back to Top</a>
   </div>
 </footer>
 
 <!-- OPTIONAL OVERLAY MODALS -->
-<div class="modal-screen" id="buy-modal" onclick="if(event.target===this)closeOverlayOnly()">
+<div class="modal-screen" id="buy-modal">
   <div class="modal-card">
     <div class="m-top">
       <b id="modalPkgTitle">Package Checkout</b>
-      <button type="button" class="m-close" onclick="closeOverlayOnly()">Close &times;</button>
+      <button type="button" class="m-close js-close-overlay">Close &times;</button>
     </div>
     <div class="qr-box">
       <b id="modalQrLabel">Scan QR or Pay via UPI</b>
       <img id="modalQrImg" src="" alt="UPI QR Code">
       <b>UPI ID: millionaireskills@upi</b>
     </div>
-    <div class="note-box">Payment submit karne ke baad manual verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
+    <div class="note-box">Payment submit karne ke baad manual payment verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
     <label class="lbl">Amount (&#8377;)</label>
     <input class="inp" id="fAmt" type="number" readonly>
     <label class="lbl">Your Full Name</label>
     <input class="inp" id="fName" type="text" placeholder="Enter full name">
     <label class="lbl">WhatsApp Number (10 Digits)</label>
-    <input class="inp" id="fPhone" type="tel" maxlength="10" inputmode="numeric" placeholder="10-digit number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+    <input class="inp" id="fPhone" type="tel" maxlength="10" inputmode="numeric" placeholder="10-digit number">
     <label class="lbl">UPI UTR / Transaction Reference (12 Digits)</label>
-    <input class="inp" id="fUtr" type="text" maxlength="12" inputmode="numeric" placeholder="Enter 12-digit UTR" oninput="this.value=this.value.replace(/\D/g,'').slice(0,12)">
-    <button type="button" class="btn gold" onclick="processPayment('fName','fPhone','fUtr','buyErrBox')">Submit Payment Details &rarr;</button>
+    <input class="inp" id="fUtr" type="text" maxlength="12" inputmode="numeric" placeholder="Enter 12-digit UTR">
+    <button type="button" class="btn gold" id="modalPaySubmit">Submit Payment Details &rarr;</button>
     <div class="err-box" id="buyErrBox"></div>
   </div>
 </div>
 
-<div class="modal-screen" id="verified-modal" onclick="if(event.target===this)closeOverlayOnly()">
+<div class="modal-screen" id="verified-modal">
   <div class="modal-card">
     <div class="m-top">
       <b>Registration Submitted</b>
-      <button type="button" class="m-close" onclick="closeOverlayOnly()">Close &times;</button>
+      <button type="button" class="m-close js-close-overlay">Close &times;</button>
     </div>
     <div class="success-box">
       <b>Registration Request Created</b>
@@ -331,9 +335,18 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
       <div class="cred-row">Status: Awaiting Manual Verification</div>
     </div>
     <a class="btn green" id="outWaBtn" href="#" target="_blank" rel="noopener noreferrer">Send Payment Details on WhatsApp &rarr;</a>
-    <button type="button" class="btn dark" onclick="closeOverlayOnly()">Back to Packages</button>
+    <button type="button" class="btn dark js-close-overlay">Back to Packages</button>
   </div>
 </div>
 
-<div class="modal-screen" id="signin-modal" onclick="if(event.target===this)closeOverlayOnly()">
-  <div class="m
+<div class="modal-screen" id="signin-modal">
+  <div class="modal-card">
+    <div class="m-top">
+      <b>Student Portal Sign In</b>
+      <button type="button" class="m-close js-close-overlay">Close &times;</button>
+    </div>
+    <div class="note-box">Demo Login: <b>student1@tms.com</b> / <b>pass1</b></div>
+    <label class="lbl">Student ID / Email</label>
+    <input class="inp" id="lId" type="text" placeholder="Enter Student ID or Email">
+    <label class="lbl">Password</label>
+    <input class="inp" id="lPw" type="password" placeholder

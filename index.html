@@ -1,185 +1,81 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="gold">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THE MILLIONAIRE SKILLS | Executive Mastery</title>
 <style>
-:root{
-  --bg-main:#060913;
-  --bg-hdr:rgba(11,18,36,0.95);
-  --bg-hero:radial-gradient(circle at top,#1b2a4a 0%,#0b1224 45%,#060913 100%);
-  --bg-card:linear-gradient(180deg,#121d34,#0d1526);
-  --bg-vip:linear-gradient(180deg,#19233b,#0e1629);
-  --bg-panel:#0b1224;
-  --bg-input:#172033;
-  --bg-pill:#1e293b;
-  --bg-footer:#050811;
-  --text-main:#f8fafc;
-  --text-muted:#94a3b8;
-  --text-soft:#cbd5e1;
-  --accent:#fbbf24;
-  --accent-bright:#fde047;
-  --accent-dark:#f59e0b;
-  --accent-ink:#080b14;
-  --border-subtle:#2b3a55;
-  --border-accent:rgba(251,191,36,0.5);
-  --success:#4ade80;
-  --success-btn:linear-gradient(135deg,#4ade80,#16a34a);
-  --success-ink:#052e16;
-}
-
-html[data-theme="emerald"]{
-  --bg-main:#05100c;
-  --bg-hdr:rgba(7,22,17,0.95);
-  --bg-hero:radial-gradient(circle at top,#11382a 0%,#091f17 45%,#05100c 100%);
-  --bg-card:linear-gradient(180deg,#0d261d,#081913);
-  --bg-vip:linear-gradient(180deg,#123327,#0a2018);
-  --bg-panel:#081b14;
-  --bg-input:#102b21;
-  --bg-pill:#14362a;
-  --bg-footer:#040c09;
-  --text-main:#ecfdf5;
-  --text-muted:#94b8a8;
-  --text-soft:#c7e5d8;
-  --accent:#34d399;
-  --accent-bright:#6ee7b7;
-  --accent-dark:#10b981;
-  --accent-ink:#042016;
-  --border-subtle:#1f4738;
-  --border-accent:rgba(52,211,153,0.5);
-  --success:#4ade80;
-  --success-btn:linear-gradient(135deg,#34d399,#059669);
-  --success-ink:#042016;
-}
-
-html[data-theme="midnight"]{
-  --bg-main:#050a14;
-  --bg-hdr:rgba(8,16,33,0.95);
-  --bg-hero:radial-gradient(circle at top,#12294d 0%,#091529 45%,#050a14 100%);
-  --bg-card:linear-gradient(180deg,#0e1f3b,#091426);
-  --bg-vip:linear-gradient(180deg,#132a4f,#0b1930);
-  --bg-panel:#091529;
-  --bg-input:#11223d;
-  --bg-pill:#162b4d;
-  --bg-footer:#040810;
-  --text-main:#f0f9ff;
-  --text-muted:#93aac7;
-  --text-soft:#c5d8f0;
-  --accent:#38bdf8;
-  --accent-bright:#7dd3fc;
-  --accent-dark:#0284c7;
-  --accent-ink:#051926;
-  --border-subtle:#203a63;
-  --border-accent:rgba(56,189,248,0.5);
-  --success:#4ade80;
-  --success-btn:linear-gradient(135deg,#38bdf8,#2563eb);
-  --success-ink:#041526;
-}
-
-*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 html{scroll-behavior:smooth}
-body{background:var(--bg-main);color:var(--text-main);line-height:1.55;overflow-x:hidden;transition:background 0.25s ease,color 0.25s ease}
+body{background:#060913;color:#f8fafc;line-height:1.55}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit}
-
-.hdr{position:sticky;top:0;z-index:100;background:var(--bg-hdr);backdrop-filter:blur(8px);padding:14px 18px;border-bottom:1px solid var(--border-accent);display:flex;justify-content:space-between;align-items:center;gap:10px}
-.brand b{display:block;color:var(--accent);font-size:15px;letter-spacing:0.3px}
-.brand small{display:block;font-size:10px;color:var(--text-muted);letter-spacing:1.4px}
+.hdr{position:sticky;top:0;z-index:100;background:#0b1224;padding:14px 18px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
+.brand b{display:block;color:#fbbf24;font-size:15px}
+.brand small{font-size:10px;color:#94a3b8;letter-spacing:1.2px}
 .hdr-r{display:flex;gap:8px;align-items:center;position:relative}
-.menu-btn{background:var(--bg-input);color:var(--accent);border:1px solid var(--border-accent);border-radius:9px;width:38px;height:38px;font-size:20px;line-height:1}
-.nav-drawer{display:none;position:absolute;top:48px;right:0;width:225px;background:var(--bg-panel);padding:8px 14px;border:1px solid var(--border-accent);border-radius:12px;z-index:200;box-shadow:0 16px 32px rgba(0,0,0,0.75)}
+.menu-btn{background:#172033;color:#fbbf24;border:1px solid #b88624;border-radius:8px;width:38px;height:38px;font-size:20px;line-height:1}
+.nav-drawer{display:none;position:absolute;top:48px;right:0;width:210px;background:#0b1224;padding:8px 14px;border:1px solid #b88624;border-radius:10px;z-index:200}
 .nav-drawer.open{display:block}
-.nav-drawer a{display:block;padding:11px 4px;border-bottom:1px solid var(--border-subtle);font-size:14px;font-weight:bold;color:var(--text-soft)}
-.nav-drawer a:hover{color:var(--accent)}
+.nav-drawer a{display:block;padding:11px 4px;border-bottom:1px solid #1e293b;font-size:14px;font-weight:bold}
 .nav-drawer a:last-child{border-bottom:none}
-
-.btn{display:block;width:100%;padding:13px 14px;border:0;border-radius:11px;margin-top:10px;font-weight:bold;font-size:14px;text-align:center;transition:transform 0.14s ease,filter 0.14s ease}
-.btn:active{transform:scale(0.985)}
-.gold{background:linear-gradient(135deg,var(--accent-bright),var(--accent-dark));color:var(--accent-ink);box-shadow:0 6px 18px rgba(0,0,0,0.25)}
-.gold:hover{filter:brightness(1.05)}
-.dark{background:var(--bg-input);color:var(--text-main);border:1px solid var(--border-subtle)}
-.dark:hover{filter:brightness(1.08)}
-.green{background:var(--success-btn);color:var(--success-ink)}
-.green:hover{filter:brightness(1.05)}
-
-.hero{text-align:center;padding:48px 16px 38px;background:var(--bg-hero)}
-.hero-tag{display:inline-block;padding:6px 14px;border:1px solid var(--border-accent);background:rgba(255,255,255,0.03);border-radius:30px;color:var(--accent);font-size:12px;font-weight:bold;letter-spacing:0.6px}
-.hero h1{font-size:31px;margin:16px 0 10px;line-height:1.18}
-.hero h1 span{color:var(--accent)}
-.hero p{color:var(--text-muted);font-size:14px;max-width:450px;margin:auto}
-.hero-actions{max-width:420px;margin:20px auto 0}
-
-.theme-strip{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;max-width:460px;margin:16px auto 0}
-.t-chip{padding:7px 12px;border-radius:20px;background:var(--bg-input);color:var(--text-soft);border:1px solid var(--border-subtle);font-size:12px;font-weight:bold}
-.t-chip.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:460px;margin:24px auto 0}
-.stat{padding:15px;background:var(--bg-card);border:1px solid var(--border-accent);border-radius:13px;text-align:left}
-.stat b{display:block;color:var(--accent);font-size:21px}
-.stat span{font-size:12px;color:var(--text-muted)}
-
-.sec{max-width:540px;margin:auto;padding:32px 16px}
-.sec-h{text-align:center;margin-bottom:22px}
-.sec-h h2{font-size:24px;color:var(--text-main)}
-.sec-h p{color:var(--text-muted);font-size:13px;margin-top:4px}
-
-.card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:18px;padding:17px;margin-bottom:20px;box-shadow:0 10px 24px rgba(0,0,0,0.32);transition:border-color 0.2s ease,transform 0.2s ease}
-.card:hover{border-color:var(--border-accent)}
-.vip{border:1.5px solid var(--accent);background:var(--bg-vip)}
-.anim-showcase{background:var(--bg-main);border:1px solid rgba(148,163,184,0.14);border-radius:12px;padding:10px;margin-bottom:15px;text-align:center}
+.btn{display:block;width:100%;padding:13px;border:0;border-radius:10px;margin-top:10px;font-weight:bold;font-size:14px;text-align:center}
+.gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
+.dark{background:#172033;color:#fff;border:1px solid #475569}
+.green{background:#22c55e;color:#052e16}
+.hero{text-align:center;padding:42px 16px;background:linear-gradient(180deg,#111b33,#060913)}
+.hero-tag{display:inline-block;padding:6px 14px;border:1px solid #fbbf24;border-radius:30px;color:#fbbf24;font-size:12px}
+.hero h1{font-size:30px;margin:16px 0 10px}
+.hero h1 span{color:#fbbf24}
+.hero p{color:#94a3b8;font-size:14px;max-width:440px;margin:auto}
+.hero-actions{max-width:420px;margin:18px auto}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:450px;margin:22px auto 0}
+.stat{padding:15px;background:#111b30;border:1px solid #604a21;border-radius:12px;text-align:left}
+.stat b{display:block;color:#fbbf24;font-size:21px}
+.stat span{font-size:12px;color:#94a3b8}
+.sec{max-width:540px;margin:auto;padding:28px 16px}
+.sec-h{text-align:center;margin-bottom:20px}
+.sec-h h2{font-size:23px}
+.sec-h p{color:#94a3b8;font-size:13px}
+.card{background:#111b30;border:1px solid #334155;border-radius:17px;padding:17px;margin-bottom:20px}
+.vip{border:1px solid #fbbf24}
+.anim-showcase{background:#080e1c;border-radius:12px;padding:10px;margin-bottom:15px;text-align:center}
 .anim-img{width:100%;max-width:330px;height:auto;border-radius:10px;display:block;margin:auto}
-.badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.pill-b{color:var(--accent);font-size:11px;font-weight:bold;border:1px solid var(--border-accent);background:rgba(255,255,255,0.03);padding:4px 10px;border-radius:20px}
-.save-b{color:var(--success);font-size:11px;font-weight:bold}
-.c-title{font-size:19px;font-weight:bold;color:var(--text-main)}
-.c-desc{font-size:13px;color:var(--text-muted);margin:7px 0 12px}
-.c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);font-size:12px;color:var(--text-soft)}
-.c-price{font-size:24px;color:var(--accent);font-weight:bold;margin-top:12px}
-.c-old{font-size:13px;color:var(--text-muted);text-decoration:line-through;margin-left:4px}
-
-.panel{display:none;max-width:430px;margin:20px auto;background:var(--bg-panel);border:1.5px solid var(--accent);border-radius:16px;padding:18px;box-shadow:0 18px 36px rgba(0,0,0,0.6)}
+.badge-row{display:flex;justify-content:space-between;margin-bottom:8px}
+.pill-b{color:#fbbf24;font-size:11px;border:1px solid #b88624;padding:4px 9px;border-radius:20px}
+.save-b{color:#4ade80;font-size:11px}
+.c-title{font-size:19px;font-weight:bold}
+.c-desc{font-size:13px;color:#94a3b8;margin:7px 0 12px}
+.c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #334155;border-bottom:1px solid #334155;font-size:12px}
+.c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
+.c-old{font-size:13px;color:#64748b;text-decoration:line-through}
+.panel{display:none;max-width:430px;margin:18px auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px}
 .panel.active{display:block}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.m-top b{color:var(--accent);font-size:16px}
-.m-close{padding:7px 12px;background:var(--bg-pill);color:var(--text-main);border:1px solid var(--border-subtle);border-radius:8px;font-weight:bold}
-.m-close:hover{filter:brightness(1.1)}
-
-.qr-box{background:#fff;color:#111;padding:14px;border-radius:12px;text-align:center;margin:12px 0;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.08)}
+.m-top b{color:#fbbf24;font-size:16px}
+.m-close{padding:7px 12px;background:#263348;color:#fff;border:0;border-radius:7px;font-weight:bold}
+.qr-box{background:#fff;color:#111;padding:14px;border-radius:12px;text-align:center;margin:12px 0}
 .qr-box img{width:160px;height:160px;display:block;margin:10px auto}
-.inp{width:100%;padding:12px;background:var(--bg-input);color:var(--text-main);border:1px solid var(--border-subtle);border-radius:9px;margin-bottom:12px;font-size:14px}
-.inp:focus{outline:none;border-color:var(--accent)}
-.lbl{display:block;font-size:12px;font-weight:bold;margin-bottom:5px;color:var(--text-soft)}
-.note-box{background:var(--bg-input);padding:12px;border-left:3px solid var(--accent);border-radius:8px;font-size:12px;color:var(--text-soft);margin-bottom:14px}
-.err-box{display:none;background:#581c1c;color:#fecaca;border:1px solid #991b1b;padding:12px;border-radius:9px;font-size:12px;margin-top:10px}
-.success-box{background:#064e3b;border:1px solid #10b981;padding:15px;border-radius:12px;margin:12px 0}
+.inp{width:100%;padding:12px;background:#172033;color:#fff;border:1px solid #475569;border-radius:9px;margin-bottom:12px;font-size:14px}
+.lbl{display:block;font-size:12px;font-weight:bold;margin-bottom:5px;color:#cbd5e1}
+.note-box{background:#172033;padding:12px;border-left:3px solid #fbbf24;border-radius:7px;font-size:12px;color:#cbd5e1;margin-bottom:14px}
+.err-box{display:none;background:#581c1c;color:#fecaca;padding:12px;border-radius:9px;font-size:12px;margin-top:10px}
+.success-box{background:#064e3b;padding:15px;border-radius:12px;margin:12px 0}
 .success-box b{display:block;color:#4ade80;margin-bottom:8px}
-.cred-row{background:#07543c;color:#ecfdf5;padding:9px;border-radius:7px;margin:7px 0;font-size:13px;overflow-wrap:anywhere}
-
-footer{text-align:center;background:var(--bg-footer);padding:32px 15px 36px;border-top:1px solid var(--border-accent);color:var(--text-muted);font-size:13px}
-footer b{display:block;color:var(--accent);font-size:16px;margin-bottom:8px}
-.about-box{background:var(--bg-card);border:1px solid var(--border-subtle);padding:18px;border-radius:14px;margin:16px auto;max-width:440px;text-align:left}
-.about-box h3{color:var(--accent);font-size:14px;margin-bottom:8px;letter-spacing:0.4px}
-.about-box p{color:var(--text-soft);font-size:12.5px;line-height:1.6;margin-bottom:10px}
-.about-list{list-style:none;font-size:12px;color:var(--text-muted);display:grid;gap:6px}
-.about-list li::before{content:"✓ ";color:var(--success);font-weight:bold}
-.support-box{background:var(--bg-card);border:1px solid var(--border-accent);padding:16px;border-radius:14px;margin:15px auto;max-width:440px}
-.support-email-pill{padding:10px;background:var(--bg-pill);border:1px solid var(--border-subtle);border-radius:8px;margin:10px 0;overflow-wrap:anywhere;color:var(--text-main);font-weight:bold}
-.copy-msg{display:none;margin-top:8px;padding:8px;border-radius:8px;background:#064e3b;color:#dcfce7;font-size:12px;font-weight:bold}
-.f-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:18px}
-.f-links a{text-decoration:underline;color:var(--text-soft)}
-.f-links a:hover{color:var(--accent)}
-.f-copy{margin-top:16px;font-size:11.5px;color:var(--text-muted)}
-
-@media(min-width:700px){
-  .sec{max-width:860px}
-  .courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
-  .card{margin-bottom:0;display:flex;flex-direction:column}
-  .c-desc{flex-grow:1}
-  .vip{grid-column:1 / -1}
-  .vip .anim-img{max-width:380px}
-  .hero h1{font-size:42px}
-}
+.cred-row{background:#07543c;padding:9px;border-radius:7px;margin:7px 0;font-size:13px;overflow-wrap:anywhere}
+footer{text-align:center;background:#050811;padding:28px 15px 34px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
+footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
+.desc-box{background:#111b30;border:1px solid #334155;padding:16px;border-radius:13px;margin:15px auto;max-width:420px;text-align:left}
+.desc-box b{color:#fbbf24;font-size:14px;margin-bottom:6px}
+.desc-box p{color:#cbd5e1;font-size:12.5px;line-height:1.55;margin-bottom:8px}
+.desc-box ul{padding-left:18px;color:#94a3b8;font-size:12px}
+.desc-box li{margin-bottom:4px}
+.support-box{background:#111b30;border:1px solid #b88624;padding:16px;border-radius:13px;margin:15px auto;max-width:420px}
+.support-email-pill{padding:10px;background:#263348;border-radius:8px;margin:10px 0;overflow-wrap:anywhere;color:#fff;font-weight:bold}
+.copy-msg{display:none;margin-top:8px;padding:8px;border-radius:8px;background:#064e3b;color:#dcfce7;font-size:12px}
+.f-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:15px}
+.f-links a{text-decoration:underline;color:#cbd5e1}
+@media(min-width:700px){.sec{max-width:850px}.courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.hero h1{font-size:42px}}
 </style>
 </head>
 <body id="top">
@@ -191,13 +87,12 @@ footer b{display:block;color:var(--accent);font-size:16px;margin-bottom:8px}
   </a>
   <div class="hdr-r">
     <button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="showLogin()">Student Login</button>
-    <button type="button" class="menu-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+    <button type="button" class="menu-btn" onclick="toggleMenu()">&#9776;</button>
     <div class="nav-drawer" id="navDrawer">
       <a href="#courses" onclick="closeMenu()">Mastery Packages</a>
       <a href="#loginPanel" onclick="closeMenu();showLogin();return false;">Student Portal</a>
-      <a href="#adminPanel" onclick="closeMenu();showAdmin();return false;">Admin Panel</a>
       <a href="#contact" onclick="closeMenu()">Contact Support</a>
-      <a href="https://wa.me/916289841691" id="navWaLink" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">WhatsApp Support</a>
+      <a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">WhatsApp Support</a>
     </div>
   </div>
 </header>
@@ -209,12 +104,6 @@ footer b{display:block;color:var(--accent);font-size:16px;margin-bottom:8px}
   <div class="hero-actions">
     <a href="#courses" class="btn gold">Explore 5 Mastery Packages &rarr;</a>
     <button type="button" class="btn dark" onclick="showLogin()">Student Portal Sign In</button>
-  </div>
-
-  <div class="theme-strip" aria-label="Theme Switcher">
-    <button type="button" class="t-chip active" id="chip-gold" onclick="setTheme('gold')">Royal Gold</button>
-    <button type="button" class="t-chip" id="chip-emerald" onclick="setTheme('emerald')">Emerald Wealth</button>
-    <button type="button" class="t-chip" id="chip-midnight" onclick="setTheme('midnight')">Midnight Sky</button>
   </div>
 
   <div class="panel" id="loginPanel">
@@ -240,38 +129,7 @@ footer b{display:block;color:var(--accent);font-size:16px;margin-bottom:8px}
       <b id="pWelcome">Welcome Student</b>
       <div class="cred-row">Demo Student Account</div>
     </div>
-    <a class="btn gold" id="portalWaLink" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Contact Support</a>
-  </div>
-
-  <div class="panel" id="adminPanel">
-    <div class="m-top">
-      <b>Admin Theme &amp; Site Controls</b>
-      <button type="button" class="m-close" onclick="closeAllPanels()">Close &times;</button>
-    </div>
-    <div class="note-box">Front-end Admin Panel (Demo PIN: <b>1234</b>). Changes are saved in this browser.</div>
-    <label class="lbl">Admin PIN</label>
-    <input class="inp" id="admPin" type="password" maxlength="6" placeholder="Enter PIN (1234)">
-    <button type="button" class="btn dark" id="admUnlockBtn" onclick="unlockAdmin()">Unlock Admin Controls</button>
-    <div class="err-box" id="admErr"></div>
-
-    <div id="admControls" style="display:none;margin-top:14px">
-      <label class="lbl">Select Active Theme</label>
-      <div class="theme-strip" style="margin:6px 0 12px;justify-content:flex-start">
-        <button type="button" class="t-chip" onclick="setTheme('gold')">Royal Gold</button>
-        <button type="button" class="t-chip" onclick="setTheme('emerald')">Emerald Wealth</button>
-        <button type="button" class="t-chip" onclick="setTheme('midnight')">Midnight Sky</button>
-      </div>
-
-      <label class="lbl">Checkout UPI ID</label>
-      <input class="inp" id="admUpi" type="text" placeholder="millionaireskills@upi">
-
-      <label class="lbl">WhatsApp Digits (with country code)</label>
-      <input class="inp" id="admWa" type="tel" maxlength="15" placeholder="916289841691" oninput="this.value=this.value.replace(/\D/g,'')">
-
-      <button type="button" class="btn gold" onclick="saveAdminSettings()">Save Browser Settings</button>
-      <button type="button" class="btn dark" onclick="resetAdminSettings()">Reset to Default</button>
-      <div class="copy-msg" id="admMsg"></div>
-    </div>
+    <a class="btn gold" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Contact Support</a>
   </div>
 
   <div class="stats">
@@ -296,7 +154,7 @@ footer b{display:block;color:var(--accent);font-size:16px;margin-bottom:8px}
     <div class="qr-box">
       <b id="qrLabel">Pay via UPI</b>
       <img id="qrImg" src="" alt="UPI QR Code">
-      <b id="qrUpiText">UPI ID: millionaireskills@upi</b>
+      <b>UPI ID: millionaireskills@upi</b>
     </div>
     <div class="note-box">Payment submit karne ke baad manual verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
     <label class="lbl">Amount (&#8377;)</label>
@@ -357,4 +215,154 @@ footer b{display:block;color:var(--accent);font-size:16px;margin-bottom:8px}
     </div>
 
     <div class="card">
-      <div class="anim-showcase"><img src="IMG-20261120-WA5
+      <div class="anim-showcase"><img src="IMG-20261120-WA5578.jpg" alt="Influence Mastery" class="anim-img"></div>
+      <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
+      <div class="c-title">Influence Mastery</div>
+      <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
+      <div class="c-meta"><span>&#9733; 4.9</span><span>22 Modules</span></div>
+      <div class="c-price">&#8377;9,999 <span class="c-old">&#8377;19,999</span></div>
+      <button type="button" class="btn gold" onclick="showBuy('Influence Mastery',9999)">Buy Now &rarr;</button>
+    </div>
+
+    <div class="card vip">
+      <div class="anim-showcase"><img src="IMG-20261120-WA2541.jpg" alt="Finance Mastery" class="anim-img"></div>
+      <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
+      <div class="c-title">Finance Mastery (VIP Bundle)</div>
+      <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
+      <div class="c-meta"><span>&#9733; 5.0</span><span>All 85+ Modules</span></div>
+      <div class="c-price">&#8377;14,999 <span class="c-old">&#8377;29,999</span></div>
+      <button type="button" class="btn gold" onclick="showBuy('Finance Mastery (VIP)',14999)">Buy Now &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <b>THE MILLIONAIRE SKILLS</b>
+  <div>WhatsApp: +91 62898 41691</div>
+  <div>Email: mdaadilalam123123@gmail.com</div>
+
+  <div class="desc-box">
+    <b>Program &amp; Platform Overview</b>
+    <p>THE MILLIONAIRE SKILLS offers structured skill-building packages across Marketing, Branding, Traffic, Influence, and Finance with simple UPI checkout and WhatsApp registration support.</p>
+    <ul>
+      <li>85+ practical modules designed for self-paced learning</li>
+      <li>Instant UPI QR &amp; UTR submission with manual verification notice</li>
+      <li>Direct student sign-in portal and support assistance</li>
+    </ul>
+  </div>
+
+  <div class="support-box">
+    <b>Email Support</b>
+    <div class="support-email-pill">mdaadilalam123123@gmail.com</div>
+    <a class="btn gold" href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaadilalam123123@gmail.com" target="_blank" rel="noopener noreferrer">Open in Gmail &rarr;</a>
+    <a class="btn green" href="mailto:mdaadilalam123123@gmail.com">Open Mail App</a>
+    <button type="button" class="btn dark" onclick="copyVal('mdaadilalam123123@gmail.com','cEmail')">Copy Email</button>
+    <div class="copy-msg" id="cEmail"></div>
+  </div>
+
+  <div class="support-box">
+    <b style="color:#4ade80">WhatsApp Support</b>
+    <div class="support-email-pill">+91 62898 41691</div>
+    <a class="btn green" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Chat on WhatsApp &rarr;</a>
+    <button type="button" class="btn dark" onclick="copyVal('+91 62898 41691','cWa')">Copy WhatsApp Number</button>
+    <div class="copy-msg" id="cWa"></div>
+  </div>
+
+  <div class="f-links">
+    <a href="#courses">Packages</a>
+    <a href="#top">Back to Top</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+var selPkg = "";
+var selAmt = 0;
+
+function toggleMenu(){
+  var d = document.getElementById("navDrawer");
+  if(d) d.classList.toggle("open");
+}
+
+function closeMenu(){
+  var d = document.getElementById("navDrawer");
+  if(d) d.classList.remove("open");
+}
+
+function closeAllPanels(){
+  closeMenu();
+  var ps = document.querySelectorAll(".panel");
+  for(var i=0;i<ps.length;i++) ps[i].classList.remove("active");
+}
+
+function showLogin(){
+  closeAllPanels();
+  document.getElementById("lId").value = "";
+  document.getElementById("lPw").value = "";
+  document.getElementById("lErr").style.display = "none";
+  document.getElementById("loginPanel").classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function doLogin(){
+  var id = document.getElementById("lId").value.trim();
+  var pw = document.getElementById("lPw").value;
+  var err = document.getElementById("lErr");
+  err.style.display = "none";
+  if(id === "student1@tms.com" && pw === "pass1"){
+    closeAllPanels();
+    document.getElementById("pWelcome").textContent = "Welcome, " + id;
+    document.getElementById("portalPanel").classList.add("active");
+  }else{
+    err.textContent = "Invalid demo login. Use student1@tms.com / pass1";
+    err.style.display = "block";
+  }
+}
+
+function showBuy(pkg, amt){
+  closeAllPanels();
+  selPkg = pkg;
+  selAmt = amt;
+  document.getElementById("buyTitle").textContent = pkg + " Checkout";
+  document.getElementById("qrLabel").textContent = "Pay Rs. " + amt + " via UPI";
+  document.getElementById("fAmt").value = amt;
+  document.getElementById("fName").value = "";
+  document.getElementById("fPhone").value = "";
+  document.getElementById("fUtr").value = "";
+  document.getElementById("bErr").style.display = "none";
+  var upi = "upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkills&am=" + amt + "&cu=INR";
+  document.getElementById("qrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(upi);
+  var bp = document.getElementById("buyPanel");
+  bp.classList.add("active");
+  bp.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function doPay(){
+  var name = document.getElementById("fName").value.trim();
+  var phone = document.getElementById("fPhone").value.replace(/\D/g,"");
+  var utr = document.getElementById("fUtr").value.replace(/\D/g,"");
+  var err = document.getElementById("bErr");
+  err.style.display = "none";
+  if(name.length < 2){ err.textContent = "Enter your full name."; err.style.display = "block"; return; }
+  if(phone.length !== 10){ err.textContent = "Enter 10-digit WhatsApp number."; err.style.display = "block"; return; }
+  if(utr.length !== 12){ err.textContent = "Enter 12-digit UTR."; err.style.display = "block"; return; }
+  var reqId = "TMS-" + Date.now().toString().slice(-8);
+  var msg = "Hello THE MILLIONAIRE SKILLS\nName: " + name + "\nWhatsApp: " + phone + "\nPackage: " + selPkg + "\nAmount: Rs. " + selAmt + "\nUTR: " + utr + "\nRequest ID: " + reqId;
+  closeAllPanels();
+  document.getElementById("donePkg").textContent = "Package: " + selPkg + " | Amount: Rs. " + selAmt;
+  document.getElementById("doneReq").textContent = "Request ID: " + reqId;
+  document.getElementById("doneWa").href = "https://wa.me/916289841691?text=" + encodeURIComponent(msg);
+  document.getElementById("donePanel").classList.add("active");
+}
+
+function copyVal(val, id){
+  var el = document.getElementById(id);
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(val).catch(function(){});
+  }
+  el.textContent = "Copied: " + val;
+  el.style.display = "block";
+}
+</script>
+</body>
+</html>

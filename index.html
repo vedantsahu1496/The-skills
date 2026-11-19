@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,59 +45,59 @@ a{color:inherit;text-decoration:none}
 .sec-h h2{font-size:22px;font-weight:900;color:#ffffff;text-transform:uppercase}
 .sec-h p{font-size:12.5px;color:#94a3b8;margin-top:4px}
 
-.card{background:#0e1629;border:2px solid #334155;border-radius:16px;padding:16px;margin-bottom:20px}
+.card{background:#0e1629;border:2px solid #334155;border-radius:16px;padding:16px;margin-bottom:20px;transition:transform 0.25s ease,border-color 0.25s ease}
+.card:hover{transform:translateY(-3px);border-color:#fbbf24}
 .card.vip{border:2px solid #fbbf24;background:#131c33}
 
-/* Cover Banner with Cropped 5-in-1 Image + Safe Fallback */
-.cover-banner{
+/* Animated High-Quality Showcase */
+.anim-showcase{
   position:relative;
   width:100%;
-  height:255px;
+  min-height:220px;
   border-radius:14px;
   margin-bottom:14px;
+  padding:14px;
   overflow:hidden;
-  background:radial-gradient(circle at top,#1d4ed8,#090e1c 75%);
-  border:1px solid rgba(56,189,248,0.35);
+  background:radial-gradient(circle at 50% 20%,rgba(59,130,246,0.28),rgba(9,14,28,0.96) 75%);
+  border:1px solid rgba(251,191,36,0.28);
   box-shadow:0 12px 26px rgba(0,0,0,0.65);
   display:flex;
   justify-content:center;
   align-items:center;
 }
-.book-crop{
+.anim-glow{
   position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  background-repeat:no-repeat;
-  background-size:335% 225%;
-  z-index:2;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(251,191,36,0.22),rgba(59,130,246,0.14) 55%,transparent 75%);
+  animation:pulseGlow 3.2s ease-in-out infinite;
+  pointer-events:none;
 }
-.crop-marketing{background-position:3% 2%}
-.crop-branding{background-position:50% 2%}
-.crop-traffic{background-position:97% 2%}
-.crop-influence{background-position:22% 98%}
-.crop-finance{background-position:78% 98%}
-
-/* Fallback Box (shows only if image file is missing) */
-.fb-box{
+.anim-img{
   position:relative;
-  z-index:1;
-  width:155px;
-  height:200px;
-  border-radius:6px 14px 14px 6px;
-  background:linear-gradient(160deg,#1e3a8a,#090e1c);
-  border-left:8px solid #38bdf8;
-  border-top:2px solid rgba(255,255,255,0.4);
-  padding:14px 10px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  text-align:center;
-  box-shadow:0 14px 25px rgba(0,0,0,0.7);
+  z-index:2;
+  width:100%;
+  max-width:340px;
+  height:auto;
+  border-radius:10px;
+  display:block;
+  box-shadow:0 14px 28px rgba(0,0,0,0.8);
+  animation:floatBox 3.6s ease-in-out infinite;
+  transition:transform 0.3s ease;
 }
-.fb-box small{font-size:7.5px;font-weight:900;color:#38bdf8;letter-spacing:0.6px}
-.fb-box h3{font-size:15px;font-weight:900;color:#ffffff;line-height:1.15}
-.fb-box span{font-size:8px;font-weight:900;background:#fbbf24;color:#050811;padding:4px 6px;border-radius:4px}
+.card:hover .anim-img{
+  transform:scale(1.03);
+}
+
+@keyframes floatBox{
+  0%,100%{transform:translateY(0px)}
+  50%{transform:translateY(-6px)}
+}
+@keyframes pulseGlow{
+  0%,100%{transform:scale(0.95);opacity:0.75}
+  50%{transform:scale(1.12);opacity:1}
+}
 
 .badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .pill-b{background:#f59e0b;color:#050811;font-size:10px;font-weight:900;padding:3px 9px;border-radius:6px}
@@ -173,9 +174,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 1. MARKETING MASTERY -->
   <div class="card">
-    <div class="cover-banner">
-      <div class="fb-box"><small>THE MILLIONAIRE SKILLS</small><h3>MARKETING MASTERY</h3><span>FUNNELS &amp; SALES</span></div>
-      <div class="book-crop crop-marketing" data-sprite="1"></div>
+    <div class="anim-showcase">
+      <div class="anim-glow"></div>
+      <img src="covers-5.jpg" alt="Marketing Mastery" class="anim-img" data-cover="1">
     </div>
     <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Marketing Mastery</div>
@@ -187,9 +188,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 2. BRANDING MASTERY -->
   <div class="card">
-    <div class="cover-banner">
-      <div class="fb-box"><small>THE MILLIONAIRE SKILLS</small><h3>BRANDING MASTERY</h3><span>PERSONAL BRAND</span></div>
-      <div class="book-crop crop-branding" data-sprite="1"></div>
+    <div class="anim-showcase">
+      <div class="anim-glow"></div>
+      <img src="covers-5.jpg" alt="Branding Mastery" class="anim-img" data-cover="1">
     </div>
     <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Branding Mastery</div>
@@ -201,9 +202,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 3. TRAFFIC MASTERY -->
   <div class="card">
-    <div class="cover-banner">
-      <div class="fb-box"><small>THE MILLIONAIRE SKILLS</small><h3>TRAFFIC MASTERY</h3><span>LEADS &amp; ADS</span></div>
-      <div class="book-crop crop-traffic" data-sprite="1"></div>
+    <div class="anim-showcase">
+      <div class="anim-glow"></div>
+      <img src="covers-5.jpg" alt="Traffic Mastery" class="anim-img" data-cover="1">
     </div>
     <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Traffic Mastery</div>
@@ -215,9 +216,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 4. INFLUENCE MASTERY -->
   <div class="card">
-    <div class="cover-banner">
-      <div class="fb-box"><small>THE MILLIONAIRE SKILLS</small><h3>INFLUENCE MASTERY</h3><span>CLOSING &amp; SPEAKING</span></div>
-      <div class="book-crop crop-influence" data-sprite="1"></div>
+    <div class="anim-showcase">
+      <div class="anim-glow"></div>
+      <img src="covers-5.jpg" alt="Influence Mastery" class="anim-img" data-cover="1">
     </div>
     <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Influence Mastery</div>
@@ -229,9 +230,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 5. FINANCE MASTERY -->
   <div class="card vip">
-    <div class="cover-banner">
-      <div class="fb-box"><small>THE MILLIONAIRE SKILLS</small><h3>FINANCE MASTERY</h3><span>WEALTH &amp; FULL ACCESS</span></div>
-      <div class="book-crop crop-finance" data-sprite="1"></div>
+    <div class="anim-showcase">
+      <div class="anim-glow"></div>
+      <img src="covers-5.jpg" alt="Finance Mastery" class="anim-img" data-cover="1">
     </div>
     <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
     <div class="c-title">Finance Mastery (VIP Bundle)</div>
@@ -347,16 +348,11 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 // YAHAN APNI IMAGE KA SAHI NAAM YA DIRECT URL DAALEIN
 var COVER_IMAGE_URL = "covers-5.jpg";
 
-(function loadCovers(){
-  var img = new Image();
-  img.onload = function(){
-    var els = document.querySelectorAll("[data-sprite]");
-    for(var i = 0; i < els.length; i++){
-      els[i].style.backgroundImage = "url('" + COVER_IMAGE_URL + "')";
-      els[i].parentElement.style.background = "#ffffff";
-    }
-  };
-  img.src = COVER_IMAGE_URL;
+(function applyCoverUrl(){
+  var imgs = document.querySelectorAll("[data-cover]");
+  for(var i = 0; i < imgs.length; i++){
+    imgs[i].src = COVER_IMAGE_URL;
+  }
 })();
 
 var WA_NUMBER = "916289841691";
@@ -412,4 +408,21 @@ function buildCredentials(){
   g("outPass").innerHTML = "Password: " + userPass;
 
   g("pWelcome").innerHTML = "Welcome, " + name + " (" + userId + ")";
-  g("pPkg").innerHTML = "Enrolled: " + act
+  g("pPkg").innerHTML = "Enrolled: " + activePackage + " (Rs." + amt + ")";
+
+  var text = "Hello THE MILLIONAIRE SKILLS%0A" +
+    "UTR VERIFIED & CREDENTIALS GENERATED%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
+    "Package: " + encodeURIComponent(activePackage) + "%0A" +
+    "Amount: Rs." + encodeURIComponent(amt) + "%0A" +
+    "UTR: " + encodeURIComponent(utrRaw) + "%0A" +
+    "User ID: " + encodeURIComponent(userId) + "%0A" +
+    "Password: " + encodeURIComponent(userPass);
+
+  g("outWaBtn").href = "https://wa.me/" + WA_NUMBER + "?text=" + text;
+}
+
+function syncPortalLogin(){
+  var id = (g("lId").value || "student1@tms.com").trim();
+  g("pWelcome").innerHTML = "Welcome

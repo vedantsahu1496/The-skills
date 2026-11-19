@@ -47,11 +47,10 @@ a{color:inherit;text-decoration:none}
 .card{background:#0e1629;border:2px solid #334155;border-radius:16px;padding:16px;margin-bottom:20px}
 .card.vip{border:2px solid #fbbf24;background:#131c33}
 
-.book-wrap{padding:22px 14px;border-radius:12px;margin-bottom:14px;display:flex;justify-content:center;align-items:center}
-.book{width:152px;height:200px;border-radius:4px 14px 14px 4px;padding:14px 11px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;border-left:8px solid #fbbf24;border-top:2px solid rgba(255,255,255,0.45);border-bottom:4px solid rgba(0,0,0,0.8);transform:rotate(-2deg);box-shadow:8px 12px 24px rgba(0,0,0,0.6)}
-.book small{font-size:7.5px;font-weight:900;color:#fde68a;background:rgba(0,0,0,0.45);padding:3px 6px;border-radius:4px}
-.book h3{font-size:16px;font-weight:900;color:#ffffff;line-height:1.15;text-transform:uppercase}
-.book span{font-size:8.5px;font-weight:900;background:#fbbf24;color:#050811;padding:4px 7px;border-radius:5px}
+/* Updated Course Image Container */
+.book-wrap{padding:18px 14px;border-radius:12px;margin-bottom:14px;display:flex;justify-content:center;align-items:center}
+.course-img{width:190px;max-width:100%;height:auto;border-radius:10px;display:block;box-shadow:0 12px 26px rgba(0,0,0,0.75);transition:transform 0.25s ease}
+.card:hover .course-img{transform:scale(1.03)}
 
 .badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .pill-b{background:#f59e0b;color:#050811;font-size:10px;font-weight:900;padding:3px 9px;border-radius:6px}
@@ -126,13 +125,10 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <p>Tap Buy Now to pay via UPI, verify UTR &amp; get User ID</p>
   </div>
 
+  <!-- 1. MARKETING MASTERY -->
   <div class="card">
     <div class="book-wrap" style="background:#172554">
-      <div class="book" style="background:#1d4ed8">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>MARKETING MASTERY</h3>
-        <span>FUNNELS &amp; SALES</span>
-      </div>
+      <img src="marketing.jpg" alt="Marketing Mastery" class="course-img">
     </div>
     <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Marketing Mastery</div>
@@ -142,13 +138,10 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Marketing Mastery','999')">Buy Now &rarr;</a>
   </div>
 
+  <!-- 2. BRANDING MASTERY -->
   <div class="card">
     <div class="book-wrap" style="background:#451a03">
-      <div class="book" style="background:#b45309">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>BRANDING MASTERY</h3>
-        <span>PERSONAL BRAND</span>
-      </div>
+      <img src="branding.jpg" alt="Branding Mastery" class="course-img">
     </div>
     <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Branding Mastery</div>
@@ -158,13 +151,10 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Branding Mastery','2499')">Buy Now &rarr;</a>
   </div>
 
+  <!-- 3. TRAFFIC MASTERY -->
   <div class="card">
     <div class="book-wrap" style="background:#064e3b">
-      <div class="book" style="background:#047857">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>TRAFFIC MASTERY</h3>
-        <span>LEADS &amp; ADS</span>
-      </div>
+      <img src="traffic.jpg" alt="Traffic Mastery" class="course-img">
     </div>
     <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Traffic Mastery</div>
@@ -174,13 +164,10 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Traffic Mastery','4999')">Buy Now &rarr;</a>
   </div>
 
+  <!-- 4. INFLUENCE MASTERY -->
   <div class="card">
     <div class="book-wrap" style="background:#3b0764">
-      <div class="book" style="background:#6d28d9">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>INFLUENCE MASTERY</h3>
-        <span>CLOSING &amp; SPEAKING</span>
-      </div>
+      <img src="influence.jpg" alt="Influence Mastery" class="course-img">
     </div>
     <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
     <div class="c-title">Influence Mastery</div>
@@ -190,13 +177,10 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Influence Mastery','9999')">Buy Now &rarr;</a>
   </div>
 
+  <!-- 5. FINANCE MASTERY -->
   <div class="card vip">
     <div class="book-wrap" style="background:#422006">
-      <div class="book" style="background:#a16207">
-        <small>THE MILLIONAIRE SKILLS</small>
-        <h3>FINANCE MASTERY</h3>
-        <span>WEALTH &amp; FULL ACCESS</span>
-      </div>
+      <img src="finance.jpg" alt="Finance Mastery" class="course-img">
     </div>
     <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
     <div class="c-title">Finance Mastery (VIP Bundle)</div>

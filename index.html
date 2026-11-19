@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,380 +7,66 @@
 <title>THE MILLIONAIRE SKILLS | Executive Mastery</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 html{scroll-behavior:smooth}
-body{
-  background:#060913;
-  background-image:
-    radial-gradient(circle at 15% 0%,rgba(245,158,11,0.08),transparent 42%),
-    radial-gradient(circle at 85% 15%,rgba(59,130,246,0.08),transparent 45%);
-  color:#f8fafc;
-  line-height:1.55;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-a{color:inherit;text-decoration:none}
-button{cursor:pointer;font-family:inherit}
-
-.hdr{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(9,14,28,0.88);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(251,191,36,0.25);
-  padding:13px 16px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.brand b{display:block;font-size:14px;color:#fbbf24;font-weight:800;letter-spacing:0.7px}
-.brand small{display:block;font-size:9px;color:#94a3b8;letter-spacing:1.6px;font-weight:600;margin-top:1px}
-.hdr-r{display:flex;gap:8px;align-items:center}
-.btn-sm{
-  background:linear-gradient(135deg,#fbbf24,#f59e0b);
-  color:#060913;
-  border-radius:8px;
-  padding:8px 12px;
-  font-size:12px;
-  font-weight:800;
-  box-shadow:0 4px 14px rgba(245,158,11,0.22);
-}
-#menu-toggle{display:none}
-.menu-btn{
-  background:rgba(15,23,42,0.9);
-  color:#fbbf24;
-  border:1px solid rgba(251,191,36,0.35);
-  border-radius:8px;
-  width:38px;
-  height:38px;
-  font-size:19px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.nav-drawer{
-  display:none;
-  position:absolute;
-  top:64px;
-  left:0;
-  right:0;
-  background:#0b1224;
-  padding:10px 16px;
-  border-bottom:1px solid rgba(251,191,36,0.3);
-  box-shadow:0 18px 32px rgba(0,0,0,0.65);
-}
-#menu-toggle:checked ~ .nav-drawer{display:block}
-.nav-drawer a{
-  display:block;
-  padding:13px 6px;
-  border-bottom:1px solid rgba(148,163,184,0.14);
-  font-size:14px;
-  font-weight:600;
-  color:#e2e8f0;
-}
-.nav-drawer a:last-child{border-bottom:none}
-
-.hero{
-  padding:42px 16px 34px;
-  text-align:center;
-  background:linear-gradient(180deg,rgba(15,23,42,0.85) 0%,rgba(6,9,19,0.2) 100%);
-  border-bottom:1px solid rgba(148,163,184,0.14);
-}
-.hero-tag{
-  display:inline-block;
-  background:rgba(251,191,36,0.1);
-  border:1px solid rgba(251,191,36,0.35);
-  color:#fcd34d;
-  padding:6px 14px;
-  border-radius:999px;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:0.6px;
-}
-.hero h1{
-  font-size:29px;
-  font-weight:800;
-  margin:14px auto 10px;
-  max-width:460px;
-  line-height:1.2;
-  letter-spacing:-0.3px;
-}
-.hero h1 span{
-  background:linear-gradient(135deg,#fde68a,#f59e0b);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{
-  font-size:14px;
-  color:#94a3b8;
-  max-width:430px;
-  margin:0 auto 22px;
-}
-
-.btn{
-  display:block;
-  width:100%;
-  border-radius:11px;
-  padding:13px 16px;
-  font-size:13.5px;
-  font-weight:700;
-  text-align:center;
-  margin-top:9px;
-  border:none;
-  transition:transform 0.18s ease,box-shadow 0.18s ease,opacity 0.18s ease;
-}
-.btn:active{transform:scale(0.99)}
-.btn-gold{
-  background:linear-gradient(135deg,#fbbf24,#f59e0b);
-  color:#060913;
-  box-shadow:0 8px 20px rgba(245,158,11,0.2);
-}
-.btn-dark{
-  background:rgba(15,23,42,0.9);
-  color:#e2e8f0;
-  border:1px solid rgba(148,163,184,0.28);
-}
-.btn-green{
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:#052e16;
-  box-shadow:0 8px 20px rgba(34,197,94,0.18);
-}
-
-.hero-actions{max-width:420px;margin:0 auto}
-
-.stats{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  max-width:460px;
-  margin:24px auto 0;
-}
-.stat{
-  background:rgba(15,23,42,0.72);
-  border:1px solid rgba(251,191,36,0.22);
-  border-radius:14px;
-  padding:14px;
-  text-align:left;
-}
-.stat b{display:block;font-size:20px;font-weight:800;color:#fbbf24}
-.stat span{font-size:11.5px;color:#94a3b8;font-weight:500}
-
+body{background:#060913;color:#f8fafc;line-height:1.55}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer}
+.hdr{position:sticky;top:0;z-index:100;background:#0b1224;padding:14px 18px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
+.brand b{display:block;color:#fbbf24;font-size:15px}
+.brand small{font-size:10px;color:#94a3b8}
+.btn{display:block;width:100%;padding:13px;border:0;border-radius:10px;margin-top:10px;font-weight:bold;font-size:14px;text-align:center}
+.gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
+.dark{background:#172033;color:white;border:1px solid #475569}
+.green{background:#22c55e;color:#052e16}
+.hero{text-align:center;padding:45px 16px;background:linear-gradient(180deg,#111b33,#060913)}
+.hero-tag{display:inline-block;padding:6px 14px;border:1px solid #fbbf24;border-radius:30px;color:#fbbf24;font-size:12px}
+.hero h1{font-size:30px;margin:18px 0 10px}
+.hero h1 span{color:#fbbf24}
+.hero p{color:#94a3b8;font-size:14px;max-width:430px;margin:auto}
+.hero-actions{max-width:420px;margin:20px auto}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:450px;margin:25px auto}
+.stat{padding:15px;background:#111b30;border:1px solid #604a21;border-radius:12px;text-align:left}
+.stat b{display:block;color:#fbbf24;font-size:21px}
+.stat span{font-size:12px;color:#94a3b8}
 .sec{max-width:540px;margin:auto;padding:30px 16px}
-.sec-h{text-align:center;margin-bottom:20px}
-.sec-h h2{font-size:21px;font-weight:800;letter-spacing:0.4px;color:#f8fafc}
-.sec-h p{font-size:13px;color:#94a3b8;margin-top:5px}
-
-.card{
-  background:rgba(15,23,42,0.78);
-  border:1px solid rgba(148,163,184,0.2);
-  border-radius:18px;
-  padding:18px;
-  margin-bottom:20px;
-  box-shadow:0 12px 28px rgba(0,0,0,0.35);
-}
-.card.vip{
-  border:1px solid rgba(251,191,36,0.55);
-  background:linear-gradient(180deg,rgba(24,33,58,0.92),rgba(13,19,36,0.95));
-  box-shadow:0 14px 34px rgba(245,158,11,0.12);
-}
-
-.anim-showcase{
-  position:relative;
-  width:100%;
-  min-height:185px;
-  border-radius:14px;
-  margin-bottom:15px;
-  padding:14px;
-  overflow:hidden;
-  background:radial-gradient(circle at 50% 25%,rgba(251,191,36,0.14),rgba(7,11,22,0.96) 75%);
-  border:1px solid rgba(148,163,184,0.16);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-.anim-img{
-  position:relative;
-  width:100%;
-  max-width:330px;
-  height:auto;
-  border-radius:11px;
-  display:block;
-  box-shadow:0 14px 28px rgba(0,0,0,0.65);
-  animation:floatBox 3.8s ease-in-out infinite;
-}
-@keyframes floatBox{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-
-.badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.pill-b{
-  background:rgba(251,191,36,0.14);
-  border:1px solid rgba(251,191,36,0.4);
-  color:#fbbf24;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:0.6px;
-  padding:4px 10px;
-  border-radius:999px;
-}
-.save-b{color:#4ade80;font-size:11.5px;font-weight:700}
-.c-title{font-size:19px;font-weight:800;margin-bottom:6px;color:#f8fafc}
-.c-desc{font-size:13px;color:#94a3b8;margin-bottom:12px}
-.c-meta{
-  font-size:12px;
-  color:#cbd5e1;
-  padding:9px 0;
-  border-top:1px solid rgba(148,163,184,0.14);
-  border-bottom:1px solid rgba(148,163,184,0.14);
-  margin-bottom:12px;
-  display:flex;
-  justify-content:space-between;
-  font-weight:600;
-}
-.c-price{font-size:24px;font-weight:800;color:#fbbf24;margin-bottom:10px}
-.c-old{font-size:13.5px;color:#64748b;text-decoration:line-through;margin-left:6px;font-weight:500}
-
-.modal-screen{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(3,6,14,0.9);
-  backdrop-filter:blur(6px);
-  z-index:99999;
-  padding:16px;
-  overflow-y:auto;
-}
-.modal-card{
-  background:#0b1224;
-  border:1px solid rgba(251,191,36,0.42);
-  border-radius:18px;
-  max-width:420px;
-  margin:18px auto;
-  padding:20px;
-  box-shadow:0 24px 48px rgba(0,0,0,0.75);
-}
-.m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px}
-.m-top b{color:#fbbf24;font-size:16px;font-weight:800}
-.m-close{
-  background:rgba(30,41,59,0.9);
-  color:#e2e8f0;
-  border:1px solid rgba(148,163,184,0.28);
-  border-radius:8px;
-  padding:6px 11px;
-  font-size:12px;
-  font-weight:700;
-}
-
-.qr-box{
-  background:#ffffff;
-  color:#060913;
-  border-radius:12px;
-  padding:14px;
-  text-align:center;
-  margin:12px 0;
-  border:1px solid rgba(251,191,36,0.5);
-}
-.qr-box img{width:142px;height:142px;display:block;margin:8px auto}
-.inp{
-  width:100%;
-  padding:11px 12px;
-  border-radius:10px;
-  border:1px solid rgba(148,163,184,0.25);
-  background:rgba(15,23,42,0.95);
-  color:#f8fafc;
-  font-size:14px;
-  margin-bottom:11px;
-}
-.inp:focus{outline:none;border-color:#fbbf24}
-.lbl{display:block;font-size:11.5px;color:#cbd5e1;font-weight:700;margin-bottom:5px}
-.note-box{
-  background:rgba(15,23,42,0.85);
-  border-left:3px solid #fbbf24;
-  padding:10px 12px;
-  border-radius:8px;
-  font-size:12px;
-  color:#94a3b8;
-  margin-bottom:13px;
-}
-.err-box{
-  display:none;
-  background:rgba(127,29,29,0.45);
-  border:1px solid rgba(248,113,113,0.6);
-  color:#fecaca;
-  padding:10px 12px;
-  border-radius:10px;
-  font-size:12px;
-  font-weight:600;
-  margin-top:9px;
-}
-.success-box{
-  background:rgba(5,46,22,0.65);
-  border:1px solid rgba(74,222,128,0.55);
-  border-radius:14px;
-  padding:16px;
-  margin:12px 0;
-  color:#dcfce7;
-}
-.success-box b{display:block;color:#4ade80;font-size:15px;font-weight:800;margin-bottom:8px}
-.cred-row{
-  font-size:13.5px;
-  font-weight:700;
-  margin:6px 0;
-  color:#f8fafc;
-  background:rgba(6,78,59,0.65);
-  padding:9px 11px;
-  border-radius:9px;
-  word-break:break-all;
-}
-
-.support-inline-box{
-  display:block;
-  max-width:420px;
-  margin:16px auto 0;
-  background:rgba(15,23,42,0.82);
-  border:1px solid rgba(251,191,36,0.35);
-  border-radius:16px;
-  padding:16px;
-  text-align:center;
-}
-.support-inline-box.wa-box{border-color:rgba(74,222,128,0.4)}
-.support-inline-box.highlight{border-color:#4ade80;box-shadow:0 0 20px rgba(74,222,128,0.22)}
-.support-email-pill{
-  margin:8px 0 10px;
-  padding:10px 12px;
-  background:rgba(30,41,59,0.9);
-  border:1px solid rgba(148,163,184,0.18);
-  border-radius:10px;
-  color:#f8fafc;
-  font-size:13px;
-  font-weight:700;
-  word-break:break-all;
-}
-.copy-msg{
-  display:none;
-  margin-top:9px;
-  padding:8px 10px;
-  border-radius:9px;
-  background:rgba(5,46,22,0.75);
-  border:1px solid rgba(74,222,128,0.5);
-  color:#dcfce7;
-  font-size:12px;
-  font-weight:700;
-}
-
-footer{
-  background:#050811;
-  border-top:1px solid rgba(251,191,36,0.25);
-  padding:28px 16px;
-  text-align:center;
-  font-size:12.5px;
-  color:#94a3b8;
-  font-weight:600;
-}
-footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-bottom:6px;letter-spacing:0.5px}
-.f-links{margin-top:14px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.f-links a{color:#cbd5e1;font-size:12px;text-decoration:underline}
-.f-links a:hover{color:#fbbf24}
+.sec-h{text-align:center;margin-bottom:22px}
+.sec-h h2{font-size:23px}
+.sec-h p{color:#94a3b8;font-size:13px}
+.card{background:#111b30;border:1px solid #334155;border-radius:17px;padding:17px;margin-bottom:20px}
+.vip{border:1px solid #fbbf24}
+.anim-showcase{background:#080e1c;border-radius:12px;padding:10px;margin-bottom:15px;text-align:center}
+.anim-img{width:100%;max-width:330px;height:auto;border-radius:10px;display:block;margin:auto}
+.badge-row{display:flex;justify-content:space-between;margin-bottom:8px}
+.pill-b{color:#fbbf24;font-size:11px;border:1px solid #b88624;padding:4px 9px;border-radius:20px}
+.save-b{color:#4ade80;font-size:11px}
+.c-title{font-size:19px;font-weight:bold}
+.c-desc{font-size:13px;color:#94a3b8;margin:7px 0 12px}
+.c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #334155;border-bottom:1px solid #334155;font-size:12px}
+.c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
+.c-old{font-size:13px;color:#64748b;text-decoration:line-through}
+.modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;overflow-y:auto;padding:15px}
+.modal-screen.active{display:block}
+.modal-card{background:#0b1224;border:1px solid #fbbf24;border-radius:16px;padding:20px;max-width:420px;margin:20px auto}
+.m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}
+.m-top b{color:#fbbf24;font-size:16px}
+.m-close{padding:7px 12px;background:#263348;color:white;border:0;border-radius:7px}
+.qr-box{background:white;color:#111;padding:14px;border-radius:12px;text-align:center;margin:12px 0}
+.qr-box img{width:160px;height:160px;display:block;margin:10px auto}
+.inp{width:100%;padding:12px;background:#172033;color:white;border:1px solid #475569;border-radius:9px;margin-bottom:12px;font-size:14px}
+.lbl{display:block;font-size:12px;font-weight:bold;margin-bottom:5px;color:#cbd5e1}
+.note-box{background:#172033;padding:12px;border-left:3px solid #fbbf24;border-radius:7px;font-size:12px;color:#cbd5e1;margin-bottom:14px}
+.err-box{display:none;background:#581c1c;color:#fecaca;padding:12px;border-radius:9px;font-size:12px;margin-top:10px}
+.success-box{background:#064e3b;padding:15px;border-radius:12px;margin:12px 0}
+.success-box b{display:block;color:#4ade80;margin-bottom:8px}
+.cred-row{background:#07543c;padding:9px;border-radius:7px;margin:7px 0;font-size:13px;overflow-wrap:anywhere}
+footer{text-align:center;background:#050811;padding:28px 15px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
+footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
+.support-box{background:#111b30;border:1px solid #b88624;padding:16px;border-radius:13px;margin:15px auto;max-width:420px}
+.support-email-pill{padding:10px;background:#263348;border-radius:8px;margin:10px 0;overflow-wrap:anywhere;color:white}
+.f-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:15px}
+.f-links a{text-decoration:underline;color:#cbd5e1}
+@media(min-width:700px){.sec{max-width:850px}.courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.hero h1{font-size:42px}}
 </style>
 </head>
 
@@ -390,30 +77,17 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <b>THE MILLIONAIRE SKILLS</b>
 <small>EXECUTIVE MASTERY</small>
 </a>
-
-<div class="hdr-r">
-<button type="button" class="btn-sm" onclick="openBox('signin-modal')">Sign In / Sign Up</button>
-<input type="checkbox" id="menu-toggle">
-<label for="menu-toggle" class="menu-btn">&#9776;</label>
-
-<div class="nav-drawer">
-<a href="#courses" onclick="hideMenuAndBoxes()">Mastery Packages</a>
-<a href="#signin-modal" onclick="hideMenuAndBoxes();openBox('signin-modal');return false;">Student Portal</a>
-<a href="#contact" onclick="hideMenuAndBoxes()">Contact Support</a>
-<a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
-</div>
-</div>
+<a href="#signin-modal" class="btn gold" style="width:auto;margin:0;padding:9px 12px">Student Login</a>
 </header>
 
 <section class="hero">
-<div class="hero-tag">&#9733; EXECUTIVE MASTERY</div>
+<div class="hero-tag">★ EXECUTIVE MASTERY</div>
 <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
-<p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment details and student registration.</p>
+<p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment and student registration.</p>
 <div class="hero-actions">
-<a href="#courses" class="btn btn-gold">Explore 5 Mastery Packages &rarr;</a>
-<button type="button" class="btn btn-dark" onclick="openBox('signin-modal')">Student Portal Sign In</button>
+<a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
+<button class="btn dark" onclick="openModal('signin-modal')">Student Portal Sign In</button>
 </div>
-
 <div class="stats">
 <div class="stat"><b>85+</b><span>Practical Modules</span></div>
 <div class="stat"><b>10K+</b><span>Active Students</span></div>
@@ -425,182 +99,309 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:800;margin-botto
 <section class="sec" id="courses">
 <div class="sec-h">
 <h2>5 Mastery Packages</h2>
-<p>Tap Buy Now to submit your UPI payment details</p>
+<p>Select your package and continue to checkout</p>
 </div>
 
+<div class="courses-grid">
+
 <div class="card">
-<div class="anim-showcase">
-<img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Marketing Mastery" class="anim-img">
-</div>
+<div class="anim-showcase"><img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Marketing Mastery" class="anim-img"></div>
 <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
 <div class="c-title">Marketing Mastery</div>
 <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
-<div class="c-meta"><span>&#9733; 4.8</span><span>12 Modules</span></div>
+<div class="c-meta"><span>★ 4.8</span><span>12 Modules</span></div>
 <div class="c-price">₹999 <span class="c-old">₹1,999</span></div>
-<button type="button" class="btn btn-gold" onclick="openBuyBox('Marketing Mastery', 999)">Buy Now &rarr;</button>
+<button class="btn gold" onclick="buyPackage('Marketing Mastery',999)">Buy Now →</button>
 </div>
 
 <div class="card">
-<div class="anim-showcase">
-<img src="file_000000002914821181cc5ff207a5f834.png" alt="Branding Mastery" class="anim-img">
-</div>
+<div class="anim-showcase"><img src="file_000000002914821181cc5ff207a5f834.png" alt="Branding Mastery" class="anim-img"></div>
 <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
 <div class="c-title">Branding Mastery</div>
 <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
-<div class="c-meta"><span>&#9733; 4.7</span><span>16 Modules</span></div>
+<div class="c-meta"><span>★ 4.7</span><span>16 Modules</span></div>
 <div class="c-price">₹2,499 <span class="c-old">₹4,999</span></div>
-<button type="button" class="btn btn-gold" onclick="openBuyBox('Branding Mastery', 2499)">Buy Now &rarr;</button>
+<button class="btn gold" onclick="buyPackage('Branding Mastery',2499)">Buy Now →</button>
 </div>
 
 <div class="card">
-<div class="anim-showcase">
-<img src="IMG-20261120-WA8600.jpg" alt="Traffic Mastery" class="anim-img">
-</div>
+<div class="anim-showcase"><img src="IMG-20261120-WA8600.jpg" alt="Traffic Mastery" class="anim-img"></div>
 <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
 <div class="c-title">Traffic Mastery</div>
 <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
-<div class="c-meta"><span>&#9733; 4.6</span><span>20 Modules</span></div>
+<div class="c-meta"><span>★ 4.6</span><span>20 Modules</span></div>
 <div class="c-price">₹4,999 <span class="c-old">₹9,999</span></div>
-<button type="button" class="btn btn-gold" onclick="openBuyBox('Traffic Mastery', 4999)">Buy Now &rarr;</button>
+<button class="btn gold" onclick="buyPackage('Traffic Mastery',4999)">Buy Now →</button>
 </div>
 
 <div class="card">
-<div class="anim-showcase">
-<img src="IMG-20261120-WA5578.jpg" alt="Influence Mastery" class="anim-img">
-</div>
+<div class="anim-showcase"><img src="IMG-20261120-WA5578.jpg" alt="Influence Mastery" class="anim-img"></div>
 <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
 <div class="c-title">Influence Mastery</div>
 <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
-<div class="c-meta"><span>&#9733; 4.9</span><span>22 Modules</span></div>
+<div class="c-meta"><span>★ 4.9</span><span>22 Modules</span></div>
 <div class="c-price">₹9,999 <span class="c-old">₹19,999</span></div>
-<button type="button" class="btn btn-gold" onclick="openBuyBox('Influence Mastery', 9999)">Buy Now &rarr;</button>
+<button class="btn gold" onclick="buyPackage('Influence Mastery',9999)">Buy Now →</button>
 </div>
 
 <div class="card vip">
-<div class="anim-showcase">
-<img src="IMG-20261120-WA2541.jpg" alt="Finance Mastery" class="anim-img">
-</div>
+<div class="anim-showcase"><img src="IMG-20261120-WA2541.jpg" alt="Finance Mastery" class="anim-img"></div>
 <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
 <div class="c-title">Finance Mastery (VIP Bundle)</div>
 <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
-<div class="c-meta"><span>&#9733; 5.0</span><span>All 85+ Modules</span></div>
+<div class="c-meta"><span>★ 5.0</span><span>All 85+ Modules</span></div>
 <div class="c-price">₹14,999 <span class="c-old">₹29,999</span></div>
-<button type="button" class="btn btn-gold" onclick="openBuyBox('Finance Mastery (VIP)', 14999)">Buy Now &rarr;</button>
+<button class="btn gold" onclick="buyPackage('Finance Mastery (VIP)',14999)">Buy Now →</button>
+</div>
+
 </div>
 </section>
 
 <footer id="contact">
 <b>THE MILLIONAIRE SKILLS</b>
-<div>Support &amp; WhatsApp: +91 62898 41691</div>
-<div style="margin-top:4px">Email: mdaadilalam123123@gmail.com</div>
+<div>WhatsApp: +91 62898 41691</div>
+<div>Email: mdaadilalam123123@gmail.com</div>
 
-<div class="support-inline-box" id="emailSupportBox">
-  <b style="margin-bottom:4px">Email Support</b>
-  <div class="support-email-pill">mdaadilalam123123@gmail.com</div>
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaadilalam123123@gmail.com&su=Support%20Request%20-%20THE%20MILLIONAIRE%20SKILLS" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Open in Gmail &rarr;</a>
-  <a href="mailto:mdaadilalam123123@gmail.com?subject=Support%20Request%20-%20THE%20MILLIONAIRE%20SKILLS" class="btn btn-green">Open Mail App &rarr;</a>
-  <button type="button" class="btn btn-dark" onclick="copyValue('mdaadilalam123123@gmail.com', 'emailCopyMsg')">Copy Email</button>
-  <div class="copy-msg" id="emailCopyMsg"></div>
+<div class="support-box">
+<b>Email Support</b>
+<div class="support-email-pill">mdaadilalam123123@gmail.com</div>
+<a class="btn gold" href="mailto:mdaadilalam123123@gmail.com">Open Email</a>
 </div>
 
-<div class="support-inline-box wa-box" id="whatsappSupportBox">
-  <b style="color:#4ade80;margin-bottom:4px">WhatsApp Support</b>
-  <div class="support-email-pill">+91 62898 41691</div>
-  <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20need%20support." target="_blank" rel="noopener noreferrer" class="btn btn-green">Chat on WhatsApp (+91 62898 41691) &rarr;</a>
-  <button type="button" class="btn btn-dark" onclick="copyValue('+91 62898 41691', 'waCopyMsg')">Copy WhatsApp Number</button>
-  <div class="copy-msg" id="waCopyMsg"></div>
+<div class="support-box">
+<b style="color:#4ade80">WhatsApp Support</b>
+<div class="support-email-pill">+91 62898 41691</div>
+<a class="btn green" href="https://wa.me/916289841691" target="_blank" rel="noopener">Chat on WhatsApp</a>
 </div>
-
 <div class="f-links">
-<a href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
-<a href="#emailSupportBox" onclick="jumpToBox('emailSupportBox');return false;">Email Support</a>
-<a href="#whatsappSupportBox" onclick="jumpToBox('whatsappSupportBox');return false;">WhatsApp Box</a>
+<a href="#courses">Packages</a>
+<a href="#top">Back to Top</a>
+<a href="#contact">Contact</a>
 </div>
 </footer>
 
-<!-- CHECKOUT MODAL -->
-<div class="modal-screen" id="buy-modal" onclick="if(event.target===this)hideMenuAndBoxes()">
+<!-- CHECKOUT -->
+<div class="modal-screen" id="buy-modal">
 <div class="modal-card">
 <div class="m-top">
 <b id="modalPkgTitle">Package Checkout</b>
-<button type="button" class="m-close" onclick="hideMenuAndBoxes()">Close ×</button>
+<button class="m-close" onclick="closeAll()">Close ×</button>
 </div>
 
 <div class="qr-box">
-<div id="modalQrLabel"><b>Scan QR or Pay via UPI</b></div>
-<img id="modalQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi%3A%2F%2Fpay%3Fpa%3Dmillionaireskills%40upi%26pn%3DTheMillionaireSkills%26cu%3DINR" alt="UPI QR">
+<b id="modalQrLabel">Scan QR or Pay via UPI</b>
+<img id="modalQrImg" src="" alt="UPI QR Code">
 <b>UPI ID: millionaireskills@upi</b>
 </div>
 
-<div class="note-box">
-Payment details submit karne ke baad manual payment verification ka wait karein. ID activation payment confirm hone ke baad hogi.
-</div>
+<div class="note-box">Payment submit karne ke baad manual verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
 
 <label class="lbl">Amount (₹)</label>
-<input type="number" class="inp" id="fAmt" readonly>
+<input class="inp" id="fAmt" readonly>
 
 <label class="lbl">Your Full Name</label>
-<input type="text" class="inp" id="fName" placeholder="Enter full name">
+<input class="inp" id="fName" placeholder="Enter full name">
 
-<label class="lbl">Your WhatsApp Number (10 Digits)</label>
-<input type="tel" class="inp" id="fPhone" maxlength="10" inputmode="numeric" placeholder="10-digit WhatsApp number" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+<label class="lbl">WhatsApp Number (10 Digits)</label>
+<input class="inp" id="fPhone" type="tel" maxlength="10" inputmode="numeric" placeholder="10-digit number">
 
-<label class="lbl">UPI UTR / Transaction Reference (12 Digits)</label>
-<input type="text" class="inp" id="fUtr" maxlength="12" inputmode="numeric" placeholder="Enter 12-digit UTR number" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+<label class="lbl">UPI UTR / Transaction Reference</label>
+<input class="inp" id="fUtr" maxlength="12" inputmode="numeric" placeholder="Enter 12-digit UTR">
 
-<button type="button" class="btn btn-gold" onclick="submitBuyForm()">Submit Payment Details &rarr;</button>
+<button class="btn gold" onclick="submitPayment()">Submit Payment Details →</button>
 <div class="err-box" id="buyErrBox"></div>
 </div>
 </div>
 
-<!-- REGISTRATION RESULT -->
-<div class="modal-screen" id="verified-modal" onclick="if(event.target===this)hideMenuAndBoxes()">
+<!-- REGISTRATION -->
+<div class="modal-screen" id="verified-modal">
 <div class="modal-card">
 <div class="m-top">
 <b>Registration Submitted</b>
-<button type="button" class="m-close" onclick="hideMenuAndBoxes()">Close ×</button>
+<button class="m-close" onclick="closeAll()">Close ×</button>
 </div>
-
 <div class="success-box">
 <b>Registration Request Created</b>
-<div class="cred-row" id="outPkg">Package:</div>
-<div class="cred-row" id="outUser">Request ID:</div>
-<div class="cred-row">Status: Awaiting Manual Payment Verification</div>
+<div class="cred-row" id="outPkg"></div>
+<div class="cred-row" id="outUser"></div>
+<div class="cred-row">Status: Awaiting Manual Verification</div>
 </div>
-
-<div class="note-box">
-Your payment is NOT automatically verified. The administrator must confirm the transaction before activating your student account.
-</div>
-
-<a id="outWaBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-green">Send Payment Details on WhatsApp &rarr;</a>
-<button type="button" class="btn btn-dark" onclick="hideMenuAndBoxes()">Back to Packages</button>
+<div class="note-box">Payment is not automatically verified. Administrator confirmation is required.</div>
+<a class="btn green" id="outWaBtn" href="#" target="_blank" rel="noopener">Send Payment Details on WhatsApp →</a>
+<button class="btn dark" onclick="closeAll()">Back to Packages</button>
 </div>
 </div>
 
 <!-- SIGN IN -->
-<div class="modal-screen" id="signin-modal" onclick="if(event.target===this)hideMenuAndBoxes()">
+<div class="modal-screen" id="signin-modal">
 <div class="modal-card">
 <div class="m-top">
 <b>Student Portal Sign In</b>
-<button type="button" class="m-close" onclick="hideMenuAndBoxes()">Close ×</button>
+<button class="m-close" onclick="closeAll()">Close ×</button>
 </div>
-
-<div class="note-box">
-Demo Login: <b>student1@tms.com</b> / <b>pass1</b><br>
-This is a front-end demo login, not a secure student account system.
-</div>
-
+<div class="note-box">Demo Login: student1@tms.com / pass1<br>This is a demo login only, not a secure account system.</div>
 <label class="lbl">Student ID / Email</label>
-<input type="text" class="inp" id="lId" placeholder="Enter Student ID">
-
+<input class="inp" id="lId" placeholder="Enter Student ID">
 <label class="lbl">Password</label>
-<input type="password" class="inp" id="lPw" placeholder="Enter Password">
-
-<button type="button" class="btn btn-gold" onclick="submitLoginForm()">Sign In to Portal &rarr;</button>
+<input class="inp" id="lPw" type="password" placeholder="Enter Password">
+<button class="btn gold" onclick="submitLogin()">Sign In →</button>
 <div class="err-box" id="loginErrBox"></div>
 </div>
 </div>
 
 <!-- DASHBOARD -->
-<div class="modal-screen" id="portal-modal" onclick="if(event.target===this)hideMenuAndBoxes()">
-<d
+<div class="modal-screen" id="portal-modal">
+<div class="modal-card">
+<div class="m-top">
+<b>Student Dashboard</b>
+<button class="m-close" onclick="closeAll()">Logout</button>
+</div>
+<div class="success-box">
+<b id="pWelcome">Welcome Student</b>
+<div class="cred-row">Demo Student Account</div>
+</div>
+<div class="note-box">This is a demonstration dashboard. Paid course content requires a secure course backend.</div>
+<a class="btn gold" href="https://wa.me/916289841691" target="_blank" rel="noopener">Contact Support</a>
+<button class="btn dark" onclick="closeAll()">Close</button>
+</div>
+</div>
+
+<script>
+"use strict";
+
+var WA_NUMBER = "916289841691";
+var UPI_ID = "millionaireskills@upi";
+var activePackage = "";
+var activePrice = 0;
+
+function openModal(id){
+  closeAll();
+  var modal = document.getElementById(id);
+  if(modal){
+    modal.classList.add("active");
+    modal.style.display = "block";
+  }
+}
+
+function closeAll(){
+  document.querySelectorAll(".modal-screen").forEach(function(modal){
+    modal.classList.remove("active");
+    modal.style.display = "none";
+  });
+}
+
+function buyPackage(pkg,price){
+  activePackage = pkg;
+  activePrice = Number(price);
+
+  document.getElementById("modalPkgTitle").textContent = pkg + " Checkout";
+  document.getElementById("fAmt").value = activePrice;
+  document.getElementById("fName").value = "";
+  document.getElementById("fPhone").value = "";
+  document.getElementById("fUtr").value = "";
+
+  document.getElementById("buyErrBox").style.display = "none";
+
+  var upiURL = "upi://pay?pa=" + encodeURIComponent(UPI_ID) +
+    "&pn=TheMillionaireSkills&am=" + activePrice + "&cu=INR";
+
+  document.getElementById("modalQrLabel").textContent = "Pay ₹" + activePrice + " via UPI";
+
+  document.getElementById("modalQrImg").src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" +
+    encodeURIComponent(upiURL);
+
+  openModal("buy-modal");
+}
+
+function showError(id,msg){
+  var box = document.getElementById(id);
+  box.textContent = msg;
+  box.style.display = "block";
+}
+
+function submitPayment(){
+  var name = document.getElementById("fName").value.trim();
+  var phone = document.getElementById("fPhone").value.replace(/\D/g,"");
+  var utr = document.getElementById("fUtr").value.replace(/\D/g,"");
+
+  var error = document.getElementById("buyErrBox");
+  error.style.display = "none";
+
+  if(!activePackage || !activePrice){
+    showError("buyErrBox","Please select a package first.");
+    return;
+  }
+
+  if(name.length < 2){
+    showError("buyErrBox","Please enter your full name.");
+    return;
+  }
+
+  if(phone.length !== 10){
+    showError("buyErrBox","Please enter a valid 10-digit WhatsApp number.");
+    return;
+  }
+
+  if(utr.length !== 12){
+    showError("buyErrBox","Please enter a 12-digit UTR.");
+    return;
+  }
+
+  var requestId = "TMS-" + Date.now().toString().slice(-8);
+
+  document.getElementById("outPkg").textContent =
+    "Package: " + activePackage + " | Amount: ₹" + activePrice;
+
+  document.getElementById("outUser").textContent =
+    "Request ID: " + requestId;
+
+  var message =
+    "Hello THE MILLIONAIRE SKILLS\n" +
+    "Payment Registration Request\n" +
+    "Name: " + name + "\n" +
+    "WhatsApp: " + phone + "\n" +
+    "Package: " + activePackage + "\n" +
+    "Amount: Rs. " + activePrice + "\n" +
+    "UTR: " + utr + "\n" +
+    "Request ID: " + requestId + "\n" +
+    "Please manually verify my payment.";
+
+  document.getElementById("outWaBtn").href =
+    "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(message);
+
+  openModal("verified-modal");
+}
+
+function submitLogin(){
+  var uid = document.getElementById("lId").value.trim();
+  var pw = document.getElementById("lPw").value;
+  var error = document.getElementById("loginErrBox");
+
+  error.style.display = "none";
+
+  if(uid === "student1@tms.com" && pw === "pass1"){
+    document.getElementById("pWelcome").textContent = "Welcome, " + uid;
+    openModal("portal-modal");
+  }else{
+    showError("loginErrBox","Invalid demo login details.");
+  }
+}
+
+document.addEventListener("click",function(event){
+  if(event.target.classList.contains("modal-screen")){
+    closeAll();
+  }
+});
+
+document.getElementById("fPhone").addEventListener("input",function(){
+  this.value = this.value.replace(/\D/g,"").slice(0,10);
+});
+
+document.getElementById("fUtr").addEventListener("input",function(){
+  this.value = this.value.replace(/\D/g,"").slice(0,12);
+});
+</script>
+
+</body>
+</html>

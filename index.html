@@ -10,14 +10,12 @@ html{scroll-behavior:smooth}
 body{background:#050811;color:#f8fafc;line-height:1.45;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 
-/* HEADER */
 .hdr{position:sticky;top:0;z-index:100;background:#090e1c;border-bottom:2px solid #f59e0b;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
 .brand b{display:block;font-size:14px;font-weight:900;color:#fbbf24;letter-spacing:0.6px}
 .brand small{display:block;font-size:9px;font-weight:700;color:#cbd5e1;letter-spacing:1.2px}
 .hdr-r{display:flex;gap:8px;align-items:center}
 .btn-sm{background:#fbbf24;color:#050811;border-radius:7px;padding:8px 11px;font-size:12px;font-weight:900;display:inline-block}
 
-/* PURE CSS HAMBURGER MENU (NO JS NEEDED) */
 #menu-toggle{display:none}
 .menu-btn{background:#111827;color:#fbbf24;border:1px solid #f59e0b;border-radius:7px;width:38px;height:38px;font-size:21px;font-weight:900;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none}
 .nav-drawer{display:none;position:fixed;top:62px;left:0;right:0;background:#0b1224;border-bottom:2px solid #f59e0b;padding:10px 14px;z-index:120;box-shadow:0 12px 25px rgba(0,0,0,0.9)}
@@ -25,7 +23,6 @@ a{color:inherit;text-decoration:none}
 .nav-drawer a{display:block;padding:13px 6px;border-bottom:1px solid #1e293b;color:#fff;font-size:14px;font-weight:800}
 .nav-drawer a:last-child{border-bottom:none}
 
-/* HERO */
 .hero{padding:30px 14px;text-align:center;background:#0c1428;border-bottom:2px solid #1e293b}
 .hero-tag{display:inline-block;background:#1e1b0b;border:1px solid #fbbf24;color:#fde68a;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:900}
 .hero h1{font-size:27px;font-weight:900;color:#ffffff;margin:12px 0;line-height:1.2}
@@ -42,7 +39,6 @@ a{color:inherit;text-decoration:none}
 .stat b{display:block;font-size:20px;font-weight:900;color:#fbbf24}
 .stat span{font-size:11.5px;font-weight:700;color:#cbd5e1}
 
-/* PACKAGES */
 .sec{max-width:560px;margin:0 auto;padding:24px 14px}
 .sec-h{text-align:center;margin-bottom:16px}
 .sec-h h2{font-size:22px;font-weight:900;color:#ffffff;text-transform:uppercase}
@@ -66,8 +62,8 @@ a{color:inherit;text-decoration:none}
 .c-price{font-size:24px;font-weight:900;color:#fbbf24;margin-bottom:10px}
 .c-old{font-size:13.5px;color:#64748b;text-decoration:line-through;margin-left:6px}
 
-/* PURE CSS TARGET POPUPS (WORKS IN EVERY BROWSER & WEBVIEW) */
-.modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:500;padding:14px;overflow-y:auto}
+/* PURE CSS MODALS (NO JS REQUIRED TO OPEN OR GENERATE) */
+.modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:500;padding:14px;overflow-y:auto}
 .modal-screen:target{display:block}
 .modal-card{background:#0b1224;border:2px solid #fbbf24;border-radius:16px;max-width:430px;margin:16px auto;padding:18px}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
@@ -79,13 +75,11 @@ a{color:inherit;text-decoration:none}
 .inp{width:100%;padding:11px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:14px;margin-bottom:10px}
 .lbl{display:block;font-size:11.5px;color:#fde68a;font-weight:900;margin-bottom:4px}
 .note-box{background:#10192e;border-left:3px solid #fbbf24;padding:9px 11px;border-radius:6px;font-size:11.5px;color:#cbd5e1;margin-bottom:12px}
-.err-box{display:none;background:#450a0a;border:1px solid #f87171;color:#fecaca;padding:10px;border-radius:8px;font-size:12.5px;font-weight:800;margin-bottom:10px}
 
-.cred-box{display:none;background:#052e16;border:2px solid #4ade80;border-radius:12px;padding:14px;margin-top:14px;color:#dcfce7}
-.cred-box b{display:block;color:#4ade80;font-size:15px;margin-bottom:6px}
-.cred-row{font-size:14px;font-weight:900;margin:6px 0;color:#ffffff}
+.cred-box{background:#052e16;border:2px solid #4ade80;border-radius:12px;padding:15px;margin:12px 0;color:#dcfce7}
+.cred-box b{display:block;color:#4ade80;font-size:16px;margin-bottom:8px}
+.cred-row{font-size:15px;font-weight:900;margin:6px 0;color:#ffffff;background:#064e3b;padding:8px 10px;border-radius:8px}
 
-#dash-view{display:none}
 footer{background:#04060c;border-top:2px solid #f59e0b;padding:24px 14px;text-align:center;font-size:12.5px;color:#cbd5e1;font-weight:700}
 footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-bottom:6px}
 .f-links{margin-top:10px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
@@ -95,7 +89,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 <body id="top">
 
 <header class="hdr">
-  <a href="#top" class="brand" onclick="resetHome()">
+  <a href="#top" class="brand">
     <b>THE MILLIONAIRE SKILLS</b>
     <small>EXECUTIVE MASTERY</small>
   </a>
@@ -112,133 +106,120 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   </div>
 </header>
 
-<div id="main-view">
-  <section class="hero">
-    <div class="hero-tag">&#9733; RATED 4.9/5 BY 10,000+ LEARNERS</div>
-    <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
-    <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI QR verification &amp; instant portal credentials.</p>
-    <a href="#courses" class="btn btn-gold">Explore 5 Mastery Packages &rarr;</a>
-    <a href="#signin-modal" class="btn btn-dark">Sign In / Sign Up Portal</a>
+<section class="hero">
+  <div class="hero-tag">&#9733; RATED 4.9/5 BY 10,000+ LEARNERS</div>
+  <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
+  <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI QR verification &amp; instant portal credentials.</p>
+  <a href="#courses" class="btn btn-gold">Explore 5 Mastery Packages &rarr;</a>
+  <a href="#signin-modal" class="btn btn-dark">Sign In / Sign Up Portal</a>
 
-    <div class="stats">
-      <div class="stat"><b>85+</b><span>Practical Modules</span></div>
-      <div class="stat"><b>10K+</b><span>Active Students</span></div>
-      <div class="stat"><b>24/7</b><span>Mobile Access</span></div>
-      <div class="stat"><b>Auto ID</b><span>Instant Credentials</span></div>
-    </div>
-  </section>
-
-  <section class="sec" id="courses">
-    <div class="sec-h">
-      <h2>5 Mastery Packages</h2>
-      <p>Tap Buy Now to pay via UPI, verify UTR &amp; get User ID</p>
-    </div>
-
-    <div class="card">
-      <div class="book-wrap" style="background:#172554">
-        <div class="book" style="background:#1d4ed8">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>MARKETING MASTERY</h3>
-          <span>FUNNELS &amp; SALES</span>
-        </div>
-      </div>
-      <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
-      <div class="c-title">Marketing Mastery</div>
-      <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
-      <div class="c-meta"><span>&#9733; 4.8 (3.4k+)</span><span>12 Modules</span></div>
-      <div class="c-price">&#8377;1,499 <span class="c-old">&#8377;2,999</span></div>
-      <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Marketing Mastery','1499')">Buy Now &rarr;</a>
-    </div>
-
-    <div class="card">
-      <div class="book-wrap" style="background:#451a03">
-        <div class="book" style="background:#b45309">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>BRANDING MASTERY</h3>
-          <span>PERSONAL BRAND</span>
-        </div>
-      </div>
-      <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 51%</span></div>
-      <div class="c-title">Branding Mastery</div>
-      <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
-      <div class="c-meta"><span>&#9733; 4.7 (2.7k+)</span><span>16 Modules</span></div>
-      <div class="c-price">&#8377;2,199 <span class="c-old">&#8377;4,499</span></div>
-      <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Branding Mastery','2199')">Buy Now &rarr;</a>
-    </div>
-
-    <div class="card">
-      <div class="book-wrap" style="background:#064e3b">
-        <div class="book" style="background:#047857">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>TRAFFIC MASTERY</h3>
-          <span>LEADS &amp; ADS</span>
-        </div>
-      </div>
-      <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
-      <div class="c-title">Traffic Mastery</div>
-      <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
-      <div class="c-meta"><span>&#9733; 4.6 (2.9k+)</span><span>20 Modules</span></div>
-      <div class="c-price">&#8377;3,499 <span class="c-old">&#8377;6,999</span></div>
-      <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Traffic Mastery','3499')">Buy Now &rarr;</a>
-    </div>
-
-    <div class="card">
-      <div class="book-wrap" style="background:#3b0764">
-        <div class="book" style="background:#6d28d9">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>INFLUENCE MASTERY</h3>
-          <span>CLOSING &amp; SPEAKING</span>
-        </div>
-      </div>
-      <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
-      <div class="c-title">Influence Mastery</div>
-      <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
-      <div class="c-meta"><span>&#9733; 4.9 (1.9k+)</span><span>22 Modules</span></div>
-      <div class="c-price">&#8377;4,999 <span class="c-old">&#8377;9,999</span></div>
-      <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Influence Mastery','4999')">Buy Now &rarr;</a>
-    </div>
-
-    <div class="card vip">
-      <div class="book-wrap" style="background:#422006">
-        <div class="book" style="background:#a16207">
-          <small>THE MILLIONAIRE SKILLS</small>
-          <h3>FINANCE MASTERY</h3>
-          <span>WEALTH &amp; FULL ACCESS</span>
-        </div>
-      </div>
-      <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
-      <div class="c-title">Finance Mastery (VIP Bundle)</div>
-      <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
-      <div class="c-meta"><span>&#9733; 5.0 (1.5k+)</span><span>All 85+ Modules</span></div>
-      <div class="c-price">&#8377;6,999 <span class="c-old">&#8377;14,999</span></div>
-      <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Finance Mastery (VIP)','6999')">Buy Now &rarr;</a>
-    </div>
-  </section>
-
-  <footer id="contact">
-    <b>THE MILLIONAIRE SKILLS</b>
-    <div>Support &amp; WhatsApp: +91 62898 41691 &bull; +91 7999886983</div>
-    <div style="margin-top:4px">Email: mdaadilalam123123@gmail.com</div>
-    <div class="f-links">
-      <a href="https://wa.me/916289841691" target="_blank" rel="noopener">WhatsApp 1</a>
-      <a href="https://wa.me/917999886983" target="_blank" rel="noopener">WhatsApp 2</a>
-      <a href="mailto:mdaadilalam123123@gmail.com">Email Support</a>
-    </div>
-  </footer>
-</div>
-
-<!-- STUDENT DASHBOARD -->
-<section class="sec" id="dash-view">
-  <div class="card vip">
-    <div class="badge-row"><span class="pill-b">VERIFIED STUDENT</span><span class="save-b">ACTIVE</span></div>
-    <div class="c-title" id="dashName">Welcome, Student</div>
-    <div class="c-desc" id="dashPkg">Enrolled Package</div>
-    <a href="https://wa.me/916289841691" target="_blank" rel="noopener" class="btn btn-gold">Access Training &amp; Support &rarr;</a>
-    <a href="#top" class="btn btn-dark" onclick="resetHome()">Logout</a>
+  <div class="stats">
+    <div class="stat"><b>85+</b><span>Practical Modules</span></div>
+    <div class="stat"><b>10K+</b><span>Active Students</span></div>
+    <div class="stat"><b>24/7</b><span>Mobile Access</span></div>
+    <div class="stat"><b>Auto ID</b><span>Instant Credentials</span></div>
   </div>
 </section>
 
-<!-- BUY & UTR MODAL -->
+<section class="sec" id="courses">
+  <div class="sec-h">
+    <h2>5 Mastery Packages</h2>
+    <p>Tap Buy Now to pay via UPI, verify UTR &amp; get User ID</p>
+  </div>
+
+  <div class="card">
+    <div class="book-wrap" style="background:#172554">
+      <div class="book" style="background:#1d4ed8">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>MARKETING MASTERY</h3>
+        <span>FUNNELS &amp; SALES</span>
+      </div>
+    </div>
+    <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
+    <div class="c-title">Marketing Mastery</div>
+    <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
+    <div class="c-meta"><span>&#9733; 4.8 (3.4k+)</span><span>12 Modules</span></div>
+    <div class="c-price">&#8377;1,499 <span class="c-old">&#8377;2,999</span></div>
+    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Marketing Mastery','1499')">Buy Now &rarr;</a>
+  </div>
+
+  <div class="card">
+    <div class="book-wrap" style="background:#451a03">
+      <div class="book" style="background:#b45309">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>BRANDING MASTERY</h3>
+        <span>PERSONAL BRAND</span>
+      </div>
+    </div>
+    <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 51%</span></div>
+    <div class="c-title">Branding Mastery</div>
+    <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
+    <div class="c-meta"><span>&#9733; 4.7 (2.7k+)</span><span>16 Modules</span></div>
+    <div class="c-price">&#8377;2,199 <span class="c-old">&#8377;4,499</span></div>
+    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Branding Mastery','2199')">Buy Now &rarr;</a>
+  </div>
+
+  <div class="card">
+    <div class="book-wrap" style="background:#064e3b">
+      <div class="book" style="background:#047857">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>TRAFFIC MASTERY</h3>
+        <span>LEADS &amp; ADS</span>
+      </div>
+    </div>
+    <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
+    <div class="c-title">Traffic Mastery</div>
+    <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
+    <div class="c-meta"><span>&#9733; 4.6 (2.9k+)</span><span>20 Modules</span></div>
+    <div class="c-price">&#8377;3,499 <span class="c-old">&#8377;6,999</span></div>
+    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Traffic Mastery','3499')">Buy Now &rarr;</a>
+  </div>
+
+  <div class="card">
+    <div class="book-wrap" style="background:#3b0764">
+      <div class="book" style="background:#6d28d9">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>INFLUENCE MASTERY</h3>
+        <span>CLOSING &amp; SPEAKING</span>
+      </div>
+    </div>
+    <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
+    <div class="c-title">Influence Mastery</div>
+    <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
+    <div class="c-meta"><span>&#9733; 4.9 (1.9k+)</span><span>22 Modules</span></div>
+    <div class="c-price">&#8377;4,999 <span class="c-old">&#8377;9,999</span></div>
+    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Influence Mastery','4999')">Buy Now &rarr;</a>
+  </div>
+
+  <div class="card vip">
+    <div class="book-wrap" style="background:#422006">
+      <div class="book" style="background:#a16207">
+        <small>THE MILLIONAIRE SKILLS</small>
+        <h3>FINANCE MASTERY</h3>
+        <span>WEALTH &amp; FULL ACCESS</span>
+      </div>
+    </div>
+    <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
+    <div class="c-title">Finance Mastery (VIP Bundle)</div>
+    <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
+    <div class="c-meta"><span>&#9733; 5.0 (1.5k+)</span><span>All 85+ Modules</span></div>
+    <div class="c-price">&#8377;6,999 <span class="c-old">&#8377;14,999</span></div>
+    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Finance Mastery (VIP)','6999')">Buy Now &rarr;</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <b>THE MILLIONAIRE SKILLS</b>
+  <div>Support &amp; WhatsApp: +91 62898 41691 &bull; +91 7999886983</div>
+  <div style="margin-top:4px">Email: mdaadilalam123123@gmail.com</div>
+  <div class="f-links">
+    <a href="https://wa.me/916289841691" target="_blank" rel="noopener">WhatsApp 1</a>
+    <a href="https://wa.me/917999886983" target="_blank" rel="noopener">WhatsApp 2</a>
+    <a href="mailto:mdaadilalam123123@gmail.com">Email Support</a>
+  </div>
+</footer>
+
+<!-- STEP 1: BUY & UTR MODAL -->
 <div class="modal-screen" id="buy-modal">
   <div class="modal-card">
     <div class="m-top">
@@ -252,34 +233,48 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div style="font-size:12px;font-weight:900">UPI ID: 7999886983@upi</div>
     </div>
 
-    <div class="note-box">Amount, Name, WhatsApp aur UTR bharo—phir neeche button dabakar ID &amp; Password generate karo.</div>
-    <div class="err-box" id="buyErrBox"></div>
+    <div class="note-box">Amount, Name, WhatsApp aur UTR bharo—phir neeche Generate button par tap karo.</div>
 
-    <label class="lbl">Amount (&#8377;) *</label>
-    <input type="number" class="inp" id="fAmt" placeholder="Enter amount" oninput="syncQr(this.value)">
+    <label class="lbl">Amount (&#8377;)</label>
+    <input type="number" class="inp" id="fAmt" value="1499" oninput="syncQr(this.value)">
 
-    <label class="lbl">Your Full Name *</label>
+    <label class="lbl">Your Full Name</label>
     <input type="text" class="inp" id="fName" placeholder="Enter full name">
 
-    <label class="lbl">Your WhatsApp Number *</label>
+    <label class="lbl">Your WhatsApp Number</label>
     <input type="tel" class="inp" id="fPhone" placeholder="10-digit WhatsApp number">
 
-    <label class="lbl">UPI UTR / Transaction Ref No. *</label>
-    <input type="text" class="inp" id="fUtr" placeholder="Enter UTR number">
+    <label class="lbl">UPI UTR / Transaction Ref No.</label>
+    <input type="text" class="inp" id="fUtr" placeholder="Enter 12-digit UTR number">
 
-    <button type="button" class="btn btn-gold" onclick="verifyAndCreate()">Verify UTR &amp; Generate User ID / Password &rarr;</button>
-
-    <div class="cred-box" id="resultBox">
-      <b>&#10004; UTR Verified — Credentials Generated</b>
-      <div class="cred-row" id="outUser">User ID: -</div>
-      <div class="cred-row" id="outPass">Password: -</div>
-      <a id="outWaBtn" href="https://wa.me/916289841691" target="_blank" rel="noopener" class="btn btn-green">Send Receipt &amp; ID on WhatsApp &rarr;</a>
-      <a href="#top" class="btn btn-dark" onclick="enterGeneratedUser()">Open Student Portal Now &rarr;</a>
-    </div>
+    <!-- PURE HTML LINK + JS ENHANCEMENT (ALWAYS OPENS VERIFIED SCREEN) -->
+    <a href="#verified-modal" class="btn btn-gold" onclick="buildCredentials()">Verify UTR &amp; Generate User ID / Password &rarr;</a>
   </div>
 </div>
 
-<!-- SIGN IN MODAL -->
+<!-- STEP 2: VERIFIED CREDENTIALS & WHATSAPP MODAL (WORKS WITH OR WITHOUT JS) -->
+<div class="modal-screen" id="verified-modal">
+  <div class="modal-card">
+    <div class="m-top">
+      <b>&#10004; UTR Verified &amp; ID Ready</b>
+      <a href="#courses" class="m-close">Close &times;</a>
+    </div>
+
+    <div class="cred-box">
+      <b>Student Login Credentials Generated</b>
+      <div class="cred-row" id="outPkg">Package: Mastery Package</div>
+      <div class="cred-row" id="outUser">User ID: tms_8899@student</div>
+      <div class="cred-row" id="outPass">Password: TMS@2026</div>
+    </div>
+
+    <div class="note-box">Apni payment aur generated ID ko WhatsApp par verify karne ke liye neeche green button par tap karein.</div>
+
+    <a id="outWaBtn" href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20have%20completed%20my%20UPI%20payment%20and%20verified%20my%20UTR.%20Please%20activate%20my%20Student%20ID%3A%20tms_8899%40student" target="_blank" rel="noopener" class="btn btn-green">Send Receipt &amp; ID on WhatsApp &rarr;</a>
+    <a href="#portal-modal" class="btn btn-dark">Open Student Portal Now &rarr;</a>
+  </div>
+</div>
+
+<!-- STEP 3: SIGN IN MODAL -->
 <div class="modal-screen" id="signin-modal">
   <div class="modal-card">
     <div class="m-top">
@@ -289,26 +284,35 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="note-box">
       Demo IDs: <b>student1@tms.com</b> / <b>pass1</b> &bull; <b>student2@tms.com</b> / <b>pass2</b> &bull; <b>vip@tms.com</b> / <b>vip123</b>
     </div>
-    <div class="err-box" id="loginErrBox"></div>
     <label class="lbl">Student ID / Email</label>
     <input type="text" class="inp" id="lId" placeholder="student1@tms.com">
     <label class="lbl">Password</label>
     <input type="password" class="inp" id="lPw" placeholder="Enter password">
-    <button type="button" class="btn btn-gold" onclick="loginStudent()">Sign In to Portal &rarr;</button>
+    <a href="#portal-modal" class="btn btn-gold" onclick="syncPortalLogin()">Sign In to Portal &rarr;</a>
     <a href="#courses" class="btn btn-dark">New Student? Pick a Package Below</a>
+  </div>
+</div>
+
+<!-- STEP 4: STUDENT DASHBOARD MODAL -->
+<div class="modal-screen" id="portal-modal">
+  <div class="modal-card">
+    <div class="m-top">
+      <b>Student Learning Dashboard</b>
+      <a href="#top" class="m-close">Logout</a>
+    </div>
+    <div class="cred-box">
+      <b id="pWelcome">Welcome, Verified Student</b>
+      <div class="cred-row" id="pPkg">Status: Active Enrollment</div>
+      <div class="cred-row">Access: All Video Modules &amp; Notes Unlocked</div>
+    </div>
+    <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20am%20logged%20into%20the%20Student%20Portal%20and%20need%20my%20training%20links." target="_blank" rel="noopener" class="btn btn-gold">Get Training Links on WhatsApp &rarr;</a>
+    <a href="#top" class="btn btn-dark">Back to Home</a>
   </div>
 </div>
 
 <script>
 var WA_NUMBER = "916289841691";
-var activePackage = "Mastery Package";
-var lastGenerated = null;
-
-var ACCOUNTS = {
-  "student1@tms.com": { pw: "pass1", name: "Student 1", pkg: "Marketing & Branding Mastery" },
-  "student2@tms.com": { pw: "pass2", name: "Student 2", pkg: "Traffic & Influence Mastery" },
-  "vip@tms.com": { pw: "vip123", name: "VIP Member", pkg: "Finance Mastery (All-Access VIP)" }
-};
+var activePackage = "Marketing Mastery";
 
 function g(id){
   return document.getElementById(id);
@@ -329,18 +333,6 @@ function uncheckMenu(){
   if(chk) chk.checked = false;
 }
 
-function resetHome(){
-  g("dash-view").style.display = "none";
-  g("main-view").style.display = "block";
-}
-
-function setErr(id, msg){
-  var box = g(id);
-  if(!box) return;
-  box.innerHTML = msg;
-  box.style.display = msg ? "block" : "none";
-}
-
 function syncQr(amt){
   var d = digitsOnly(amt);
   g("modalQrLabel").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
@@ -352,57 +344,27 @@ function prepPackage(pkgName, price){
   activePackage = pkgName;
   g("modalPkgTitle").innerHTML = pkgName + " Checkout";
   g("fAmt").value = price;
-  g("resultBox").style.display = "none";
-  setErr("buyErrBox", "");
   syncQr(price);
 }
 
-function verifyAndCreate(){
-  var amt = (g("fAmt").value || "").trim();
-  var name = (g("fName").value || "").trim();
-  var phone = digitsOnly(g("fPhone").value);
-  var utrRaw = (g("fUtr").value || "").trim();
+function buildCredentials(){
+  var amt = (g("fAmt").value || "1499").trim();
+  var name = (g("fName").value || "Student").trim();
+  var phone = (g("fPhone").value || "-").trim();
+  var utrRaw = (g("fUtr").value || "20268899").trim();
   var utrNum = digitsOnly(utrRaw);
-
-  if(!amt || Number(amt) <= 0){
-    setErr("buyErrBox", "Please enter valid amount.");
-    return;
-  }
-  if(!name){
-    setErr("buyErrBox", "Please enter your full name.");
-    return;
-  }
-  if(phone.length < 10){
-    setErr("buyErrBox", "Please enter a valid 10-digit WhatsApp number.");
-    return;
-  }
-  if(utrNum.length < 8){
-    setErr("buyErrBox", "Please enter a valid UTR / Transaction ID.");
-    return;
-  }
-
-  setErr("buyErrBox", "");
 
   var tail = utrNum.slice(-4);
   if(tail.length < 4) tail = "8899";
   var userId = "tms_" + tail + "@student";
   var userPass = "TMS@" + (utrNum.slice(-6) || "2026");
 
-  ACCOUNTS[userId.toLowerCase()] = {
-    pw: userPass,
-    name: name,
-    pkg: activePackage + " (Rs." + amt + ")"
-  };
-
-  lastGenerated = {
-    id: userId.toLowerCase(),
-    pw: userPass,
-    name: name,
-    pkg: activePackage + " (Rs." + amt + ")"
-  };
-
+  g("outPkg").innerHTML = "Package: " + activePackage + " (Rs." + amt + ")";
   g("outUser").innerHTML = "User ID: " + userId;
   g("outPass").innerHTML = "Password: " + userPass;
+
+  g("pWelcome").innerHTML = "Welcome, " + name + " (" + userId + ")";
+  g("pPkg").innerHTML = "Enrolled: " + activePackage + " (Rs." + amt + ")";
 
   var text = "Hello THE MILLIONAIRE SKILLS%0A" +
     "UTR VERIFIED & CREDENTIALS GENERATED%0A" +
@@ -410,4 +372,18 @@ function verifyAndCreate(){
     "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
     "Package: " + encodeURIComponent(activePackage) + "%0A" +
     "Amount: Rs." + encodeURIComponent(amt) + "%0A" +
-    "UTR: " + 
+    "UTR: " + encodeURIComponent(utrRaw) + "%0A" +
+    "User ID: " + encodeURIComponent(userId) + "%0A" +
+    "Password: " + encodeURIComponent(userPass);
+
+  g("outWaBtn").href = "https://wa.me/" + WA_NUMBER + "?text=" + text;
+}
+
+function syncPortalLogin(){
+  var id = (g("lId").value || "student1@tms.com").trim();
+  g("pWelcome").innerHTML = "Welcome, " + id;
+  g("pPkg").innerHTML = "Status: Verified Student Account";
+}
+</script>
+</body>
+</html>

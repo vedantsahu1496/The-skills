@@ -14,7 +14,7 @@ a{color:inherit;text-decoration:none}
 .brand b{display:block;font-size:14px;font-weight:900;color:#fbbf24;letter-spacing:0.6px}
 .brand small{display:block;font-size:9px;font-weight:700;color:#cbd5e1;letter-spacing:1.2px}
 .hdr-r{display:flex;gap:8px;align-items:center}
-.btn-sm{background:#fbbf24;color:#050811;border-radius:7px;padding:8px 11px;font-size:12px;font-weight:900;display:inline-block}
+.btn-sm{background:#fbbf24;color:#050811;border-radius:7px;padding:8px 11px;font-size:12px;font-weight:900;display:inline-block;cursor:pointer;border:none}
 
 #menu-toggle{display:none}
 .menu-btn{background:#111827;color:#fbbf24;border:1px solid #f59e0b;border-radius:7px;width:38px;height:38px;font-size:21px;font-weight:900;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none}
@@ -107,12 +107,11 @@ a{color:inherit;text-decoration:none}
 .c-price{font-size:24px;font-weight:900;color:#fbbf24;margin-bottom:10px}
 .c-old{font-size:13.5px;color:#64748b;text-decoration:line-through;margin-left:6px}
 
-.modal-screen{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:999;padding:14px;overflow-y:auto}
-.modal-screen:target{display:block}
-.modal-card{background:#0b1224;border:2px solid #fbbf24;border-radius:16px;max-width:430px;margin:16px auto;padding:18px}
+.modal-screen{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:99999;padding:14px;overflow-y:auto}
+.modal-card{background:#0b1224;border:2px solid #fbbf24;border-radius:16px;max-width:430px;margin:16px auto;padding:18px;position:relative}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .m-top b{color:#fbbf24;font-size:16px;font-weight:900}
-.m-close{background:#1e293b;color:#fde68a;border:1px solid #f59e0b;border-radius:6px;padding:6px 11px;font-size:12px;font-weight:900;display:inline-block}
+.m-close{background:#1e293b;color:#fde68a;border:1px solid #f59e0b;border-radius:6px;padding:6px 11px;font-size:12px;font-weight:900;display:inline-block;cursor:pointer}
 
 .qr-box{background:#ffffff;color:#050811;border-radius:10px;padding:12px;text-align:center;margin:10px 0;border:2px solid #fbbf24}
 .qr-box img{width:140px;height:140px;display:block;margin:8px auto}
@@ -139,13 +138,13 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <small>EXECUTIVE MASTERY</small>
   </a>
   <div class="hdr-r">
-    <a href="#signin-modal" class="btn-sm" onclick="openModal('signin-modal')">Sign In / Sign Up</a>
+    <button type="button" class="btn-sm" onclick="openM('signin-modal')">Sign In / Sign Up</button>
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="menu-btn">&#9776;</label>
     <div class="nav-drawer">
-      <a href="#courses" onclick="uncheckMenu();closeAllModals()">Mastery Packages</a>
-      <a href="#signin-modal" onclick="uncheckMenu();openModal('signin-modal')">Student Portal Sign In</a>
-      <a href="#contact" onclick="uncheckMenu();closeAllModals()">Contact &amp; Support</a>
+      <a href="#courses" onclick="uncheckMenu();closeM()">Mastery Packages</a>
+      <a href="javascript:void(0)" onclick="uncheckMenu();openM('signin-modal')">Student Portal Sign In</a>
+      <a href="#contact" onclick="uncheckMenu();closeM()">Contact &amp; Support</a>
       <a href="https://wa.me/916289841691" target="_blank" rel="noopener" onclick="uncheckMenu()">WhatsApp Support</a>
     </div>
   </div>
@@ -156,7 +155,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
   <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI QR verification &amp; instant portal credentials.</p>
   <a href="#courses" class="btn btn-gold">Explore 5 Mastery Packages &rarr;</a>
-  <a href="#signin-modal" class="btn btn-dark" onclick="openModal('signin-modal')">Sign In / Sign Up Portal</a>
+  <button type="button" class="btn btn-dark" onclick="openM('signin-modal')">Sign In / Sign Up Portal</button>
 
   <div class="stats">
     <div class="stat"><b>85+</b><span>Practical Modules</span></div>
@@ -183,7 +182,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
     <div class="c-meta"><span>&#9733; 4.8 (3.4k+)</span><span>12 Modules</span></div>
     <div class="c-price">&#8377;999 <span class="c-old">&#8377;1,999</span></div>
-    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Marketing Mastery','999')">Buy Now &rarr;</a>
+    <button type="button" class="btn btn-gold" onclick="prepPackage('Marketing Mastery','999')">Buy Now &rarr;</button>
   </div>
 
   <!-- 2. BRANDING MASTERY -->
@@ -197,7 +196,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
     <div class="c-meta"><span>&#9733; 4.7 (2.7k+)</span><span>16 Modules</span></div>
     <div class="c-price">&#8377;2,499 <span class="c-old">&#8377;4,999</span></div>
-    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Branding Mastery','2499')">Buy Now &rarr;</a>
+    <button type="button" class="btn btn-gold" onclick="prepPackage('Branding Mastery','2499')">Buy Now &rarr;</button>
   </div>
 
   <!-- 3. TRAFFIC MASTERY -->
@@ -211,7 +210,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
     <div class="c-meta"><span>&#9733; 4.6 (2.9k+)</span><span>20 Modules</span></div>
     <div class="c-price">&#8377;4,999 <span class="c-old">&#8377;9,999</span></div>
-    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Traffic Mastery','4999')">Buy Now &rarr;</a>
+    <button type="button" class="btn btn-gold" onclick="prepPackage('Traffic Mastery','4999')">Buy Now &rarr;</button>
   </div>
 
   <!-- 4. INFLUENCE MASTERY -->
@@ -225,7 +224,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
     <div class="c-meta"><span>&#9733; 4.9 (1.9k+)</span><span>22 Modules</span></div>
     <div class="c-price">&#8377;9,999 <span class="c-old">&#8377;19,999</span></div>
-    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Influence Mastery','9999')">Buy Now &rarr;</a>
+    <button type="button" class="btn btn-gold" onclick="prepPackage('Influence Mastery','9999')">Buy Now &rarr;</button>
   </div>
 
   <!-- 5. FINANCE MASTERY -->
@@ -239,7 +238,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
     <div class="c-meta"><span>&#9733; 5.0 (1.5k+)</span><span>All 85+ Modules</span></div>
     <div class="c-price">&#8377;14,999 <span class="c-old">&#8377;29,999</span></div>
-    <a href="#buy-modal" class="btn btn-gold" onclick="prepPackage('Finance Mastery (VIP)','14999')">Buy Now &rarr;</a>
+    <button type="button" class="btn btn-gold" onclick="prepPackage('Finance Mastery (VIP)','14999')">Buy Now &rarr;</button>
   </div>
 </section>
 
@@ -259,7 +258,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b id="modalPkgTitle">Package Checkout</b>
-      <a href="#courses" class="m-close" onclick="closeAllModals()">Close &times;</a>
+      <button type="button" class="m-close" onclick="closeM()">Close &times;</button>
     </div>
 
     <div class="qr-box">
@@ -282,7 +281,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <label class="lbl">UPI UTR / Transaction Ref No. (12 Digits)</label>
     <input type="text" class="inp" id="fUtr" maxlength="12" placeholder="Enter 12-digit UTR number">
 
-    <button type="button" class="btn btn-gold" onclick="handleBuySubmit()">Verify UTR &amp; Generate User ID / Password &rarr;</button>
+    <button type="button" class="btn btn-gold" onclick="doGenerate()">Verify UTR &amp; Generate User ID / Password &rarr;</button>
     <div class="err-box" id="buyErrBox"></div>
   </div>
 </div>
@@ -292,7 +291,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b>&#10004; UTR Verified &amp; ID Ready</b>
-      <a href="#courses" class="m-close" onclick="closeAllModals()">Close &times;</a>
+      <button type="button" class="m-close" onclick="closeM()">Close &times;</button>
     </div>
 
     <div class="cred-box">
@@ -305,7 +304,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <div class="note-box">Apni payment aur generated ID ko WhatsApp par verify karne ke liye neeche green button par tap karein.</div>
 
     <a id="outWaBtn" href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20have%20completed%20my%20UPI%20payment%20and%20verified%20my%20UTR.%20Please%20activate%20my%20Student%20ID%3A%20tms_8899%40student" target="_blank" rel="noopener" class="btn btn-green">Send Receipt &amp; ID on WhatsApp &rarr;</a>
-    <a href="#portal-modal" class="btn btn-dark" onclick="openModal('portal-modal')">Open Student Portal Now &rarr;</a>
+    <button type="button" class="btn btn-dark" onclick="openM('portal-modal')">Open Student Portal Now &rarr;</button>
   </div>
 </div>
 
@@ -314,7 +313,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b>Student Portal (Sign In)</b>
-      <a href="#top" class="m-close" onclick="closeAllModals()">Close &times;</a>
+      <button type="button" class="m-close" onclick="closeM()">Close &times;</button>
     </div>
     <div class="note-box">
       Demo IDs: <b>student1@tms.com</b> / <b>pass1</b> &bull; <b>student2@tms.com</b> / <b>pass2</b> &bull; <b>vip@tms.com</b> / <b>vip123</b>
@@ -323,9 +322,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
     <input type="text" class="inp" id="lId" placeholder="student1@tms.com">
     <label class="lbl">Password</label>
     <input type="password" class="inp" id="lPw" placeholder="Enter password">
-    <button type="button" class="btn btn-gold" onclick="handleLoginSubmit()">Sign In to Portal &rarr;</button>
+    <button type="button" class="btn btn-gold" onclick="doLogin()">Sign In to Portal &rarr;</button>
     <div class="err-box" id="loginErrBox"></div>
-    <a href="#courses" class="btn btn-dark" onclick="closeAllModals()">New Student? Pick a Package Below</a>
+    <button type="button" class="btn btn-dark" onclick="closeM()">New Student? Pick a Package Below</button>
   </div>
 </div>
 
@@ -334,7 +333,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
   <div class="modal-card">
     <div class="m-top">
       <b>Student Learning Dashboard</b>
-      <a href="#top" class="m-close" onclick="closeAllModals()">Logout</a>
+      <button type="button" class="m-close" onclick="closeM()">Logout</button>
     </div>
     <div class="cred-box">
       <b id="pWelcome">Welcome, Verified Student</b>
@@ -342,7 +341,7 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
       <div class="cred-row">Access: All Video Modules &amp; Notes Unlocked</div>
     </div>
     <a href="https://wa.me/916289841691?text=Hello%20THE%20MILLIONAIRE%20SKILLS%2C%20I%20am%20logged%20into%20the%20Student%20Portal%20and%20need%20my%20training%20links." target="_blank" rel="noopener" class="btn btn-gold">Get Training Links on WhatsApp &rarr;</a>
-    <a href="#top" class="btn btn-dark" onclick="closeAllModals()">Back to Home</a>
+    <button type="button" class="btn btn-dark" onclick="closeM()">Back to Home</button>
   </div>
 </div>
 
@@ -358,8 +357,8 @@ function onlyDigits(val){
   var s = String(val || "");
   var out = "";
   for(var i = 0; i < s.length; i++){
-    var ch = s.charAt(i);
-    if(ch >= "0" && ch <= "9") out += ch;
+    var c = s.charAt(i);
+    if(c >= "0" && c <= "9") out += c;
   }
   return out;
 }
@@ -369,25 +368,24 @@ function uncheckMenu(){
   if(chk) chk.checked = false;
 }
 
-function closeAllModals(){
-  var ids = ["buy-modal", "verified-modal", "signin-modal", "portal-modal"];
-  for(var i = 0; i < ids.length; i++){
-    var el = g(ids[i]);
+function closeM(){
+  var modals = ["buy-modal", "verified-modal", "signin-modal", "portal-modal"];
+  for(var i = 0; i < modals.length; i++){
+    var el = g(modals[i]);
     if(el) el.style.display = "none";
   }
 }
 
-function openModal(id){
-  closeAllModals();
+function openM(id){
+  closeM();
   var el = g(id);
   if(el){
     el.style.display = "block";
     el.scrollTop = 0;
   }
-  window.location.hash = "#" + id;
 }
 
-function showError(boxId, text){
+function showErr(boxId, text){
   var box = g(boxId);
   if(box){
     box.innerHTML = text;
@@ -395,7 +393,7 @@ function showError(boxId, text){
   }
 }
 
-function hideError(boxId){
+function hideErr(boxId){
   var box = g(boxId);
   if(box){
     box.innerHTML = "";
@@ -414,12 +412,12 @@ function prepPackage(pkgName, price){
   activePackage = pkgName;
   g("modalPkgTitle").innerHTML = pkgName + " Checkout";
   g("fAmt").value = price;
-  hideError("buyErrBox");
+  hideErr("buyErrBox");
   syncQr(price);
-  openModal("buy-modal");
+  openM("buy-modal");
 }
 
-function handleBuySubmit(){
-  hideError("buyErrBox");
+function doGenerate(){
+  hideErr("buyErrBox");
 
-  
+  var amt = 

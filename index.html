@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,52 +48,72 @@ a{color:inherit;text-decoration:none}
 .card{background:#0e1629;border:2px solid #334155;border-radius:16px;padding:16px;margin-bottom:20px}
 .card.vip{border:2px solid #fbbf24;background:#131c33}
 
-/* Large Showcase Box Like Reference Image */
-.showcase-box{
+/* Full Graphic Cover Banner */
+.cover-banner{
   position:relative;
-  min-height:230px;
+  width:100%;
+  height:245px;
   border-radius:14px;
-  padding:20px 14px;
   margin-bottom:14px;
+  overflow:hidden;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.22);
   box-shadow:0 12px 26px rgba(0,0,0,0.65);
 }
-.showcase-img{
-  width:100%;
-  max-width:260px;
-  height:auto;
-  border-radius:10px;
-  display:block;
-  z-index:2;
-  box-shadow:0 10px 24px rgba(0,0,0,0.7);
+.cover-banner::before{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  border:14px solid rgba(255,255,255,0.12);
+  top:-35px;
+  left:-35px;
+  pointer-events:none;
 }
-.fallback-3d{
-  display:none;
-  width:154px;
+.cover-banner::after{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,0.22) 0%,transparent 70%);
+  bottom:-45px;
+  right:-35px;
+  pointer-events:none;
+}
+.cover-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:2;
+}
+.cover-box-3d{
+  position:relative;
+  z-index:3;
+  width:158px;
   height:202px;
-  border-radius:5px 14px 14px 5px;
+  border-radius:6px 14px 14px 6px;
   padding:14px 11px;
+  display:flex;
   flex-direction:column;
   justify-content:space-between;
+  align-items:center;
   text-align:center;
-  border-left:8px solid #fbbf24;
-  border-top:2px solid rgba(255,255,255,0.45);
-  border-bottom:4px solid rgba(0,0,0,0.85);
-  transform:rotate(-2deg);
-  box-shadow:10px 14px 26px rgba(0,0,0,0.75);
-  z-index:2;
+  border-left:9px solid rgba(255,255,255,0.35);
+  border-top:2px solid rgba(255,255,255,0.55);
+  border-right:3px solid rgba(0,0,0,0.45);
+  border-bottom:5px solid rgba(0,0,0,0.85);
+  box-shadow:0 16px 28px rgba(0,0,0,0.65),0 0 24px rgba(255,255,255,0.18);
+  transform:perspective(600px) rotateY(-8deg);
 }
-.showcase-box.img-broken .showcase-img{display:none}
-.showcase-box.img-broken .fallback-3d{display:flex}
-
-.fallback-3d small{font-size:7.5px;font-weight:900;color:#fde68a;background:rgba(0,0,0,0.45);padding:3px 6px;border-radius:4px}
-.fallback-3d h3{font-size:16px;font-weight:900;color:#ffffff;line-height:1.15;text-transform:uppercase}
-.fallback-3d span{font-size:8.5px;font-weight:900;background:#fbbf24;color:#050811;padding:4px 7px;border-radius:5px}
+.cover-box-3d small{font-size:7.5px;font-weight:900;color:#fef08a;background:rgba(0,0,0,0.45);padding:3px 7px;border-radius:4px;letter-spacing:0.6px}
+.cover-box-3d h3{font-size:16px;font-weight:900;color:#ffffff;line-height:1.15;text-transform:uppercase;text-shadow:0 2px 6px rgba(0,0,0,0.6)}
+.cover-box-3d span{font-size:8.5px;font-weight:900;background:#fbbf24;color:#050811;padding:4px 8px;border-radius:5px;letter-spacing:0.4px}
 
 .badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .pill-b{background:#f59e0b;color:#050811;font-size:10px;font-weight:900;padding:3px 9px;border-radius:6px}
@@ -169,9 +190,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 1. MARKETING MASTERY -->
   <div class="card">
-    <div class="showcase-box" style="background:radial-gradient(circle at top right,#3b82f6,#172554 70%)">
-      <img src="marketing.jpg" alt="Marketing Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
-      <div class="fallback-3d" style="background:#1d4ed8">
+    <div class="cover-banner" style="background:linear-gradient(135deg,#0f172a 0%,#1d4ed8 55%,#38bdf8 100%)">
+      <img src="marketing.jpg" alt="Marketing Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+      <div class="cover-box-3d" style="background:linear-gradient(160deg,#1e40af,#0f172a)">
         <small>THE MILLIONAIRE SKILLS</small>
         <h3>MARKETING MASTERY</h3>
         <span>FUNNELS &amp; SALES</span>
@@ -187,9 +208,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 2. BRANDING MASTERY -->
   <div class="card">
-    <div class="showcase-box" style="background:radial-gradient(circle at top right,#f59e0b,#451a03 70%)">
-      <img src="branding.jpg" alt="Branding Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
-      <div class="fallback-3d" style="background:#b45309">
+    <div class="cover-banner" style="background:linear-gradient(135deg,#1c1917 0%,#b45309 55%,#fbbf24 100%)">
+      <img src="branding.jpg" alt="Branding Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+      <div class="cover-box-3d" style="background:linear-gradient(160deg,#d97706,#451a03)">
         <small>THE MILLIONAIRE SKILLS</small>
         <h3>BRANDING MASTERY</h3>
         <span>PERSONAL BRAND</span>
@@ -205,9 +226,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 3. TRAFFIC MASTERY -->
   <div class="card">
-    <div class="showcase-box" style="background:radial-gradient(circle at top right,#10b981,#064e3b 70%)">
-      <img src="traffic.jpg" alt="Traffic Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
-      <div class="fallback-3d" style="background:#047857">
+    <div class="cover-banner" style="background:linear-gradient(135deg,#022c22 0%,#047857 55%,#34d399 100%)">
+      <img src="traffic.jpg" alt="Traffic Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+      <div class="cover-box-3d" style="background:linear-gradient(160deg,#059669,#064e3b)">
         <small>THE MILLIONAIRE SKILLS</small>
         <h3>TRAFFIC MASTERY</h3>
         <span>LEADS &amp; ADS</span>
@@ -223,9 +244,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 4. INFLUENCE MASTERY -->
   <div class="card">
-    <div class="showcase-box" style="background:radial-gradient(circle at top right,#a855f7,#3b0764 70%)">
-      <img src="influence.jpg" alt="Influence Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
-      <div class="fallback-3d" style="background:#6d28d9">
+    <div class="cover-banner" style="background:linear-gradient(135deg,#1e1b4b 0%,#6d28d9 55%,#c084fc 100%)">
+      <img src="influence.jpg" alt="Influence Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+      <div class="cover-box-3d" style="background:linear-gradient(160deg,#7c3aed,#3b0764)">
         <small>THE MILLIONAIRE SKILLS</small>
         <h3>INFLUENCE MASTERY</h3>
         <span>CLOSING &amp; SPEAKING</span>
@@ -241,9 +262,9 @@ footer b{color:#fbbf24;display:block;font-size:14px;font-weight:900;margin-botto
 
   <!-- 5. FINANCE MASTERY -->
   <div class="card vip">
-    <div class="showcase-box" style="background:radial-gradient(circle at top right,#eab308,#422006 70%)">
-      <img src="finance.jpg" alt="Finance Mastery" class="showcase-img" onerror="this.parentElement.classList.add('img-broken')">
-      <div class="fallback-3d" style="background:#a16207">
+    <div class="cover-banner" style="background:linear-gradient(135deg,#271704 0%,#a16207 55%,#facc15 100%)">
+      <img src="finance.jpg" alt="Finance Mastery" class="cover-photo" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+      <div class="cover-box-3d" style="background:linear-gradient(160deg,#ca8a04,#422006)">
         <small>THE MILLIONAIRE SKILLS</small>
         <h3>FINANCE MASTERY</h3>
         <span>WEALTH &amp; FULL ACCESS</span>
@@ -378,27 +399,4 @@ function digitsOnly(v){
 }
 
 function uncheckMenu(){
-  var chk = g("menu-toggle");
-  if(chk) chk.checked = false;
-}
-
-function syncQr(amt){
-  var d = digitsOnly(amt);
-  g("modalQrLabel").innerHTML = d ? ("Pay Rs." + d + " via UPI") : "Scan QR or Pay via UPI";
-  var uri = "upi://pay?pa=7999886983@upi&pn=TheMillionaireSkills" + (d ? ("&am=" + d) : "") + "&cu=INR";
-  g("modalQrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(uri);
-}
-
-function prepPackage(pkgName, price){
-  activePackage = pkgName;
-  g("modalPkgTitle").innerHTML = pkgName + " Checkout";
-  g("fAmt").value = price;
-  syncQr(price);
-}
-
-function buildCredentials(){
-  var amt = (g("fAmt").value || "999").trim();
-  var name = (g("fName").value || "Student").trim();
-  var phone = (g("fPhone").value || "-").trim();
-  var utrRaw = (g("fUtr").value || "20268899").trim();
-  var utrN
+  var chk = g("menu-t

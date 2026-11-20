@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THE MILLIONAIRE SKILLS | Executive Mastery</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 html{scroll-behavior:smooth}
@@ -50,7 +52,7 @@ button{cursor:pointer;font-family:inherit}
 .c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #334155;border-bottom:1px solid #334155;font-size:12px}
 .c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
 .c-old{font-size:13px;color:#64748b;text-decoration:line-through}
-.panel{display:none;max-width:430px;margin:18px auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px;scroll-margin-top:80px}
+.panel{display:none;max-width:430px;margin:18px auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px}
 .panel.active{display:block}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .m-top b{color:#fbbf24;font-size:16px}
@@ -76,325 +78,362 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 .copy-msg{display:none;margin-top:8px;padding:8px;border-radius:8px;background:#064e3b;color:#dcfce7;font-size:12px}
 .f-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:15px}
 .f-links a{text-decoration:underline;color:#cbd5e1}
-@media(min-width:700px){.sec{max-width:850px}.courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.hero h1{font-size:42px}}
+@media(min-width:700px){
+.sec{max-width:850px}
+.courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.hero h1{font-size:42px}
+}
 </style>
 </head>
+
 <body id="top">
 
 <header class="hdr">
-  <a href="#top" class="brand" onclick="closeAllPanels()">
-    <b>THE MILLIONAIRE SKILLS</b>
-    <small>EXECUTIVE MASTERY</small>
-  </a>
-  <div class="hdr-r">
-    <button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="showLogin()">Student Login</button>
-    <button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu(event)">&#9776;</button>
-    <div class="nav-drawer" id="navDrawer">
-      <a href="#courses" onclick="closeMenu()">Courses</a>
-      <a href="#about" onclick="closeMenu()">About Us</a>
-      <a href="#contact" onclick="closeMenu()">Contact</a>
-      <a href="#loginPanel" onclick="closeMenu();showLogin();return false;">Login</a>
-      <a href="#courses" class="cta-link" onclick="closeMenu()">Get Started</a>
-    </div>
-  </div>
+<a href="#top" class="brand" onclick="closeAllPanels()">
+<b>THE MILLIONAIRE SKILLS</b>
+<small>EXECUTIVE MASTERY</small>
+</a>
+
+<div class="hdr-r">
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="showLogin()">Student Login</button>
+<button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+
+<div class="nav-drawer" id="navDrawer">
+<a href="#courses" onclick="closeMenu()">Courses</a>
+<a href="#about" onclick="closeMenu()">About Us</a>
+<a href="#contact" onclick="closeMenu()">Contact</a>
+<a href="#loginPanel" onclick="closeMenu();showLogin();return false;">Login</a>
+<a href="#courses" class="cta-link" onclick="closeMenu()">Get Started</a>
+</div>
+</div>
 </header>
 
 <section class="hero">
-  <div class="hero-tag">&#9733; EXECUTIVE MASTERY</div>
-  <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
-  <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment and student registration.</p>
-  <div class="hero-actions">
-    <a href="#courses" class="btn gold">Explore 5 Mastery Packages &rarr;</a>
-    <button type="button" class="btn dark" onclick="showLogin()">Student Portal Sign In</button>
-  </div>
+<div class="hero-tag">★ EXECUTIVE MASTERY</div>
+<h1>Build Bold &amp; <span>High-Income Skills</span></h1>
+<p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment and student registration.</p>
 
-  <div class="panel" id="loginPanel">
-    <div class="m-top">
-      <b>Student Portal Sign In</b>
-      <button type="button" class="m-close" onclick="closeAllPanels()">Close &times;</button>
-    </div>
-    <div class="note-box">Demo Login: student1@tms.com / pass1</div>
-    <label class="lbl" for="lId">Student ID / Email</label>
-    <input class="inp" id="lId" type="text" placeholder="Enter Student ID">
-    <label class="lbl" for="lPw">Password</label>
-    <input class="inp" id="lPw" type="password" placeholder="Enter Password">
-    <button type="button" class="btn gold" onclick="doLogin()">Sign In &rarr;</button>
-    <div class="err-box" id="lErr"></div>
-  </div>
+<div class="hero-actions">
+<a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
+<button type="button" class="btn dark" onclick="showLogin()">Student Portal Sign In</button>
+</div>
 
-  <div class="panel" id="portalPanel">
-    <div class="m-top">
-      <b>Student Dashboard</b>
-      <button type="button" class="m-close" onclick="closeAllPanels()">Logout</button>
-    </div>
-    <div class="success-box">
-      <b id="pWelcome">Welcome Student</b>
-      <div class="cred-row">Demo Student Account</div>
-    </div>
-    <a class="btn gold" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Contact Support</a>
-  </div>
+<div class="panel" id="loginPanel">
+<div class="m-top">
+<b>Student Portal Sign In</b>
+<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
+</div>
+<div class="note-box">Demo Login: student1@tms.com / pass1</div>
+<label class="lbl">Student ID / Email</label>
+<input class="inp" id="lId" type="text" placeholder="Enter Student ID">
+<label class="lbl">Password</label>
+<input class="inp" id="lPw" type="password" placeholder="Enter Password">
+<button type="button" class="btn gold" onclick="doLogin()">Sign In →</button>
+<div class="err-box" id="lErr"></div>
+</div>
 
-  <div class="stats">
-    <div class="stat"><b>85+</b><span>Practical Modules</span></div>
-    <div class="stat"><b>10K+</b><span>Active Students</span></div>
-    <div class="stat"><b>24/7</b><span>Mobile Access</span></div>
-    <div class="stat"><b>Student ID</b><span>Registration</span></div>
-  </div>
+<div class="panel" id="portalPanel">
+<div class="m-top">
+<b>Student Dashboard</b>
+<button type="button" class="m-close" onclick="closeAllPanels()">Logout</button>
+</div>
+<div class="success-box">
+<b id="pWelcome">Welcome Student</b>
+<div class="cred-row">Demo Student Account</div>
+</div>
+<a class="btn gold" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Contact Support</a>
+</div>
+
+<div class="stats">
+<div class="stat"><b>85+</b><span>Practical Modules</span></div>
+<div class="stat"><b>10K+</b><span>Active Students</span></div>
+<div class="stat"><b>24/7</b><span>Mobile Access</span></div>
+<div class="stat"><b>Student ID</b><span>Registration</span></div>
+</div>
 </section>
 
 <section class="sec" id="courses">
-  <div class="sec-h">
-    <h2>5 Mastery Packages</h2>
-    <p>Select your package and continue to checkout</p>
-  </div>
+<div class="sec-h">
+<h2>5 Mastery Packages</h2>
+<p>Select your package and continue to checkout</p>
+</div>
 
-  <div class="panel" id="buyPanel">
-    <div class="m-top">
-      <b id="buyTitle">Package Checkout</b>
-      <button type="button" class="m-close" onclick="closeAllPanels()">Close &times;</button>
-    </div>
-    <div class="qr-box">
-      <b id="qrLabel">Pay via UPI</b>
-      <img id="qrImg" src="" alt="UPI QR Code">
-      <b>UPI ID: millionaireskills@upi</b>
-    </div>
-    <div class="note-box">Payment submit karne ke baad manual verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
-    <label class="lbl" for="fAmt">Amount (&#8377;)</label>
-    <input class="inp" id="fAmt" type="text" readonly>
-    <label class="lbl" for="fName">Your Full Name</label>
-    <input class="inp" id="fName" type="text" placeholder="Enter full name">
-    <label class="lbl" for="fPhone">WhatsApp Number (10 Digits)</label>
-    <input class="inp" id="fPhone" type="tel" maxlength="10" placeholder="10-digit number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
-    <label class="lbl" for="fUtr">UPI UTR (12 Digits)</label>
-    <input class="inp" id="fUtr" type="text" maxlength="12" placeholder="12-digit UTR" oninput="this.value=this.value.replace(/\D/g,'').slice(0,12)">
-    <button type="button" class="btn gold" onclick="doPay()">Submit Payment Details &rarr;</button>
-    <div class="err-box" id="bErr"></div>
-  </div>
+<div class="panel" id="buyPanel">
+<div class="m-top">
+<b id="buyTitle">Package Checkout</b>
+<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
+</div>
 
-  <div class="panel" id="donePanel">
-    <div class="m-top">
-      <b>Registration Submitted</b>
-      <button type="button" class="m-close" onclick="closeAllPanels()">Close &times;</button>
-    </div>
-    <div class="success-box">
-      <b>Registration Request Created</b>
-      <div class="cred-row" id="donePkg"></div>
-      <div class="cred-row" id="doneReq"></div>
-      <div class="cred-row">Status: Awaiting Manual Verification</div>
-    </div>
-    <a class="btn green" id="doneWa" href="#" target="_blank" rel="noopener noreferrer">Send Payment Details on WhatsApp &rarr;</a>
-  </div>
+<div class="qr-box">
+<b id="qrLabel">Pay via UPI</b>
+<img id="qrImg" src="" alt="UPI QR Code">
+<b>UPI ID: millionaireskills@upi</b>
+</div>
 
-  <div class="courses-grid">
-    <div class="card">
-      <div class="anim-showcase"><img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Marketing Mastery" class="anim-img"></div>
-      <div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
-      <div class="c-title">Marketing Mastery</div>
-      <div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
-      <div class="c-meta"><span>&#9733; 4.8</span><span>12 Modules</span></div>
-      <div class="c-price">&#8377;999 <span class="c-old">&#8377;1,999</span></div>
-      <button type="button" class="btn gold" onclick="showBuy('Marketing Mastery',999)">Buy Now &rarr;</button>
-    </div>
+<div class="note-box">Payment submit karne ke baad manual verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
 
-    <div class="card">
-      <div class="anim-showcase"><img src="file_000000002914821181cc5ff207a5f834.png" alt="Branding Mastery" class="anim-img"></div>
-      <div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
-      <div class="c-title">Branding Mastery</div>
-      <div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
-      <div class="c-meta"><span>&#9733; 4.7</span><span>16 Modules</span></div>
-      <div class="c-price">&#8377;2,499 <span class="c-old">&#8377;4,999</span></div>
-      <button type="button" class="btn gold" onclick="showBuy('Branding Mastery',2499)">Buy Now &rarr;</button>
-    </div>
+<label class="lbl">Amount (₹)</label>
+<input class="inp" id="fAmt" type="text" readonly>
 
-    <div class="card">
-      <div class="anim-showcase"><img src="IMG-20261120-WA8600.jpg" alt="Traffic Mastery" class="anim-img"></div>
-      <div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
-      <div class="c-title">Traffic Mastery</div>
-      <div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
-      <div class="c-meta"><span>&#9733; 4.6</span><span>20 Modules</span></div>
-      <div class="c-price">&#8377;4,999 <span class="c-old">&#8377;9,999</span></div>
-      <button type="button" class="btn gold" onclick="showBuy('Traffic Mastery',4999)">Buy Now &rarr;</button>
-    </div>
+<label class="lbl">Your Full Name</label>
+<input class="inp" id="fName" type="text" placeholder="Enter full name">
 
-    <div class="card">
-      <div class="anim-showcase"><img src="IMG-20261120-WA5578.jpg" alt="Influence Mastery" class="anim-img"></div>
-      <div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
-      <div class="c-title">Influence Mastery</div>
-      <div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
-      <div class="c-meta"><span>&#9733; 4.9</span><span>22 Modules</span></div>
-      <div class="c-price">&#8377;9,999 <span class="c-old">&#8377;19,999</span></div>
-      <button type="button" class="btn gold" onclick="showBuy('Influence Mastery',9999)">Buy Now &rarr;</button>
-    </div>
+<label class="lbl">WhatsApp Number (10 Digits)</label>
+<input class="inp" id="fPhone" type="tel" maxlength="10" placeholder="10-digit number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
 
-    <div class="card vip">
-      <div class="anim-showcase"><img src="IMG-20261120-WA2541.jpg" alt="Finance Mastery" class="anim-img"></div>
-      <div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
-      <div class="c-title">Finance Mastery (VIP Bundle)</div>
-      <div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
-      <div class="c-meta"><span>&#9733; 5.0</span><span>All 85+ Modules</span></div>
-      <div class="c-price">&#8377;14,999 <span class="c-old">&#8377;29,999</span></div>
-      <button type="button" class="btn gold" onclick="showBuy('Finance Mastery (VIP)',14999)">Buy Now &rarr;</button>
-    </div>
-  </div>
+<label class="lbl">UPI UTR (12 Digits)</label>
+<input class="inp" id="fUtr" type="text" maxlength="12" placeholder="12-digit UTR" oninput="this.value=this.value.replace(/\D/g,'').slice(0,12)">
+
+<button type="button" class="btn gold" onclick="doPay()">Submit Payment Details →</button>
+<div class="err-box" id="bErr"></div>
+</div>
+
+<div class="panel" id="donePanel">
+<div class="m-top">
+<b>Registration Submitted</b>
+<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
+</div>
+
+<div class="success-box">
+<b>Registration Request Created</b>
+<div class="cred-row" id="donePkg"></div>
+<div class="cred-row" id="doneReq"></div>
+<div class="cred-row">Status: Awaiting Manual Verification</div>
+</div>
+
+<a class="btn green" id="doneWa" href="#" target="_blank" rel="noopener noreferrer">Send Payment Details on WhatsApp →</a>
+</div>
+
+<div class="courses-grid">
+
+<div class="card">
+<div class="anim-showcase"><img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Marketing Mastery" class="anim-img"></div>
+<div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
+<div class="c-title">Marketing Mastery</div>
+<div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
+<div class="c-meta"><span>★ 4.8</span><span>12 Modules</span></div>
+<div class="c-price">₹999 <span class="c-old">₹1,999</span></div>
+<button type="button" class="btn gold" onclick="showBuy('Marketing Mastery',999)">Buy Now →</button>
+</div>
+
+<div class="card">
+<div class="anim-showcase"><img src="file_000000002914821181cc5ff207a5f834.png" alt="Branding Mastery" class="anim-img"></div>
+<div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
+<div class="c-title">Branding Mastery</div>
+<div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
+<div class="c-meta"><span>★ 4.7</span><span>16 Modules</span></div>
+<div class="c-price">₹2,499 <span class="c-old">₹4,999</span></div>
+<button type="button" class="btn gold" onclick="showBuy('Branding Mastery',2499)">Buy Now →</button>
+</div>
+
+<div class="card">
+<div class="anim-showcase"><img src="IMG-20261120-WA8600.jpg" alt="Traffic Mastery" class="anim-img"></div>
+<div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
+<div class="c-title">Traffic Mastery</div>
+<div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
+<div class="c-meta"><span>★ 4.6</span><span>20 Modules</span></div>
+<div class="c-price">₹4,999 <span class="c-old">₹9,999</span></div>
+<button type="button" class="btn gold" onclick="showBuy('Traffic Mastery',4999)">Buy Now →</button>
+</div>
+
+<div class="card">
+<div class="anim-showcase"><img src="IMG-20261120-WA5578.jpg" alt="Influence Mastery" class="anim-img"></div>
+<div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
+<div class="c-title">Influence Mastery</div>
+<div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
+<div class="c-meta"><span>★ 4.9</span><span>22 Modules</span></div>
+<div class="c-price">₹9,999 <span class="c-old">₹19,999</span></div>
+<button type="button" class="btn gold" onclick="showBuy('Influence Mastery',9999)">Buy Now →</button>
+</div>
+
+<div class="card vip">
+<div class="anim-showcase"><img src="IMG-20261120-WA2541.jpg" alt="Finance Mastery" class="anim-img"></div>
+<div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
+<div class="c-title">Finance Mastery (VIP Bundle)</div>
+<div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
+<div class="c-meta"><span>★ 5.0</span><span>All 85+ Modules</span></div>
+<div class="c-price">₹14,999 <span class="c-old">₹29,999</span></div>
+<button type="button" class="btn gold" onclick="showBuy('Finance Mastery (VIP)',14999)">Buy Now →</button>
+</div>
+
+</div>
 </section>
 
 <footer id="contact">
-  <b>THE MILLIONAIRE SKILLS</b>
-  <div>WhatsApp: +91 62898 41691</div>
-  <div>Email: mdaadilalam123123@gmail.com</div>
+<b>THE MILLIONAIRE SKILLS</b>
+<div>WhatsApp: +91 62898 41691</div>
+<div>Email: mdaadilalam123123@gmail.com</div>
 
-  <div class="desc-box" id="about">
-    <b>Program &amp; Platform Overview</b>
-    <p>THE MILLIONAIRE SKILLS offers structured skill-building packages across Marketing, Branding, Traffic, Influence, and Finance with simple UPI checkout and WhatsApp registration support.</p>
-    <ul>
-      <li>85+ practical modules designed for self-paced learning</li>
-      <li>Instant UPI QR &amp; UTR submission with manual verification notice</li>
-      <li>Direct student sign-in portal and support assistance</li>
-    </ul>
-  </div>
+<div class="desc-box" id="about">
+<b>Program &amp; Platform Overview</b>
+<p>THE MILLIONAIRE SKILLS offers structured skill-building packages across Marketing, Branding, Traffic, Influence, and Finance with simple UPI checkout and WhatsApp registration support.</p>
+<ul>
+<li>85+ practical modules designed for self-paced learning</li>
+<li>Instant UPI QR &amp; UTR submission with manual verification notice</li>
+<li>Direct student sign-in portal and support assistance</li>
+</ul>
+</div>
 
-  <div class="support-box">
-    <b>Email Support</b>
-    <div class="support-email-pill">mdaadilalam123123@gmail.com</div>
-    <a class="btn gold" href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaadilalam123123@gmail.com" target="_blank" rel="noopener noreferrer">Open in Gmail &rarr;</a>
-    <a class="btn green" href="mailto:mdaadilalam123123@gmail.com">Open Mail App</a>
-    <button type="button" class="btn dark" onclick="copyVal('mdaadilalam123123@gmail.com','cEmail')">Copy Email</button>
-    <div class="copy-msg" id="cEmail"></div>
-  </div>
+<div class="support-box">
+<b>Email Support</b>
+<div class="support-email-pill">mdaadilalam123123@gmail.com</div>
+<a class="btn gold" href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaadilalam123123@gmail.com" target="_blank" rel="noopener noreferrer">Open in Gmail →</a>
+<a class="btn green" href="mailto:mdaadilalam123123@gmail.com">Open Mail App</a>
+<button type="button" class="btn dark" onclick="copyVal('mdaadilalam123123@gmail.com','cEmail')">Copy Email</button>
+<div class="copy-msg" id="cEmail"></div>
+</div>
 
-  <div class="support-box">
-    <b style="color:#4ade80">WhatsApp Support</b>
-    <div class="support-email-pill">+91 62898 41691</div>
-    <a class="btn green" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Chat on WhatsApp &rarr;</a>
-    <button type="button" class="btn dark" onclick="copyVal('+91 62898 41691','cWa')">Copy WhatsApp Number</button>
-    <div class="copy-msg" id="cWa"></div>
-  </div>
+<div class="support-box">
+<b style="color:#4ade80">WhatsApp Support</b>
+<div class="support-email-pill">+91 62898 41691</div>
+<a class="btn green" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Chat on WhatsApp →</a>
+<button type="button" class="btn dark" onclick="copyVal('+91 62898 41691','cWa')">Copy WhatsApp Number</button>
+<div class="copy-msg" id="cWa"></div>
+</div>
 
-  <div class="f-links">
-    <a href="#courses">Packages</a>
-    <a href="#top">Back to Top</a>
-    <a href="#contact">Contact</a>
-  </div>
+<div class="f-links">
+<a href="#courses">Packages</a>
+<a href="#top">Back to Top</a>
+<a href="#contact">Contact</a>
+</div>
 </footer>
 
 <script>
+"use strict";
+
 var selPkg = "";
 var selAmt = 0;
 
-function scrollToPanel(el){
-  if(!el) return;
-  setTimeout(function(){
-    el.scrollIntoView({behavior:"smooth",block:"nearest"});
-  }, 50);
+function toggleMenu() {
+    var d = document.getElementById("navDrawer");
+    var b = document.getElementById("menuBtn");
+    if (!d) return;
+    d.classList.toggle("open");
+    b.innerHTML = d.classList.contains("open") ? "&times;" : "&#9776;";
 }
 
-function toggleMenu(e){
-  if(e) e.stopPropagation();
-  var d = document.getElementById("navDrawer");
-  var b = document.getElementById("menuBtn");
-  if(!d) return;
-  d.classList.toggle("open");
-  if(b) b.innerHTML = d.classList.contains("open") ? "&times;" : "&#9776;";
+function closeMenu() {
+    var d = document.getElementById("navDrawer");
+    var b = document.getElementById("menuBtn");
+    if (d) d.classList.remove("open");
+    if (b) b.innerHTML = "&#9776;";
 }
 
-function closeMenu(){
-  var d = document.getElementById("navDrawer");
-  var b = document.getElementById("menuBtn");
-  if(d) d.classList.remove("open");
-  if(b) b.innerHTML = "&#9776;";
-}
-
-function closeAllPanels(){
-  closeMenu();
-  var ps = document.querySelectorAll(".panel");
-  for(var i = 0; i < ps.length; i++){
-    ps[i].classList.remove("active");
-  }
-}
-
-function showLogin(){
-  closeAllPanels();
-  var idInp = document.getElementById("lId");
-  var pwInp = document.getElementById("lPw");
-  var err = document.getElementById("lErr");
-  var lp = document.getElementById("loginPanel");
-  if(idInp) idInp.value = "";
-  if(pwInp) pwInp.value = "";
-  if(err) err.style.display = "none";
-  if(lp){
-    lp.classList.add("active");
-    scrollToPanel(lp);
-  }
-}
-
-function doLogin(){
-  var idEl = document.getElementById("lId");
-  var pwEl = document.getElementById("lPw");
-  var err = document.getElementById("lErr");
-  var id = idEl ? idEl.value.trim() : "";
-  var pw = pwEl ? pwEl.value : "";
-  if(err) err.style.display = "none";
-  if(id === "student1@tms.com" && pw === "pass1"){
-    closeAllPanels();
-    var welcome = document.getElementById("pWelcome");
-    var portal = document.getElementById("portalPanel");
-    if(welcome) welcome.textContent = "Welcome, " + id;
-    if(portal){
-      portal.classList.add("active");
-      scrollToPanel(portal);
+function closeAllPanels() {
+    closeMenu();
+    var ps = document.querySelectorAll(".panel");
+    for (var i = 0; i < ps.length; i++) {
+        ps[i].classList.remove("active");
     }
-  } else if(err){
-    err.textContent = "Invalid demo login. Use student1@tms.com / pass1";
-    err.style.display = "block";
-  }
 }
 
-function showBuy(pkg, amt){
-  closeAllPanels();
-  selPkg = pkg;
-  selAmt = amt;
-  var buyTitle = document.getElementById("buyTitle");
-  var qrLabel = document.getElementById("qrLabel");
-  var fAmt = document.getElementById("fAmt");
-  var fName = document.getElementById("fName");
-  var fPhone = document.getElementById("fPhone");
-  var fUtr = document.getElementById("fUtr");
-  var bErr = document.getElementById("bErr");
-  var qrImg = document.getElementById("qrImg");
-  var bp = document.getElementById("buyPanel");
+function showLogin() {
+    closeAllPanels();
+    document.getElementById("lId").value = "";
+    document.getElementById("lPw").value = "";
+    document.getElementById("lErr").style.display = "none";
+    document.getElementById("loginPanel").classList.add("active");
+    document.getElementById("loginPanel").scrollIntoView({behavior:"smooth",block:"center"});
+}
 
-  if(buyTitle) buyTitle.textContent = pkg + " Checkout";
-  if(qrLabel) qrLabel.textContent = "Pay Rs. " + amt + " via UPI";
-  if(fAmt) fAmt.value = amt;
-  if(fName) fName.value = "";
-  if(fPhone) fPhone.value = "";
-  if(fUtr) fUtr.value = "";
-  if(bErr) bErr.style.display = "none";
+function doLogin() {
+    var id = document.getElementById("lId").value.trim();
+    var pw = document.getElementById("lPw").value;
+    var err = document.getElementById("lErr");
+    err.style.display = "none";
 
-  var upi = "upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkills&am=" + amt + "&cu=INR";
-  if(qrImg){
-    qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(upi);
-  }
-  if(bp){
+    if (id === "student1@tms.com" && pw === "pass1") {
+        closeAllPanels();
+        document.getElementById("pWelcome").textContent = "Welcome, " + id;
+        document.getElementById("portalPanel").classList.add("active");
+        document.getElementById("portalPanel").scrollIntoView({behavior:"smooth",block:"center"});
+    } else {
+        err.textContent = "Invalid demo login. Use student1@tms.com / pass1";
+        err.style.display = "block";
+    }
+}
+
+function showBuy(pkg, amt) {
+    closeAllPanels();
+    selPkg = pkg;
+    selAmt = amt;
+
+    document.getElementById("buyTitle").textContent = pkg + " Checkout";
+    document.getElementById("qrLabel").textContent = "Pay Rs. " + amt + " via UPI";
+    document.getElementById("fAmt").value = amt;
+    document.getElementById("fName").value = "";
+    document.getElementById("fPhone").value = "";
+    document.getElementById("fUtr").value = "";
+    document.getElementById("bErr").style.display = "none";
+
+    var upi = "upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkills&am=" + amt + "&cu=INR";
+    document.getElementById("qrImg").src =
+        "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(upi);
+
+    var bp = document.getElementById("buyPanel");
     bp.classList.add("active");
-    scrollToPanel(bp);
-  }
+    bp.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
-function doPay(){
-  var nameEl = document.getElementById("fName");
-  var phoneEl = document.getElementById("fPhone");
-  var utrEl = document.getElementById("fUtr");
-  var err = document.getElementById("bErr");
+function doPay() {
+    var name = document.getElementById("fName").value.trim();
+    var phone = document.getElementById("fPhone").value.replace(/\D/g, "");
+    var utr = document.getElementById("fUtr").value.replace(/\D/g, "");
+    var err = document.getElementById("bErr");
 
-  var name = nameEl ? nameEl.value.trim() : "";
-  var phone = phoneEl ? phoneEl.value.replace(/\D/g, "") : "";
-  var utr = utrEl ? utrEl.value.replace(/\D/g, "") : "";
+    err.style.display = "none";
 
-  if(err) err.style.display = "none";
-  if(name.length < 2){
-    if(err){ err.textContent = "Enter your full name."; err.style.display = "block"; }
-    return;
-  }
-  if(phone.length !== 10){
-    if(err){ err.textContent = "Enter 10-di
+    if (!selPkg || !selAmt) {
+        err.textContent = "Please select a course first.";
+        err.style.display = "block";
+        return;
+    }
+    if (name.length < 2) {
+        err.textContent = "Enter your full name.";
+        err.style.display = "block";
+        return;
+    }
+    if (phone.length !== 10) {
+        err.textContent = "Enter 10-digit WhatsApp number.";
+        err.style.display = "block";
+        return;
+    }
+    if (utr.length !== 12) {
+        err.textContent = "Enter 12-digit UTR.";
+        err.style.display = "block";
+        return;
+    }
+
+    var reqId = "TMS-" + Date.now().toString().slice(-8);
+    var msg = "Hello THE MILLIONAIRE SKILLS\nName: " + name +
+        "\nWhatsApp: " + phone +
+        "\nPackage: " + selPkg +
+        "\nAmount: Rs. " + selAmt +
+        "\nUTR: " + utr +
+        "\nRequest ID: " + reqId;
+
+    closeAllPanels();
+
+    document.getElementById("donePkg").textContent =
+        "Package: " + selPkg + " | Amount: Rs. " + selAmt;
+    document.getElementById("doneReq").textContent = "Request ID: " + reqId;
+    document.getElementById("doneWa").href =
+        "https://wa.me/916289841691?text=" + encodeURIComponent(msg);
+
+    document.getElementById("donePanel").classList.add("active");
+    document.getElementById("donePanel").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function copyVal(val, id) {
+    var el = document.getElementById(id);
+
+    function showCopied(message) {
+        el.textContent = message;
+        el.style.display = "block";
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(val)
+            .then(function() {
+                showCopied("Copied: " + val);
+      

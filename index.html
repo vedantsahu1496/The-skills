@@ -40,6 +40,7 @@ button{cursor:pointer;font-family:inherit}
 .hero p{color:#94a3b8;font-size:14px;max-width:440px;margin:auto}
 .hero-actions{max-width:420px;margin:18px auto}
 .hero-auth-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-signup-separate{margin-top:10px}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:450px;margin:22px auto 0}
 .stat{padding:15px;background:#111b30;border:1px solid #604a21;border-radius:12px;text-align:left}
 .stat b{display:block;color:#fbbf24;font-size:21px}
@@ -61,7 +62,7 @@ button{cursor:pointer;font-family:inherit}
 .c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
 .c-old{font-size:13px;color:#64748b;text-decoration:line-through}
 
-/* CHECKOUT & PHOTO EDITOR MODAL OVERLAY */
+/* MODAL OVERLAY */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(3,6,15,0.88);z-index:300;overflow-y:auto;padding:20px 14px}
 .modal-overlay.active{display:flex;align-items:flex-start;justify-content:center}
 .panel{width:100%;max-width:440px;margin:auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:20px;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,0.7)}
@@ -110,12 +111,21 @@ button{cursor:pointer;font-family:inherit}
 #dashboardScreen{display:none;min-height:100vh;background:#eef2f7;color:#0f172a}
 #dashboardScreen.active{display:block}
 
-.ref-top-bar{max-width:520px;margin:auto;padding:12px 14px 4px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ref-top-bar{max-width:560px;margin:auto;padding:12px 14px 4px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .ref-chip-btn{background:#ffffff;color:#1e293b;border:1px solid #cbd5e1;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:bold;box-shadow:0 1px 3px rgba(15,23,42,0.06)}
 .ref-chip-btn.blue{background:#2d5fb8;color:#ffffff;border-color:#2d5fb8}
 .ref-chip-btn.red{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
 
-.ref-wrap{max-width:520px;margin:auto;padding:8px 14px 42px}
+.ref-wrap{max-width:560px;margin:auto;padding:8px 14px 48px}
+
+/* WhatsApp Channel Join Banner */
+.wa-channel-card{background:#ffffff;border-radius:18px;padding:14px 16px;box-shadow:0 4px 16px rgba(15,23,42,0.06);border:1px solid #e2e8f0;margin-bottom:14px}
+.wa-channel-top{display:flex;align-items:flex-start;gap:12px}
+.wa-badge-circle{width:40px;height:40px;border-radius:50%;background:#dbeafe;color:#2563eb;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0}
+.wa-channel-title{font-size:15px;font-weight:700;color:#1e293b;line-height:1.25}
+.wa-channel-sub{font-size:12.5px;color:#64748b;margin-top:3px;line-height:1.4}
+.wa-join-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:#ffffff;color:#1e293b;border:1px solid #cbd5e1;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;box-shadow:0 1px 2px rgba(15,23,42,0.05)}
+.wa-join-btn:hover{background:#f8fafc}
 
 /* Top Profile Card */
 .ref-profile-card{background:#ffffff;border-radius:18px;padding:14px 16px;box-shadow:0 4px 16px rgba(15,23,42,0.06);border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
@@ -135,13 +145,56 @@ button{cursor:pointer;font-family:inherit}
 .quick-name-row input{flex:1;margin-bottom:0;background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1;padding:10px 12px;border-radius:9px;font-size:14px}
 
 /* Blue Earning Cards */
-.ref-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.ref-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 .ref-earn-card{background:linear-gradient(145deg,#3366c4,#2752a6);color:#ffffff;border-radius:18px;padding:18px 16px;min-height:132px;position:relative;overflow:hidden;box-shadow:0 6px 18px rgba(39,82,166,0.22);display:flex;flex-direction:column;justify-content:space-between}
 .ref-earn-card.full{grid-column:1 / -1;min-height:112px}
 .ref-card-icon{font-size:24px;line-height:1;opacity:0.95;margin-bottom:8px}
 .ref-card-label{font-size:13.5px;color:#dbeafe;font-weight:500;margin-bottom:4px}
 .ref-card-val{font-size:25px;font-weight:800;color:#ffffff;letter-spacing:0.3px;line-height:1.15;word-break:break-word}
 .ref-watermark{position:absolute;right:12px;bottom:8px;font-size:52px;opacity:0.16;pointer-events:none;line-height:1}
+
+/* Earnings Chart Box */
+.chart-card{background:#ffffff;border-radius:18px;padding:16px;box-shadow:0 4px 16px rgba(15,23,42,0.06);border:1px solid #e2e8f0;margin-bottom:14px}
+.chart-card h3{font-size:16px;font-weight:700;color:#1e293b;margin-bottom:2px}
+.chart-card p{font-size:12.5px;color:#64748b;margin-bottom:12px}
+.chart-area{height:160px;border-radius:14px;background:linear-gradient(180deg,rgba(249,115,22,0.16),rgba(249,115,22,0.02));border:1px solid #fed7aa;padding:12px;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;position:relative}
+.chart-bar-wrap{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}
+.chart-bar{width:100%;max-width:28px;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,#fb923c,#ea580c);min-height:6px;transition:height 0.25s ease}
+.chart-day{font-size:10.5px;color:#64748b;font-weight:600}
+.chart-legend{display:flex;justify-content:center;gap:18px;margin-top:10px;font-size:12px;font-weight:600;color:#334155}
+.leg-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+
+/* Recent Team Card */
+.recent-team-card{background:#ffffff;border-radius:18px;padding:16px;box-shadow:0 4px 16px rgba(15,23,42,0.06);border:1px solid #e2e8f0;margin-bottom:14px}
+.recent-team-card h3{font-size:16px;font-weight:700;color:#1e293b;margin-bottom:12px}
+.team-member-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f1f5f9}
+.team-member-row:last-of-type{border-bottom:none}
+.team-avatar{width:38px;height:38px;border-radius:50%;background:#e2e8f0;color:#1e293b;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.team-member-info{min-width:0;flex:1}
+.team-member-name{font-size:14px;font-weight:700;color:#1e293b;line-height:1.25}
+.team-member-pkg{font-size:12px;color:#64748b;margin-top:2px}
+.view-all-team-btn{display:block;width:100%;margin-top:12px;padding:10px;background:#ffffff;color:#1e293b;border:1px solid #cbd5e1;border-radius:10px;font-size:13px;font-weight:700;text-align:center}
+.view-all-team-btn:hover{background:#f8fafc}
+
+/* Full Team Directory & Pagination Controls */
+.team-toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.team-search-inp{flex:1;min-width:180px;padding:9px 12px;border-radius:10px;border:1px solid #cbd5e1;background:#f8fafc;color:#0f172a;font-size:13px}
+.per-page-wrap{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#475569;font-weight:600}
+.per-page-sel{padding:7px 10px;border-radius:8px;border:1px solid #cbd5e1;background:#ffffff;color:#0f172a;font-size:12.5px;font-weight:700}
+
+.team-list-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:11px 12px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.team-list-left{display:flex;align-items:center;gap:10px;min-width:0}
+.team-list-meta small{display:block;color:#64748b;font-size:11.5px;overflow-wrap:anywhere}
+.team-list-right{text-align:right;flex-shrink:0}
+.team-list-right b{display:block;font-size:13px;color:#1e293b}
+.team-list-right small{font-size:11px;color:#64748b}
+
+.pagination-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:10px;border-top:1px solid #e2e8f0}
+.pagination-info{font-size:12px;color:#64748b;font-weight:600}
+.pagination-controls{display:flex;align-items:center;gap:6px}
+.page-nav-btn,.page-num-btn{min-width:32px;height:32px;padding:0 9px;border-radius:8px;border:1px solid #cbd5e1;background:#ffffff;color:#1e293b;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.page-num-btn.active{background:#2d5fb8;color:#ffffff;border-color:#2d5fb8}
+.page-nav-btn:disabled{opacity:0.4;cursor:not-allowed}
 
 /* Sub-tabs inside Dashboard */
 .ref-sub-tabs{display:flex;gap:8px;overflow-x:auto;margin:14px 0 12px;padding-bottom:4px}
@@ -222,7 +275,10 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
 <div class="hero-auth-row" id="heroGuestBtns">
 <button type="button" class="btn dark" onclick="openAuthScreen('login')">Student Login</button>
-<button type="button" class="btn dark" style="border-color:#b88624;color:#fbbf24" onclick="openAuthScreen('signup')">Sign Up</button>
+<button type="button" class="btn dark" onclick="openAuthScreen('login')">Portal Sign In</button>
+</div>
+<div class="hero-signup-separate" id="heroSeparateSignup">
+<button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openAuthScreen('signup')">Sign Up (Create New Account)</button>
 </div>
 <div class="hero-auth-row" id="heroUserBtns" style="display:none">
 <button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openDashboardScreen('earnings')">Open Dashboard</button>
@@ -434,6 +490,21 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <div class="ref-wrap">
+
+<!-- WHATSAPP CHANNEL JOIN CARD -->
+<div class="wa-channel-card">
+<div class="wa-channel-top">
+<div class="wa-badge-circle">W</div>
+<div>
+<div class="wa-channel-title">Join Our WhatsApp Channel</div>
+<div class="wa-channel-sub">Stay updated with the latest announcements, offers, and updates.</div>
+</div>
+</div>
+<a class="wa-join-btn" href="https://whatsapp.com/channel/0029Vb7863B6mYPIh021dN1b" target="_blank" rel="noopener noreferrer">
+<span>💬</span><span>Join Now</span>
+</a>
+</div>
+
 <!-- TOP PROFILE CARD -->
 <div class="ref-profile-card">
 <div class="ref-profile-left">
@@ -462,15 +533,16 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 </div>
 
-<!-- SUB-TABS FOR COURSES, UPGRADE, PROFILE & CHANGE PASSWORD -->
+<!-- SUB-TABS FOR OVERVIEW, ALL TEAM, PACKAGES, UPGRADE & PROFILE -->
 <div class="ref-sub-tabs">
 <button type="button" class="ref-sub-btn active" id="dTabEarnings" onclick="switchDashTab('earnings')">Earnings Overview</button>
+<button type="button" class="ref-sub-btn" id="dTabTeam" onclick="switchDashTab('team')">All Team (10+)</button>
 <button type="button" class="ref-sub-btn" id="dTabCourses" onclick="switchDashTab('courses')">My Packages</button>
 <button type="button" class="ref-sub-btn" id="dTabUpgrade" onclick="switchDashTab('upgrade')">Buy Package</button>
 <button type="button" class="ref-sub-btn" id="dTabPassword" onclick="switchDashTab('password')">Profile &amp; Password</button>
 </div>
 
-<!-- TAB 1: BLUE EARNING CARDS -->
+<!-- TAB 1: BLUE EARNING CARDS + CHART + RECENT TEAM -->
 <div class="ref-panel-box active" id="dashViewEarnings" style="background:transparent;border:0;box-shadow:none;padding:0;margin-top:0">
 <div class="ref-grid-2">
 <div class="ref-earn-card">
@@ -510,16 +582,63 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="ref-card-label">Industrial Income</div>
 <div class="ref-card-val" id="earnIndustrial">₹0</div>
 </div>
+
+<div class="ref-earn-card full">
+<div class="ref-watermark">💳</div>
+<div class="ref-card-label">Wallet Balance</div>
+<div class="ref-card-val" id="earnWallet">₹0</div>
 </div>
 </div>
 
-<!-- TAB 2: MY PACKAGES -->
+<!-- EARNINGS CHART -->
+<div class="chart-card">
+<h3>Earnings Chart</h3>
+<p>Showing earnings and referrals over time</p>
+<div class="chart-area" id="earningsChartBars"></div>
+<div class="chart-legend">
+<span><i class="leg-dot" style="background:#0d9488"></i>Referrals</span>
+<span><i class="leg-dot" style="background:#f97316"></i>Earnings</span>
+</div>
+</div>
+
+<!-- YOUR RECENT TEAM -->
+<div class="recent-team-card">
+<h3>Your Recent Team</h3>
+<div id="recentTeamList"></div>
+<button type="button" class="view-all-team-btn" onclick="switchDashTab('team')">View All</button>
+</div>
+</div>
+
+<!-- TAB 2: ALL TEAM MEMBERS WITH SEARCH, 10 PER PAGE & PAGINATION (< 1 2 3 >) -->
+<div class="ref-panel-box" id="dashViewTeam">
+<h3>All Team Members</h3>
+<div class="team-toolbar">
+<input type="text" class="team-search-inp" id="teamSearchInput" placeholder="Search by name, email, phone..." oninput="resetTeamPageAndRender()">
+<div class="per-page-wrap">
+<span>Per Page:</span>
+<select class="per-page-sel" id="teamPerPageSelect" onchange="resetTeamPageAndRender()">
+<option value="10" selected>10</option>
+<option value="5">5</option>
+<option value="20">20</option>
+</select>
+</div>
+</div>
+
+<div id="paginatedTeamList"></div>
+
+<div class="pagination-bar">
+<div class="pagination-info" id="teamPaginationInfo">Showing 0 of 0</div>
+<div class="pagination-controls" id="teamPaginationControls"></div>
+</div>
+</div>
+
+<!-- TAB 3: MY PACKAGES -->
 <div class="ref-panel-box" id="dashViewCourses">
 <h3>My Enrolled Packages</h3>
 <div id="myPackagesList"></div>
 </div>
 
-<!-- TAB 3: UPGRADE / BUY PACKAGE -->
+<!-- TAB 4: UPGRADE / BUY PACKAGE -->
 <div class="ref-panel-box" id="dashViewUpgrade">
 <h3>Select &amp; Upgrade Package</h3>
 <div class="ref-order-row">
@@ -544,7 +663,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 </div>
 
-<!-- TAB 4: PROFILE EDIT & CHANGE PASSWORD -->
+<!-- TAB 5: PROFILE EDIT & CHANGE PASSWORD -->
 <div class="ref-panel-box" id="dashViewPassword">
 <h3>Edit Profile Name &amp; Photo</h3>
 <label class="lbl">Display Name</label>
@@ -673,9 +792,50 @@ var selPkg = "";
 var selAmt = 0;
 var resetTargetEmail = "";
 var tempPhotoData = "";
+var currentTeamPage = 1;
 
-var USERS_KEY = "tms_users_v3";
-var SESSION_KEY = "tms_session_v3";
+var USERS_KEY = "tms_users_v5";
+var SESSION_KEY = "tms_session_v5";
+
+function getZeroEarnings() {
+    return {
+        today: "₹0",
+        sevenDays: "₹0",
+        thirtyDays: "₹0",
+        allTime: "₹0",
+        industrial: "₹0",
+        wallet: "₹0"
+    };
+}
+
+function getSampleTeamMembers() {
+    return [
+        { name: "Raman", tag: "[GOD-FIRE]", pkg: "Marketing Mastery", phone: "9876501201", email: "raman.m@gmail.com", code: "TRS-KDN1RQEY" },
+        { name: "Praveen Kumar", tag: "", pkg: "Marketing Mastery", phone: "9876501202", email: "praveen.k@gmail.com", code: "TRS-FIN03LRMA" },
+        { name: "Sher Singh", tag: "", pkg: "Marketing Mastery", phone: "9876501203", email: "shersingh@gmail.com", code: "TRS-B62A13CB" },
+        { name: "Kajal Yadav", tag: "", pkg: "Marketing Mastery", phone: "9876501204", email: "kajalyadav@gmail.com", code: "TRS-UL47P3DA7" },
+        { name: "Sumitra Kashyap", tag: "", pkg: "Marketing Mastery", phone: "9876501205", email: "sumitrakashyap@gmail.com", code: "TRS-45RUREY6B" },
+        { name: "Rijwan Shaikh", tag: "", pkg: "Marketing Mastery", phone: "9876501206", email: "rijwanshaikh@gmail.com", code: "TRS-JBQ7C6Q0" },
+        { name: "Parikshit Raj", tag: "", pkg: "Marketing Mastery", phone: "9876501207", email: "parikshitraj@gmail.com", code: "TRS-X2NTVOA1F" },
+        { name: "Imamu Ddin", tag: "", pkg: "Traffic Mastery", phone: "9876501208", email: "imamuddin@gmail.com", code: "TRS-LPJVW6KTC" },
+        { name: "Abhishek Gupta", tag: "[GODFIRE]", pkg: "Influence Mastery", phone: "9876501209", email: "abhishekgupta@gmail.com", code: "TRS-BCAW3N5UX" },
+        { name: "Thakeshwar Sahu", tag: "", pkg: "Marketing Mastery", phone: "9876501210", email: "thakeshwarsahu@gmail.com", code: "TRS-61X2NC174" },
+        { name: "Deepak Verma", tag: "", pkg: "Branding Mastery", phone: "9876501211", email: "deepakverma@gmail.com", code: "TRS-90M4PL821" },
+        { name: "Pooja Sharma", tag: "", pkg: "Finance Mastery (VIP)", phone: "9876501212", email: "poojasharma@gmail.com", code: "TRS-44N8ZX319" },
+        { name: "Aarav Patel", tag: "", pkg: "Marketing Mastery", phone: "9876501213", email: "aaravpatel@gmail.com", code: "TRS-77Q1VB604" },
+        { name: "Neha Tiwari", tag: "", pkg: "Traffic Mastery", phone: "9876501214", email: "nehatiwari@gmail.com", code: "TRS-19W5TY882" },
+        { name: "Vikram Rathore", tag: "", pkg: "Influence Mastery", phone: "9876501215", email: "vikramrathore@gmail.com", code: "TRS-63E2GH540" },
+        { name: "Anjali Mishra", tag: "", pkg: "Branding Mastery", phone: "9876501216", email: "anjalimishra@gmail.com", code: "TRS-85R9JK215" },
+        { name: "Saurabh Jain", tag: "", pkg: "Marketing Mastery", phone: "9876501217", email: "saurabhjain@gmail.com", code: "TRS-31T4DF908" },
+        { name: "Kavita Dubey", tag: "", pkg: "Finance Mastery (VIP)", phone: "9876501218", email: "kavitadubey@gmail.com", code: "TRS-52Y7CV463" },
+        { name: "Harshvardhan Singh", tag: "", pkg: "Traffic Mastery", phone: "9876501219", email: "harshvardhan@gmail.com", code: "TRS-94U6BN729" },
+        { name: "Ritu Agarwal", tag: "", pkg: "Marketing Mastery", phone: "9876501220", email: "rituagarwal@gmail.com", code: "TRS-28I3MZ156" },
+        { name: "Manish Pandey", tag: "", pkg: "Influence Mastery", phone: "9876501221", email: "manishpandey@gmail.com", code: "TRS-70O8XS642" },
+        { name: "Sneha Chaturvedi", tag: "", pkg: "Branding Mastery", phone: "9876501222", email: "snehachaturvedi@gmail.com", code: "TRS-46P1LK390" },
+        { name: "Rohit Sen", tag: "", pkg: "Marketing Mastery", phone: "9876501223", email: "rohitsen@gmail.com", code: "TRS-82A5JH817" },
+        { name: "Divya Soni", tag: "", pkg: "Finance Mastery (VIP)", phone: "9876501224", email: "divyasoni@gmail.com", code: "TRS-66S9GF274" }
+    ];
+}
 
 function getDefaultUsers() {
     return [
@@ -688,16 +848,11 @@ function getDefaultUsers() {
             password: "pass1",
             photo: "",
             photoAdjust: { scale: 1, x: 0, y: 0 },
-            earnings: {
-                today: "₹2,300",
-                sevenDays: "₹40,950",
-                thirtyDays: "₹1,16,300",
-                allTime: "₹4,48,250",
-                industrial: "₹6,08,80,200"
-            },
+            earnings: getZeroEarnings(),
             orders: [
                 { pkg: "Finance Mastery", amt: 14999, reqId: "TMS-FIN01", status: "Active" }
-            ]
+            ],
+            team: getSampleTeamMembers()
         }
     ];
 }
@@ -770,6 +925,7 @@ function syncAuthUI() {
     var user = getCurrentUser();
     var hdrBtn = document.getElementById("hdrAuthBtn");
     var guestBtns = document.getElementById("heroGuestBtns");
+    var separateSignup = document.getElementById("heroSeparateSignup");
     var userBtns = document.getElementById("heroUserBtns");
     var navLogin = document.getElementById("navLoginLink");
     var navSignup = document.getElementById("navSignupLink");
@@ -779,6 +935,7 @@ function syncAuthUI() {
     if (user) {
         if (hdrBtn) hdrBtn.textContent = "Dashboard";
         if (guestBtns) guestBtns.style.display = "none";
+        if (separateSignup) separateSignup.style.display = "none";
         if (userBtns) userBtns.style.display = "grid";
         if (navLogin) navLogin.style.display = "none";
         if (navSignup) navSignup.style.display = "none";
@@ -787,6 +944,7 @@ function syncAuthUI() {
     } else {
         if (hdrBtn) hdrBtn.textContent = "Student Login";
         if (guestBtns) guestBtns.style.display = "grid";
+        if (separateSignup) separateSignup.style.display = "block";
         if (userBtns) userBtns.style.display = "none";
         if (navLogin) navLogin.style.display = "block";
         if (navSignup) navSignup.style.display = "block";
@@ -875,6 +1033,7 @@ function openDashboardScreen(tab) {
     }
     hideAllScreens();
     toggleQuickNameEdit(false);
+    currentTeamPage = 1;
     renderDashboardData(user);
     document.getElementById("dashboardScreen").classList.add("active");
     switchDashTab(tab || "earnings");
@@ -882,7 +1041,7 @@ function openDashboardScreen(tab) {
 }
 
 function switchDashTab(tab) {
-    var tabs = ["Earnings", "Courses", "Upgrade", "Password"];
+    var tabs = ["Earnings", "Team", "Courses", "Upgrade", "Password"];
     for (var i = 0; i < tabs.length; i++) {
         var name = tabs[i];
         var btn = document.getElementById("dTab" + name);
@@ -896,6 +1055,10 @@ function switchDashTab(tab) {
     var activeView = document.getElementById("dashView" + key);
     if (activeBtn) activeBtn.classList.add("active");
     if (activeView) activeView.classList.add("active");
+
+    if (tab === "team") {
+        renderPaginatedTeam();
+    }
 
     if (tab === "password") {
         var user = getCurrentUser();
@@ -926,6 +1089,129 @@ function renderAvatarBox(container, user) {
     }
 }
 
+function renderEarningsChart() {
+    var container = document.getElementById("earningsChartBars");
+    if (!container) return;
+    var labels = ["Nov 14", "Nov 15", "Nov 16", "Nov 17", "Nov 18", "Nov 19", "Nov 20"];
+    var heights = [12, 18, 10, 24, 15, 22, 14];
+    var html = "";
+    for (var i = 0; i < labels.length; i++) {
+        html +=
+            "<div class='chart-bar-wrap'>" +
+            "<div class='chart-bar' style='height:" + heights[i] + "%'></div>" +
+            "<span class='chart-day'>" + labels[i] + "</span>" +
+            "</div>";
+    }
+    container.innerHTML = html;
+}
+
+function renderRecentTeam(team) {
+    var box = document.getElementById("recentTeamList");
+    if (!box) return;
+    var list = Array.isArray(team) ? team : [];
+    if (list.length === 0) {
+        box.innerHTML = "<div class='note-box' style='margin-bottom:0'>Abhi koi recent team member nahi hai.</div>";
+        return;
+    }
+
+    var previewCount = Math.min(4, list.length);
+    var html = "";
+    for (var i = 0; i < previewCount; i++) {
+        var m = list[i];
+        var init = (m.name || "M").trim().charAt(0).toUpperCase();
+        var tagStr = m.tag ? " <span style='color:#d97706;font-size:11.5px'>" + m.tag + "</span>" : "";
+        html +=
+            "<div class='team-member-row'>" +
+            "<div class='team-avatar'>" + init + "</div>" +
+            "<div class='team-member-info'>" +
+            "<div class='team-member-name'>" + m.name + tagStr + "</div>" +
+            "<div class='team-member-pkg'>" + m.pkg + "</div>" +
+            "</div>" +
+            "</div>";
+    }
+    box.innerHTML = html;
+}
+
+function resetTeamPageAndRender() {
+    currentTeamPage = 1;
+    renderPaginatedTeam();
+}
+
+function goToTeamPage(page) {
+    currentTeamPage = page;
+    renderPaginatedTeam();
+}
+
+function renderPaginatedTeam() {
+    var user = getCurrentUser();
+    var team = (user && Array.isArray(user.team)) ? user.team : [];
+    var searchInp = document.getElementById("teamSearchInput");
+    var perPageSel = document.getElementById("teamPerPageSelect");
+    var listEl = document.getElementById("paginatedTeamList");
+    var infoEl = document.getElementById("teamPaginationInfo");
+    var ctrlEl = document.getElementById("teamPaginationControls");
+
+    if (!listEl || !infoEl || !ctrlEl) return;
+
+    var query = searchInp ? searchInp.value.trim().toLowerCase() : "";
+    var perPage = perPageSel ? parseInt(perPageSel.value, 10) || 10 : 10;
+
+    var filtered = team.filter(function(item) {
+        if (!query) return true;
+        var hay = ((item.name || "") + " " + (item.email || "") + " " + (item.phone || "") + " " + (item.pkg || "") + " " + (item.code || "")).toLowerCase();
+        return hay.indexOf(query) !== -1;
+    });
+
+    var totalItems = filtered.length;
+    var totalPages = Math.max(1, Math.ceil(totalItems / perPage));
+    if (currentTeamPage > totalPages) currentTeamPage = totalPages;
+    if (currentTeamPage < 1) currentTeamPage = 1;
+
+    var startIdx = (currentTeamPage - 1) * perPage;
+    var endIdx = Math.min(startIdx + perPage, totalItems);
+    var pageItems = filtered.slice(startIdx, endIdx);
+
+    if (pageItems.length === 0) {
+        listEl.innerHTML = "<div class='note-box' style='margin-bottom:0'>Koi matching team member nahi mila.</div>";
+    } else {
+        var html = "";
+        for (var i = 0; i < pageItems.length; i++) {
+            var m = pageItems[i];
+            var init = (m.name || "M").trim().charAt(0).toUpperCase();
+            var tagHtml = m.tag ? " <span style='color:#d97706;font-size:11px'>" + m.tag + "</span>" : "";
+            html +=
+                "<div class='team-list-item'>" +
+                "<div class='team-list-left'>" +
+                "<div class='team-avatar'>" + init + "</div>" +
+                "<div class='team-list-meta'>" +
+                "<div class='team-member-name'>" + m.name + tagHtml + "</div>" +
+                "<small>" + (m.email || "") + " • " + (m.phone || "") + "</small>" +
+                "</div>" +
+                "</div>" +
+                "<div class='team-list-right'>" +
+                "<b>" + (m.pkg || "Starter") + "</b>" +
+                "<small>" + (m.code || "") + "</small>" +
+                "</div>" +
+                "</div>";
+        }
+        listEl.innerHTML = html;
+    }
+
+    if (totalItems === 0) {
+        infoEl.textContent = "Showing 0 of 0 team members";
+    } else {
+        infoEl.textContent = "Showing " + (startIdx + 1) + "-" + endIdx + " of " + totalItems + " team members (Page " + currentTeamPage + "/" + totalPages + ")";
+    }
+
+    var btnsHtml = "";
+    btnsHtml += "<button type='button' class='page-nav-btn' onclick='goToTeamPage(" + (currentTeamPage - 1) + ")'" + (currentTeamPage <= 1 ? " disabled" : "") + ">&lt;</button>";
+    for (var p = 1; p <= totalPages; p++) {
+        btnsHtml += "<button type='button' class='page-num-btn" + (p === currentTeamPage ? " active" : "") + "' onclick='goToTeamPage(" + p + ")'>" + p + "</button>";
+    }
+    btnsHtml += "<button type='button' class='page-nav-btn' onclick='goToTeamPage(" + (currentTeamPage + 1) + ")'" + (currentTeamPage >= totalPages ? " disabled" : "") + ">&gt;</button>";
+    ctrlEl.innerHTML = btnsHtml;
+}
+
 function renderDashboardData(user) {
     renderAvatarBox(document.getElementById("refAvatarBox"), user);
     document.getElementById("refUserName").textContent = user.name || "Student";
@@ -936,18 +1222,17 @@ function renderDashboardData(user) {
     var activePkgLabel = orders.length > 0 ? orders[orders.length - 1].pkg : "Starter Member";
     document.getElementById("refActivePkg").textContent = activePkgLabel;
 
-    var earn = user.earnings || {
-        today: "₹0",
-        sevenDays: "₹0",
-        thirtyDays: "₹0",
-        allTime: "₹0",
-        industrial: "₹0"
-    };
-    document.getElementById("earnToday").textContent = earn.today;
-    document.getElementById("earn7Days").textContent = earn.sevenDays;
-    document.getElementById("earn30Days").textContent = earn.thirtyDays;
-    document.getElementById("earnAllTime").textContent = earn.allTime;
-    document.getElementById("earnIndustrial").textContent = earn.industrial;
+    var earn = user.earnings || getZeroEarnings();
+    document.getElementById("earnToday").textContent = earn.today || "₹0";
+    document.getElementById("earn7Days").textContent = earn.sevenDays || "₹0";
+    document.getElementById("earn30Days").textContent = earn.thirtyDays || "₹0";
+    document.getElementById("earnAllTime").textContent = earn.allTime || "₹0";
+    document.getElementById("earnIndustrial").textContent = earn.industrial || "₹0";
+    document.getElementById("earnWallet").textContent = earn.wallet || "₹0";
+
+    renderEarningsChart();
+    renderRecentTeam(user.team || []);
+    renderPaginatedTeam();
 
     var html = "";
     if (orders.length > 0) {
@@ -1277,14 +1562,9 @@ function doSignup() {
         password: pw,
         photo: "",
         photoAdjust: { scale: 1, x: 0, y: 0 },
-        earnings: {
-            today: "₹0",
-            sevenDays: "₹0",
-            thirtyDays: "₹0",
-            allTime: "₹0",
-            industrial: "₹0"
-        },
-        orders: []
+        earnings: getZeroEarnings(),
+        orders: [],
+        team: getSampleTeamMembers()
     };
 
     users.push(newUser);

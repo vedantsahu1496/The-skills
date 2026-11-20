@@ -61,7 +61,7 @@ button{cursor:pointer;font-family:inherit}
 .c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
 .c-old{font-size:13px;color:#64748b;text-decoration:line-through}
 
-/* CHECKOUT MODAL OVERLAY */
+/* CHECKOUT & PHOTO EDITOR MODAL OVERLAY */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(3,6,15,0.88);z-index:300;overflow-y:auto;padding:20px 14px}
 .modal-overlay.active{display:flex;align-items:flex-start;justify-content:center}
 .panel{width:100%;max-width:440px;margin:auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:20px;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,0.7)}
@@ -79,6 +79,15 @@ button{cursor:pointer;font-family:inherit}
 .success-box{background:#064e3b;padding:15px;border-radius:12px;margin:12px 0}
 .success-box b{display:block;color:#4ade80;margin-bottom:8px}
 .cred-row{background:#07543c;padding:9px;border-radius:7px;margin:7px 0;font-size:13px;overflow-wrap:anywhere}
+
+/* PHOTO EDITOR CONTROLS */
+.photo-stage-wrap{display:flex;justify-content:center;margin:12px 0}
+.photo-stage{width:140px;height:140px;border-radius:50%;overflow:hidden;border:3px solid #fbbf24;background:#172033;display:flex;align-items:center;justify-content:center;position:relative}
+.photo-stage img{width:100%;height:100%;object-fit:cover;transform-origin:center center;transition:transform 0.05s linear}
+.photo-stage-fallback{font-size:44px;font-weight:bold;color:#fbbf24}
+.slider-row{margin-bottom:10px}
+.slider-row label{display:flex;justify-content:space-between;font-size:12px;color:#cbd5e1;margin-bottom:4px}
+.slider-row input[type="range"]{width:100%;accent-color:#fbbf24}
 
 /* DEDICATED FULL-SCREEN AUTH VIEW */
 #authScreen{display:none;min-height:100vh;background:radial-gradient(circle at top,#14213d,#060913 70%);padding:20px 16px 40px}
@@ -110,12 +119,15 @@ button{cursor:pointer;font-family:inherit}
 
 /* Top Profile Card */
 .ref-profile-card{background:#ffffff;border-radius:18px;padding:14px 16px;box-shadow:0 4px 16px rgba(15,23,42,0.06);border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-.ref-profile-left{display:flex;align-items:center;gap:13px}
-.ref-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#2d5fb8,#1d4ed8);color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;flex-shrink:0;border:2px solid #dbeafe}
-.ref-name{font-size:21px;font-weight:700;color:#1e293b;line-height:1.2}
-.ref-god{color:#d97706;font-weight:800;font-size:16px;margin-left:3px}
+.ref-profile-left{display:flex;align-items:center;gap:13px;min-width:0}
+.ref-avatar-box{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#2d5fb8,#1d4ed8);color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;flex-shrink:0;border:2px solid #dbeafe;overflow:hidden;position:relative}
+.ref-avatar-box img{width:100%;height:100%;object-fit:cover;display:block}
+.ref-name{font-size:20px;font-weight:700;color:#1e293b;line-height:1.2;overflow-wrap:anywhere}
+.ref-god{color:#d97706;font-weight:800;font-size:15px;margin-left:4px}
 .ref-pkg{font-size:13px;color:#64748b;margin-top:3px;font-weight:600}
-.ref-online-dot{width:10px;height:10px;border-radius:50%;background:#1d70b8;flex-shrink:0;margin-right:4px}
+.ref-profile-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.ref-edit-photo-btn{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;border-radius:9px;padding:6px 10px;font-size:11.5px;font-weight:bold}
+.ref-online-dot{width:10px;height:10px;border-radius:50%;background:#1d70b8;flex-shrink:0}
 
 /* Blue Earning Cards */
 .ref-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
@@ -357,7 +369,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 
 <!-- SIGN UP FORM -->
 <div id="authSignupForm" style="display:none">
-<div class="note-box">Naya Student Account banayein aur apna personal dashboard access karein.</div>
+<div class="note-box">Naya Student Account banayein — aapka naam aur photo aapke dashboard mein set hoga.</div>
 <label class="lbl">Full Name</label>
 <input class="inp" id="sName" type="text" placeholder="Enter your full name">
 <label class="lbl">Email Address</label>
@@ -405,48 +417,49 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <!-- =========================================================
-     3. DEDICATED STUDENT DASHBOARD (REFERENCE STYLE)
+     3. DEDICATED STUDENT DASHBOARD (LIGHT BLUE EARNING LAYOUT)
      ========================================================= -->
 <div id="dashboardScreen">
 <div class="ref-top-bar">
 <button type="button" class="ref-chip-btn" onclick="openMainSite()">← Website</button>
 <div style="display:flex;gap:8px;align-items:center">
-<button type="button" class="ref-chip-btn blue" id="dStudentIdBadge">ID: TMS-STU-1001</button>
+<button type="button" class="ref-chip-btn blue" id="dStudentIdBadge">ID: --</button>
 <button type="button" class="ref-chip-btn red" onclick="doLogout()">Logout</button>
 </div>
 </div>
 
 <div class="ref-wrap">
-<!-- TOP PROFILE CARD (Matches Reference Image) -->
+<!-- TOP PROFILE CARD -->
 <div class="ref-profile-card">
 <div class="ref-profile-left">
-<div class="ref-avatar" id="refAvatarText">A</div>
+<div class="ref-avatar-box" id="refAvatarBox"></div>
 <div>
-<div class="ref-name"><span id="refUserName">Akshh</span><span class="ref-god" id="refUserTag">[G.O.D]</span></div>
-<div class="ref-pkg" id="refActivePkg">Finance Mastery</div>
+<div class="ref-name"><span id="refUserName">Student</span><span class="ref-god" id="refUserTag"></span></div>
+<div class="ref-pkg" id="refActivePkg">Starter Member</div>
 </div>
 </div>
-<div style="display:flex;align-items:center">
+<div class="ref-profile-right">
+<button type="button" class="ref-edit-photo-btn" onclick="openPhotoEditor()">Edit Photo</button>
 <span class="ref-online-dot"></span>
 </div>
 </div>
 
-<!-- SUB-TABS FOR COURSES, UPGRADE & CHANGE PASSWORD -->
+<!-- SUB-TABS FOR COURSES, UPGRADE, PROFILE & CHANGE PASSWORD -->
 <div class="ref-sub-tabs">
 <button type="button" class="ref-sub-btn active" id="dTabEarnings" onclick="switchDashTab('earnings')">Earnings Overview</button>
 <button type="button" class="ref-sub-btn" id="dTabCourses" onclick="switchDashTab('courses')">My Packages</button>
 <button type="button" class="ref-sub-btn" id="dTabUpgrade" onclick="switchDashTab('upgrade')">Buy Package</button>
-<button type="button" class="ref-sub-btn" id="dTabPassword" onclick="switchDashTab('password')">Change Password</button>
+<button type="button" class="ref-sub-btn" id="dTabPassword" onclick="switchDashTab('password')">Profile &amp; Password</button>
 </div>
 
-<!-- TAB 1: BLUE EARNING CARDS (Exact Reference Layout) -->
+<!-- TAB 1: BLUE EARNING CARDS -->
 <div class="ref-panel-box active" id="dashViewEarnings" style="background:transparent;border:0;box-shadow:none;padding:0;margin-top:0">
 <div class="ref-grid-2">
 <div class="ref-earn-card">
 <div class="ref-card-icon">👤</div>
 <div>
 <div class="ref-card-label">Today's Earning</div>
-<div class="ref-card-val" id="earnToday">₹2,300</div>
+<div class="ref-card-val" id="earnToday">₹0</div>
 </div>
 </div>
 
@@ -454,7 +467,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="ref-card-icon">🚀</div>
 <div>
 <div class="ref-card-label">7 Days Earnings</div>
-<div class="ref-card-val" id="earn7Days">₹40,950</div>
+<div class="ref-card-val" id="earn7Days">₹0</div>
 </div>
 </div>
 
@@ -462,7 +475,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="ref-card-icon">🏆</div>
 <div>
 <div class="ref-card-label">30 Days Earnings</div>
-<div class="ref-card-val" id="earn30Days">₹1,16,300</div>
+<div class="ref-card-val" id="earn30Days">₹0</div>
 </div>
 </div>
 
@@ -470,14 +483,14 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="ref-card-icon">🕒</div>
 <div>
 <div class="ref-card-label">All Time Earnings</div>
-<div class="ref-card-val" id="earnAllTime">₹4,48,250</div>
+<div class="ref-card-val" id="earnAllTime">₹0</div>
 </div>
 </div>
 
 <div class="ref-earn-card full">
 <div class="ref-watermark">🎁</div>
 <div class="ref-card-label">Industrial Income</div>
-<div class="ref-card-val" id="earnIndustrial">₹6,08,80,200</div>
+<div class="ref-card-val" id="earnIndustrial">₹0</div>
 </div>
 </div>
 </div>
@@ -513,8 +526,22 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 </div>
 
-<!-- TAB 4: CHANGE PASSWORD -->
+<!-- TAB 4: PROFILE EDIT & CHANGE PASSWORD -->
 <div class="ref-panel-box" id="dashViewPassword">
+<h3>Edit Profile Name &amp; Photo</h3>
+<label class="lbl">Display Name</label>
+<input class="inp" id="profEditName" type="text" placeholder="Enter your name">
+<label class="lbl">Badge / Tag (Optional)</label>
+<input class="inp" id="profEditTag" type="text" placeholder="e.g. [G.O.D] or leave empty">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<button type="button" class="btn dark" style="margin-top:0" onclick="openPhotoEditor()">Upload / Edit Photo</button>
+<button type="button" class="btn gold" style="margin-top:0" onclick="doSaveProfile()">Save Profile</button>
+</div>
+<div class="err-box" id="profErr"></div>
+<div class="ok-box" id="profOk"></div>
+
+<hr style="border:0;border-top:1px solid #e2e8f0;margin:18px 0">
+
 <h3>Change Password</h3>
 <div class="note-box">Apna current password verify karke naya password set karein.</div>
 <label class="lbl">Current Password</label>
@@ -531,9 +558,47 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <!-- =========================================================
-     4. CHECKOUT & CONFIRMATION MODAL OVERLAY
+     4. CHECKOUT, CONFIRMATION & PHOTO EDITOR MODAL OVERLAY
      ========================================================= -->
 <div class="modal-overlay" id="checkoutOverlay">
+<!-- PHOTO UPLOAD & ADJUST MODAL -->
+<div class="panel" id="photoPanel" style="display:none">
+<div class="m-top">
+<b>Edit Profile Photo</b>
+<button type="button" class="m-close" onclick="closeCheckoutModal()">Close ×</button>
+</div>
+
+<div class="photo-stage-wrap">
+<div class="photo-stage" id="photoStageBox">
+<img id="photoPreviewImg" src="" alt="Preview" style="display:none">
+<span class="photo-stage-fallback" id="photoPreviewInitial">S</span>
+</div>
+</div>
+
+<label class="lbl">Choose Photo from Device</label>
+<input class="inp" id="photoFileInput" type="file" accept="image/*" onchange="handlePhotoFileChange(event)">
+
+<div id="photoAdjustControls" style="display:none">
+<div class="slider-row">
+<label><span>Zoom</span><span id="zoomValLabel">1.0x</span></label>
+<input type="range" id="photoZoom" min="0.8" max="2" step="0.05" value="1" oninput="updatePhotoTransform()">
+</div>
+<div class="slider-row">
+<label><span>Move Left / Right</span><span id="posXLabel">0px</span></label>
+<input type="range" id="photoPosX" min="-50" max="50" step="1" value="0" oninput="updatePhotoTransform()">
+</div>
+<div class="slider-row">
+<label><span>Move Up / Down</span><span id="posYLabel">0px</span></label>
+<input type="range" id="photoPosY" min="-50" max="50" step="1" value="0" oninput="updatePhotoTransform()">
+</div>
+</div>
+
+<button type="button" class="btn green" onclick="saveEditedPhoto()">Save Photo →</button>
+<button type="button" class="btn danger" onclick="removeProfilePhoto()">Remove Photo</button>
+<div class="err-box" id="photoErr"></div>
+</div>
+
+<!-- BUY / CHECKOUT PANEL -->
 <div class="panel" id="buyPanel" style="display:none">
 <div class="m-top">
 <b id="buyTitle">Package Checkout</b>
@@ -564,6 +629,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="err-box" id="bErr"></div>
 </div>
 
+<!-- PAYMENT DONE PANEL -->
 <div class="panel" id="donePanel" style="display:none">
 <div class="m-top">
 <b>Registration Submitted</b>
@@ -588,9 +654,10 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 var selPkg = "";
 var selAmt = 0;
 var resetTargetEmail = "";
+var tempPhotoData = "";
 
-var USERS_KEY = "tms_users_v2";
-var SESSION_KEY = "tms_session_v2";
+var USERS_KEY = "tms_users_v3";
+var SESSION_KEY = "tms_session_v3";
 
 function getDefaultUsers() {
     return [
@@ -601,6 +668,8 @@ function getDefaultUsers() {
             email: "student1@tms.com",
             phone: "6289841691",
             password: "pass1",
+            photo: "",
+            photoAdjust: { scale: 1, x: 0, y: 0 },
             earnings: {
                 today: "₹2,300",
                 sevenDays: "₹40,950",
@@ -634,6 +703,22 @@ function saveUsers(users) {
     try {
         localStorage.setItem(USERS_KEY, JSON.stringify(users));
     } catch (e) {}
+}
+
+function updateCurrentUserField(updaterFn) {
+    var current = getCurrentUser();
+    if (!current) return null;
+    var users = getUsers();
+    var updated = null;
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email.toLowerCase() === current.email.toLowerCase()) {
+            updaterFn(users[i]);
+            updated = users[i];
+            break;
+        }
+    }
+    if (updated) saveUsers(users);
+    return updated;
 }
 
 function getCurrentUser() {
@@ -794,6 +879,13 @@ function switchDashTab(tab) {
     if (activeView) activeView.classList.add("active");
 
     if (tab === "password") {
+        var user = getCurrentUser();
+        if (user) {
+            document.getElementById("profEditName").value = user.name || "";
+            document.getElementById("profEditTag").value = user.tag || "";
+        }
+        document.getElementById("profErr").style.display = "none";
+        document.getElementById("profOk").style.display = "none";
         document.getElementById("cpOld").value = "";
         document.getElementById("cpNew").value = "";
         document.getElementById("cpConfirm").value = "";
@@ -802,11 +894,23 @@ function switchDashTab(tab) {
     }
 }
 
-function renderDashboardData(user) {
+function renderAvatarBox(container, user) {
+    if (!container || !user) return;
     var initial = (user.name || "S").trim().charAt(0).toUpperCase();
-    document.getElementById("refAvatarText").textContent = initial;
-    document.getElementById("refUserName").textContent = user.name;
-    document.getElementById("refUserTag").textContent = user.tag || "";
+    var adj = user.photoAdjust || { scale: 1, x: 0, y: 0 };
+    if (user.photo) {
+        container.innerHTML =
+            "<img src=\"" + user.photo + "\" alt=\"" + user.name + "\" " +
+            "style=\"transform:translate(" + adj.x + "px," + adj.y + "px) scale(" + adj.scale + ")\">";
+    } else {
+        container.innerHTML = "<span>" + initial + "</span>";
+    }
+}
+
+function renderDashboardData(user) {
+    renderAvatarBox(document.getElementById("refAvatarBox"), user);
+    document.getElementById("refUserName").textContent = user.name || "Student";
+    document.getElementById("refUserTag").textContent = user.tag ? " " + user.tag : "";
     document.getElementById("dStudentIdBadge").textContent = "ID: " + user.studentId;
 
     var orders = user.orders || [];
@@ -841,6 +945,163 @@ function renderDashboardData(user) {
         html = "<div class='note-box' style='margin-bottom:0'>Abhi koi package enrolled nahi hai. <b>Buy Package</b> tab se package lein.</div>";
     }
     document.getElementById("myPackagesList").innerHTML = html;
+}
+
+/* =========================================================
+   PROFILE NAME & PHOTO EDITOR LOGIC
+   ========================================================= */
+function doSaveProfile() {
+    var newName = document.getElementById("profEditName").value.trim();
+    var newTag = document.getElementById("profEditTag").value.trim();
+    var err = document.getElementById("profErr");
+    var ok = document.getElementById("profOk");
+    err.style.display = "none";
+    ok.style.display = "none";
+
+    if (newName.length < 2) {
+        err.textContent = "Please enter at least 2 characters for your name.";
+        err.style.display = "block";
+        return;
+    }
+
+    var updated = updateCurrentUserField(function(u) {
+        u.name = newName;
+        u.tag = newTag;
+    });
+
+    if (updated) {
+        renderDashboardData(updated);
+        ok.textContent = "Profile name updated!";
+        ok.style.display = "block";
+    }
+}
+
+function openPhotoEditor() {
+    var user = getCurrentUser();
+    if (!user) {
+        openAuthScreen("login");
+        return;
+    }
+
+    var adj = user.photoAdjust || { scale: 1, x: 0, y: 0 };
+    tempPhotoData = user.photo || "";
+
+    document.getElementById("photoErr").style.display = "none";
+    document.getElementById("photoFileInput").value = "";
+    document.getElementById("photoZoom").value = adj.scale;
+    document.getElementById("photoPosX").value = adj.x;
+    document.getElementById("photoPosY").value = adj.y;
+
+    var img = document.getElementById("photoPreviewImg");
+    var fallback = document.getElementById("photoPreviewInitial");
+    var controls = document.getElementById("photoAdjustControls");
+    fallback.textContent = (user.name || "S").trim().charAt(0).toUpperCase();
+
+    if (tempPhotoData) {
+        img.src = tempPhotoData;
+        img.style.display = "block";
+        fallback.style.display = "none";
+        controls.style.display = "block";
+        updatePhotoTransform();
+    } else {
+        img.src = "";
+        img.style.display = "none";
+        fallback.style.display = "block";
+        controls.style.display = "none";
+    }
+
+    document.getElementById("buyPanel").style.display = "none";
+    document.getElementById("donePanel").style.display = "none";
+    document.getElementById("photoPanel").style.display = "block";
+    document.getElementById("checkoutOverlay").classList.add("active");
+}
+
+function handlePhotoFileChange(e) {
+    var file = e.target.files && e.target.files[0];
+    var err = document.getElementById("photoErr");
+    err.style.display = "none";
+    if (!file) return;
+
+    if (!file.type || file.type.indexOf("image/") !== 0) {
+        err.textContent = "Please select a valid image file (JPG, PNG, WEBP).";
+        err.style.display = "block";
+        return;
+    }
+    if (file.size > 4 * 1024 * 1024) {
+        err.textContent = "Image size should be under 4MB.";
+        err.style.display = "block";
+        return;
+    }
+
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+        tempPhotoData = ev.target.result;
+        var img = document.getElementById("photoPreviewImg");
+        var fallback = document.getElementById("photoPreviewInitial");
+        var controls = document.getElementById("photoAdjustControls");
+
+        document.getElementById("photoZoom").value = 1;
+        document.getElementById("photoPosX").value = 0;
+        document.getElementById("photoPosY").value = 0;
+
+        img.src = tempPhotoData;
+        img.style.display = "block";
+        fallback.style.display = "none";
+        controls.style.display = "block";
+        updatePhotoTransform();
+    };
+    reader.readAsDataURL(file);
+}
+
+function updatePhotoTransform() {
+    var scale = parseFloat(document.getElementById("photoZoom").value) || 1;
+    var x = parseInt(document.getElementById("photoPosX").value, 10) || 0;
+    var y = parseInt(document.getElementById("photoPosY").value, 10) || 0;
+
+    document.getElementById("zoomValLabel").textContent = scale.toFixed(2) + "x";
+    document.getElementById("posXLabel").textContent = x + "px";
+    document.getElementById("posYLabel").textContent = y + "px";
+
+    var img = document.getElementById("photoPreviewImg");
+    if (img) {
+        img.style.transform = "translate(" + x + "px," + y + "px) scale(" + scale + ")";
+    }
+}
+
+function saveEditedPhoto() {
+    var err = document.getElementById("photoErr");
+    err.style.display = "none";
+    if (!tempPhotoData) {
+        err.textContent = "Pehle apni ek photo choose karein.";
+        err.style.display = "block";
+        return;
+    }
+
+    var scale = parseFloat(document.getElementById("photoZoom").value) || 1;
+    var x = parseInt(document.getElementById("photoPosX").value, 10) || 0;
+    var y = parseInt(document.getElementById("photoPosY").value, 10) || 0;
+
+    var updated = updateCurrentUserField(function(u) {
+        u.photo = tempPhotoData;
+        u.photoAdjust = { scale: scale, x: x, y: y };
+    });
+
+    if (updated) {
+        renderDashboardData(updated);
+    }
+    closeCheckoutModal();
+}
+
+function removeProfilePhoto() {
+    tempPhotoData = "";
+    var updated = updateCurrentUserField(function(u) {
+        u.photo = "";
+        u.photoAdjust = { scale: 1, x: 0, y: 0 };
+    });
+    if (updated) {
+        renderDashboardData(updated);
+    }
+    closeCheckoutModal();
 }
 
 function handleHeaderAuth() {
@@ -951,6 +1212,8 @@ function doSignup() {
         email: email,
         phone: phone,
         password: pw,
+        photo: "",
+        photoAdjust: { scale: 1, x: 0, y: 0 },
         earnings: {
             today: "₹0",
             sevenDays: "₹0",
@@ -1082,14 +1345,9 @@ function doChangePassword() {
         return;
     }
 
-    var users = getUsers();
-    for (var i = 0; i < users.length; i++) {
-        if (users[i].email.toLowerCase() === user.email.toLowerCase()) {
-            users[i].password = newPw;
-            break;
-        }
-    }
-    saveUsers(users);
+    updateCurrentUserField(function(u) {
+        u.password = newPw;
+    });
 
     document.getElementById("cpOld").value = "";
     document.getElementById("cpNew").value = "";
@@ -1110,6 +1368,7 @@ function closeCheckoutModal() {
     document.getElementById("checkoutOverlay").classList.remove("active");
     document.getElementById("buyPanel").style.display = "none";
     document.getElementById("donePanel").style.display = "none";
+    document.getElementById("photoPanel").style.display = "none";
 }
 
 function showBuy(pkg, amt) {
@@ -1129,6 +1388,7 @@ function showBuy(pkg, amt) {
     document.getElementById("qrImg").src =
         "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(upi);
 
+    document.getElementById("photoPanel").style.display = "none";
     document.getElementById("donePanel").style.display = "none";
     document.getElementById("buyPanel").style.display = "block";
     document.getElementById("checkoutOverlay").classList.add("active");
@@ -1166,21 +1426,16 @@ function doPay() {
     var reqId = "TMS-" + Date.now().toString().slice(-8);
     var user = getCurrentUser();
     if (user) {
-        var users = getUsers();
-        for (var i = 0; i < users.length; i++) {
-            if (users[i].email.toLowerCase() === user.email.toLowerCase()) {
-                users[i].orders = users[i].orders || [];
-                users[i].orders.push({
-                    pkg: selPkg,
-                    amt: selAmt,
-                    reqId: reqId,
-                    status: "Pending Verification"
-                });
-                break;
-            }
-        }
-        saveUsers(users);
-        renderDashboardData(getCurrentUser());
+        var updated = updateCurrentUserField(function(u) {
+            u.orders = u.orders || [];
+            u.orders.push({
+                pkg: selPkg,
+                amt: selAmt,
+                reqId: reqId,
+                status: "Pending Verification"
+            });
+        });
+        if (updated) renderDashboardData(updated);
     }
 
     var msg = "Hello THE MILLIONAIRE SKILLS\nName: " + name +

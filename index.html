@@ -50,7 +50,7 @@ button{cursor:pointer;font-family:inherit}
 .c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #334155;border-bottom:1px solid #334155;font-size:12px}
 .c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
 .c-old{font-size:13px;color:#64748b;text-decoration:line-through}
-.panel{display:none;max-width:430px;margin:18px auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px}
+.panel{display:none;max-width:430px;margin:18px auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px;scroll-margin-top:80px}
 .panel.active{display:block}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .m-top b{color:#fbbf24;font-size:16px}
@@ -88,7 +88,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
   </a>
   <div class="hdr-r">
     <button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="showLogin()">Student Login</button>
-    <button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
+    <button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu(event)">&#9776;</button>
     <div class="nav-drawer" id="navDrawer">
       <a href="#courses" onclick="closeMenu()">Courses</a>
       <a href="#about" onclick="closeMenu()">About Us</a>
@@ -114,9 +114,9 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
       <button type="button" class="m-close" onclick="closeAllPanels()">Close &times;</button>
     </div>
     <div class="note-box">Demo Login: student1@tms.com / pass1</div>
-    <label class="lbl">Student ID / Email</label>
+    <label class="lbl" for="lId">Student ID / Email</label>
     <input class="inp" id="lId" type="text" placeholder="Enter Student ID">
-    <label class="lbl">Password</label>
+    <label class="lbl" for="lPw">Password</label>
     <input class="inp" id="lPw" type="password" placeholder="Enter Password">
     <button type="button" class="btn gold" onclick="doLogin()">Sign In &rarr;</button>
     <div class="err-box" id="lErr"></div>
@@ -159,13 +159,13 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
       <b>UPI ID: millionaireskills@upi</b>
     </div>
     <div class="note-box">Payment submit karne ke baad manual verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
-    <label class="lbl">Amount (&#8377;)</label>
+    <label class="lbl" for="fAmt">Amount (&#8377;)</label>
     <input class="inp" id="fAmt" type="text" readonly>
-    <label class="lbl">Your Full Name</label>
+    <label class="lbl" for="fName">Your Full Name</label>
     <input class="inp" id="fName" type="text" placeholder="Enter full name">
-    <label class="lbl">WhatsApp Number (10 Digits)</label>
+    <label class="lbl" for="fPhone">WhatsApp Number (10 Digits)</label>
     <input class="inp" id="fPhone" type="tel" maxlength="10" placeholder="10-digit number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
-    <label class="lbl">UPI UTR (12 Digits)</label>
+    <label class="lbl" for="fUtr">UPI UTR (12 Digits)</label>
     <input class="inp" id="fUtr" type="text" maxlength="12" placeholder="12-digit UTR" oninput="this.value=this.value.replace(/\D/g,'').slice(0,12)">
     <button type="button" class="btn gold" onclick="doPay()">Submit Payment Details &rarr;</button>
     <div class="err-box" id="bErr"></div>
@@ -281,7 +281,15 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 var selPkg = "";
 var selAmt = 0;
 
-function toggleMenu(){
+function scrollToPanel(el){
+  if(!el) return;
+  setTimeout(function(){
+    el.scrollIntoView({behavior:"smooth",block:"nearest"});
+  }, 50);
+}
+
+function toggleMenu(e){
+  if(e) e.stopPropagation();
   var d = document.getElementById("navDrawer");
   var b = document.getElementById("menuBtn");
   if(!d) return;
@@ -299,28 +307,43 @@ function closeMenu(){
 function closeAllPanels(){
   closeMenu();
   var ps = document.querySelectorAll(".panel");
-  for(var i=0;i<ps.length;i++) ps[i].classList.remove("active");
+  for(var i = 0; i < ps.length; i++){
+    ps[i].classList.remove("active");
+  }
 }
 
 function showLogin(){
   closeAllPanels();
-  document.getElementById("lId").value = "";
-  document.getElementById("lPw").value = "";
-  document.getElementById("lErr").style.display = "none";
-  document.getElementById("loginPanel").classList.add("active");
-  window.scrollTo({top:0,behavior:"smooth"});
+  var idInp = document.getElementById("lId");
+  var pwInp = document.getElementById("lPw");
+  var err = document.getElementById("lErr");
+  var lp = document.getElementById("loginPanel");
+  if(idInp) idInp.value = "";
+  if(pwInp) pwInp.value = "";
+  if(err) err.style.display = "none";
+  if(lp){
+    lp.classList.add("active");
+    scrollToPanel(lp);
+  }
 }
 
 function doLogin(){
-  var id = document.getElementById("lId").value.trim();
-  var pw = document.getElementById("lPw").value;
+  var idEl = document.getElementById("lId");
+  var pwEl = document.getElementById("lPw");
   var err = document.getElementById("lErr");
-  err.style.display = "none";
+  var id = idEl ? idEl.value.trim() : "";
+  var pw = pwEl ? pwEl.value : "";
+  if(err) err.style.display = "none";
   if(id === "student1@tms.com" && pw === "pass1"){
     closeAllPanels();
-    document.getElementById("pWelcome").textContent = "Welcome, " + id;
-    document.getElementById("portalPanel").classList.add("active");
-  }else{
+    var welcome = document.getElementById("pWelcome");
+    var portal = document.getElementById("portalPanel");
+    if(welcome) welcome.textContent = "Welcome, " + id;
+    if(portal){
+      portal.classList.add("active");
+      scrollToPanel(portal);
+    }
+  } else if(err){
     err.textContent = "Invalid demo login. Use student1@tms.com / pass1";
     err.style.display = "block";
   }
@@ -330,41 +353,48 @@ function showBuy(pkg, amt){
   closeAllPanels();
   selPkg = pkg;
   selAmt = amt;
-  document.getElementById("buyTitle").textContent = pkg + " Checkout";
-  document.getElementById("qrLabel").textContent = "Pay Rs. " + amt + " via UPI";
-  document.getElementById("fAmt").value = amt;
-  document.getElementById("fName").value = "";
-  document.getElementById("fPhone").value = "";
-  document.getElementById("fUtr").value = "";
-  document.getElementById("bErr").style.display = "none";
-  var upi = "upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkills&am=" + amt + "&cu=INR";
-  document.getElementById("qrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(upi);
+  var buyTitle = document.getElementById("buyTitle");
+  var qrLabel = document.getElementById("qrLabel");
+  var fAmt = document.getElementById("fAmt");
+  var fName = document.getElementById("fName");
+  var fPhone = document.getElementById("fPhone");
+  var fUtr = document.getElementById("fUtr");
+  var bErr = document.getElementById("bErr");
+  var qrImg = document.getElementById("qrImg");
   var bp = document.getElementById("buyPanel");
-  bp.classList.add("active");
-  bp.scrollIntoView({behavior:"smooth",block:"nearest"});
+
+  if(buyTitle) buyTitle.textContent = pkg + " Checkout";
+  if(qrLabel) qrLabel.textContent = "Pay Rs. " + amt + " via UPI";
+  if(fAmt) fAmt.value = amt;
+  if(fName) fName.value = "";
+  if(fPhone) fPhone.value = "";
+  if(fUtr) fUtr.value = "";
+  if(bErr) bErr.style.display = "none";
+
+  var upi = "upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkills&am=" + amt + "&cu=INR";
+  if(qrImg){
+    qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(upi);
+  }
+  if(bp){
+    bp.classList.add("active");
+    scrollToPanel(bp);
+  }
 }
 
 function doPay(){
-  var name = document.getElementById("fName").value.trim();
-  var phone = document.getElementById("fPhone").value.replace(/\D/g,"");
-  var utr = document.getElementById("fUtr").value.replace(/\D/g,"");
+  var nameEl = document.getElementById("fName");
+  var phoneEl = document.getElementById("fPhone");
+  var utrEl = document.getElementById("fUtr");
   var err = document.getElementById("bErr");
-  err.style.display = "none";
-  if(name.length < 2){ err.textContent = "Enter your full name."; err.style.display = "block"; return; }
-  if(phone.length !== 10){ err.textContent = "Enter 10-digit WhatsApp number."; err.style.display = "block"; return; }
-  if(utr.length !== 12){ err.textContent = "Enter 12-digit UTR."; err.style.display = "block"; return; }
-  var reqId = "TMS-" + Date.now().toString().slice(-8);
-  var msg = "Hello THE MILLIONAIRE SKILLS\nName: " + name + "\nWhatsApp: " + phone + "\nPackage: " + selPkg + "\nAmount: Rs. " + selAmt + "\nUTR: " + utr + "\nRequest ID: " + reqId;
-  closeAllPanels();
-  document.getElementById("donePkg").textContent = "Package: " + selPkg + " | Amount: Rs. " + selAmt;
-  document.getElementById("doneReq").textContent = "Request ID: " + reqId;
-  document.getElementById("doneWa").href = "https://wa.me/916289841691?text=" + encodeURIComponent(msg);
-  document.getElementById("donePanel").classList.add("active");
-}
 
-function copyVal(val, id){
-  var el = document.getElementById(id);
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(val).catch(function(){});
+  var name = nameEl ? nameEl.value.trim() : "";
+  var phone = phoneEl ? phoneEl.value.replace(/\D/g, "") : "";
+  var utr = utrEl ? utrEl.value.replace(/\D/g, "") : "";
+
+  if(err) err.style.display = "none";
+  if(name.length < 2){
+    if(err){ err.textContent = "Enter your full name."; err.style.display = "block"; }
+    return;
   }
-  el.textContent
+  if(phone.length !== 10){
+    if(err){ err.textContent = "Enter 10-di

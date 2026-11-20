@@ -95,47 +95,55 @@ button{cursor:pointer;font-family:inherit}
 .auth-links{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:#fbbf24;gap:10px;flex-wrap:wrap}
 .auth-links button{background:none;border:0;color:#fbbf24;font-size:12.5px;text-decoration:underline;padding:0}
 
-/* DEDICATED FULL-SCREEN STUDENT DASHBOARD INTERFACE */
-#dashboardScreen{display:none;min-height:100vh;background:#060913}
+/* =========================================================
+   DEDICATED STUDENT DASHBOARD (LIGHT BLUE EARNING LAYOUT)
+   ========================================================= */
+#dashboardScreen{display:none;min-height:100vh;background:#eef2f7;color:#0f172a}
 #dashboardScreen.active{display:block}
-.dash-hdr{background:#0b1224;border-bottom:1px solid #b88624;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.dash-hdr-left b{display:block;color:#fbbf24;font-size:15px}
-.dash-hdr-left small{color:#94a3b8;font-size:11px}
-.dash-hdr-right{display:flex;gap:8px;align-items:center}
-.dash-pill-btn{padding:8px 12px;border-radius:8px;font-size:12.5px;font-weight:bold;border:1px solid #475569;background:#172033;color:#fff}
-.dash-pill-btn.logout{background:#7f1d1d;border-color:#dc2626;color:#fecaca}
 
-.dash-wrap{max-width:960px;margin:auto;padding:20px 16px 50px}
-.dash-welcome-banner{background:linear-gradient(135deg,#111b33,#0b1224);border:1px solid #b88624;border-radius:16px;padding:20px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.dash-welcome-banner h2{font-size:22px;color:#fff}
-.dash-welcome-banner h2 span{color:#fbbf24}
-.dash-welcome-banner p{font-size:13px;color:#94a3b8;margin-top:4px}
-.stu-id-badge{background:#172033;border:1px solid #fbbf24;color:#fbbf24;padding:8px 14px;border-radius:10px;font-size:12.5px;font-weight:bold}
+.ref-top-bar{max-width:520px;margin:auto;padding:12px 14px 4px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ref-chip-btn{background:#ffffff;color:#1e293b;border:1px solid #cbd5e1;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:bold;box-shadow:0 1px 3px rgba(15,23,42,0.06)}
+.ref-chip-btn.blue{background:#2d5fb8;color:#ffffff;border-color:#2d5fb8}
+.ref-chip-btn.red{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
 
-.dash-nav-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px}
-.d-tab{background:#111b30;color:#cbd5e1;border:1px solid #334155;padding:10px 15px;border-radius:10px;font-size:13px;font-weight:bold;white-space:nowrap}
-.d-tab.active{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14;border-color:#fbbf24}
+.ref-wrap{max-width:520px;margin:auto;padding:8px 14px 42px}
 
-.dash-view{display:none}
-.dash-view.active{display:block}
+/* Top Profile Card */
+.ref-profile-card{background:#ffffff;border-radius:18px;padding:14px 16px;box-shadow:0 4px 16px rgba(15,23,42,0.06);border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.ref-profile-left{display:flex;align-items:center;gap:13px}
+.ref-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#2d5fb8,#1d4ed8);color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;flex-shrink:0;border:2px solid #dbeafe}
+.ref-name{font-size:21px;font-weight:700;color:#1e293b;line-height:1.2}
+.ref-god{color:#d97706;font-weight:800;font-size:16px;margin-left:3px}
+.ref-pkg{font-size:13px;color:#64748b;margin-top:3px;font-weight:600}
+.ref-online-dot{width:10px;height:10px;border-radius:50%;background:#1d70b8;flex-shrink:0;margin-right:4px}
 
-.dash-kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
-.dash-kpi{background:#111b30;border:1px solid #334155;border-radius:14px;padding:16px}
-.dash-kpi b{display:block;font-size:24px;color:#fbbf24}
-.dash-kpi span{font-size:12px;color:#94a3b8}
+/* Blue Earning Cards */
+.ref-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.ref-earn-card{background:linear-gradient(145deg,#3366c4,#2752a6);color:#ffffff;border-radius:18px;padding:18px 16px;min-height:132px;position:relative;overflow:hidden;box-shadow:0 6px 18px rgba(39,82,166,0.22);display:flex;flex-direction:column;justify-content:space-between}
+.ref-earn-card.full{grid-column:1 / -1;min-height:112px}
+.ref-card-icon{font-size:24px;line-height:1;opacity:0.95;margin-bottom:8px}
+.ref-card-label{font-size:13.5px;color:#dbeafe;font-weight:500;margin-bottom:4px}
+.ref-card-val{font-size:25px;font-weight:800;color:#ffffff;letter-spacing:0.3px;line-height:1.15;word-break:break-word}
+.ref-watermark{position:absolute;right:12px;bottom:8px;font-size:52px;opacity:0.16;pointer-events:none;line-height:1}
 
-.dash-box{background:#111b30;border:1px solid #334155;border-radius:15px;padding:18px;margin-bottom:16px}
-.dash-box h3{color:#fbbf24;font-size:16px;margin-bottom:12px}
-.course-row{background:#172033;border:1px solid #334155;border-radius:11px;padding:14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.course-row b{font-size:15px;color:#fff;display:block}
-.course-row small{color:#94a3b8;font-size:12px}
-.status-chip{padding:5px 10px;border-radius:20px;font-size:11.5px;font-weight:bold}
-.status-chip.active{background:#064e3b;color:#4ade80;border:1px solid #22c55e}
-.status-chip.pending{background:#422006;color:#fbbf24;border:1px solid #f59e0b}
+/* Sub-tabs inside Dashboard */
+.ref-sub-tabs{display:flex;gap:8px;overflow-x:auto;margin:14px 0 12px;padding-bottom:4px}
+.ref-sub-btn{background:#ffffff;color:#334155;border:1px solid #cbd5e1;border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:bold;white-space:nowrap}
+.ref-sub-btn.active{background:#2d5fb8;color:#ffffff;border-color:#2d5fb8}
 
-.profile-grid{display:grid;grid-template-columns:1fr;gap:16px}
-.info-pair{background:#172033;padding:11px 13px;border-radius:9px;margin-bottom:8px;font-size:13.5px}
-.info-pair span{color:#94a3b8;font-size:11.5px;display:block}
+.ref-panel-box{display:none;background:#ffffff;color:#0f172a;border:1px solid #e2e8f0;border-radius:16px;padding:16px;margin-top:10px;box-shadow:0 4px 14px rgba(15,23,42,0.05)}
+.ref-panel-box.active{display:block}
+.ref-panel-box h3{color:#1e293b;font-size:16px;margin-bottom:10px}
+.ref-panel-box .inp{background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1}
+.ref-panel-box .lbl{color:#334155}
+.ref-panel-box .note-box{background:#eff6ff;color:#1e3a8a;border-left-color:#2d5fb8}
+
+.ref-order-row{background:#f8fafc;border:1px solid #e2e8f0;border-radius:11px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ref-order-row b{color:#0f172a;font-size:14px;display:block}
+.ref-order-row small{color:#64748b;font-size:12px}
+.status-chip{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:bold}
+.status-chip.active{background:#dcfce7;color:#166534;border:1px solid #86efac}
+.status-chip.pending{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
 
 /* FOOTER */
 footer{text-align:center;background:#050811;padding:28px 15px 34px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
@@ -155,8 +163,6 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 .sec{max-width:850px}
 .courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .hero h1{font-size:42px}
-.dash-kpi-grid{grid-template-columns:repeat(4,1fr)}
-.profile-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -183,7 +189,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <a href="#contact" onclick="closeMenu()">Contact</a>
 <a href="#" id="navLoginLink" onclick="closeMenu();openAuthScreen('login');return false;">Login</a>
 <a href="#" id="navSignupLink" onclick="closeMenu();openAuthScreen('signup');return false;">Sign Up</a>
-<a href="#" id="navDashLink" style="display:none" onclick="closeMenu();openDashboardScreen('overview');return false;">Student Dashboard</a>
+<a href="#" id="navDashLink" style="display:none" onclick="closeMenu();openDashboardScreen('earnings');return false;">Student Dashboard</a>
 <a href="#" id="navLogoutLink" style="display:none;color:#fca5a5" onclick="closeMenu();doLogout();return false;">Logout</a>
 <a href="#courses" class="cta-link" onclick="closeMenu()">Get Started</a>
 </div>
@@ -202,7 +208,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <button type="button" class="btn dark" style="border-color:#b88624;color:#fbbf24" onclick="openAuthScreen('signup')">Sign Up</button>
 </div>
 <div class="hero-auth-row" id="heroUserBtns" style="display:none">
-<button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openDashboardScreen('overview')">Open Dashboard</button>
+<button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openDashboardScreen('earnings')">Open Dashboard</button>
 <button type="button" class="btn danger" onclick="doLogout()">Logout</button>
 </div>
 </div>
@@ -399,129 +405,128 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <!-- =========================================================
-     3. DEDICATED STUDENT DASHBOARD INTERFACE
+     3. DEDICATED STUDENT DASHBOARD (REFERENCE STYLE)
      ========================================================= -->
 <div id="dashboardScreen">
-<header class="dash-hdr">
-<div class="dash-hdr-left">
-<b>THE MILLIONAIRE SKILLS</b>
-<small>STUDENT LEARNING PORTAL</small>
+<div class="ref-top-bar">
+<button type="button" class="ref-chip-btn" onclick="openMainSite()">← Website</button>
+<div style="display:flex;gap:8px;align-items:center">
+<button type="button" class="ref-chip-btn blue" id="dStudentIdBadge">ID: TMS-STU-1001</button>
+<button type="button" class="ref-chip-btn red" onclick="doLogout()">Logout</button>
 </div>
-<div class="dash-hdr-right">
-<button type="button" class="dash-pill-btn" onclick="openMainSite()">Home</button>
-<button type="button" class="dash-pill-btn logout" onclick="doLogout()">Logout</button>
 </div>
-</header>
 
-<div class="dash-wrap">
-<div class="dash-welcome-banner">
+<div class="ref-wrap">
+<!-- TOP PROFILE CARD (Matches Reference Image) -->
+<div class="ref-profile-card">
+<div class="ref-profile-left">
+<div class="ref-avatar" id="refAvatarText">A</div>
 <div>
-<h2>Welcome back, <span id="dUserName">Student</span></h2>
-<p id="dUserEmail">student@tms.com</p>
+<div class="ref-name"><span id="refUserName">Akshh</span><span class="ref-god" id="refUserTag">[G.O.D]</span></div>
+<div class="ref-pkg" id="refActivePkg">Finance Mastery</div>
 </div>
-<div class="stu-id-badge" id="dStudentId">ID: TMS-STU-1001</div>
 </div>
-
-<div class="dash-nav-tabs">
-<button type="button" class="d-tab active" id="dTabOverview" onclick="switchDashTab('overview')">Overview</button>
-<button type="button" class="d-tab" id="dTabCourses" onclick="switchDashTab('courses')">My Courses</button>
-<button type="button" class="d-tab" id="dTabStore" onclick="switchDashTab('store')">Upgrade / Buy Packages</button>
-<button type="button" class="d-tab" id="dTabSecurity" onclick="switchDashTab('security')">Profile &amp; Change Password</button>
-</div>
-
-<!-- TAB 1: OVERVIEW -->
-<div class="dash-view active" id="dashViewOverview">
-<div class="dash-kpi-grid">
-<div class="dash-kpi"><b id="kpiTotalPkg">0</b><span>Enrolled Packages</span></div>
-<div class="dash-kpi"><b id="kpiActivePkg">0</b><span>Active Courses</span></div>
-<div class="dash-kpi"><b>85+</b><span>Total Library Modules</span></div>
-<div class="dash-kpi"><b>24/7</b><span>Support Access</span></div>
-</div>
-
-<div class="dash-box">
-<h3>Recent Enrollments &amp; Status</h3>
-<div id="overviewOrdersList"></div>
-</div>
-
-<div class="dash-box">
-<h3>Quick Actions</h3>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<button type="button" class="btn gold" style="margin-top:0" onclick="switchDashTab('store')">+ Enroll New Course</button>
-<button type="button" class="btn dark" style="margin-top:0" onclick="switchDashTab('security')">Change Password</button>
-</div>
-<a class="btn green" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp Mentor Support →</a>
+<div style="display:flex;align-items:center">
+<span class="ref-online-dot"></span>
 </div>
 </div>
 
-<!-- TAB 2: MY COURSES -->
-<div class="dash-view" id="dashViewCourses">
-<div class="dash-box">
-<h3>My Mastery Packages</h3>
-<div id="myCoursesList"></div>
+<!-- SUB-TABS FOR COURSES, UPGRADE & CHANGE PASSWORD -->
+<div class="ref-sub-tabs">
+<button type="button" class="ref-sub-btn active" id="dTabEarnings" onclick="switchDashTab('earnings')">Earnings Overview</button>
+<button type="button" class="ref-sub-btn" id="dTabCourses" onclick="switchDashTab('courses')">My Packages</button>
+<button type="button" class="ref-sub-btn" id="dTabUpgrade" onclick="switchDashTab('upgrade')">Buy Package</button>
+<button type="button" class="ref-sub-btn" id="dTabPassword" onclick="switchDashTab('password')">Change Password</button>
+</div>
+
+<!-- TAB 1: BLUE EARNING CARDS (Exact Reference Layout) -->
+<div class="ref-panel-box active" id="dashViewEarnings" style="background:transparent;border:0;box-shadow:none;padding:0;margin-top:0">
+<div class="ref-grid-2">
+<div class="ref-earn-card">
+<div class="ref-card-icon">👤</div>
+<div>
+<div class="ref-card-label">Today's Earning</div>
+<div class="ref-card-val" id="earnToday">₹2,300</div>
 </div>
 </div>
 
-<!-- TAB 3: STORE / BUY MORE -->
-<div class="dash-view" id="dashViewStore">
-<div class="dash-box">
-<h3>Available Mastery Packages</h3>
-<p style="font-size:12.5px;color:#94a3b8;margin-bottom:14px">Kisi bhi package par click karke UPI payment submit karein — aapki request turant dashboard mein add ho jayegi.</p>
-
-<div class="course-row">
-<div><b>Marketing Mastery (12 Modules)</b><small>Funnels, digital marketing &amp; buyer psychology • ₹999</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Marketing Mastery',999)">Buy ₹999</button>
+<div class="ref-earn-card">
+<div class="ref-card-icon">🚀</div>
+<div>
+<div class="ref-card-label">7 Days Earnings</div>
+<div class="ref-card-val" id="earn7Days">₹40,950</div>
+</div>
 </div>
 
-<div class="course-row">
-<div><b>Branding Mastery (16 Modules)</b><small>Social media identity, content style &amp; trust • ₹2,499</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Branding Mastery',2499)">Buy ₹2,499</button>
+<div class="ref-earn-card">
+<div class="ref-card-icon">🏆</div>
+<div>
+<div class="ref-card-label">30 Days Earnings</div>
+<div class="ref-card-val" id="earn30Days">₹1,16,300</div>
+</div>
 </div>
 
-<div class="course-row">
-<div><b>Traffic Mastery (20 Modules)</b><small>Targeted leads, ads &amp; conversion systems • ₹4,999</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Traffic Mastery',4999)">Buy ₹4,999</button>
+<div class="ref-earn-card">
+<div class="ref-card-icon">🕒</div>
+<div>
+<div class="ref-card-label">All Time Earnings</div>
+<div class="ref-card-val" id="earnAllTime">₹4,48,250</div>
+</div>
 </div>
 
-<div class="course-row">
-<div><b>Influence Mastery (22 Modules)</b><small>Communication, speaking confidence &amp; closing • ₹9,999</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Influence Mastery',9999)">Buy ₹9,999</button>
-</div>
-
-<div class="course-row" style="border-color:#fbbf24">
-<div><b style="color:#fbbf24">Finance Mastery VIP Bundle (All 85+ Modules)</b><small>Complete access across all 5 mastery packages • ₹14,999</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Finance Mastery (VIP)',14999)">Buy ₹14,999</button>
+<div class="ref-earn-card full">
+<div class="ref-watermark">🎁</div>
+<div class="ref-card-label">Industrial Income</div>
+<div class="ref-card-val" id="earnIndustrial">₹6,08,80,200</div>
 </div>
 </div>
 </div>
 
-<!-- TAB 4: PROFILE & CHANGE PASSWORD -->
-<div class="dash-view" id="dashViewSecurity">
-<div class="profile-grid">
-<div class="dash-box">
-<h3>Student Profile Details</h3>
-<div class="info-pair"><span>Full Name</span><b id="profName">--</b></div>
-<div class="info-pair"><span>Student ID</span><b id="profId">--</b></div>
-<div class="info-pair"><span>Registered Email</span><b id="profEmail">--</b></div>
-<div class="info-pair"><span>WhatsApp Number</span><b id="profPhone">--</b></div>
-<button type="button" class="btn danger" onclick="doLogout()">Logout from Account</button>
+<!-- TAB 2: MY PACKAGES -->
+<div class="ref-panel-box" id="dashViewCourses">
+<h3>My Enrolled Packages</h3>
+<div id="myPackagesList"></div>
 </div>
 
-<div class="dash-box">
+<!-- TAB 3: UPGRADE / BUY PACKAGE -->
+<div class="ref-panel-box" id="dashViewUpgrade">
+<h3>Select &amp; Upgrade Package</h3>
+<div class="ref-order-row">
+<div><b>Marketing Mastery (₹999)</b><small>12 Practical Modules</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Marketing Mastery',999)">Buy</button>
+</div>
+<div class="ref-order-row">
+<div><b>Branding Mastery (₹2,499)</b><small>16 Practical Modules</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Branding Mastery',2499)">Buy</button>
+</div>
+<div class="ref-order-row">
+<div><b>Traffic Mastery (₹4,999)</b><small>20 Practical Modules</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Traffic Mastery',4999)">Buy</button>
+</div>
+<div class="ref-order-row">
+<div><b>Influence Mastery (₹9,999)</b><small>22 Practical Modules</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Influence Mastery',9999)">Buy</button>
+</div>
+<div class="ref-order-row">
+<div><b>Finance Mastery VIP (₹14,999)</b><small>All 85+ Mastery Modules</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Finance Mastery (VIP)',14999)">Buy</button>
+</div>
+</div>
+
+<!-- TAB 4: CHANGE PASSWORD -->
+<div class="ref-panel-box" id="dashViewPassword">
 <h3>Change Password</h3>
-<div class="note-box">Apna current password verify karke naya password update karein.</div>
+<div class="note-box">Apna current password verify karke naya password set karein.</div>
 <label class="lbl">Current Password</label>
 <input class="inp" id="cpOld" type="password" placeholder="Enter current password">
 <label class="lbl">New Password (Min 6 Characters)</label>
 <input class="inp" id="cpNew" type="password" placeholder="Enter new password">
 <label class="lbl">Confirm New Password</label>
 <input class="inp" id="cpConfirm" type="password" placeholder="Confirm new password">
-<button type="button" class="btn gold" onclick="doChangePassword()">Save New Password →</button>
+<button type="button" class="btn gold" onclick="doChangePassword()">Update Password →</button>
 <div class="err-box" id="cpErr"></div>
 <div class="ok-box" id="cpOk"></div>
 </div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -584,19 +589,27 @@ var selPkg = "";
 var selAmt = 0;
 var resetTargetEmail = "";
 
-var USERS_KEY = "tms_users_v1";
-var SESSION_KEY = "tms_session_v1";
+var USERS_KEY = "tms_users_v2";
+var SESSION_KEY = "tms_session_v2";
 
 function getDefaultUsers() {
     return [
         {
             studentId: "TMS-STU-1001",
-            name: "Demo Student",
+            name: "Akshh",
+            tag: "[G.O.D]",
             email: "student1@tms.com",
             phone: "6289841691",
             password: "pass1",
+            earnings: {
+                today: "₹2,300",
+                sevenDays: "₹40,950",
+                thirtyDays: "₹1,16,300",
+                allTime: "₹4,48,250",
+                industrial: "₹6,08,80,200"
+            },
             orders: [
-                { pkg: "Marketing Mastery", amt: 999, reqId: "TMS-DEMO01", status: "Active" }
+                { pkg: "Finance Mastery", amt: 14999, reqId: "TMS-FIN01", status: "Active" }
             ]
         }
     ];
@@ -680,7 +693,7 @@ function syncAuthUI() {
 }
 
 /* =========================================================
-   SCREEN SWITCHER (SEPARATE INTERFACES)
+   SCREEN SWITCHER
    ========================================================= */
 function hideAllScreens() {
     closeMenu();
@@ -760,16 +773,16 @@ function openDashboardScreen(tab) {
     hideAllScreens();
     renderDashboardData(user);
     document.getElementById("dashboardScreen").classList.add("active");
-    switchDashTab(tab || "overview");
+    switchDashTab(tab || "earnings");
     window.scrollTo(0, 0);
 }
 
 function switchDashTab(tab) {
-    var tabs = ["Overview", "Courses", "Store", "Security"];
+    var tabs = ["Earnings", "Courses", "Upgrade", "Password"];
     for (var i = 0; i < tabs.length; i++) {
-        var tName = tabs[i];
-        var btn = document.getElementById("dTab" + tName);
-        var view = document.getElementById("dashView" + tName);
+        var name = tabs[i];
+        var btn = document.getElementById("dTab" + name);
+        var view = document.getElementById("dashView" + name);
         if (btn) btn.classList.remove("active");
         if (view) view.classList.remove("active");
     }
@@ -780,7 +793,7 @@ function switchDashTab(tab) {
     if (activeBtn) activeBtn.classList.add("active");
     if (activeView) activeView.classList.add("active");
 
-    if (tab === "security") {
+    if (tab === "password") {
         document.getElementById("cpOld").value = "";
         document.getElementById("cpNew").value = "";
         document.getElementById("cpConfirm").value = "";
@@ -790,49 +803,50 @@ function switchDashTab(tab) {
 }
 
 function renderDashboardData(user) {
-    document.getElementById("dUserName").textContent = user.name;
-    document.getElementById("dUserEmail").textContent = user.email + " • +91 " + (user.phone || "");
-    document.getElementById("dStudentId").textContent = "ID: " + user.studentId;
-
-    document.getElementById("profName").textContent = user.name;
-    document.getElementById("profId").textContent = user.studentId;
-    document.getElementById("profEmail").textContent = user.email;
-    document.getElementById("profPhone").textContent = user.phone ? "+91 " + user.phone : "Not added";
+    var initial = (user.name || "S").trim().charAt(0).toUpperCase();
+    document.getElementById("refAvatarText").textContent = initial;
+    document.getElementById("refUserName").textContent = user.name;
+    document.getElementById("refUserTag").textContent = user.tag || "";
+    document.getElementById("dStudentIdBadge").textContent = "ID: " + user.studentId;
 
     var orders = user.orders || [];
-    var activeCount = 0;
-    for (var i = 0; i < orders.length; i++) {
-        if (orders[i].status === "Active") activeCount++;
-    }
-    document.getElementById("kpiTotalPkg").textContent = orders.length;
-    document.getElementById("kpiActivePkg").textContent = activeCount;
+    var activePkgLabel = orders.length > 0 ? orders[orders.length - 1].pkg : "Starter Member";
+    document.getElementById("refActivePkg").textContent = activePkgLabel;
+
+    var earn = user.earnings || {
+        today: "₹0",
+        sevenDays: "₹0",
+        thirtyDays: "₹0",
+        allTime: "₹0",
+        industrial: "₹0"
+    };
+    document.getElementById("earnToday").textContent = earn.today;
+    document.getElementById("earn7Days").textContent = earn.sevenDays;
+    document.getElementById("earn30Days").textContent = earn.thirtyDays;
+    document.getElementById("earnAllTime").textContent = earn.allTime;
+    document.getElementById("earnIndustrial").textContent = earn.industrial;
 
     var html = "";
     if (orders.length > 0) {
-        for (var j = 0; j < orders.length; j++) {
-            var o = orders[j];
+        for (var i = 0; i < orders.length; i++) {
+            var o = orders[i];
             var cls = o.status === "Active" ? "active" : "pending";
             html +=
-                "<div class='course-row'>" +
-                "<div><b>" + o.pkg + "</b><small>Request ID: " + o.reqId + " • Paid: ₹" + o.amt + "</small></div>" +
+                "<div class='ref-order-row'>" +
+                "<div><b>" + o.pkg + "</b><small>ID: " + o.reqId + " • Amount: ₹" + o.amt + "</small></div>" +
                 "<span class='status-chip " + cls + "'>" + o.status + "</span>" +
                 "</div>";
         }
     } else {
-        html =
-            "<div class='note-box' style='margin-bottom:0'>" +
-            "Abhi aapke account mein koi package enrolled nahi hai. <b>Upgrade / Buy Packages</b> tab se apna pehla course select karein." +
-            "</div>";
+        html = "<div class='note-box' style='margin-bottom:0'>Abhi koi package enrolled nahi hai. <b>Buy Package</b> tab se package lein.</div>";
     }
-
-    document.getElementById("overviewOrdersList").innerHTML = html;
-    document.getElementById("myCoursesList").innerHTML = html;
+    document.getElementById("myPackagesList").innerHTML = html;
 }
 
 function handleHeaderAuth() {
     var user = getCurrentUser();
     if (user) {
-        openDashboardScreen("overview");
+        openDashboardScreen("earnings");
     } else {
         openAuthScreen("login");
     }
@@ -879,7 +893,7 @@ function doLogin() {
 
     if (matched) {
         setSession(matched.email);
-        openDashboardScreen("overview");
+        openDashboardScreen("earnings");
     } else {
         err.textContent = "Invalid email or password. Try student1@tms.com / pass1 or Sign Up.";
         err.style.display = "block";
@@ -933,16 +947,24 @@ function doSignup() {
     var newUser = {
         studentId: "TMS-STU-" + Math.floor(1000 + Math.random() * 9000),
         name: name,
+        tag: "",
         email: email,
         phone: phone,
         password: pw,
+        earnings: {
+            today: "₹0",
+            sevenDays: "₹0",
+            thirtyDays: "₹0",
+            allTime: "₹0",
+            industrial: "₹0"
+        },
         orders: []
     };
 
     users.push(newUser);
     saveUsers(users);
     setSession(newUser.email);
-    openDashboardScreen("overview");
+    openDashboardScreen("earnings");
 }
 
 function doForgot() {

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,12 +25,14 @@ button{cursor:pointer;font-family:inherit}
 .gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
 .dark{background:#172033;color:#fff;border:1px solid #475569}
 .green{background:#22c55e;color:#052e16}
+.danger{background:#7f1d1d;color:#fecaca;border:1px solid #dc2626}
 .hero{text-align:center;padding:42px 16px;background:linear-gradient(180deg,#111b33,#060913)}
 .hero-tag{display:inline-block;padding:6px 14px;border:1px solid #fbbf24;border-radius:30px;color:#fbbf24;font-size:12px}
 .hero h1{font-size:30px;margin:16px 0 10px}
 .hero h1 span{color:#fbbf24}
 .hero p{color:#94a3b8;font-size:14px;max-width:440px;margin:auto}
 .hero-actions{max-width:420px;margin:18px auto}
+.hero-auth-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:450px;margin:22px auto 0}
 .stat{padding:15px;background:#111b30;border:1px solid #604a21;border-radius:12px;text-align:left}
 .stat b{display:block;color:#fbbf24;font-size:21px}
@@ -52,7 +53,7 @@ button{cursor:pointer;font-family:inherit}
 .c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #334155;border-bottom:1px solid #334155;font-size:12px}
 .c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
 .c-old{font-size:13px;color:#64748b;text-decoration:line-through}
-.panel{display:none;max-width:430px;margin:18px auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px}
+.panel{display:none;max-width:430px;margin:18px auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px;text-align:left}
 .panel.active{display:block}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .m-top b{color:#fbbf24;font-size:16px}
@@ -63,9 +64,17 @@ button{cursor:pointer;font-family:inherit}
 .lbl{display:block;font-size:12px;font-weight:bold;margin-bottom:5px;color:#cbd5e1}
 .note-box{background:#172033;padding:12px;border-left:3px solid #fbbf24;border-radius:7px;font-size:12px;color:#cbd5e1;margin-bottom:14px}
 .err-box{display:none;background:#581c1c;color:#fecaca;padding:12px;border-radius:9px;font-size:12px;margin-top:10px}
+.ok-box{display:none;background:#064e3b;color:#dcfce7;padding:12px;border-radius:9px;font-size:12px;margin-top:10px}
 .success-box{background:#064e3b;padding:15px;border-radius:12px;margin:12px 0}
 .success-box b{display:block;color:#4ade80;margin-bottom:8px}
 .cred-row{background:#07543c;padding:9px;border-radius:7px;margin:7px 0;font-size:13px;overflow-wrap:anywhere}
+.auth-links{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:12.5px;color:#fbbf24;gap:10px;flex-wrap:wrap}
+.auth-links button{background:none;border:0;color:#fbbf24;font-size:12.5px;text-decoration:underline;padding:0}
+.dash-section{background:#111b30;border:1px solid #334155;border-radius:12px;padding:12px;margin-top:12px}
+.dash-section h4{color:#fbbf24;font-size:13px;margin-bottom:8px}
+.dash-item{background:#172033;padding:9px 10px;border-radius:8px;font-size:12.5px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.dash-badge{background:#fbbf24;color:#080b14;font-size:10.5px;font-weight:bold;padding:3px 7px;border-radius:12px}
+.dash-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
 footer{text-align:center;background:#050811;padding:28px 15px 34px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
 footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 .desc-box{background:#111b30;border:1px solid #334155;padding:16px;border-radius:13px;margin:15px auto;max-width:420px;text-align:left}
@@ -95,14 +104,17 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </a>
 
 <div class="hdr-r">
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="showLogin()">Student Login</button>
+<button type="button" class="btn gold" id="hdrAuthBtn" style="width:auto;margin:0;padding:9px 12px" onclick="handleHeaderAuth()">Student Login</button>
 <button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
 
 <div class="nav-drawer" id="navDrawer">
 <a href="#courses" onclick="closeMenu()">Courses</a>
 <a href="#about" onclick="closeMenu()">About Us</a>
 <a href="#contact" onclick="closeMenu()">Contact</a>
-<a href="#loginPanel" onclick="closeMenu();showLogin();return false;">Login</a>
+<a href="#loginPanel" id="navLoginLink" onclick="closeMenu();showLogin();return false;">Login</a>
+<a href="#signupPanel" id="navSignupLink" onclick="closeMenu();showSignup();return false;">Sign Up</a>
+<a href="#portalPanel" id="navDashLink" style="display:none" onclick="closeMenu();openDashboard();return false;">Dashboard</a>
+<a href="#top" id="navLogoutLink" style="display:none;color:#fca5a5" onclick="closeMenu();doLogout();return false;">Logout</a>
 <a href="#courses" class="cta-link" onclick="closeMenu()">Get Started</a>
 </div>
 </div>
@@ -115,33 +127,131 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 
 <div class="hero-actions">
 <a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
-<button type="button" class="btn dark" onclick="showLogin()">Student Portal Sign In</button>
+<div class="hero-auth-row" id="heroGuestBtns">
+<button type="button" class="btn dark" onclick="showLogin()">Student Login</button>
+<button type="button" class="btn dark" style="border-color:#b88624;color:#fbbf24" onclick="showSignup()">Create Account</button>
+</div>
+<div class="hero-auth-row" id="heroUserBtns" style="display:none">
+<button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openDashboard()">Student Dashboard</button>
+<button type="button" class="btn danger" onclick="doLogout()">Logout</button>
+</div>
 </div>
 
+<!-- LOGIN PANEL -->
 <div class="panel" id="loginPanel">
 <div class="m-top">
 <b>Student Portal Sign In</b>
 <button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
 </div>
-<div class="note-box">Demo Login: student1@tms.com / pass1</div>
-<label class="lbl">Student ID / Email</label>
-<input class="inp" id="lId" type="text" placeholder="Enter Student ID">
+<div class="note-box">Demo Login: student1@tms.com / pass1 (or use your newly created account)</div>
+<label class="lbl">Email Address</label>
+<input class="inp" id="lId" type="email" placeholder="Enter your email">
 <label class="lbl">Password</label>
-<input class="inp" id="lPw" type="password" placeholder="Enter Password">
+<input class="inp" id="lPw" type="password" placeholder="Enter password">
 <button type="button" class="btn gold" onclick="doLogin()">Sign In →</button>
 <div class="err-box" id="lErr"></div>
+<div class="auth-links">
+<button type="button" onclick="showForgot()">Forgot Password?</button>
+<button type="button" onclick="showSignup()">New Student? Sign Up</button>
+</div>
 </div>
 
+<!-- SIGN UP PANEL -->
+<div class="panel" id="signupPanel">
+<div class="m-top">
+<b>Create Student Account</b>
+<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
+</div>
+<div class="note-box">Register your student profile to access your personal dashboard and track enrollments.</div>
+<label class="lbl">Full Name</label>
+<input class="inp" id="sName" type="text" placeholder="Enter your full name">
+<label class="lbl">Email Address</label>
+<input class="inp" id="sEmail" type="email" placeholder="Enter your email">
+<label class="lbl">WhatsApp Number (10 Digits)</label>
+<input class="inp" id="sPhone" type="tel" maxlength="10" placeholder="10-digit WhatsApp number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+<label class="lbl">Create Password (Min 6 Characters)</label>
+<input class="inp" id="sPw" type="password" placeholder="Create strong password">
+<label class="lbl">Confirm Password</label>
+<input class="inp" id="sCpw" type="password" placeholder="Re-enter password">
+<button type="button" class="btn gold" onclick="doSignup()">Create Account →</button>
+<div class="err-box" id="sErr"></div>
+<div class="auth-links">
+<button type="button" onclick="showLogin()">Already have an account? Login</button>
+</div>
+</div>
+
+<!-- FORGOT PASSWORD PANEL -->
+<div class="panel" id="forgotPanel">
+<div class="m-top">
+<b>Forgot Password</b>
+<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
+</div>
+<div class="note-box">Apna registered email enter karein. Hum aapke email par password reset link bhejenge.</div>
+<label class="lbl">Registered Email Address</label>
+<input class="inp" id="fpEmail" type="email" placeholder="Enter registered email">
+<button type="button" class="btn gold" onclick="doForgot()">Send Reset Link →</button>
+<div class="err-box" id="fpErr"></div>
+<div class="ok-box" id="fpOk"></div>
+
+<!-- Instant Reset Link Box (appears after link is generated) -->
+<div id="resetDirectBox" style="display:none;margin-top:14px;padding-top:12px;border-top:1px solid #334155">
+<div class="note-box" style="margin-bottom:10px">Reset Link Generated! Niche click karke ya directly naya password set karein:</div>
+<label class="lbl">New Password (Min 6 Characters)</label>
+<input class="inp" id="fpNewPw" type="password" placeholder="Enter new password">
+<label class="lbl">Confirm New Password</label>
+<input class="inp" id="fpConfirmPw" type="password" placeholder="Confirm new password">
+<button type="button" class="btn green" onclick="completePasswordReset()">Reset Password Now →</button>
+<div class="err-box" id="fpResetErr"></div>
+</div>
+
+<div class="auth-links">
+<button type="button" onclick="showLogin()">← Back to Login</button>
+<button type="button" onclick="showSignup()">Create New Account</button>
+</div>
+</div>
+
+<!-- STUDENT DASHBOARD PANEL -->
 <div class="panel" id="portalPanel">
 <div class="m-top">
 <b>Student Dashboard</b>
-<button type="button" class="m-close" onclick="closeAllPanels()">Logout</button>
+<button type="button" class="m-close" onclick="closeAllPanels()">Hide ×</button>
 </div>
 <div class="success-box">
 <b id="pWelcome">Welcome Student</b>
-<div class="cred-row">Demo Student Account</div>
+<div class="cred-row" id="pStudentId">Student ID: --</div>
+<div class="cred-row" id="pEmailRow">Email: --</div>
+<div class="cred-row" id="pPhoneRow">WhatsApp: --</div>
 </div>
-<a class="btn gold" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Contact Support</a>
+
+<div class="dash-section">
+<h4>My Enrolled / Submitted Packages</h4>
+<div id="dashCoursesList"></div>
+<a href="#courses" class="btn gold" style="margin-top:8px" onclick="closeAllPanels()">+ Browse &amp; Enroll Packages</a>
+</div>
+
+<div class="dash-actions">
+<button type="button" class="btn dark" style="margin-top:0" onclick="showChangePassword()">Change Password</button>
+<button type="button" class="btn danger" style="margin-top:0" onclick="doLogout()">Logout</button>
+</div>
+<a class="btn green" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Contact Student Support</a>
+</div>
+
+<!-- CHANGE PASSWORD PANEL -->
+<div class="panel" id="changePwPanel">
+<div class="m-top">
+<b>Change Password</b>
+<button type="button" class="m-close" onclick="openDashboard()">← Dashboard</button>
+</div>
+<div class="note-box">Apna current password verify karein aur naya password set karein.</div>
+<label class="lbl">Current Password</label>
+<input class="inp" id="cpOld" type="password" placeholder="Enter current password">
+<label class="lbl">New Password (Min 6 Characters)</label>
+<input class="inp" id="cpNew" type="password" placeholder="Enter new password">
+<label class="lbl">Confirm New Password</label>
+<input class="inp" id="cpConfirm" type="password" placeholder="Confirm new password">
+<button type="button" class="btn gold" onclick="doChangePassword()">Update Password →</button>
+<div class="err-box" id="cpErr"></div>
+<div class="ok-box" id="cpOk"></div>
 </div>
 
 <div class="stats">
@@ -303,6 +413,111 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 
 var selPkg = "";
 var selAmt = 0;
+var resetTargetEmail = "";
+
+var USERS_KEY = "tms_users_v1";
+var SESSION_KEY = "tms_session_v1";
+
+function getDefaultUsers() {
+    return [
+        {
+            studentId: "TMS-STU-1001",
+            name: "Demo Student",
+            email: "student1@tms.com",
+            phone: "6289841691",
+            password: "pass1",
+            orders: [
+                { pkg: "Marketing Mastery", amt: 999, reqId: "TMS-DEMO01", status: "Active" }
+            ]
+        }
+    ];
+}
+
+function getUsers() {
+    try {
+        var raw = localStorage.getItem(USERS_KEY);
+        if (!raw) {
+            var defaults = getDefaultUsers();
+            localStorage.setItem(USERS_KEY, JSON.stringify(defaults));
+            return defaults;
+        }
+        var parsed = JSON.parse(raw);
+        return Array.isArray(parsed) && parsed.length ? parsed : getDefaultUsers();
+    } catch (e) {
+        return getDefaultUsers();
+    }
+}
+
+function saveUsers(users) {
+    try {
+        localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    } catch (e) {}
+}
+
+function getCurrentUser() {
+    try {
+        var email = localStorage.getItem(SESSION_KEY);
+        if (!email) return null;
+        var users = getUsers();
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].email.toLowerCase() === email.toLowerCase()) {
+                return users[i];
+            }
+        }
+        return null;
+    } catch (e) {
+        return null;
+    }
+}
+
+function setSession(email) {
+    try {
+        if (email) {
+            localStorage.setItem(SESSION_KEY, email);
+        } else {
+            localStorage.removeItem(SESSION_KEY);
+        }
+    } catch (e) {}
+    syncAuthUI();
+}
+
+function syncAuthUI() {
+    var user = getCurrentUser();
+    var hdrBtn = document.getElementById("hdrAuthBtn");
+    var guestBtns = document.getElementById("heroGuestBtns");
+    var userBtns = document.getElementById("heroUserBtns");
+    var navLogin = document.getElementById("navLoginLink");
+    var navSignup = document.getElementById("navSignupLink");
+    var navDash = document.getElementById("navDashLink");
+    var navLogout = document.getElementById("navLogoutLink");
+
+    if (user) {
+        if (hdrBtn) hdrBtn.textContent = "Dashboard";
+        if (guestBtns) guestBtns.style.display = "none";
+        if (userBtns) userBtns.style.display = "grid";
+        if (navLogin) navLogin.style.display = "none";
+        if (navSignup) navSignup.style.display = "none";
+        if (navDash) navDash.style.display = "block";
+        if (navLogout) navLogout.style.display = "block";
+    } else {
+        if (hdrBtn) hdrBtn.textContent = "Student Login";
+        if (guestBtns) guestBtns.style.display = "grid";
+        if (userBtns) userBtns.style.display = "none";
+        if (navLogin) navLogin.style.display = "block";
+        if (navSignup) navSignup.style.display = "block";
+        if (navDash) navDash.style.display = "none";
+        if (navLogout) navLogout.style.display = "none";
+    }
+}
+
+function handleHeaderAuth() {
+    var user = getCurrentUser();
+    if (user) {
+        openDashboard();
+    } else {
+        showLogin();
+    }
+}
 
 function toggleMenu() {
     var d = document.getElementById("navDrawer");
@@ -332,25 +547,315 @@ function showLogin() {
     document.getElementById("lId").value = "";
     document.getElementById("lPw").value = "";
     document.getElementById("lErr").style.display = "none";
-    document.getElementById("loginPanel").classList.add("active");
-    document.getElementById("loginPanel").scrollIntoView({behavior:"smooth",block:"center"});
+    var lp = document.getElementById("loginPanel");
+    lp.classList.add("active");
+    lp.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function doLogin() {
-    var id = document.getElementById("lId").value.trim();
+    var id = document.getElementById("lId").value.trim().toLowerCase();
     var pw = document.getElementById("lPw").value;
     var err = document.getElementById("lErr");
     err.style.display = "none";
 
-    if (id === "student1@tms.com" && pw === "pass1") {
-        closeAllPanels();
-        document.getElementById("pWelcome").textContent = "Welcome, " + id;
-        document.getElementById("portalPanel").classList.add("active");
-        document.getElementById("portalPanel").scrollIntoView({behavior:"smooth",block:"center"});
+    if (!id || !pw) {
+        err.textContent = "Please enter both email and password.";
+        err.style.display = "block";
+        return;
+    }
+
+    var users = getUsers();
+    var matched = null;
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email.toLowerCase() === id && users[i].password === pw) {
+            matched = users[i];
+            break;
+        }
+    }
+
+    if (matched) {
+        setSession(matched.email);
+        openDashboard();
     } else {
-        err.textContent = "Invalid demo login. Use student1@tms.com / pass1";
+        err.textContent = "Invalid email or password. Try student1@tms.com / pass1 or Sign Up.";
         err.style.display = "block";
     }
+}
+
+function showSignup() {
+    closeAllPanels();
+    document.getElementById("sName").value = "";
+    document.getElementById("sEmail").value = "";
+    document.getElementById("sPhone").value = "";
+    document.getElementById("sPw").value = "";
+    document.getElementById("sCpw").value = "";
+    document.getElementById("sErr").style.display = "none";
+    var sp = document.getElementById("signupPanel");
+    sp.classList.add("active");
+    sp.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function doSignup() {
+    var name = document.getElementById("sName").value.trim();
+    var email = document.getElementById("sEmail").value.trim().toLowerCase();
+    var phone = document.getElementById("sPhone").value.replace(/\D/g, "");
+    var pw = document.getElementById("sPw").value;
+    var cpw = document.getElementById("sCpw").value;
+    var err = document.getElementById("sErr");
+    err.style.display = "none";
+
+    if (name.length < 2) {
+        err.textContent = "Please enter your full name.";
+        err.style.display = "block";
+        return;
+    }
+    if (!email || email.indexOf("@") < 1 || email.indexOf(".") < 3) {
+        err.textContent = "Please enter a valid email address.";
+        err.style.display = "block";
+        return;
+    }
+    if (phone.length !== 10) {
+        err.textContent = "Please enter a valid 10-digit WhatsApp number.";
+        err.style.display = "block";
+        return;
+    }
+    if (pw.length < 6) {
+        err.textContent = "Password must be at least 6 characters long.";
+        err.style.display = "block";
+        return;
+    }
+    if (pw !== cpw) {
+        err.textContent = "Passwords do not match.";
+        err.style.display = "block";
+        return;
+    }
+
+    var users = getUsers();
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email.toLowerCase() === email) {
+            err.textContent = "An account with this email already exists. Please Login.";
+            err.style.display = "block";
+            return;
+        }
+    }
+
+    var newUser = {
+        studentId: "TMS-STU-" + Math.floor(1000 + Math.random() * 9000),
+        name: name,
+        email: email,
+        phone: phone,
+        password: pw,
+        orders: []
+    };
+
+    users.push(newUser);
+    saveUsers(users);
+    setSession(newUser.email);
+    openDashboard();
+}
+
+function showForgot() {
+    closeAllPanels();
+    resetTargetEmail = "";
+    document.getElementById("fpEmail").value = "";
+    document.getElementById("fpNewPw").value = "";
+    document.getElementById("fpConfirmPw").value = "";
+    document.getElementById("fpErr").style.display = "none";
+    document.getElementById("fpOk").style.display = "none";
+    document.getElementById("fpResetErr").style.display = "none";
+    document.getElementById("resetDirectBox").style.display = "none";
+    var fp = document.getElementById("forgotPanel");
+    fp.classList.add("active");
+    fp.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function doForgot() {
+    var email = document.getElementById("fpEmail").value.trim().toLowerCase();
+    var err = document.getElementById("fpErr");
+    var ok = document.getElementById("fpOk");
+    var resetBox = document.getElementById("resetDirectBox");
+
+    err.style.display = "none";
+    ok.style.display = "none";
+    resetBox.style.display = "none";
+
+    if (!email || email.indexOf("@") < 1) {
+        err.textContent = "Please enter your registered email address.";
+        err.style.display = "block";
+        return;
+    }
+
+    var users = getUsers();
+    var found = false;
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email.toLowerCase() === email) {
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        err.textContent = "No student account found with this email.";
+        err.style.display = "block";
+        return;
+    }
+
+    resetTargetEmail = email;
+    var token = "RST-" + Date.now().toString().slice(-6);
+    ok.innerHTML = "Password reset link sent to <b>" + email + "</b> (Token: " + token + ").";
+    ok.style.display = "block";
+    resetBox.style.display = "block";
+}
+
+function completePasswordReset() {
+    var npw = document.getElementById("fpNewPw").value;
+    var cpw = document.getElementById("fpConfirmPw").value;
+    var err = document.getElementById("fpResetErr");
+    err.style.display = "none";
+
+    if (!resetTargetEmail) {
+        err.textContent = "Please request a reset link first.";
+        err.style.display = "block";
+        return;
+    }
+    if (npw.length < 6) {
+        err.textContent = "New password must be at least 6 characters.";
+        err.style.display = "block";
+        return;
+    }
+    if (npw !== cpw) {
+        err.textContent = "Passwords do not match.";
+        err.style.display = "block";
+        return;
+    }
+
+    var users = getUsers();
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email.toLowerCase() === resetTargetEmail) {
+            users[i].password = npw;
+            break;
+        }
+    }
+    saveUsers(users);
+    resetTargetEmail = "";
+
+    showLogin();
+    var lErr = document.getElementById("lErr");
+    lErr.style.background = "#064e3b";
+    lErr.style.color = "#dcfce7";
+    lErr.textContent = "Password reset successful! Please sign in with your new password.";
+    lErr.style.display = "block";
+}
+
+function openDashboard() {
+    var user = getCurrentUser();
+    if (!user) {
+        showLogin();
+        return;
+    }
+    closeAllPanels();
+
+    document.getElementById("pWelcome").textContent = "Welcome, " + user.name;
+    document.getElementById("pStudentId").textContent = "Student ID: " + user.studentId;
+    document.getElementById("pEmailRow").textContent = "Email: " + user.email;
+    document.getElementById("pPhoneRow").textContent = "WhatsApp: " + (user.phone || "Not added");
+
+    var list = document.getElementById("dashCoursesList");
+    list.innerHTML = "";
+    if (user.orders && user.orders.length > 0) {
+        for (var i = 0; i < user.orders.length; i++) {
+            var o = user.orders[i];
+            var item = document.createElement("div");
+            item.className = "dash-item";
+            item.innerHTML =
+                "<div><b>" + o.pkg + "</b><br><small style='color:#94a3b8'>ID: " + o.reqId + " | ₹" + o.amt + "</small></div>" +
+                "<span class='dash-badge'>" + o.status + "</span>";
+            list.appendChild(item);
+        }
+    } else {
+        list.innerHTML = "<div style='font-size:12px;color:#94a3b8;padding:6px 0'>Abhi koi package enrolled nahi hai. Niche button se package select karein.</div>";
+    }
+
+    var pp = document.getElementById("portalPanel");
+    pp.classList.add("active");
+    pp.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function showChangePassword() {
+    var user = getCurrentUser();
+    if (!user) {
+        showLogin();
+        return;
+    }
+    closeAllPanels();
+    document.getElementById("cpOld").value = "";
+    document.getElementById("cpNew").value = "";
+    document.getElementById("cpConfirm").value = "";
+    document.getElementById("cpErr").style.display = "none";
+    document.getElementById("cpOk").style.display = "none";
+
+    var cp = document.getElementById("changePwPanel");
+    cp.classList.add("active");
+    cp.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function doChangePassword() {
+    var user = getCurrentUser();
+    if (!user) {
+        showLogin();
+        return;
+    }
+
+    var oldPw = document.getElementById("cpOld").value;
+    var newPw = document.getElementById("cpNew").value;
+    var confirmPw = document.getElementById("cpConfirm").value;
+    var err = document.getElementById("cpErr");
+    var ok = document.getElementById("cpOk");
+
+    err.style.display = "none";
+    ok.style.display = "none";
+
+    if (oldPw !== user.password) {
+        err.textContent = "Current password is incorrect.";
+        err.style.display = "block";
+        return;
+    }
+    if (newPw.length < 6) {
+        err.textContent = "New password must be at least 6 characters.";
+        err.style.display = "block";
+        return;
+    }
+    if (newPw === oldPw) {
+        err.textContent = "New password must be different from current password.";
+        err.style.display = "block";
+        return;
+    }
+    if (newPw !== confirmPw) {
+        err.textContent = "New passwords do not match.";
+        err.style.display = "block";
+        return;
+    }
+
+    var users = getUsers();
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email.toLowerCase() === user.email.toLowerCase()) {
+            users[i].password = newPw;
+            break;
+        }
+    }
+    saveUsers(users);
+
+    document.getElementById("cpOld").value = "";
+    document.getElementById("cpNew").value = "";
+    document.getElementById("cpConfirm").value = "";
+    ok.textContent = "Password updated successfully!";
+    ok.style.display = "block";
+}
+
+function doLogout() {
+    setSession(null);
+    closeAllPanels();
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function showBuy(pkg, amt) {
@@ -358,11 +863,12 @@ function showBuy(pkg, amt) {
     selPkg = pkg;
     selAmt = amt;
 
+    var user = getCurrentUser();
     document.getElementById("buyTitle").textContent = pkg + " Checkout";
     document.getElementById("qrLabel").textContent = "Pay Rs. " + amt + " via UPI";
     document.getElementById("fAmt").value = amt;
-    document.getElementById("fName").value = "";
-    document.getElementById("fPhone").value = "";
+    document.getElementById("fName").value = user ? user.name : "";
+    document.getElementById("fPhone").value = user && user.phone ? user.phone : "";
     document.getElementById("fUtr").value = "";
     document.getElementById("bErr").style.display = "none";
 
@@ -372,7 +878,7 @@ function showBuy(pkg, amt) {
 
     var bp = document.getElementById("buyPanel");
     bp.classList.add("active");
-    bp.scrollIntoView({behavior:"smooth",block:"center"});
+    bp.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function doPay() {
@@ -405,6 +911,24 @@ function doPay() {
     }
 
     var reqId = "TMS-" + Date.now().toString().slice(-8);
+    var user = getCurrentUser();
+    if (user) {
+        var users = getUsers();
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].email.toLowerCase() === user.email.toLowerCase()) {
+                users[i].orders = users[i].orders || [];
+                users[i].orders.push({
+                    pkg: selPkg,
+                    amt: selAmt,
+                    reqId: reqId,
+                    status: "Pending Verification"
+                });
+                break;
+            }
+        }
+        saveUsers(users);
+    }
+
     var msg = "Hello THE MILLIONAIRE SKILLS\nName: " + name +
         "\nWhatsApp: " + phone +
         "\nPackage: " + selPkg +
@@ -421,7 +945,7 @@ function doPay() {
         "https://wa.me/916289841691?text=" + encodeURIComponent(msg);
 
     document.getElementById("donePanel").classList.add("active");
-    document.getElementById("donePanel").scrollIntoView({behavior:"smooth",block:"center"});
+    document.getElementById("donePanel").scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function copyVal(val, id) {
@@ -444,6 +968,8 @@ function copyVal(val, id) {
         showCopied("Clipboard unavailable. Please copy manually: " + val);
     }
 }
+
+syncAuthUI();
 </script>
 
 </body>

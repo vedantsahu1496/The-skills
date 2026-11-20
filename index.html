@@ -39,8 +39,6 @@ button{cursor:pointer;font-family:inherit}
 .hero h1 span{color:#fbbf24}
 .hero p{color:#94a3b8;font-size:14px;max-width:440px;margin:auto}
 .hero-actions{max-width:420px;margin:18px auto}
-.hero-auth-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.hero-signup-separate{margin-top:10px}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:450px;margin:22px auto 0}
 .stat{padding:15px;background:#111b30;border:1px solid #604a21;border-radius:12px;text-align:left}
 .stat b{display:block;color:#fbbf24;font-size:21px}
@@ -99,9 +97,9 @@ button{cursor:pointer;font-family:inherit}
 .auth-brand-mini b{display:block;color:#fbbf24;font-size:13px}
 .auth-brand-mini small{color:#94a3b8;font-size:10px}
 .auth-card{width:100%;max-width:440px;background:#0b1224;border:1.5px solid #b88624;border-radius:18px;padding:24px 20px;box-shadow:0 20px 50px rgba(0,0,0,0.65)}
-.auth-tabs{display:grid;grid-template-columns:1fr 1fr;background:#172033;padding:4px;border-radius:10px;margin-bottom:18px}
-.auth-tab{background:transparent;border:0;color:#94a3b8;padding:10px;font-weight:bold;font-size:13.5px;border-radius:8px}
-.auth-tab.active{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
+.auth-heading{margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #1e293b}
+.auth-heading b{display:block;color:#fbbf24;font-size:18px}
+.auth-heading small{color:#94a3b8;font-size:12px}
 .auth-links{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:#fbbf24;gap:10px;flex-wrap:wrap}
 .auth-links button{background:none;border:0;color:#fbbf24;font-size:12.5px;text-decoration:underline;padding:0}
 
@@ -215,6 +213,16 @@ button{cursor:pointer;font-family:inherit}
 .status-chip.active{background:#dcfce7;color:#166534;border:1px solid #86efac}
 .status-chip.pending{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
 
+/* LEGAL & COMPLIANCE FOOTER INSIDE DASHBOARD */
+.dash-legal-card{background:#ffffff;border-radius:18px;padding:16px;box-shadow:0 4px 16px rgba(15,23,42,0.06);border:1px solid #e2e8f0;margin-top:16px}
+.dash-legal-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.dash-legal-pill{background:#eff6ff;color:#1e3a8a;border:1px solid #bfdbfe;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700}
+.dash-legal-card h4{font-size:14px;font-weight:700;color:#1e293b;margin-bottom:6px}
+.dash-legal-card p{font-size:12px;color:#475569;line-height:1.5;margin-bottom:8px}
+.dash-legal-links{display:flex;flex-wrap:wrap;gap:12px;padding-top:8px;border-top:1px solid #f1f5f9;font-size:11.5px;font-weight:700;color:#2d5fb8}
+.dash-legal-links span{cursor:pointer}
+.dash-legal-links span:hover{text-decoration:underline}
+
 /* FOOTER */
 footer{text-align:center;background:#050811;padding:28px 15px 34px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
 footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
@@ -257,8 +265,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <a href="#courses" onclick="closeMenu()">Courses</a>
 <a href="#about" onclick="closeMenu()">About Us</a>
 <a href="#contact" onclick="closeMenu()">Contact</a>
-<a href="#" id="navLoginLink" onclick="closeMenu();openAuthScreen('login');return false;">Login</a>
-<a href="#" id="navSignupLink" onclick="closeMenu();openAuthScreen('signup');return false;">Sign Up</a>
+<a href="#" id="navLoginLink" onclick="closeMenu();openAuthScreen('login');return false;">Student Login</a>
 <a href="#" id="navDashLink" style="display:none" onclick="closeMenu();openDashboardScreen('earnings');return false;">Student Dashboard</a>
 <a href="#" id="navLogoutLink" style="display:none;color:#fca5a5" onclick="closeMenu();doLogout();return false;">Logout</a>
 <a href="#courses" class="cta-link" onclick="closeMenu()">Get Started</a>
@@ -269,18 +276,14 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <section class="hero">
 <div class="hero-tag">★ EXECUTIVE MASTERY</div>
 <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
-<p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment and student registration.</p>
+<p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI payment and student portal access.</p>
 
 <div class="hero-actions">
 <a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
-<div class="hero-auth-row" id="heroGuestBtns">
+<div id="heroGuestBtn">
 <button type="button" class="btn dark" onclick="openAuthScreen('login')">Student Login</button>
-<button type="button" class="btn dark" onclick="openAuthScreen('login')">Portal Sign In</button>
 </div>
-<div class="hero-signup-separate" id="heroSeparateSignup">
-<button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openAuthScreen('signup')">Sign Up (Create New Account)</button>
-</div>
-<div class="hero-auth-row" id="heroUserBtns" style="display:none">
+<div id="heroUserBtns" style="display:none;grid-template-columns:1fr 1fr;gap:10px">
 <button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openDashboardScreen('earnings')">Open Dashboard</button>
 <button type="button" class="btn danger" onclick="doLogout()">Logout</button>
 </div>
@@ -290,7 +293,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="stat"><b>85+</b><span>Practical Modules</span></div>
 <div class="stat"><b>10K+</b><span>Active Students</span></div>
 <div class="stat"><b>24/7</b><span>Mobile Access</span></div>
-<div class="stat"><b>Student ID</b><span>Registration</span></div>
+<div class="stat"><b>Verified</b><span>Student Portal</span></div>
 </div>
 </section>
 
@@ -362,7 +365,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 
 <div class="desc-box" id="about">
 <b>Program &amp; Platform Overview</b>
-<p>THE MILLIONAIRE SKILLS offers structured skill-building packages across Marketing, Branding, Traffic, Influence, and Finance with simple UPI checkout and WhatsApp registration support.</p>
+<p>THE MILLIONAIRE SKILLS offers structured skill-building packages across Marketing, Branding, Traffic, Influence, and Finance with simple UPI checkout and student support.</p>
 <ul>
 <li>85+ practical modules designed for self-paced learning</li>
 <li>Instant UPI QR &amp; UTR submission with manual verification notice</li>
@@ -396,7 +399,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <!-- =========================================================
-     2. DEDICATED AUTH INTERFACE (LOGIN / SIGN UP / FORGOT PW)
+     2. DEDICATED AUTH INTERFACE (LOGIN / FORGOT PW ONLY)
      ========================================================= -->
 <div id="authScreen">
 <div class="auth-topbar">
@@ -408,14 +411,13 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <div class="auth-card">
-<div class="auth-tabs" id="authTabsBar">
-<button type="button" class="auth-tab active" id="tabLoginBtn" onclick="switchAuthMode('login')">Login</button>
-<button type="button" class="auth-tab" id="tabSignupBtn" onclick="switchAuthMode('signup')">Sign Up</button>
-</div>
-
 <!-- LOGIN FORM -->
 <div id="authLoginForm">
-<div class="note-box">Demo Login: <b>student1@tms.com</b> / <b>pass1</b> (ya apna naya account banayein)</div>
+<div class="auth-heading">
+<b>Student Portal Login</b>
+<small>Sign in with your registered student credentials</small>
+</div>
+<div class="note-box">Demo Login: <b>student1@tms.com</b> / <b>pass1</b></div>
 <label class="lbl">Email Address</label>
 <input class="inp" id="lId" type="email" placeholder="Enter your email">
 <label class="lbl">Password</label>
@@ -424,27 +426,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="err-box" id="lErr"></div>
 <div class="auth-links">
 <button type="button" onclick="switchAuthMode('forgot')">Forgot Password?</button>
-<button type="button" onclick="switchAuthMode('signup')">New Account? Sign Up</button>
-</div>
-</div>
-
-<!-- SIGN UP FORM -->
-<div id="authSignupForm" style="display:none">
-<div class="note-box">Naya Student Account banayein — aapka naam aur photo aapke dashboard mein set hoga.</div>
-<label class="lbl">Full Name</label>
-<input class="inp" id="sName" type="text" placeholder="Enter your full name">
-<label class="lbl">Email Address</label>
-<input class="inp" id="sEmail" type="email" placeholder="Enter your email">
-<label class="lbl">WhatsApp Number (10 Digits)</label>
-<input class="inp" id="sPhone" type="tel" maxlength="10" placeholder="10-digit WhatsApp number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
-<label class="lbl">Create Password (Min 6 Characters)</label>
-<input class="inp" id="sPw" type="password" placeholder="Create strong password">
-<label class="lbl">Confirm Password</label>
-<input class="inp" id="sCpw" type="password" placeholder="Re-enter password">
-<button type="button" class="btn gold" onclick="doSignup()">Create Account &amp; Enter Dashboard →</button>
-<div class="err-box" id="sErr"></div>
-<div class="auth-links">
-<button type="button" onclick="switchAuthMode('login')">Already registered? Login</button>
+<button type="button" onclick="openMainSite()">Back to Home</button>
 </div>
 </div>
 
@@ -471,7 +453,6 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 
 <div class="auth-links">
 <button type="button" onclick="switchAuthMode('login')">← Back to Login</button>
-<button type="button" onclick="switchAuthMode('signup')">Create New Account</button>
 </div>
 </div>
 </div>
@@ -691,6 +672,25 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="err-box" id="cpErr"></div>
 <div class="ok-box" id="cpOk"></div>
 </div>
+
+<!-- LEGAL & COMPLIANCE SECTION INSIDE DASHBOARD -->
+<div class="dash-legal-card">
+<div class="dash-legal-badges">
+<span class="dash-legal-pill">✓ Authorized Student Portal</span>
+<span class="dash-legal-pill">✓ Skill-Based Training</span>
+<span class="dash-legal-pill">✓ Verified UPI Records</span>
+</div>
+<h4>Compliance &amp; Platform Terms</h4>
+<p>THE MILLIONAIRE SKILLS provides structured digital skill-development modules in Marketing, Branding, Traffic, Influence, and Finance. Reported figures reflect recorded program metrics and are subject to applicable terms, verification checks, and individual effort.</p>
+<p style="margin-bottom:0">Support &amp; Grievance Desk: <b>mdaadilalam123123@gmail.com</b> • WhatsApp: <b>+91 62898 41691</b></p>
+<div class="dash-legal-links">
+<span onclick="showLegalNotice('terms')">Terms &amp; Conditions</span>
+<span onclick="showLegalNotice('privacy')">Privacy Policy</span>
+<span onclick="showLegalNotice('refund')">Verification &amp; Refund Policy</span>
+</div>
+<div class="note-box" id="dashLegalDetail" style="display:none;margin-top:10px;margin-bottom:0"></div>
+</div>
+
 </div>
 </div>
 
@@ -794,8 +794,8 @@ var resetTargetEmail = "";
 var tempPhotoData = "";
 var currentTeamPage = 1;
 
-var USERS_KEY = "tms_users_v5";
-var SESSION_KEY = "tms_session_v5";
+var USERS_KEY = "tms_users_v6";
+var SESSION_KEY = "tms_session_v6";
 
 function getZeroEarnings() {
     return {
@@ -924,30 +924,24 @@ function setSession(email) {
 function syncAuthUI() {
     var user = getCurrentUser();
     var hdrBtn = document.getElementById("hdrAuthBtn");
-    var guestBtns = document.getElementById("heroGuestBtns");
-    var separateSignup = document.getElementById("heroSeparateSignup");
+    var guestBtn = document.getElementById("heroGuestBtn");
     var userBtns = document.getElementById("heroUserBtns");
     var navLogin = document.getElementById("navLoginLink");
-    var navSignup = document.getElementById("navSignupLink");
     var navDash = document.getElementById("navDashLink");
     var navLogout = document.getElementById("navLogoutLink");
 
     if (user) {
         if (hdrBtn) hdrBtn.textContent = "Dashboard";
-        if (guestBtns) guestBtns.style.display = "none";
-        if (separateSignup) separateSignup.style.display = "none";
+        if (guestBtn) guestBtn.style.display = "none";
         if (userBtns) userBtns.style.display = "grid";
         if (navLogin) navLogin.style.display = "none";
-        if (navSignup) navSignup.style.display = "none";
         if (navDash) navDash.style.display = "block";
         if (navLogout) navLogout.style.display = "block";
     } else {
         if (hdrBtn) hdrBtn.textContent = "Student Login";
-        if (guestBtns) guestBtns.style.display = "grid";
-        if (separateSignup) separateSignup.style.display = "block";
+        if (guestBtn) guestBtn.style.display = "block";
         if (userBtns) userBtns.style.display = "none";
         if (navLogin) navLogin.style.display = "block";
-        if (navSignup) navSignup.style.display = "block";
         if (navDash) navDash.style.display = "none";
         if (navLogout) navLogout.style.display = "none";
     }
@@ -979,29 +973,12 @@ function openAuthScreen(mode) {
 
 function switchAuthMode(mode) {
     var loginForm = document.getElementById("authLoginForm");
-    var signupForm = document.getElementById("authSignupForm");
     var forgotForm = document.getElementById("authForgotForm");
-    var tabsBar = document.getElementById("authTabsBar");
-    var tabLogin = document.getElementById("tabLoginBtn");
-    var tabSignup = document.getElementById("tabSignupBtn");
 
     loginForm.style.display = "none";
-    signupForm.style.display = "none";
     forgotForm.style.display = "none";
 
-    if (mode === "signup") {
-        tabsBar.style.display = "grid";
-        tabLogin.classList.remove("active");
-        tabSignup.classList.add("active");
-        document.getElementById("sName").value = "";
-        document.getElementById("sEmail").value = "";
-        document.getElementById("sPhone").value = "";
-        document.getElementById("sPw").value = "";
-        document.getElementById("sCpw").value = "";
-        document.getElementById("sErr").style.display = "none";
-        signupForm.style.display = "block";
-    } else if (mode === "forgot") {
-        tabsBar.style.display = "none";
+    if (mode === "forgot") {
         resetTargetEmail = "";
         document.getElementById("fpEmail").value = "";
         document.getElementById("fpNewPw").value = "";
@@ -1012,9 +989,6 @@ function switchAuthMode(mode) {
         document.getElementById("resetDirectBox").style.display = "none";
         forgotForm.style.display = "block";
     } else {
-        tabsBar.style.display = "grid";
-        tabSignup.classList.remove("active");
-        tabLogin.classList.add("active");
         document.getElementById("lId").value = "";
         document.getElementById("lPw").value = "";
         var lErr = document.getElementById("lErr");
@@ -1074,6 +1048,19 @@ function switchDashTab(tab) {
         document.getElementById("cpErr").style.display = "none";
         document.getElementById("cpOk").style.display = "none";
     }
+}
+
+function showLegalNotice(type) {
+    var box = document.getElementById("dashLegalDetail");
+    if (!box) return;
+    if (type === "terms") {
+        box.innerHTML = "<b>Terms &amp; Conditions:</b> Student portal access is provided for educational and skill-training modules. Account sharing or misuse may result in access review.";
+    } else if (type === "privacy") {
+        box.innerHTML = "<b>Privacy Policy:</b> Student profile details, contact numbers, and transaction references are handled strictly for portal administration and support assistance.";
+    } else {
+        box.innerHTML = "<b>Verification &amp; Refund Policy:</b> UPI payments require 12-digit UTR verification. Manual verification status is displayed against each order before final activation.";
+    }
+    box.style.display = "block";
 }
 
 function renderAvatarBox(container, user) {
@@ -1504,73 +1491,9 @@ function doLogin() {
         setSession(matched.email);
         openDashboardScreen("earnings");
     } else {
-        err.textContent = "Invalid email or password. Try student1@tms.com / pass1 or Sign Up.";
+        err.textContent = "Invalid email or password. Try student1@tms.com / pass1.";
         err.style.display = "block";
     }
-}
-
-function doSignup() {
-    var name = document.getElementById("sName").value.trim();
-    var email = document.getElementById("sEmail").value.trim().toLowerCase();
-    var phone = document.getElementById("sPhone").value.replace(/\D/g, "");
-    var pw = document.getElementById("sPw").value;
-    var cpw = document.getElementById("sCpw").value;
-    var err = document.getElementById("sErr");
-    err.style.display = "none";
-
-    if (name.length < 2) {
-        err.textContent = "Please enter your full name.";
-        err.style.display = "block";
-        return;
-    }
-    if (!email || email.indexOf("@") < 1 || email.indexOf(".") < 3) {
-        err.textContent = "Please enter a valid email address.";
-        err.style.display = "block";
-        return;
-    }
-    if (phone.length !== 10) {
-        err.textContent = "Please enter a valid 10-digit WhatsApp number.";
-        err.style.display = "block";
-        return;
-    }
-    if (pw.length < 6) {
-        err.textContent = "Password must be at least 6 characters long.";
-        err.style.display = "block";
-        return;
-    }
-    if (pw !== cpw) {
-        err.textContent = "Passwords do not match.";
-        err.style.display = "block";
-        return;
-    }
-
-    var users = getUsers();
-    for (var i = 0; i < users.length; i++) {
-        if (users[i].email.toLowerCase() === email) {
-            err.textContent = "An account with this email already exists. Please Login.";
-            err.style.display = "block";
-            return;
-        }
-    }
-
-    var newUser = {
-        studentId: "TMS-STU-" + Math.floor(1000 + Math.random() * 9000),
-        name: name,
-        tag: "",
-        email: email,
-        phone: phone,
-        password: pw,
-        photo: "",
-        photoAdjust: { scale: 1, x: 0, y: 0 },
-        earnings: getZeroEarnings(),
-        orders: [],
-        team: getSampleTeamMembers()
-    };
-
-    users.push(newUser);
-    saveUsers(users);
-    setSession(newUser.email);
-    openDashboardScreen("earnings");
 }
 
 function doForgot() {

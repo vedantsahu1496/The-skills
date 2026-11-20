@@ -8,9 +8,16 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 html{scroll-behavior:smooth}
-body{background:#060913;color:#f8fafc;line-height:1.55}
+body{background:#060913;color:#f8fafc;line-height:1.55;transition:background 0.25s,color 0.25s}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit}
+
+/* THEME PRESETS */
+body.theme-dark-gold{--bg-main:#060913;--bg-surface:#111b30;--bg-card:#0b1224;--border-sub:#334155;--accent:#fbbf24;--text-main:#f8fafc;--text-muted:#94a3b8}
+body.theme-midnight{--bg-main:#090d16;--bg-surface:#131c2e;--bg-card:#0e1525;--border-sub:#293548;--accent:#38bdf8;--text-main:#f1f5f9;--text-muted:#94a3b8}
+body.theme-royal-light{--bg-main:#eef2f7;--bg-surface:#ffffff;--bg-card:#ffffff;--border-sub:#cbd5e1;--accent:#2563eb;--text-main:#0f172a;--text-muted:#475569}
+
+body{background:var(--bg-main,#060913);color:var(--text-main,#f8fafc)}
 
 /* HEADER */
 .hdr{position:sticky;top:0;z-index:100;background:#0b1224;padding:14px 18px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
@@ -33,21 +40,21 @@ button{cursor:pointer;font-family:inherit}
 .danger{background:#7f1d1d;color:#fecaca;border:1px solid #dc2626}
 
 /* MAIN LANDING PAGE */
-.hero{text-align:center;padding:42px 16px;background:linear-gradient(180deg,#111b33,#060913)}
+.hero{text-align:center;padding:42px 16px;background:linear-gradient(180deg,var(--bg-surface,#111b33),var(--bg-main,#060913))}
 .hero-tag{display:inline-block;padding:6px 14px;border:1px solid #fbbf24;border-radius:30px;color:#fbbf24;font-size:12px}
 .hero h1{font-size:30px;margin:16px 0 10px}
 .hero h1 span{color:#fbbf24}
-.hero p{color:#94a3b8;font-size:14px;max-width:440px;margin:auto}
+.hero p{color:var(--text-muted,#94a3b8);font-size:14px;max-width:440px;margin:auto}
 .hero-actions{max-width:420px;margin:18px auto}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:450px;margin:22px auto 0}
-.stat{padding:15px;background:#111b30;border:1px solid #604a21;border-radius:12px;text-align:left}
+.stat{padding:15px;background:var(--bg-surface,#111b30);border:1px solid #604a21;border-radius:12px;text-align:left}
 .stat b{display:block;color:#fbbf24;font-size:21px}
-.stat span{font-size:12px;color:#94a3b8}
+.stat span{font-size:12px;color:var(--text-muted,#94a3b8)}
 .sec{max-width:540px;margin:auto;padding:28px 16px}
 .sec-h{text-align:center;margin-bottom:20px}
 .sec-h h2{font-size:23px}
-.sec-h p{color:#94a3b8;font-size:13px}
-.card{background:#111b30;border:1px solid #334155;border-radius:17px;padding:17px;margin-bottom:20px}
+.sec-h p{color:var(--text-muted,#94a3b8);font-size:13px}
+.card{background:var(--bg-surface,#111b30);border:1px solid var(--border-sub,#334155);border-radius:17px;padding:17px;margin-bottom:20px}
 .vip{border:1px solid #fbbf24}
 .anim-showcase{background:#080e1c;border-radius:12px;padding:10px;margin-bottom:15px;text-align:center}
 .anim-img{width:100%;max-width:330px;height:auto;border-radius:10px;display:block;margin:auto}
@@ -55,8 +62,8 @@ button{cursor:pointer;font-family:inherit}
 .pill-b{color:#fbbf24;font-size:11px;border:1px solid #b88624;padding:4px 9px;border-radius:20px}
 .save-b{color:#4ade80;font-size:11px}
 .c-title{font-size:19px;font-weight:bold}
-.c-desc{font-size:13px;color:#94a3b8;margin:7px 0 12px}
-.c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #334155;border-bottom:1px solid #334155;font-size:12px}
+.c-desc{font-size:13px;color:var(--text-muted,#94a3b8);margin:7px 0 12px}
+.c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--border-sub,#334155);border-bottom:1px solid var(--border-sub,#334155);font-size:12px}
 .c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
 .c-old{font-size:13px;color:#64748b;text-decoration:line-through}
 
@@ -100,6 +107,8 @@ button{cursor:pointer;font-family:inherit}
 .auth-heading{margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #1e293b}
 .auth-heading b{display:block;color:#fbbf24;font-size:18px}
 .auth-heading small{color:#94a3b8;font-size:12px}
+.admin-badge-banner{display:none;background:#311042;border:1px solid #e879f9;color:#f5d0fe;padding:10px 12px;border-radius:10px;font-size:12px;margin-bottom:12px;font-weight:bold}
+.admin-badge-banner.active{display:block}
 .auth-links{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:#fbbf24;gap:10px;flex-wrap:wrap}
 .auth-links button{background:none;border:0;color:#fbbf24;font-size:12.5px;text-decoration:underline;padding:0}
 
@@ -213,6 +222,37 @@ button{cursor:pointer;font-family:inherit}
 .status-chip.active{background:#dcfce7;color:#166534;border:1px solid #86efac}
 .status-chip.pending{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
 
+/* =========================================================
+   DEDICATED FULL-SCREEN ADMIN PANEL (#admin)
+   ========================================================= */
+#adminScreen{display:none;min-height:100vh;background:#090d16;color:#f8fafc;padding:16px 14px 56px}
+#adminScreen.active{display:block}
+.admin-wrap{max-width:720px;margin:auto}
+.admin-hdr{background:#111b30;border:1.5px solid #e879f9;border-radius:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.admin-hdr b{display:block;color:#f5d0fe;font-size:18px}
+.admin-hdr small{color:#cbd5e1;font-size:12px}
+.admin-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.admin-stat-box{background:#111b30;border:1px solid #334155;border-radius:14px;padding:14px}
+.admin-stat-box b{display:block;font-size:22px;color:#fbbf24}
+.admin-stat-box span{font-size:12px;color:#94a3b8}
+.admin-tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:14px;padding-bottom:4px}
+.admin-tab-btn{background:#172033;color:#cbd5e1;border:1px solid #334155;border-radius:10px;padding:9px 14px;font-size:12.5px;font-weight:bold;white-space:nowrap}
+.admin-tab-btn.active{background:linear-gradient(135deg,#e879f9,#a855f7);color:#ffffff;border-color:transparent}
+.admin-card{display:none;background:#111b30;border:1px solid #334155;border-radius:16px;padding:16px;margin-bottom:14px}
+.admin-card.active{display:block}
+.admin-card h3{color:#fbbf24;font-size:16px;margin-bottom:12px}
+.admin-user-row{background:#0b1224;border:1px solid #263348;border-radius:12px;padding:12px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.admin-user-row b{font-size:14px;color:#f8fafc;display:block}
+.admin-user-row small{color:#94a3b8;font-size:12px;display:block}
+.admin-mini-actions{display:flex;gap:6px;flex-wrap:wrap}
+.admin-mini-btn{padding:7px 11px;border-radius:8px;border:0;font-size:12px;font-weight:bold}
+.admin-edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.theme-choice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.theme-opt-card{background:#0b1224;border:2px solid #334155;border-radius:12px;padding:14px;text-align:left}
+.theme-opt-card.active{border-color:#e879f9;box-shadow:0 0 0 1px #e879f9}
+.theme-opt-card b{display:block;font-size:14px;color:#f8fafc;margin-bottom:4px}
+.theme-opt-card small{color:#94a3b8;font-size:12px}
+
 /* LEGAL & COMPLIANCE FOOTER INSIDE DASHBOARD */
 .dash-legal-card{background:#ffffff;border-radius:18px;padding:16px;box-shadow:0 4px 16px rgba(15,23,42,0.06);border:1px solid #e2e8f0;margin-top:16px}
 .dash-legal-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
@@ -242,10 +282,13 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 .courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .hero h1{font-size:42px}
 }
+@media(max-width:520px){
+.admin-edit-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 
-<body id="top">
+<body id="top" class="theme-dark-gold">
 
 <!-- =========================================================
      1. MAIN LANDING WEBSITE VIEW
@@ -267,6 +310,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <a href="#contact" onclick="closeMenu()">Contact</a>
 <a href="#" id="navLoginLink" onclick="closeMenu();openAuthScreen('login');return false;">Student Login</a>
 <a href="#" id="navDashLink" style="display:none" onclick="closeMenu();openDashboardScreen('earnings');return false;">Student Dashboard</a>
+<a href="#" id="navAdminLink" style="display:none;color:#f5d0fe" onclick="closeMenu();openAdminScreen('users');return false;">Admin Panel</a>
 <a href="#" id="navLogoutLink" style="display:none;color:#fca5a5" onclick="closeMenu();doLogout();return false;">Logout</a>
 <a href="#courses" class="cta-link" onclick="closeMenu()">Get Started</a>
 </div>
@@ -284,7 +328,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <button type="button" class="btn dark" onclick="openAuthScreen('login')">Student Login</button>
 </div>
 <div id="heroUserBtns" style="display:none;grid-template-columns:1fr 1fr;gap:10px">
-<button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openDashboardScreen('earnings')">Open Dashboard</button>
+<button type="button" class="btn dark" id="heroPrimaryDashBtn" style="border-color:#fbbf24;color:#fbbf24" onclick="openDashboardScreen('earnings')">Open Dashboard</button>
 <button type="button" class="btn danger" onclick="doLogout()">Logout</button>
 </div>
 </div>
@@ -303,59 +347,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <p>Select your package and continue to checkout</p>
 </div>
 
-<div class="courses-grid">
-
-<div class="card">
-<div class="anim-showcase"><img src="file_00000000a24082079bd1a0d07ce5ae90.png" alt="Marketing Mastery" class="anim-img"></div>
-<div class="badge-row"><span class="pill-b">STARTER</span><span class="save-b">SAVE 50%</span></div>
-<div class="c-title">Marketing Mastery</div>
-<div class="c-desc">Funnels, digital marketing foundations, buyer psychology &amp; conversion systems.</div>
-<div class="c-meta"><span>★ 4.8</span><span>12 Modules</span></div>
-<div class="c-price">₹999 <span class="c-old">₹1,999</span></div>
-<button type="button" class="btn gold" onclick="showBuy('Marketing Mastery',999)">Buy Now →</button>
-</div>
-
-<div class="card">
-<div class="anim-showcase"><img src="file_000000002914821181cc5ff207a5f834.png" alt="Branding Mastery" class="anim-img"></div>
-<div class="badge-row"><span class="pill-b">AUTHORITY</span><span class="save-b">SAVE 50%</span></div>
-<div class="c-title">Branding Mastery</div>
-<div class="c-desc">Build a strong social media identity, content style &amp; audience trust.</div>
-<div class="c-meta"><span>★ 4.7</span><span>16 Modules</span></div>
-<div class="c-price">₹2,499 <span class="c-old">₹4,999</span></div>
-<button type="button" class="btn gold" onclick="showBuy('Branding Mastery',2499)">Buy Now →</button>
-</div>
-
-<div class="card">
-<div class="anim-showcase"><img src="IMG-20261120-WA8600.jpg" alt="Traffic Mastery" class="anim-img"></div>
-<div class="badge-row"><span class="pill-b">TRENDING</span><span class="save-b">SAVE 50%</span></div>
-<div class="c-title">Traffic Mastery</div>
-<div class="c-desc">Drive targeted leads using ads, reach growth &amp; conversion systems.</div>
-<div class="c-meta"><span>★ 4.6</span><span>20 Modules</span></div>
-<div class="c-price">₹4,999 <span class="c-old">₹9,999</span></div>
-<button type="button" class="btn gold" onclick="showBuy('Traffic Mastery',4999)">Buy Now →</button>
-</div>
-
-<div class="card">
-<div class="anim-showcase"><img src="IMG-20261120-WA5578.jpg" alt="Influence Mastery" class="anim-img"></div>
-<div class="badge-row"><span class="pill-b">PRO POWER</span><span class="save-b">SAVE 50%</span></div>
-<div class="c-title">Influence Mastery</div>
-<div class="c-desc">Communication, speaking confidence, persuasion &amp; high-trust closing.</div>
-<div class="c-meta"><span>★ 4.9</span><span>22 Modules</span></div>
-<div class="c-price">₹9,999 <span class="c-old">₹19,999</span></div>
-<button type="button" class="btn gold" onclick="showBuy('Influence Mastery',9999)">Buy Now →</button>
-</div>
-
-<div class="card vip">
-<div class="anim-showcase"><img src="IMG-20261120-WA2541.jpg" alt="Finance Mastery" class="anim-img"></div>
-<div class="badge-row"><span class="pill-b">ALL-IN-ONE VIP</span><span class="save-b">BEST VALUE</span></div>
-<div class="c-title">Finance Mastery (VIP Bundle)</div>
-<div class="c-desc">Money management, wealth building &amp; full access across all mastery modules.</div>
-<div class="c-meta"><span>★ 5.0</span><span>All 85+ Modules</span></div>
-<div class="c-price">₹14,999 <span class="c-old">₹29,999</span></div>
-<button type="button" class="btn gold" onclick="showBuy('Finance Mastery (VIP)',14999)">Buy Now →</button>
-</div>
-
-</div>
+<div class="courses-grid" id="landingCoursesGrid"></div>
 </section>
 
 <footer id="contact">
@@ -399,7 +391,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <!-- =========================================================
-     2. DEDICATED AUTH INTERFACE (LOGIN / FORGOT PW ONLY)
+     2. DEDICATED AUTH INTERFACE (LOGIN / #admin / FORGOT PW)
      ========================================================= -->
 <div id="authScreen">
 <div class="auth-topbar">
@@ -411,22 +403,33 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <div class="auth-card">
-<!-- LOGIN FORM -->
 <div id="authLoginForm">
 <div class="auth-heading">
-<b>Student Portal Login</b>
-<small>Sign in with your registered student credentials</small>
+<b id="authHeadingTitle">Student Portal Login</b>
+<small id="authHeadingSub">Sign in with your credentials (tip: type #admin for admin login)</small>
 </div>
-<div class="note-box">Demo Login: <b>student1@tms.com</b> / <b>pass1</b></div>
-<label class="lbl">Email Address</label>
-<input class="inp" id="lId" type="email" placeholder="Enter your email">
+
+<div class="admin-badge-banner" id="adminModeBanner">
+⚡ ADMIN ACCESS MODE DETECTED — Enter Admin Email &amp; Password to open Admin Control Panel.
+</div>
+
+<div class="note-box" id="loginHintBox">
+Demo Student: <b>student1@tms.com</b> / <b>pass1</b><br>
+Secret Admin: type <b>#admin</b> in email/name → <b>admin@tms.com</b> / <b>admin123</b>
+</div>
+
+<label class="lbl">Email Address or #admin</label>
+<input class="inp" id="lId" type="text" placeholder="Enter email or type #admin" oninput="handleLoginInputTrigger()">
+
 <label class="lbl">Password</label>
 <input class="inp" id="lPw" type="password" placeholder="Enter password">
-<button type="button" class="btn gold" onclick="doLogin()">Login to Dashboard →</button>
+
+<button type="button" class="btn gold" id="loginSubmitBtn" onclick="doLogin()">Login to Dashboard →</button>
 <div class="err-box" id="lErr"></div>
+
 <div class="auth-links">
 <button type="button" onclick="switchAuthMode('forgot')">Forgot Password?</button>
-<button type="button" onclick="openMainSite()">Back to Home</button>
+<button type="button" onclick="triggerAdminPromptMode()">#admin Mode</button>
 </div>
 </div>
 
@@ -459,7 +462,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <!-- =========================================================
-     3. DEDICATED STUDENT DASHBOARD (LIGHT BLUE EARNING LAYOUT)
+     3. DEDICATED STUDENT DASHBOARD
      ========================================================= -->
 <div id="dashboardScreen">
 <div class="ref-top-bar">
@@ -622,26 +625,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <!-- TAB 4: UPGRADE / BUY PACKAGE -->
 <div class="ref-panel-box" id="dashViewUpgrade">
 <h3>Select &amp; Upgrade Package</h3>
-<div class="ref-order-row">
-<div><b>Marketing Mastery (₹999)</b><small>12 Practical Modules</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Marketing Mastery',999)">Buy</button>
-</div>
-<div class="ref-order-row">
-<div><b>Branding Mastery (₹2,499)</b><small>16 Practical Modules</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Branding Mastery',2499)">Buy</button>
-</div>
-<div class="ref-order-row">
-<div><b>Traffic Mastery (₹4,999)</b><small>20 Practical Modules</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Traffic Mastery',4999)">Buy</button>
-</div>
-<div class="ref-order-row">
-<div><b>Influence Mastery (₹9,999)</b><small>22 Practical Modules</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Influence Mastery',9999)">Buy</button>
-</div>
-<div class="ref-order-row">
-<div><b>Finance Mastery VIP (₹14,999)</b><small>All 85+ Mastery Modules</small></div>
-<button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="showBuy('Finance Mastery (VIP)',14999)">Buy</button>
-</div>
+<div id="dashUpgradeList"></div>
 </div>
 
 <!-- TAB 5: PROFILE EDIT & CHANGE PASSWORD -->
@@ -695,7 +679,178 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 </div>
 
 <!-- =========================================================
-     4. CHECKOUT, CONFIRMATION & PHOTO EDITOR MODAL OVERLAY
+     4. DEDICATED FULL-SCREEN ADMIN CONTROL PANEL (#admin)
+     ========================================================= -->
+<div id="adminScreen">
+<div class="admin-wrap">
+<div class="admin-hdr">
+<div>
+<b>⚡ ADMIN CONTROL PANEL</b>
+<small>Manage Users, Passwords, Theme &amp; Course Rates</small>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button type="button" class="ref-chip-btn" onclick="openMainSite()">Website</button>
+<button type="button" class="ref-chip-btn red" onclick="doLogout()">Logout</button>
+</div>
+</div>
+
+<div class="admin-stats-grid">
+<div class="admin-stat-box">
+<b id="admTotalUsersCount">0</b>
+<span>Total Registered Users</span>
+</div>
+<div class="admin-stat-box">
+<b id="admCoursesCount">5</b>
+<span>Active Mastery Packages</span>
+</div>
+<div class="admin-stat-box">
+<b id="admCurrentThemeName">Dark Gold</b>
+<span>Current Panel Theme</span>
+</div>
+</div>
+
+<div class="admin-tabs">
+<button type="button" class="admin-tab-btn active" id="admTabUsers" onclick="switchAdminTab('users')">Users &amp; ID/Password</button>
+<button type="button" class="admin-tab-btn" id="admTabCourses" onclick="switchAdminTab('courses')">Course Rates</button>
+<button type="button" class="admin-tab-btn" id="admTabTheme" onclick="switchAdminTab('theme')">Theme Settings</button>
+<button type="button" class="admin-tab-btn" id="admTabSecurity" onclick="switchAdminTab('security')">Admin Credentials</button>
+</div>
+
+<!-- ADMIN TAB 1: USERS & PASSWORD / EARNINGS EDITOR -->
+<div class="admin-card active" id="admCardUsers">
+<h3>All Users (<span id="admUsersHeaderCount">0</span>)</h3>
+
+<div class="note-box">Naya user add karein ya kisi bhi user ki ID/Email, Password, Name aur Earnings edit karein.</div>
+<div class="admin-edit-grid">
+<div>
+<label class="lbl">New User Name</label>
+<input class="inp" id="newAdmUserName" type="text" placeholder="Full Name">
+</div>
+<div>
+<label class="lbl">New User Email / ID</label>
+<input class="inp" id="newAdmUserEmail" type="email" placeholder="user@example.com">
+</div>
+<div>
+<label class="lbl">New User Phone</label>
+<input class="inp" id="newAdmUserPhone" type="tel" maxlength="10" placeholder="10-digit mobile">
+</div>
+<div>
+<label class="lbl">New User Password</label>
+<input class="inp" id="newAdmUserPass" type="text" placeholder="Set password">
+</div>
+</div>
+<button type="button" class="btn green" onclick="adminAddUser()">+ Add New User</button>
+<div class="ok-box" id="admAddUserOk"></div>
+<div class="err-box" id="admAddUserErr"></div>
+
+<!-- User Edit Drawer Box -->
+<div id="adminUserEditorBox" style="display:none;margin-top:16px;padding:14px;background:#0b1224;border:1.5px solid #e879f9;border-radius:14px">
+<div class="m-top">
+<b id="admEditingTitle">Edit User</b>
+<button type="button" class="m-close" onclick="closeAdminUserEditor()">×</button>
+</div>
+<input type="hidden" id="admEditOriginalEmail">
+<div class="admin-edit-grid">
+<div>
+<label class="lbl">Name</label>
+<input class="inp" id="admEditName" type="text">
+</div>
+<div>
+<label class="lbl">Tag / Badge</label>
+<input class="inp" id="admEditTag" type="text" placeholder="[G.O.D]">
+</div>
+<div>
+<label class="lbl">Login Email / ID</label>
+<input class="inp" id="admEditEmail" type="email">
+</div>
+<div>
+<label class="lbl">Login Password</label>
+<input class="inp" id="admEditPassword" type="text">
+</div>
+<div>
+<label class="lbl">Today's Earning</label>
+<input class="inp" id="admEditToday" type="text">
+</div>
+<div>
+<label class="lbl">7 Days Earning</label>
+<input class="inp" id="admEdit7Days" type="text">
+</div>
+<div>
+<label class="lbl">30 Days Earning</label>
+<input class="inp" id="admEdit30Days" type="text">
+</div>
+<div>
+<label class="lbl">All Time Earning</label>
+<input class="inp" id="admEditAllTime" type="text">
+</div>
+<div>
+<label class="lbl">Industrial Income</label>
+<input class="inp" id="admEditIndustrial" type="text">
+</div>
+<div>
+<label class="lbl">Wallet Balance</label>
+<input class="inp" id="admEditWallet" type="text">
+</div>
+</div>
+<button type="button" class="btn gold" onclick="adminSaveEditedUser()">Save User Changes →</button>
+<div class="ok-box" id="admEditUserOk"></div>
+<div class="err-box" id="admEditUserErr"></div>
+</div>
+
+<hr style="border:0;border-top:1px solid #263348;margin:16px 0">
+<div id="adminUsersList"></div>
+</div>
+
+<!-- ADMIN TAB 2: COURSES RATE EDITOR -->
+<div class="admin-card" id="admCardCourses">
+<h3>Edit Courses &amp; Rates</h3>
+<div class="note-box">Yahan se kisi bhi course ka naam, price (₹) aur old price (₹) change karein. Save karte hi site aur dashboard par naye rates dikhenge.</div>
+<div id="adminCoursesEditorList"></div>
+<button type="button" class="btn gold" onclick="adminSaveCourses()">Save All Course Rates →</button>
+<button type="button" class="btn dark" onclick="adminResetDefaultCourses()">Reset Default Rates</button>
+<div class="ok-box" id="admCoursesOk"></div>
+<div class="err-box" id="admCoursesErr"></div>
+</div>
+
+<!-- ADMIN TAB 3: THEME SWITCHER -->
+<div class="admin-card" id="admCardTheme">
+<h3>Change Site Theme</h3>
+<div class="note-box">Apne panel ke liye theme select karein:</div>
+<div class="theme-choice-grid" id="adminThemeCards">
+<button type="button" class="theme-opt-card active" data-theme="theme-dark-gold" onclick="adminApplyTheme('theme-dark-gold')">
+<b>Dark Gold (Default)</b>
+<small>Deep navy &amp; gold executive look</small>
+</button>
+<button type="button" class="theme-opt-card" data-theme="theme-midnight" onclick="adminApplyTheme('theme-midnight')">
+<b>Midnight Sky</b>
+<small>Dark slate with sky blue highlights</small>
+</button>
+<button type="button" class="theme-opt-card" data-theme="theme-royal-light" onclick="adminApplyTheme('theme-royal-light')">
+<b>Clean Light</b>
+<small>Bright soft slate-white surface</small>
+</button>
+</div>
+<div class="ok-box" id="admThemeOk"></div>
+</div>
+
+<!-- ADMIN TAB 4: ADMIN EMAIL & PASSWORD CHANGE -->
+<div class="admin-card" id="admCardSecurity">
+<h3>Change Admin ID &amp; Password</h3>
+<div class="note-box">Apna `#admin` login ID (email) aur password yahan se update karein.</div>
+<label class="lbl">Admin Login Email / ID</label>
+<input class="inp" id="admSecEmail" type="email">
+<label class="lbl">Admin Password</label>
+<input class="inp" id="admSecPassword" type="text">
+<button type="button" class="btn gold" onclick="adminSaveSecurity()">Update Admin Credentials →</button>
+<div class="ok-box" id="admSecOk"></div>
+<div class="err-box" id="admSecErr"></div>
+</div>
+
+</div>
+</div>
+
+<!-- =========================================================
+     5. CHECKOUT, CONFIRMATION & PHOTO EDITOR MODAL OVERLAY
      ========================================================= -->
 <div class="modal-overlay" id="checkoutOverlay">
 <!-- PHOTO UPLOAD & ADJUST MODAL -->
@@ -793,9 +948,160 @@ var selAmt = 0;
 var resetTargetEmail = "";
 var tempPhotoData = "";
 var currentTeamPage = 1;
+var isAdminLoginPromptActive = false;
 
-var USERS_KEY = "tms_users_v6";
-var SESSION_KEY = "tms_session_v6";
+var USERS_KEY = "tms_users_v7";
+var SESSION_KEY = "tms_session_v7";
+var COURSES_KEY = "tms_courses_v7";
+var THEME_KEY = "tms_theme_v7";
+var ADMIN_CREDS_KEY = "tms_admin_creds_v7";
+
+function getDefaultCourses() {
+    return [
+        { id: "marketing", img: "file_00000000a24082079bd1a0d07ce5ae90.png", badge: "STARTER", save: "SAVE 50%", title: "Marketing Mastery", desc: "Funnels, digital marketing foundations, buyer psychology & conversion systems.", rating: "★ 4.8", modules: "12 Modules", price: 999, oldPrice: 1999, vip: false },
+        { id: "branding", img: "file_000000002914821181cc5ff207a5f834.png", badge: "AUTHORITY", save: "SAVE 50%", title: "Branding Mastery", desc: "Build a strong social media identity, content style & audience trust.", rating: "★ 4.7", modules: "16 Modules", price: 2499, oldPrice: 4999, vip: false },
+        { id: "traffic", img: "IMG-20261120-WA8600.jpg", badge: "TRENDING", save: "SAVE 50%", title: "Traffic Mastery", desc: "Drive targeted leads using ads, reach growth & conversion systems.", rating: "★ 4.6", modules: "20 Modules", price: 4999, oldPrice: 9999, vip: false },
+        { id: "influence", img: "IMG-20261120-WA5578.jpg", badge: "PRO POWER", save: "SAVE 50%", title: "Influence Mastery", desc: "Communication, speaking confidence, persuasion & high-trust closing.", rating: "★ 4.9", modules: "22 Modules", price: 9999, oldPrice: 19999, vip: false },
+        { id: "finance", img: "IMG-20261120-WA2541.jpg", badge: "ALL-IN-ONE VIP", save: "BEST VALUE", title: "Finance Mastery (VIP Bundle)", desc: "Money management, wealth building & full access across all mastery modules.", rating: "★ 5.0", modules: "All 85+ Modules", price: 14999, oldPrice: 29999, vip: true }
+    ];
+}
+
+function getCourses() {
+    try {
+        var raw = localStorage.getItem(COURSES_KEY);
+        if (!raw) {
+            var def = getDefaultCourses();
+            localStorage.setItem(COURSES_KEY, JSON.stringify(def));
+            return def;
+        }
+        var parsed = JSON.parse(raw);
+        return Array.isArray(parsed) && parsed.length ? parsed : getDefaultCourses();
+    } catch (e) {
+        return getDefaultCourses();
+    }
+}
+
+function saveCourses(list) {
+    try {
+        localStorage.setItem(COURSES_KEY, JSON.stringify(list));
+    } catch (e) {}
+    renderCoursesEverywhere();
+}
+
+function formatINR(num) {
+    var n = parseInt(num, 10) || 0;
+    return "₹" + n.toLocaleString("en-IN");
+}
+
+function renderCoursesEverywhere() {
+    var courses = getCourses();
+    var grid = document.getElementById("landingCoursesGrid");
+    var upgList = document.getElementById("dashUpgradeList");
+
+    if (grid) {
+        var html = "";
+        for (var i = 0; i < courses.length; i++) {
+            var c = courses[i];
+            var safeTitle = c.title.replace(/'/g, "\\'");
+            html +=
+                "<div class='card" + (c.vip ? " vip" : "") + "'>" +
+                "<div class='anim-showcase'><img src='" + c.img + "' alt='" + c.title + "' class='anim-img'></div>" +
+                "<div class='badge-row'><span class='pill-b'>" + c.badge + "</span><span class='save-b'>" + c.save + "</span></div>" +
+                "<div class='c-title'>" + c.title + "</div>" +
+                "<div class='c-desc'>" + c.desc + "</div>" +
+                "<div class='c-meta'><span>" + c.rating + "</span><span>" + c.modules + "</span></div>" +
+                "<div class='c-price'>" + formatINR(c.price) + " <span class='c-old'>" + formatINR(c.oldPrice) + "</span></div>" +
+                "<button type='button' class='btn gold' onclick=\"showBuy('" + safeTitle + "'," + c.price + ")\">Buy Now →</button>" +
+                "</div>";
+        }
+        grid.innerHTML = html;
+    }
+
+    if (upgList) {
+        var uHtml = "";
+        for (var j = 0; j < courses.length; j++) {
+            var item = courses[j];
+            var safeItemTitle = item.title.replace(/'/g, "\\'");
+            uHtml +=
+                "<div class='ref-order-row'>" +
+                "<div><b>" + item.title + " (" + formatINR(item.price) + ")</b><small>" + item.modules + "</small></div>" +
+                "<button type='button' class='btn gold' style='width:auto;margin:0;padding:8px 12px' onclick=\"showBuy('" + safeItemTitle + "'," + item.price + ")\">Buy</button>" +
+                "</div>";
+        }
+        upgList.innerHTML = uHtml;
+    }
+
+    var admCount = document.getElementById("admCoursesCount");
+    if (admCount) admCount.textContent = String(courses.length);
+}
+
+function getAdminCreds() {
+    try {
+        var raw = localStorage.getItem(ADMIN_CREDS_KEY);
+        if (!raw) {
+            var def = { email: "admin@tms.com", password: "admin123" };
+            localStorage.setItem(ADMIN_CREDS_KEY, JSON.stringify(def));
+            return def;
+        }
+        var parsed = JSON.parse(raw);
+        return {
+            email: (parsed && parsed.email) || "admin@tms.com",
+            password: (parsed && parsed.password) || "admin123"
+        };
+    } catch (e) {
+        return { email: "admin@tms.com", password: "admin123" };
+    }
+}
+
+function saveAdminCreds(creds) {
+    try {
+        localStorage.setItem(ADMIN_CREDS_KEY, JSON.stringify(creds));
+    } catch (e) {}
+}
+
+function getSavedTheme() {
+    try {
+        return localStorage.getItem(THEME_KEY) || "theme-dark-gold";
+    } catch (e) {
+        return "theme-dark-gold";
+    }
+}
+
+function applyThemeClass(themeClass) {
+    var allowed = ["theme-dark-gold", "theme-midnight", "theme-royal-light"];
+    var chosen = allowed.indexOf(themeClass) !== -1 ? themeClass : "theme-dark-gold";
+    document.body.classList.remove("theme-dark-gold", "theme-midnight", "theme-royal-light");
+    document.body.classList.add(chosen);
+    try {
+        localStorage.setItem(THEME_KEY, chosen);
+    } catch (e) {}
+
+    var labelMap = {
+        "theme-dark-gold": "Dark Gold",
+        "theme-midnight": "Midnight Sky",
+        "theme-royal-light": "Clean Light"
+    };
+    var labelEl = document.getElementById("admCurrentThemeName");
+    if (labelEl) labelEl.textContent = labelMap[chosen] || "Dark Gold";
+
+    var cards = document.querySelectorAll("#adminThemeCards .theme-opt-card");
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].getAttribute("data-theme") === chosen) {
+            cards[i].classList.add("active");
+        } else {
+            cards[i].classList.remove("active");
+        }
+    }
+}
+
+function adminApplyTheme(themeClass) {
+    applyThemeClass(themeClass);
+    var ok = document.getElementById("admThemeOk");
+    if (ok) {
+        ok.textContent = "Theme updated successfully!";
+        ok.style.display = "block";
+    }
+}
 
 function getZeroEarnings() {
     return {
@@ -894,10 +1200,18 @@ function updateCurrentUserField(updaterFn) {
     return updated;
 }
 
+function isAdminSession() {
+    try {
+        return localStorage.getItem(SESSION_KEY) === "__ADMIN__";
+    } catch (e) {
+        return false;
+    }
+}
+
 function getCurrentUser() {
     try {
         var email = localStorage.getItem(SESSION_KEY);
-        if (!email) return null;
+        if (!email || email === "__ADMIN__") return null;
         var users = getUsers();
         for (var i = 0; i < users.length; i++) {
             if (users[i].email.toLowerCase() === email.toLowerCase()) {
@@ -910,10 +1224,10 @@ function getCurrentUser() {
     }
 }
 
-function setSession(email) {
+function setSession(val) {
     try {
-        if (email) {
-            localStorage.setItem(SESSION_KEY, email);
+        if (val) {
+            localStorage.setItem(SESSION_KEY, val);
         } else {
             localStorage.removeItem(SESSION_KEY);
         }
@@ -923,19 +1237,39 @@ function setSession(email) {
 
 function syncAuthUI() {
     var user = getCurrentUser();
+    var adminLogged = isAdminSession();
     var hdrBtn = document.getElementById("hdrAuthBtn");
     var guestBtn = document.getElementById("heroGuestBtn");
     var userBtns = document.getElementById("heroUserBtns");
+    var primaryBtn = document.getElementById("heroPrimaryDashBtn");
     var navLogin = document.getElementById("navLoginLink");
     var navDash = document.getElementById("navDashLink");
+    var navAdmin = document.getElementById("navAdminLink");
     var navLogout = document.getElementById("navLogoutLink");
 
-    if (user) {
+    if (adminLogged) {
+        if (hdrBtn) hdrBtn.textContent = "Admin Panel";
+        if (guestBtn) guestBtn.style.display = "none";
+        if (userBtns) userBtns.style.display = "grid";
+        if (primaryBtn) {
+            primaryBtn.textContent = "Open Admin Panel";
+            primaryBtn.onclick = function() { openAdminScreen("users"); };
+        }
+        if (navLogin) navLogin.style.display = "none";
+        if (navDash) navDash.style.display = "none";
+        if (navAdmin) navAdmin.style.display = "block";
+        if (navLogout) navLogout.style.display = "block";
+    } else if (user) {
         if (hdrBtn) hdrBtn.textContent = "Dashboard";
         if (guestBtn) guestBtn.style.display = "none";
         if (userBtns) userBtns.style.display = "grid";
+        if (primaryBtn) {
+            primaryBtn.textContent = "Open Dashboard";
+            primaryBtn.onclick = function() { openDashboardScreen("earnings"); };
+        }
         if (navLogin) navLogin.style.display = "none";
         if (navDash) navDash.style.display = "block";
+        if (navAdmin) navAdmin.style.display = "none";
         if (navLogout) navLogout.style.display = "block";
     } else {
         if (hdrBtn) hdrBtn.textContent = "Student Login";
@@ -943,6 +1277,7 @@ function syncAuthUI() {
         if (userBtns) userBtns.style.display = "none";
         if (navLogin) navLogin.style.display = "block";
         if (navDash) navDash.style.display = "none";
+        if (navAdmin) navAdmin.style.display = "none";
         if (navLogout) navLogout.style.display = "none";
     }
 }
@@ -956,22 +1291,64 @@ function hideAllScreens() {
     document.getElementById("mainSiteView").style.display = "none";
     document.getElementById("authScreen").classList.remove("active");
     document.getElementById("dashboardScreen").classList.remove("active");
+    document.getElementById("adminScreen").classList.remove("active");
 }
 
 function openMainSite() {
     hideAllScreens();
+    renderCoursesEverywhere();
     document.getElementById("mainSiteView").style.display = "block";
     window.scrollTo(0, 0);
 }
 
-function openAuthScreen(mode) {
+function openAuthScreen(mode, forceAdminPrompt) {
     hideAllScreens();
     document.getElementById("authScreen").classList.add("active");
-    switchAuthMode(mode || "login");
+    switchAuthMode(mode || "login", !!forceAdminPrompt);
     window.scrollTo(0, 0);
 }
 
-function switchAuthMode(mode) {
+function setAdminLoginVisualMode(active) {
+    isAdminLoginPromptActive = !!active;
+    var banner = document.getElementById("adminModeBanner");
+    var titleEl = document.getElementById("authHeadingTitle");
+    var subEl = document.getElementById("authHeadingSub");
+    var btnEl = document.getElementById("loginSubmitBtn");
+    var idInp = document.getElementById("lId");
+
+    if (active) {
+        if (banner) banner.classList.add("active");
+        if (titleEl) titleEl.textContent = "Admin Portal Login";
+        if (subEl) subEl.textContent = "Enter Admin Email & Password";
+        if (btnEl) btnEl.textContent = "Login to Admin Panel →";
+        if (idInp && idInp.value.trim().toLowerCase().indexOf("#admin") !== -1) {
+            idInp.value = "";
+            idInp.placeholder = "Enter admin email (e.g. admin@tms.com)";
+        }
+    } else {
+        if (banner) banner.classList.remove("active");
+        if (titleEl) titleEl.textContent = "Student Portal Login";
+        if (subEl) subEl.textContent = "Sign in with your credentials (tip: type #admin for admin login)";
+        if (btnEl) btnEl.textContent = "Login to Dashboard →";
+        if (idInp) idInp.placeholder = "Enter email or type #admin";
+    }
+}
+
+function handleLoginInputTrigger() {
+    var val = (document.getElementById("lId").value || "").trim().toLowerCase();
+    if (val.indexOf("#admin") !== -1) {
+        setAdminLoginVisualMode(true);
+        document.getElementById("lPw").focus();
+    }
+}
+
+function triggerAdminPromptMode() {
+    setAdminLoginVisualMode(true);
+    document.getElementById("lId").value = "";
+    document.getElementById("lId").focus();
+}
+
+function switchAuthMode(mode, forceAdminPrompt) {
     var loginForm = document.getElementById("authLoginForm");
     var forgotForm = document.getElementById("authForgotForm");
 
@@ -995,6 +1372,7 @@ function switchAuthMode(mode) {
         lErr.style.display = "none";
         lErr.style.background = "#581c1c";
         lErr.style.color = "#fecaca";
+        setAdminLoginVisualMode(!!forceAdminPrompt);
         loginForm.style.display = "block";
     }
 }
@@ -1002,18 +1380,347 @@ function switchAuthMode(mode) {
 function openDashboardScreen(tab) {
     var user = getCurrentUser();
     if (!user) {
-        openAuthScreen("login");
+        openAuthScreen("login", false);
         return;
     }
     hideAllScreens();
     toggleQuickNameEdit(false);
     currentTeamPage = 1;
+    renderCoursesEverywhere();
     renderDashboardData(user);
     document.getElementById("dashboardScreen").classList.add("active");
     switchDashTab(tab || "earnings");
     window.scrollTo(0, 0);
 }
 
+function openAdminScreen(tab) {
+    if (!isAdminSession()) {
+        openAuthScreen("login", true);
+        return;
+    }
+    hideAllScreens();
+    renderAdminPanel();
+    document.getElementById("adminScreen").classList.add("active");
+    switchAdminTab(tab || "users");
+    window.scrollTo(0, 0);
+}
+
+function switchAdminTab(tab) {
+    var tabs = ["Users", "Courses", "Theme", "Security"];
+    for (var i = 0; i < tabs.length; i++) {
+        var name = tabs[i];
+        var btn = document.getElementById("admTab" + name);
+        var card = document.getElementById("admCard" + name);
+        if (btn) btn.classList.remove("active");
+        if (card) card.classList.remove("active");
+    }
+    var key = tab.charAt(0).toUpperCase() + tab.slice(1);
+    var activeBtn = document.getElementById("admTab" + key);
+    var activeCard = document.getElementById("admCard" + key);
+    if (activeBtn) activeBtn.classList.add("active");
+    if (activeCard) activeCard.classList.add("active");
+}
+
+/* =========================================================
+   ADMIN PANEL LOGIC (USERS, PASSWORD, COURSES, THEME)
+   ========================================================= */
+function renderAdminPanel() {
+    var users = getUsers();
+    var totalEl = document.getElementById("admTotalUsersCount");
+    var hdrCountEl = document.getElementById("admUsersHeaderCount");
+    if (totalEl) totalEl.textContent = String(users.length);
+    if (hdrCountEl) hdrCountEl.textContent = String(users.length);
+
+    var listBox = document.getElementById("adminUsersList");
+    if (listBox) {
+        var html = "";
+        for (var i = 0; i < users.length; i++) {
+            var u = users[i];
+            var safeEmail = u.email.replace(/'/g, "\\'");
+            html +=
+                "<div class='admin-user-row'>" +
+                "<div>" +
+                "<b>" + (u.name || "User") + (u.tag ? " " + u.tag : "") + " <span style='color:#94a3b8;font-size:12px'>(" + (u.studentId || "") + ")</span></b>" +
+                "<small>ID/Email: <b>" + u.email + "</b> • Password: <b>" + u.password + "</b></small>" +
+                "<small>Phone: " + (u.phone || "--") + " • Wallet: " + ((u.earnings && u.earnings.wallet) || "₹0") + "</small>" +
+                "</div>" +
+                "<div class='admin-mini-actions'>" +
+                "<button type='button' class='admin-mini-btn gold' onclick=\"openAdminUserEditor('" + safeEmail + "')\">Edit ID/Pass/Earn</button>" +
+                (users.length > 1 ? "<button type='button' class='admin-mini-btn danger' onclick=\"adminDeleteUser('" + safeEmail + "')\">Delete</button>" : "") +
+                "</div>" +
+                "</div>";
+        }
+        listBox.innerHTML = html;
+    }
+
+    // Render Course Rate Editor Inputs
+    var courses = getCourses();
+    var courseBox = document.getElementById("adminCoursesEditorList");
+    if (courseBox) {
+        var cHtml = "";
+        for (var j = 0; j < courses.length; j++) {
+            var c = courses[j];
+            cHtml +=
+                "<div style='background:#0b1224;border:1px solid #263348;border-radius:12px;padding:12px;margin-bottom:10px'>" +
+                "<b style='color:#fbbf24;display:block;margin-bottom:8px'>Package #" + (j + 1) + "</b>" +
+                "<div class='admin-edit-grid'>" +
+                "<div><label class='lbl'>Course Title</label><input class='inp adm-c-title' data-idx='" + j + "' type='text' value=\"" + c.title.replace(/"/g, "&quot;") + "\"></div>" +
+                "<div><label class='lbl'>Badge Label</label><input class='inp adm-c-badge' data-idx='" + j + "' type='text' value=\"" + c.badge.replace(/"/g, "&quot;") + "\"></div>" +
+                "<div><label class='lbl'>Current Price (₹)</label><input class='inp adm-c-price' data-idx='" + j + "' type='number' min='0' value='" + c.price + "'></div>" +
+                "<div><label class='lbl'>Old / Strike Price (₹)</label><input class='inp adm-c-old' data-idx='" + j + "' type='number' min='0' value='" + c.oldPrice + "'></div>" +
+                "</div>" +
+                "</div>";
+        }
+        courseBox.innerHTML = cHtml;
+    }
+
+    // Sync Admin Credentials Form
+    var creds = getAdminCreds();
+    var secEmail = document.getElementById("admSecEmail");
+    var secPass = document.getElementById("admSecPassword");
+    if (secEmail) secEmail.value = creds.email;
+    if (secPass) secPass.value = creds.password;
+
+    applyThemeClass(getSavedTheme());
+}
+
+function adminAddUser() {
+    var name = (document.getElementById("newAdmUserName").value || "").trim();
+    var email = (document.getElementById("newAdmUserEmail").value || "").trim().toLowerCase();
+    var phone = (document.getElementById("newAdmUserPhone").value || "").replace(/\D/g, "").slice(0, 10);
+    var pass = (document.getElementById("newAdmUserPass").value || "").trim();
+    var ok = document.getElementById("admAddUserOk");
+    var err = document.getElementById("admAddUserErr");
+    ok.style.display = "none";
+    err.style.display = "none";
+
+    if (name.length < 2) {
+        err.textContent = "Enter valid user name.";
+        err.style.display = "block";
+        return;
+    }
+    if (!email || email.indexOf("@") < 1) {
+        err.textContent = "Enter valid user email / login ID.";
+        err.style.display = "block";
+        return;
+    }
+    if (pass.length < 4) {
+        err.textContent = "Password must be at least 4 characters.";
+        err.style.display = "block";
+        return;
+    }
+
+    var users = getUsers();
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email.toLowerCase() === email) {
+            err.textContent = "A user with this email/ID already exists.";
+            err.style.display = "block";
+            return;
+        }
+    }
+
+    users.push({
+        studentId: "TMS-STU-" + Math.floor(1000 + Math.random() * 9000),
+        name: name,
+        tag: "",
+        email: email,
+        phone: phone || "9000000000",
+        password: pass,
+        photo: "",
+        photoAdjust: { scale: 1, x: 0, y: 0 },
+        earnings: getZeroEarnings(),
+        orders: [],
+        team: getSampleTeamMembers()
+    });
+    saveUsers(users);
+
+    document.getElementById("newAdmUserName").value = "";
+    document.getElementById("newAdmUserEmail").value = "";
+    document.getElementById("newAdmUserPhone").value = "";
+    document.getElementById("newAdmUserPass").value = "";
+    ok.textContent = "New user added: " + email;
+    ok.style.display = "block";
+    renderAdminPanel();
+}
+
+function openAdminUserEditor(email) {
+    var users = getUsers();
+    var found = null;
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email.toLowerCase() === email.toLowerCase()) {
+            found = users[i];
+            break;
+        }
+    }
+    if (!found) return;
+
+    var earn = found.earnings || getZeroEarnings();
+    document.getElementById("admEditOriginalEmail").value = found.email;
+    document.getElementById("admEditingTitle").textContent = "Edit User: " + found.name;
+    document.getElementById("admEditName").value = found.name || "";
+    document.getElementById("admEditTag").value = found.tag || "";
+    document.getElementById("admEditEmail").value = found.email || "";
+    document.getElementById("admEditPassword").value = found.password || "";
+    document.getElementById("admEditToday").value = earn.today || "₹0";
+    document.getElementById("admEdit7Days").value = earn.sevenDays || "₹0";
+    document.getElementById("admEdit30Days").value = earn.thirtyDays || "₹0";
+    document.getElementById("admEditAllTime").value = earn.allTime || "₹0";
+    document.getElementById("admEditIndustrial").value = earn.industrial || "₹0";
+    document.getElementById("admEditWallet").value = earn.wallet || "₹0";
+    document.getElementById("admEditUserOk").style.display = "none";
+    document.getElementById("admEditUserErr").style.display = "none";
+    document.getElementById("adminUserEditorBox").style.display = "block";
+    document.getElementById("adminUserEditorBox").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function closeAdminUserEditor() {
+    var box = document.getElementById("adminUserEditorBox");
+    if (box) box.style.display = "none";
+}
+
+function adminSaveEditedUser() {
+    var origEmail = (document.getElementById("admEditOriginalEmail").value || "").trim().toLowerCase();
+    var name = (document.getElementById("admEditName").value || "").trim();
+    var tag = (document.getElementById("admEditTag").value || "").trim();
+    var newEmail = (document.getElementById("admEditEmail").value || "").trim().toLowerCase();
+    var newPass = (document.getElementById("admEditPassword").value || "").trim();
+    var ok = document.getElementById("admEditUserOk");
+    var err = document.getElementById("admEditUserErr");
+    ok.style.display = "none";
+    err.style.display = "none";
+
+    if (name.length < 2) {
+        err.textContent = "Name must be at least 2 characters.";
+        err.style.display = "block";
+        return;
+    }
+    if (!newEmail || newEmail.indexOf("@") < 1) {
+        err.textContent = "Valid email / login ID is required.";
+        err.style.display = "block";
+        return;
+    }
+    if (newPass.length < 4) {
+        err.textContent = "Password must be at least 4 characters.";
+        err.style.display = "block";
+        return;
+    }
+
+    var users = getUsers();
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email.toLowerCase() !== origEmail && users[i].email.toLowerCase() === newEmail) {
+            err.textContent = "Another user already uses this email / ID.";
+            err.style.display = "block";
+            return;
+        }
+    }
+
+    for (var j = 0; j < users.length; j++) {
+        if (users[j].email.toLowerCase() === origEmail) {
+            users[j].name = name;
+            users[j].tag = tag;
+            users[j].email = newEmail;
+            users[j].password = newPass;
+            users[j].earnings = {
+                today: (document.getElementById("admEditToday").value || "₹0").trim(),
+                sevenDays: (document.getElementById("admEdit7Days").value || "₹0").trim(),
+                thirtyDays: (document.getElementById("admEdit30Days").value || "₹0").trim(),
+                allTime: (document.getElementById("admEditAllTime").value || "₹0").trim(),
+                industrial: (document.getElementById("admEditIndustrial").value || "₹0").trim(),
+                wallet: (document.getElementById("admEditWallet").value || "₹0").trim()
+            };
+            break;
+        }
+    }
+
+    saveUsers(users);
+    document.getElementById("admEditOriginalEmail").value = newEmail;
+    ok.textContent = "User ID, password & earnings saved!";
+    ok.style.display = "block";
+    renderAdminPanel();
+}
+
+function adminDeleteUser(email) {
+    var users = getUsers();
+    if (users.length <= 1) return;
+    var filtered = users.filter(function(u) {
+        return u.email.toLowerCase() !== email.toLowerCase();
+    });
+    saveUsers(filtered);
+    closeAdminUserEditor();
+    renderAdminPanel();
+}
+
+function adminSaveCourses() {
+    var courses = getCourses();
+    var titles = document.querySelectorAll(".adm-c-title");
+    var badges = document.querySelectorAll(".adm-c-badge");
+    var prices = document.querySelectorAll(".adm-c-price");
+    var olds = document.querySelectorAll(".adm-c-old");
+    var ok = document.getElementById("admCoursesOk");
+    var err = document.getElementById("admCoursesErr");
+    ok.style.display = "none";
+    err.style.display = "none";
+
+    for (var i = 0; i < courses.length; i++) {
+        var tVal = titles[i] ? titles[i].value.trim() : courses[i].title;
+        var bVal = badges[i] ? badges[i].value.trim() : courses[i].badge;
+        var pVal = prices[i] ? parseInt(prices[i].value, 10) : courses[i].price;
+        var oVal = olds[i] ? parseInt(olds[i].value, 10) : courses[i].oldPrice;
+
+        if (!tVal || isNaN(pVal) || pVal < 0 || isNaN(oVal) || oVal < 0) {
+            err.textContent = "Please enter valid course names and non-negative prices.";
+            err.style.display = "block";
+            return;
+        }
+        courses[i].title = tVal;
+        courses[i].badge = bVal || courses[i].badge;
+        courses[i].price = pVal;
+        courses[i].oldPrice = oVal;
+    }
+
+    saveCourses(courses);
+    ok.textContent = "Course rates updated across the entire site!";
+    ok.style.display = "block";
+}
+
+function adminResetDefaultCourses() {
+    var def = getDefaultCourses();
+    saveCourses(def);
+    renderAdminPanel();
+    var ok = document.getElementById("admCoursesOk");
+    if (ok) {
+        ok.textContent = "Default course rates restored!";
+        ok.style.display = "block";
+    }
+}
+
+function adminSaveSecurity() {
+    var email = (document.getElementById("admSecEmail").value || "").trim().toLowerCase();
+    var pass = (document.getElementById("admSecPassword").value || "").trim();
+    var ok = document.getElementById("admSecOk");
+    var err = document.getElementById("admSecErr");
+    ok.style.display = "none";
+    err.style.display = "none";
+
+    if (!email || email.indexOf("@") < 1) {
+        err.textContent = "Enter valid admin email.";
+        err.style.display = "block";
+        return;
+    }
+    if (pass.length < 4) {
+        err.textContent = "Admin password must be at least 4 characters.";
+        err.style.display = "block";
+        return;
+    }
+
+    saveAdminCreds({ email: email, password: pass });
+    ok.textContent = "Admin credentials updated!";
+    ok.style.display = "block";
+}
+
+/* =========================================================
+   DASHBOARD & PROFILE LOGIC
+   ========================================================= */
 function switchDashTab(tab) {
     var tabs = ["Earnings", "Team", "Courses", "Upgrade", "Password"];
     for (var i = 0; i < tabs.length; i++) {
@@ -1314,7 +2021,7 @@ function doSaveProfile() {
 function openPhotoEditor() {
     var user = getCurrentUser();
     if (!user) {
-        openAuthScreen("login");
+        openAuthScreen("login", false);
         return;
     }
 
@@ -1440,11 +2147,12 @@ function removeProfilePhoto() {
 }
 
 function handleHeaderAuth() {
-    var user = getCurrentUser();
-    if (user) {
+    if (isAdminSession()) {
+        openAdminScreen("users");
+    } else if (getCurrentUser()) {
         openDashboardScreen("earnings");
     } else {
-        openAuthScreen("login");
+        openAuthScreen("login", false);
     }
 }
 
@@ -1464,16 +2172,38 @@ function closeMenu() {
 }
 
 /* =========================================================
-   AUTHENTICATION LOGIC
+   AUTHENTICATION LOGIC (STUDENT + #admin)
    ========================================================= */
 function doLogin() {
-    var id = document.getElementById("lId").value.trim().toLowerCase();
+    var rawId = (document.getElementById("lId").value || "").trim();
+    var id = rawId.toLowerCase();
     var pw = document.getElementById("lPw").value;
     var err = document.getElementById("lErr");
     err.style.display = "none";
 
+    if (id.indexOf("#admin") !== -1) {
+        setAdminLoginVisualMode(true);
+        document.getElementById("lId").value = "";
+        document.getElementById("lId").focus();
+        err.textContent = "Admin mode active. Please enter Admin Email & Password.";
+        err.style.display = "block";
+        return;
+    }
+
     if (!id || !pw) {
-        err.textContent = "Please enter both email and password.";
+        err.textContent = "Please enter both email/ID and password.";
+        err.style.display = "block";
+        return;
+    }
+
+    var adminCreds = getAdminCreds();
+    if (isAdminLoginPromptActive || id === adminCreds.email.toLowerCase()) {
+        if (id === adminCreds.email.toLowerCase() && pw === adminCreds.password) {
+            setSession("__ADMIN__");
+            openAdminScreen("users");
+            return;
+        }
+        err.textContent = "Invalid Admin credentials. Default: admin@tms.com / admin123";
         err.style.display = "block";
         return;
     }
@@ -1491,7 +2221,7 @@ function doLogin() {
         setSession(matched.email);
         openDashboardScreen("earnings");
     } else {
-        err.textContent = "Invalid email or password. Try student1@tms.com / pass1.";
+        err.textContent = "Invalid email or password. Try student1@tms.com / pass1 or type #admin.";
         err.style.display = "block";
     }
 }
@@ -1566,7 +2296,7 @@ function completePasswordReset() {
     saveUsers(users);
     resetTargetEmail = "";
 
-    switchAuthMode("login");
+    switchAuthMode("login", false);
     var lErr = document.getElementById("lErr");
     lErr.style.background = "#064e3b";
     lErr.style.color = "#dcfce7";
@@ -1577,7 +2307,7 @@ function completePasswordReset() {
 function doChangePassword() {
     var user = getCurrentUser();
     if (!user) {
-        openAuthScreen("login");
+        openAuthScreen("login", false);
         return;
     }
 
@@ -1743,7 +2473,18 @@ function copyVal(val, id) {
     }
 }
 
+window.addEventListener("hashchange", function() {
+    if (window.location.hash.toLowerCase() === "#admin") {
+        openAuthScreen("login", true);
+    }
+});
+
+applyThemeClass(getSavedTheme());
+renderCoursesEverywhere();
 syncAuthUI();
+if (window.location.hash.toLowerCase() === "#admin") {
+    openAuthScreen("login", true);
+}
 </script>
 
 </body>

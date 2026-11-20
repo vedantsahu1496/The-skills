@@ -3,292 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel — The Millionaire Skills</title>
+<title>Admin Panel | THE MILLIONAIRE SKILLS</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
-body{background:#090c10;color:#f1f5f9;line-height:1.5;padding:16px}
-.wrap{max-width:640px;margin:0 auto}
-.top{background:#0d1117;border:1px solid #21262d;border-radius:14px;padding:16px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.top h1{font-size:18px;color:#eab308;font-weight:800}
-.top p{font-size:12px;color:#94a3b8}
-.link-btn{background:#161b22;color:#f8fafc;border:1px solid #30363d;padding:8px 12px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:700}
-
-.box{background:#0d1117;border:1px solid #21262d;border-radius:14px;padding:16px;margin-bottom:14px}
-.box h2{font-size:15px;color:#f8fafc;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #1c2128}
-
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:520px){.grid-2{grid-template-columns:1fr}}
-
-.fg{margin-bottom:10px}
-.fg label{display:block;font-size:11.5px;color:#cbd5e1;font-weight:700;margin-bottom:4px}
-.fg input,.fg textarea{width:100%;padding:9px 10px;border-radius:8px;border:1px solid #30363d;background:#161b22;color:#ffffff;font-size:13px}
-.fg textarea{min-height:64px;resize:vertical}
-
-details.c-edit{background:#161b22;border:1px solid #262c36;border-radius:12px;padding:12px;margin-bottom:10px}
-details.c-edit[open]{border-color:#eab308}
-summary.c-sum{list-style:none;font-size:13.5px;font-weight:800;color:#eab308}
-summary.c-sum::-webkit-details-marker{display:none}
-.c-body{margin-top:12px;padding-top:10px;border-top:1px solid #262c36}
-
-.btn{width:100%;border:none;border-radius:10px;padding:12px 14px;font-size:14px;font-weight:800;cursor:pointer;margin-top:6px}
-.btn-gold{background:#eab308;color:#090c10}
-.btn-green{background:#16a34a;color:#ffffff}
-
-.out-area{width:100%;min-height:220px;margin-top:12px;padding:12px;border-radius:10px;border:1px solid #30363d;background:#06080b;color:#4ade80;font-family:monospace;font-size:11.5px}
-.note{font-size:12px;color:#94a3b8;margin-top:8px}
+:root{--bg:#090d16;--card:#111b30;--card2:#0b1224;--border:#293548;--accent:#fbbf24;--pink:#e879f9;--text:#f8fafc;--muted:#94a3b8}
+body.t-midnight{--bg:#060c18;--card:#0f172a;--card2:#090f1d;--border:#1e293b;--accent:#38bdf8;--pink:#818cf8;--text:#f1f5f9;--muted:#94a3b8}
+body.t-light{--bg:#eef2f7;--card:#ffffff;--card2:#f8fafc;--border:#cbd5e1;--accent:#2563eb;--pink:#7c3aed;--text:#0f172a;--muted:#475569}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial,sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.5;padding:16px 14px 48px;transition:.2s}
+.wrap{max-width:780px;margin:auto}
+.top{background:var(--card);border:1.5px solid var(--pink);border-radius:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.top b{font-size:18px;display:block}
+.top small{color:var(--muted);font-size:12px}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn-full{width:100%;margin-top:8px}
+.btn-gold{background:var(--accent);color:#080b14}
+.btn-pink{background:var(--pink);color:#080b14}
+.btn-green{background:#22c55e;color:#052e16}
+.btn-red{background:#ef4444;color:#fff}
+.btn-ghost{background:var(--card2);color:var(--text);border:1px solid var(--border)}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:14px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
+.stat b{font-size:22px;color:var(--accent);display:block}
+.stat span{font-size:12px;color:var(--muted)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px}
+.tab{background:var(--card);color:var(--muted);border:1px solid var(--border);border-radius:10px;padding:9px 14px;font-weight:700;font-size:12.5px;white-space:nowrap;cursor:pointer}
+.tab.active{background:var(--accent);color:#080b14;border-color:var(--accent)}
+.box{display:none;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:14px}
+.box.active{display:block}
+.box h3{font-size:16px;color:var(--accent);margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lbl{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:4px}
+.inp,.sel{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card2);color:var(--text);font-size:13.5px;margin-bottom:10px}
+.inp:focus{outline:none;border-color:var(--accent)}
+.row{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.row b{display:block;font-size:14px}
+.row small{display:block;color:var(--muted);font-size:12px}
+.badge{padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700}
+.b-ok{background:#14532d;color:#86efac}
+.b-wait{background:#713f12;color:#fde047}
+.msg{display:none;padding:10px 12px;border-radius:10px;font-size:12.5px;margin-top:8px;font-weight:600}
+.msg.ok{display:block;background:#064e3b;color:#dcfce7}
+.msg.err{display:block;background:#7f1d1d;color:#fecaca}
+.login-card{max-width:400px;margin:60px auto;background:var(--card);border:1.5px solid var(--accent);border-radius:18px;padding:22px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<div id="loginView" class="login-card">
+  <h2 style="color:var(--accent);margin-bottom:4px">⚡ Admin Login</h2>
+  <p style="color:var(--muted);font-size:12.5px;margin-bottom:14px">Default: <b>admin@tms.com</b> / <b>admin123</b></p>
+  <label class="lbl">Admin ID / Email</label>
+  <input id="lEmail" class="inp" type="email" placeholder="admin@tms.com">
+  <label class="lbl">Password</label>
+  <input id="lPass" class="inp" type="password" placeholder="••••••••">
+  <button class="btn btn-gold btn-full" onclick="doAdminLogin()">Unlock Admin Panel →</button>
+  <div id="lMsg" class="msg"></div>
+</div>
+
+<div id="panelView" class="wrap" style="display:none">
   <div class="top">
     <div>
-      <h1>Course &amp; Site Editor (admin.html)</h1>
-      <p>Edit course names, prices, modules &amp; WhatsApp, then generate updated index.html</p>
+      <b>⚡ THE MILLIONAIRE SKILLS — ADMIN</b>
+      <small id="admSub">Full Control: Users, Passwords, UTR Orders, Rates &amp; Theme</small>
     </div>
-    <a href="index.html" class="link-btn">View index.html &rarr;</a>
-  </div>
-
-  <div class="box">
-    <h2>Global Settings</h2>
-    <div class="grid-2">
-      <div class="fg">
-        <label>WhatsApp Number (with country code, no +)</label>
-        <input id="waNo" value="916289841691">
-      </div>
-      <div class="fg">
-        <label>UPI ID</label>
-        <input id="upiId" value="7999886983@upi">
-      </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <a class="btn btn-ghost" href="index.html">← index.html</a>
+      <button class="btn btn-red" onclick="doAdminLogout()">Logout</button>
     </div>
   </div>
 
-  <div class="box">
-    <h2>Edit 5 Mastery Packages</h2>
-
-    <details class="c-edit" open>
-      <summary class="c-sum">1. Marketing Mastery (Tap to expand/collapse)</summary>
-      <div class="c-body">
-        <div class="grid-2">
-          <div class="fg"><label>Course Title</label><input id="c1Title" value="Marketing Mastery"></div>
-          <div class="fg"><label>Badge</label><input id="c1Badge" value="STARTER TRACK"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Price (INR)</label><input id="c1Price" type="number" value="1499"></div>
-          <div class="fg"><label>Old Price (INR)</label><input id="c1Old" type="number" value="2999"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Modules Text</label><input id="c1Mod" value="12 Modules"></div>
-          <div class="fg"><label>Book Label</label><input id="c1Book" value="FUNNELS &amp; SALES"></div>
-        </div>
-        <div class="fg"><label>Description</label><textarea id="c1Desc">Funnels, digital marketing fundamentals, buyer psychology, and repeatable sales systems.</textarea></div>
-      </div>
-    </details>
-
-    <details class="c-edit">
-      <summary class="c-sum">2. Branding Mastery</summary>
-      <div class="c-body">
-        <div class="grid-2">
-          <div class="fg"><label>Course Title</label><input id="c2Title" value="Branding Mastery"></div>
-          <div class="fg"><label>Badge</label><input id="c2Badge" value="AUTHORITY TRACK"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Price (INR)</label><input id="c2Price" type="number" value="2199"></div>
-          <div class="fg"><label>Old Price (INR)</label><input id="c2Old" type="number" value="4499"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Modules Text</label><input id="c2Mod" value="16 Modules"></div>
-          <div class="fg"><label>Book Label</label><input id="c2Book" value="PERSONAL BRAND"></div>
-        </div>
-        <div class="fg"><label>Description</label><textarea id="c2Desc">Build a distinct social identity, signature content positioning, and long-term audience trust.</textarea></div>
-      </div>
-    </details>
-
-    <details class="c-edit">
-      <summary class="c-sum">3. Traffic Mastery</summary>
-      <div class="c-body">
-        <div class="grid-2">
-          <div class="fg"><label>Course Title</label><input id="c3Title" value="Traffic Mastery"></div>
-          <div class="fg"><label>Badge</label><input id="c3Badge" value="MOST POPULAR"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Price (INR)</label><input id="c3Price" type="number" value="3499"></div>
-          <div class="fg"><label>Old Price (INR)</label><input id="c3Old" type="number" value="6999"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Modules Text</label><input id="c3Mod" value="20 Modules"></div>
-          <div class="fg"><label>Book Label</label><input id="c3Book" value="LEADS &amp; ADS"></div>
-        </div>
-        <div class="fg"><label>Description</label><textarea id="c3Desc">Generate qualified leads through paid acquisition, organic reach frameworks, and conversion flows.</textarea></div>
-      </div>
-    </details>
-
-    <details class="c-edit">
-      <summary class="c-sum">4. Influence Mastery</summary>
-      <div class="c-body">
-        <div class="grid-2">
-          <div class="fg"><label>Course Title</label><input id="c4Title" value="Influence Mastery"></div>
-          <div class="fg"><label>Badge</label><input id="c4Badge" value="COMMUNICATION &amp; SALES"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Price (INR)</label><input id="c4Price" type="number" value="4999"></div>
-          <div class="fg"><label>Old Price (INR)</label><input id="c4Old" type="number" value="9999"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Modules Text</label><input id="c4Mod" value="22 Modules"></div>
-          <div class="fg"><label>Book Label</label><input id="c4Book" value="CLOSING &amp; SPEAKING"></div>
-        </div>
-        <div class="fg"><label>Description</label><textarea id="c4Desc">Sharpen spoken clarity, objection handling, persuasion ethics, and high-trust closing skills.</textarea></div>
-      </div>
-    </details>
-
-    <details class="c-edit">
-      <summary class="c-sum">5. Finance Mastery (VIP Bundle)</summary>
-      <div class="c-body">
-        <div class="grid-2">
-          <div class="fg"><label>Course Title</label><input id="c5Title" value="Finance Mastery (VIP Bundle)"></div>
-          <div class="fg"><label>Badge</label><input id="c5Badge" value="COMPLETE VIP BUNDLE"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Price (INR)</label><input id="c5Price" type="number" value="6999"></div>
-          <div class="fg"><label>Old Price (INR)</label><input id="c5Old" type="number" value="14999"></div>
-        </div>
-        <div class="grid-2">
-          <div class="fg"><label>Modules Text</label><input id="c5Mod" value="All 85+ Modules"></div>
-          <div class="fg"><label>Book Label</label><input id="c5Book" value="WEALTH &amp; FULL ACCESS"></div>
-        </div>
-        <div class="fg"><label>Description</label><textarea id="c5Desc">Personal cashflow discipline, wealth-building principles, and complete access across all 85+ modules.</textarea></div>
-      </div>
-    </details>
+  <div class="grid4">
+    <div class="stat"><b id="stUsers">0</b><span>Total Users</span></div>
+    <div class="stat"><b id="stPending">0</b><span>Pending Orders</span></div>
+    <div class="stat"><b id="stCourses">5</b><span>Packages</span></div>
+    <div class="stat"><b id="stTheme">Dark Gold</b><span>Active Theme</span></div>
   </div>
 
-  <div class="box">
-    <h2>Generate Updated index.html</h2>
-    <button type="button" class="btn btn-gold" onclick="buildIndex()">Generate Updated index.html Code</button>
-    <button type="button" class="btn btn-green" onclick="copyOut()">Copy Generated Code</button>
-    <textarea id="outCode" class="out-area" placeholder="Click 'Generate Updated index.html Code' above..."></textarea>
-    <p class="note">Step: Upar se code copy karke apni <strong>index.html</strong> file mein paste karke save/upload kar do.</p>
+  <div class="tabs">
+    <button class="tab active" data-t="users" onclick="setTab('users')">Users &amp; Passwords</button>
+    <button class="tab" data-t="orders" onclick="setTab('orders')">Payment / UTR</button>
+    <button class="tab" data-t="courses" onclick="setTab('courses')">Course Rates</button>
+    <button class="tab" data-t="theme" onclick="setTab('theme')">Theme &amp; Security</button>
+  </div>
+
+  <!-- TAB 1: USERS -->
+  <div id="tab-users" class="box active">
+    <h3>Add New User</h3>
+    <div class="grid2">
+      <div><label class="lbl">Full Name</label><input id="uName" class="inp" placeholder="Student Name"></div>
+      <div><label class="lbl">Login ID / Email</label><input id="uEmail" class="inp" type="email" placeholder="user@tms.com"></div>
+      <div><label class="lbl">Phone</label><input id="uPhone" class="inp" maxlength="10" placeholder="9876543210"></div>
+      <div><label class="lbl">Password</label><input id="uPass" class="inp" placeholder="Set password"></div>
+    </div>
+    <button class="btn btn-green btn-full" onclick="addUser()">+ Create User Account</button>
+    <div id="uAddMsg" class="msg"></div>
+
+    <div id="editorCard" style="display:none;margin-top:16px;padding:14px;border:1.5px solid var(--pink);border-radius:14px;background:var(--card2)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <b id="edTitle" style="color:var(--pink)">Edit User</b>
+        <button class="btn btn-ghost" onclick="closeEditor()">Close</button>
+      </div>
+      <input type="hidden" id="edOrigEmail">
+      <div class="grid2">
+        <div><label class="lbl">Name</label><input id="edName" class="inp"></div>
+        <div><label class="lbl">Tag</label><input id="edTag" class="inp" placeholder="[VIP]"></div>
+        <div><label class="lbl">ID / Email</label><input id="edEmail" class="inp"></div>
+        <div><label class="lbl">Password</label><input id="edPass" class="inp"></div>
+        <div><label class="lbl">Today's Earning</label><input id="edToday" class="inp"></div>
+        <div><label class="lbl">7 Days Earning</label><input id="ed7d" class="inp"></div>
+        <div><label class="lbl">30 Days Earning</label><input id="ed30d" class="inp"></div>
+        <div><label class="lbl">All Time Earning</label><input id="edAll" class="inp"></div>
+        <div><label class="lbl">Industrial Income</label><input id="edInd" class="inp"></div>
+        <div><label class="lbl">Wallet Balance</label><input id="edWal" class="inp"></div>
+      </div>
+      <button class="btn btn-gold btn-full" onclick="saveUserEdit()">Save User Changes</button>
+      <div id="edMsg" class="msg"></div>
+    </div>
+
+    <h3 style="margin-top:18px">Registered Users (<span id="uCount">0</span>)</h3>
+    <div id="usersList"></div>
+  </div>
+
+  <!-- TAB 2: ORDERS / UTR -->
+  <div id="tab-orders" class="box">
+    <h3>Payment &amp; UTR Verification Queue</h3>
+    <div id="ordersList"></div>
+  </div>
+
+  <!-- TAB 3: COURSES -->
+  <div id="tab-courses" class="box">
+    <h3>Edit Mastery Package Rates</h3>
+    <div id="coursesList"></div>
+    <button class="btn btn-gold btn-full" onclick="saveCourses()">Save All Course Rates</button>
+    <button class="btn btn-ghost btn-full" onclick="resetCourses()">Reset Default Rates</button>
+    <div id="cMsg" class="msg"></div>
+  </div>
+
+  <!-- TAB 4: THEME & SECURITY -->
+  <div id="tab-theme" class="box">
+    <h3>Panel Theme</h3>
+    <select id="themeSel" class="sel" onchange="applyTheme(this.value)">
+      <option value="t-dark">Dark Gold (Default)</option>
+      <option value="t-midnight">Midnight Sky</option>
+      <option value="t-light">Clean Light</option>
+    </select>
+    <div id="thMsg" class="msg"></div>
+
+    <h3 style="margin-top:16px">Change Admin ID &amp; Password</h3>
+    <div class="grid2">
+      <div><label class="lbl">Admin Email</label><input id="secEmail" class="inp"></div>
+      <div><label class="lbl">Admin Password</label><input id="secPass" class="inp"></div>
+    </div>
+    <button class="btn btn-pink btn-full" onclick="saveSecurity()">Update Admin Login</button>
+    <button class="btn btn-ghost btn-full" onclick="exportData()">Export Backup JSON</button>
+    <div id="secMsg" class="msg"></div>
   </div>
 </div>
 
 <script>
-function esc(s){
-  return String(s || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;");
-}
+const K = {
+  users: "tms_users_v7",
+  courses: "tms_courses_v7",
+  theme: "tms_theme_v7",
+  admin: "tms_admin_creds_v7",
+  auth: "tms_adm_session_v1"
+};
 
-function fmtINR(n){
-  var num = parseInt(n, 10) || 0;
-  return num.toLocaleString("en-IN");
-}
+const DEF_COURSES = [
+  { id:"marketing", img:"file_00000000a24082079bd1a0d07ce5ae90.png", badge:"STARTER", save:"SAVE 50%", title:"Marketing Mastery", desc:"Funnels, digital marketing foundations, buyer psychology & conversion systems.", rating:"★ 4.8", modules:"12 Modules", price:999, oldPrice:1999, vip:false },
+  { id:"branding", img:"file_000000002914821181cc5ff207a5f834.png", badge:"AUTHORITY", save:"SAVE 50%", title:"Branding Mastery", desc:"Build a strong social media identity, content style & audience trust.", rating:"★ 4.7", modules:"16 Modules", price:2499, oldPrice:4999, vip:false },
+  { id:"traffic", img:"IMG-20261120-WA8600.jpg", badge:"TRENDING", save:"SAVE 50%", title:"Traffic Mastery", desc:"Drive targeted leads using ads, reach growth & conversion systems.", rating:"★ 4.6", modules:"20 Modules", price:4999, oldPrice:9999, vip:false },
+  { id:"influence", img:"IMG-20261120-WA5578.jpg", badge:"PRO POWER", save:"SAVE 50%", title:"Influence Mastery", desc:"Communication, speaking confidence, persuasion & high-trust closing.", rating:"★ 4.9", modules:"22 Modules", price:9999, oldPrice:19999, vip:false },
+  { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"ALL-IN-ONE VIP", save:"BEST VALUE", title:"Finance Mastery (VIP Bundle)", desc:"Money management, wealth building & full access across all mastery modules.", rating:"★ 5.0", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
+];
 
-function buildIndex(){
-  var wa = (document.getElementById("waNo").value || "916289841691").replace(/\D/g,"");
-  var upi = (document.getElementById("upiId").value || "7999886983@upi").trim();
+const ZERO_EARN = { today:"₹0", sevenDays:"₹0", thirtyDays:"₹0", allTime:"₹0", industrial:"₹0", wallet:"₹0" };
 
-  var courses = [
-    {
-      title: document.getElementById("c1Title").value,
-      badge: document.getElementById("c1Badge").value,
-      price: parseInt(document.getElementById("c1Price").value, 10) || 0,
-      old: parseInt(document.getElementById("c1Old").value, 10) || 0,
-      mod: document.getElementById("c1Mod").value,
-      book: document.getElementById("c1Book").value,
-      desc: document.getElementById("c1Desc").value,
-      wrapBg: "#0f172a", bookBg: "#1e3a8a", save: "SAVE 50%", vip: false
-    },
-    {
-      title: document.getElementById("c2Title").value,
-      badge: document.getElementById("c2Badge").value,
-      price: parseInt(document.getElementById("c2Price").value, 10) || 0,
-      old: parseInt(document.getElementById("c2Old").value, 10) || 0,
-      mod: document.getElementById("c2Mod").value,
-      book: document.getElementById("c2Book").value,
-      desc: document.getElementById("c2Desc").value,
-      wrapBg: "#1c1917", bookBg: "#92400e", save: "SAVE 51%", vip: false
-    },
-    {
-      title: document.getElementById("c3Title").value,
-      badge: document.getElementById("c3Badge").value,
-      price: parseInt(document.getElementById("c3Price").value, 10) || 0,
-      old: parseInt(document.getElementById("c3Old").value, 10) || 0,
-      mod: document.getElementById("c3Mod").value,
-      book: document.getElementById("c3Book").value,
-      desc: document.getElementById("c3Desc").value,
-      wrapBg: "#06281e", bookBg: "#065f46", save: "SAVE 50%", vip: false
-    },
-    {
-      title: document.getElementById("c4Title").value,
-      badge: document.getElementById("c4Badge").value,
-      price: parseInt(document.getElementById("c4Price").value, 10) || 0,
-      old: parseInt(document.getElementById("c4Old").value, 10) || 0,
-      mod: document.getElementById("c4Mod").value,
-      book: document.getElementById("c4Book").value,
-      desc: document.getElementById("c4Desc").value,
-      wrapBg: "#1e1035", bookBg: "#5b21b6", save: "SAVE 50%", vip: false
-    },
-    {
-      title: document.getElementById("c5Title").value,
-      badge: document.getElementById("c5Badge").value,
-      price: parseInt(document.getElementById("c5Price").value, 10) || 0,
-      old: parseInt(document.getElementById("c5Old").value, 10) || 0,
-      mod: document.getElementById("c5Mod").value,
-      book: document.getElementById("c5Book").value,
-      desc: document.getElementById("c5Desc").value,
-      wrapBg: "#291d06", bookBg: "#a16207", save: "BEST VALUE", vip: true
-    }
-  ];
+const readJ = (k, fb) => { try { return JSON.parse(localStorage.getItem(k)) || fb; } catch { return fb; } };
+const writeJ = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+const showMsg = (id, text, ok=true) => {
+  const el = document.getElementById(id);
+  el.className = "msg " + (ok ? "ok" : "err");
+  el.textContent = text;
+};
 
-  var cardsHtml = "";
-  for (var i = 0; i < courses.length; i++) {
-    var c = courses[i];
-    var upiUri = "upi://pay?pa=" + encodeURIComponent(upi) + "&pn=TheMillionaireSkills&am=" + c.price + "&cu=INR";
-    var qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(upiUri);
-    var waMsg = "https://wa.me/" + wa + "?text=" + encodeURIComponent("Hello THE MILLIONAIRE SKILLS, I completed payment of Rs." + c.price + " for " + c.title + ".");
-
-    cardsHtml +=
-      '<div class="card' + (c.vip ? ' vip' : '') + '">\n' +
-      '  <div class="book-wrap" style="background:' + c.wrapBg + '"><div class="book" style="background:' + c.bookBg + '"><small>THE MILLIONAIRE SKILLS</small><h3>' + esc(c.title.toUpperCase()) + '</h3><span>' + esc(c.book) + '</span></div></div>\n' +
-      '  <div class="badge-row"><span class="pill-b">' + esc(c.badge) + '</span><span class="save-b">' + esc(c.save) + '</span></div>\n' +
-      '  <div class="c-title">' + esc(c.title) + '</div>\n' +
-      '  <div class="c-desc">' + esc(c.desc) + '</div>\n' +
-      '  <div class="c-meta"><span>&#9733; 4.9 Verified</span><span>' + esc(c.mod) + '</span></div>\n' +
-      '  <div class="c-price">&#8377;' + fmtINR(c.price) + ' <span class="c-old">&#8377;' + fmtINR(c.old) + '</span></div>\n' +
-      '  <details class="pay-det"><summary class="pay-sum">Buy Now / Show UPI QR (&#8377;' + fmtINR(c.price) + ') &darr;</summary><div class="pay-box"><div class="qr-card"><div class="upi-id">Pay &#8377;' + fmtINR(c.price) + ' &bull; UPI: ' + esc(upi) + '</div><img src="' + esc(qrUrl) + '" alt="QR Code"><a href="' + esc(upiUri) + '" class="upi-app-link">Open UPI App</a></div><div class="inp-g"><label>Full Name</label><input type="text" placeholder="Your name"></div><div class="inp-g"><label>UTR Number</label><input type="text" placeholder="12-digit UTR"></div><a href="' + esc(waMsg) + '" target="_blank" class="btn btn-wa">Confirm on WhatsApp &rarr;</a></div></details>\n' +
-      '</div>\n';
+function getAdmin() { return readJ(K.admin, { email:"admin@tms.com", password:"admin123" }); }
+function getUsers() {
+  let u = readJ(K.users, null);
+  if (!Array.isArray(u) || !u.length) {
+    u = [{ studentId:"TMS-STU-1001", name:"Akshh", tag:"[G.O.D]", email:"student1@tms.com", phone:"6289841691", password:"pass1", earnings:{...ZERO_EARN}, orders:[{ pkg:"Finance Mastery", amt:14999, reqId:"TMS-FIN01", status:"Active" }], team:[] }];
+    writeJ(K.users, u);
   }
+  return u;
+}
+function getCourses() {
+  let c = readJ(K.courses, null);
+  if (!Array.isArray(c) || !c.length) { c = structuredClone(DEF_COURSES); writeJ(K.courses, c); }
+  return c;
+}
 
-  var fullHtml =
-    '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>The Millionaire Skills</title>\n<style>\n' +
-    '*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}\n' +
-    'html{scroll-behavior:smooth}\nbody{background:#090c10;color:#f1f5f9;line-height:1.5;overflow-x:hidden}\na{color:inherit;text-decoration:none}\n' +
-    '.hdr{position:sticky;top:0;z-index:60;background:#0d1117;border-bottom:1px solid #21262d;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}\n' +
-    '.brand b{display:block;font-size:14.5px;font-weight:800;color:#f8fafc}\n.brand small{display:block;font-size:9px;font-weight:700;color:#eab308;letter-spacing:1.5px}\n' +
-    'details.menu-det{position:relative;display:inline-block}\nsummary.burger-sum{list-style:none;background:#161b22;color:#f8fafc;border:1px solid #30363d;border-radius:8px;width:38px;height:38px;font-size:19px;font-weight:800;display:flex;align-items:center;justify-content:center;cursor:pointer}\n' +
-    'summary.burger-sum::-webkit-details-marker{display:none}\n.menu-list{position:fixed;top:62px;left:0;right:0;background:#0d1117;border-bottom:1px solid #30363d;padding:10px 16px;z-index:59}\n' +
-    '.menu-list a{display:block;padding:11px 4px;border-bottom:1px solid #1c2128;font-size:14px;font-weight:600}\n.menu-list a:last-child{border-bottom:none;color:#eab308}\n' +
-    '.hero{padding:36px 16px;text-align:center;background:#0d1117;border-bottom:1px solid #1c2128}\n.hero h1{font-size:28px;font-weight:900;color:#fff;margin:10px 0}\n.hero h1 span{color:#eab308}\n.hero p{font-size:13.5px;color:#94a3b8;max-width:440px;margin:0 auto 18px}\n' +
-    '.btn{display:block;width:100%;border-radius:10px;padding:13px 16px;font-size:14px;font-weight:800;text-align:center}\n.btn-gold{background:#eab308;color:#090c10}\n.btn-wa{background:#16a34a;color:#fff;margin-top:8px}\n' +
-    '.sec{max-width:580px;margin:0 auto;padding:28px 16px}\n.sec-h{text-align:center;margin-bottom:18px}\n.sec-h h2{font-size:22px;font-weight:800;color:#fff}\n' +
-    '.card{background:#0d1117;border:1px solid #21262d;border-radius:16px;padding:18px;margin-bottom:18px}\n.card.vip{border:1.5px solid #eab308}\n' +
-    '.book-wrap{padding:22px 14px;border-radius:12px;margin-bottom:14px;display:flex;justify-content:center;align-items:center}\n' +
-    '.book{width:150px;height:200px;border-radius:4px 14px 14px 4px;padding:14px 11px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;border-left:7px solid #eab308;transform:rotate(-2deg)}\n' +
-    '.book small{font-size:7.5px;font-weight:800;color:#fff;background:rgba(0,0,0,0.5);padding:3px 6px;border-radius:4px}\n.book h3{font-size:15.5px;font-weight:900;color:#fff}\n.book span{font-size:8px;font-weight:800;background:#eab308;color:#090c10;padding:4px 7px;border-radius:5px}\n' +
-    '.badge-row{display:flex;justify-content:space-between;margin-bottom:6px}\n.pill-b{background:#161b22;color:#eab308;border:1px solid rgba(234,179,8,0.35);font-size:10px;font-weight:800;padding:3px 9px;border-radius:6px}\n.save-b{color:#4ade80;font-size:11.5px;font-weight:800}\n' +
-    '.c-title{font-size:19px;font-weight:800;color:#fff;margin-bottom:4px}\n.c-desc{font-size:13px;color:#94a3b8;margin-bottom:10px}\n.c-meta{font-size:12px;font-weight:700;color:#cbd5e1;padding:8px 0;border-top:1px solid #1c2128;border-bottom:1px solid #1c2128;margin-bottom:10px;display:flex;justify-content:space-between}\n' +
-    '.c-price{font-size:23px;font-weight:900;color:#fff;margin-bottom:10px}\n.c-old{font-size:13px;color:#64748b;text-decoration:line-through;margin-left:6px}\n' +
-    'details.pay-det{margin-top:8px;background:#161b22;border:1px solid #30363d;border-radius:12px;padding:12px}\nsummary.pay-sum{list-style:none;color:#eab308;font-weight:800;font-size:13.5px;text-align:center;cursor:pointer}\n' +
-    'summary.pay-sum::-webkit-details-marker{display:none}\n.pay-box{margin-top:12px;padding-top:12px;border-top:1px solid #21262d;text-align:center}\n.qr-card{background:#fff;color:#090c10;border-radius:10px;padding:12px;margin-bottom:10px}\n' +
-    '.qr-card img{width:146px;height:146px;display:block;margin:8px auto}\n.upi-id{font-size:12px;font-weight:800}\n.upi-app-link{display:inline-block;background:#090c10;color:#eab308;padding:6px 12px;border-radius:6px;font-size:11.5px;font-weight:800;margin-top:4px}\n' +
-    '.inp-g{margin-bottom:8px;text-align:left}\n.inp-g label{display:block;font-size:11.5px;color:#cbd5e1;font-weight:700;margin-bottom:3px}\n.inp-g input{width:100%;padding:9px;border-radius:8px;border:1px solid #30363d;background:#090c10;color:#fff}\n' +
-    'footer{background:#06080b;border-top:1px solid #21262d;padding:24px 16px;text-align:center;font-size:12.5px;color:#94a3b8}\nfooter b{color:#eab308;display:block;margin-bottom:4px}\n' +
-    '</style>\n</head>\n<body>\n' +
-    '<header class="hdr"><a href="#top" class="brand"><b>THE MILLIONAIRE SKILLS</b><small>DIGITAL MASTERY</small></a><details class="menu-det"><summary class="burger-sum">&#9776;</summary><div class="menu-list"><a href="#courses">Mastery Packages</a><a href="#contact">Support</a><a href="https://wa.me/' + wa + '" target="_blank">WhatsApp</a></div></details></header>\n' +
-    '<div id="top"></div>\n<section class="hero"><h1>Master Practical &amp; <span>High-Income Skills</span></h1><p>Structured playbooks with UPI QR checkout and WhatsApp onboarding.</p><a href="#courses" class="btn btn-gold">Explore Packages &rarr;</a></section>\n' +
-    '<section class="sec" id="courses"><div class="sec-h"><h2>Mastery Packages</h2></div>\n' + cardsHtml + '</section>\n' +
-    '<footer id="contact"><b>THE MILLIONAIRE SKILLS</b><div>WhatsApp: +' + esc(wa) + ' &bull; UPI: ' + esc(upi) + '</div></footer>\n' +
-    '</body>\n</html>';
+function applyTheme(t) {
+  const map = { "t-dark":"Dark Gold", "t-midnight":"Midnight Sky", "t-light":"Clean Light" };
+  const cls = map[t] ? t : "t-dark";
+  document.body.className = cls === "t-dark" ? "" : cls;
+  localStorage.setItem(K.theme, cls);
+  document.getElementById("themeSel").value = cls;
+  document.getElementById("stTheme").textContent = map[cls];
+  showMsg("thMsg", "Theme changed to " + map[cls], true);
+}
 
-  document.getElementById("outCode").v
+function doAdminLogin() {
+  const em = document.getElementById("lEmail").value.trim().toLowerCase();
+  const pw = document.getElementById("lPass").value;
+  const adm = getAdmin();
+  if (em === adm.email.toLowerCase() && pw === adm.password) {
+    sessionStorage.setItem(K.auth, "1");
+    bootPanel();
+  } else {
+    showMsg("lMsg", "Invalid Admin ID or Password", false);
+  }
+}
+function doAdminLogout() { sessionStorage.removeItem(K.auth); location.reload(); }
+
+function setTab(name) {
+  document.querySelectorAll(".tab").forEach(b => b.classList.toggle("active", b.dataset.t === name));
+  document.querySelectorAll(".box").forEach(d => d.classList.toggle("active", d.id === "tab-" + name));
+}
+
+function bootPanel() {
+  document.getElementById("loginView").style.display = "none";
+  document.getElementById("panelView").style.display = "block";
+  applyTheme(localStorage.getItem(K.theme) || "t-dark");
+  const adm = getAdmin();
+  document.getElementById("secEmail").value = adm.email;
+  document.getElementById("secPass").value = adm.password;
+  renderAll();
+}
+
+function renderAll() {
+  const users = getUsers();
+  const courses = getCourses();
+  let pendingCount = 0;
+  users.forEach(u => (u.orders || []).forEach(o => { if (o.status !== "Active") pendingCount++; }));
+
+  document.getElementById("stUsers").textContent = users.length;
+  document.getElementById("uCount").textContent = users.length;
+  document.getElementById("stPending").textContent = pendingCount;
+  document.getElementById("stCourses").textContent = courses.length;
+
+  document.getElementById("usersList").innerHTML = users.map(u => `
+    <div class="row">
+      <div>
+        <b>${u.name} ${u.tag || ""} <span style="color:var(--muted);font-size:12px">(${u.studentId || "STU"})</span></b>
+        <small>ID: <b>${u.email}</b> • Pass: <b>${u.password}</b></small>
+        <small>Phone: ${u.phone || "-"} • Wallet: ${(u.earnings && u.earnings.wallet) || "₹0"}</small>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-gold" onclick="openEditor('${u.email.replace(/'/g,"\\'")}')">Edit</button>
+        ${users.length > 1 ? `<button class="btn btn-red" onclick="delUser('${u.email.replace(/'/g,"\\'")}')">Del</button>` : ""}
+      </div>
+    </div>
+  `).join("");
+
+  const orderRows = [];
+  users.forEach(u => (u.orders || []).forEach((o, idx) => {
+    orderRows.push({ uEmail: u.email, uName: u.name, idx, ...o });
+  }));
+  document.getElementById("ordersList").innerHTML = orderRows.length ? orderRows.map(r => `
+    <div class="row">
+      <div>
+        <b>${r.pkg} — ₹${r.amt} <span class="badge ${r.status === "Active" ? "b-ok" : "b-wait"}">${r.status}</span></b>
+        <small>User: ${r.uName} (${r.uEmail}) • Req ID: ${r.reqId}</small>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-green" onclick="setOrderStatus('${r.uEmail}',${r.idx},'Active')">Approve</button>
+        <button class="btn btn-red" onclick="setOrderStatus('${r.uEmail}',${r.idx},'Pending Verification')">Pending</button>
+      </div>
+    </div>
+  `).join("") : `<p style="color:var(--muted);font-size:13px">No orders found.</p>`;
+
+  document.getElementById("coursesList").innerHTML = courses.map((c, i) => `
+    <div class="row" style="display:block">
+      <b style="color:var(--accent);margin-bottom:8px">#${i+1} — ${c.id.toUpperCase()}</b>
+      <div class="grid2">
+        <div><label class="lbl">Title</label><input class="inp c-t" value="${c.title.replace(/"/g,"&quot;")}"></div>
+        <div><label class="lbl">Badge</label><input class="inp c-b" value="${c.badge.replace(/"/g,"&quot;")}"></div>
+        <div><label class="lbl">Price (₹)</label><input class="inp c-p" type="number" value="${c.price}"></div>
+        <div><label class="lbl">Old Price (₹)</label><input class="inp c-o" type="number" value="${c.oldPrice}"></div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function addUser() {
+  const name = document.getElementById("uName").value.trim();
+  const email = document.getElementById("uEmail").value.trim().toLowerCase();
+  const phone = document.getElementById("uPhone").value.replace(/\D/g,"").slice(0,10);
+  const password = document.getElementById("uPass").value.trim();
+  if (name.length < 2 || !email.includes("@") || password.length < 4)
+    return showMsg("uAddMsg", "Enter Name, valid Email & Password (4+ chars)", false);
+  const users = getUsers();
+  if (users.some(x => x.email.toLowerCase() === email))
+    return showMsg("uAddMsg", "Email already exists", false);
+  users.push({ studentId:"TMS-STU-" + Math.floor(1000+Math.random()*9000), name, tag:"", email, phone:phone||"9000000000", password, earnings:{...ZERO_EARN}, orders:[], team:[] });
+  writeJ(K.users, users);
+  ["uName","uEmail","uPhone","uPass"].forEach(id => document.getElementById(id).value = "");
+  showMsg("uAddMsg", "User created: " + email, true);
+  renderAll();
+}
+
+function openEditor(email) {
+  const u = getUsers().find(x => x.email.toLowerCase() === email.toLowerCase());
+  if (!u) return;
+  const e = u.earnings || ZERO_EARN;
+  document.getElementById("edOrigEmail").value = u.email;
+  document.getElementById("edTitle").textContent = "Editing: " + u.name;
+  document.getElementById("edName").value = u.name || "";
+  document.getElementById("edTag").value = u.tag || "";
+  document.getElementById("edEmail").value = u.email || "";
+  document.getElementById("edPass").value = u.password || "";
+  document.getElementById("edToday").value = e.today || "₹0";
+  document.getElementById("ed7d").value = e.sevenDays || "₹0";
+  document.getElementById("ed30d").value = e.thirtyDays || "₹0";
+  document.getElementById("edAll").value = e.allTime || "₹0";
+  document.getElementById("edInd").value = e.industrial || "₹0";
+  document.getElementById("edWal").value = e.wallet || "₹0";
+  document.getElementById("edMsg").className = "msg";
+  document.getElementById("editorCard").style.display = "block";
+}
+
+function closeEditor() { document.getElementById("editorCard").style.display = "none"; }
+
+function saveUserEdit() {
+  const orig = document.getElementById("edOrigEmail").value.toLowerCase();
+  const name = document.getElementById("edName").value.trim();
+  const email = document.getElementById("edEmail").value.trim().toLowerCase();
+  const password = document.getElementById("edPass").value.trim();
+  if (name.length < 2 || !email.includes("@") || password.length < 4)
+    return showMsg("edMsg", "Check Name, Email & Password (4+ chars)", false);
+  const users = getUsers();
+  if (users.some(x => x.email.toLowerCase() !== orig && x.email.toLowerCase() === email))
+    return showMsg("edMsg", "Email already used by another user", false);
+  const u = users.find(x => x.email.toLowerCase() === orig);
+  if (!u) return;
+  u.name = name;
+  u.tag = document.getElementById("edTag").value.trim();
+  u.email = email;
+  u.password = password;
+  u.earnings = {
+    today: document.getElementById("edToday").value.trim() || "₹0",
+    sevenDays: document.getElementById("ed7d").value.trim() || "₹0",
+    thirtyDays: document.getElementById("ed30d").value.trim() || "₹0",
+    allTime: document.getElementById("edAll").value.trim() || "₹0",
+    industrial: document.getElementById("edInd").value.trim() || "₹0",
+    wallet: document.getElementById("edWal").value.trim() || "₹0"
+  };
+  writeJ(K.users, users);
+  document.getElementById("edOrigEmail").value = email;
+  showMsg("edMsg", "Saved user changes!", true);
+  renderAll();
+}
+
+function delUser(email) {
+  const users = getUsers().filter(x => x.email.toLowerCase() !== email.toLowerCase());
+  if (!users.length) return;
+  writeJ(K.users, users);
+  closeEditor();
+  renderAll();
+}
+
+function setOrderStatus(email, idx, status) {
+  const users = getUsers();
+  const u = users.find(x => x.email.toLowerCase() === email.toLowerCase());
+  if (u && u.orders && u.orders[idx]) { u.orders[idx].status = status; writeJ(K.users, users); renderAll(); }
+}
+
+function saveCourses() {
+  const courses = getCourses();
+  const t = [...document.querySelectorAll(".c-t")].map(i => i.value.trim());
+  const b = [...document.querySelectorAll(".c-b")].map(i => i.value.trim());
+  const p = [...document.querySelectorAll(".c-p")].map(i => parseInt(i.value, 10));
+  const o = [...document.querySelectorAll(".c-o")].map(i => parseInt(i.value, 10));
+  for (let i = 0; i < courses.length; i++) {
+    if (!t[i] || isNaN(p[i]) || p[i] < 0 || isNaN(o[i]) || o[i] < 0)
+      return showMsg("cMsg", "Enter valid titles and prices", false);
+    courses[i].title = t[i]; courses[i].badge = b[i] || courses[i].badge;
+    courses[i].price = p[i]; courses[i].oldPrice = o[i];
+  }
+  writeJ(K.courses, courses);
+  showMsg("cMsg", "Course rates updated!", true);
+}
+
+function resetCourses() {
+  writeJ(K.courses, structuredClone(DEF_COURSES));
+  renderAll();
+  showMsg("cMsg", "Default rates restored", true);
+}
+
+function saveSecurity() {
+  const email = document.getElementById("secEmail").value.trim().toLowerCase();
+  const password = document.getElementById("secPass").value.trim();
+  if (!email.includes("@") || password.length < 4)
+    return showMsg("secMsg", "Enter valid Admin Email & Password (4+ chars)", false);
+  writeJ(K.admin, { email, password });
+  showMsg("secMsg", "Admin login credentials updated!", true);
+}
+
+function exportData() {
+  const blob = new Blob([JSON.stringify({ users: getUsers(), courses: getCourses(), theme: localStorage.getItem(K.theme) || "t-dark" }, null, 2)], { type:"application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "tms-admin-backup.json";
+  a.click();
+  showMsg("secMsg", "Backup JSON downloaded!", true);
+}
+
+applyTheme(localStorage.getItem(K.theme) || "t-dark");
+if (sessionStorage.getItem(K.auth) === "1") bootPanel();
+</script>
+</body>
+</html>

@@ -11,6 +11,8 @@ html{scroll-behavior:smooth}
 body{background:#060913;color:#f8fafc;line-height:1.55}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit}
+
+/* HEADER */
 .hdr{position:sticky;top:0;z-index:100;background:#0b1224;padding:14px 18px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
 .brand b{display:block;color:#fbbf24;font-size:15px}
 .brand small{font-size:10px;color:#94a3b8;letter-spacing:1.2px}
@@ -21,11 +23,16 @@ button{cursor:pointer;font-family:inherit}
 .nav-drawer a{display:block;padding:10px 4px;border-bottom:1px solid #1e293b;font-size:14px;font-weight:bold}
 .nav-drawer a:last-child{border-bottom:none}
 .nav-drawer .cta-link{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14;border-radius:8px;text-align:center;margin-top:8px;padding:10px}
-.btn{display:block;width:100%;padding:13px;border:0;border-radius:10px;margin-top:10px;font-weight:bold;font-size:14px;text-align:center}
+
+/* BUTTONS */
+.btn{display:block;width:100%;padding:13px;border:0;border-radius:10px;margin-top:10px;font-weight:bold;font-size:14px;text-align:center;transition:opacity 0.2s}
+.btn:hover{opacity:0.92}
 .gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
 .dark{background:#172033;color:#fff;border:1px solid #475569}
 .green{background:#22c55e;color:#052e16}
 .danger{background:#7f1d1d;color:#fecaca;border:1px solid #dc2626}
+
+/* MAIN LANDING PAGE */
 .hero{text-align:center;padding:42px 16px;background:linear-gradient(180deg,#111b33,#060913)}
 .hero-tag{display:inline-block;padding:6px 14px;border:1px solid #fbbf24;border-radius:30px;color:#fbbf24;font-size:12px}
 .hero h1{font-size:30px;margin:16px 0 10px}
@@ -53,14 +60,18 @@ button{cursor:pointer;font-family:inherit}
 .c-meta{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #334155;border-bottom:1px solid #334155;font-size:12px}
 .c-price{font-size:24px;color:#fbbf24;font-weight:bold;margin-top:12px}
 .c-old{font-size:13px;color:#64748b;text-decoration:line-through}
-.panel{display:none;max-width:430px;margin:18px auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px;text-align:left}
-.panel.active{display:block}
+
+/* CHECKOUT MODAL OVERLAY */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(3,6,15,0.88);z-index:300;overflow-y:auto;padding:20px 14px}
+.modal-overlay.active{display:flex;align-items:flex-start;justify-content:center}
+.panel{width:100%;max-width:440px;margin:auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:20px;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,0.7)}
 .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.m-top b{color:#fbbf24;font-size:16px}
+.m-top b{color:#fbbf24;font-size:17px}
 .m-close{padding:7px 12px;background:#263348;color:#fff;border:0;border-radius:7px;font-weight:bold}
 .qr-box{background:#fff;color:#111;padding:14px;border-radius:12px;text-align:center;margin:12px 0}
 .qr-box img{width:160px;height:160px;display:block;margin:10px auto}
 .inp{width:100%;padding:12px;background:#172033;color:#fff;border:1px solid #475569;border-radius:9px;margin-bottom:12px;font-size:14px}
+.inp:focus{outline:none;border-color:#fbbf24}
 .lbl{display:block;font-size:12px;font-weight:bold;margin-bottom:5px;color:#cbd5e1}
 .note-box{background:#172033;padding:12px;border-left:3px solid #fbbf24;border-radius:7px;font-size:12px;color:#cbd5e1;margin-bottom:14px}
 .err-box{display:none;background:#581c1c;color:#fecaca;padding:12px;border-radius:9px;font-size:12px;margin-top:10px}
@@ -68,13 +79,65 @@ button{cursor:pointer;font-family:inherit}
 .success-box{background:#064e3b;padding:15px;border-radius:12px;margin:12px 0}
 .success-box b{display:block;color:#4ade80;margin-bottom:8px}
 .cred-row{background:#07543c;padding:9px;border-radius:7px;margin:7px 0;font-size:13px;overflow-wrap:anywhere}
-.auth-links{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:12.5px;color:#fbbf24;gap:10px;flex-wrap:wrap}
+
+/* DEDICATED FULL-SCREEN AUTH VIEW */
+#authScreen{display:none;min-height:100vh;background:radial-gradient(circle at top,#14213d,#060913 70%);padding:20px 16px 40px}
+#authScreen.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.auth-topbar{width:100%;max-width:440px;display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.back-site-btn{background:#172033;color:#fbbf24;border:1px solid #b88624;padding:8px 14px;border-radius:9px;font-size:13px;font-weight:bold}
+.auth-brand-mini{text-align:right}
+.auth-brand-mini b{display:block;color:#fbbf24;font-size:13px}
+.auth-brand-mini small{color:#94a3b8;font-size:10px}
+.auth-card{width:100%;max-width:440px;background:#0b1224;border:1.5px solid #b88624;border-radius:18px;padding:24px 20px;box-shadow:0 20px 50px rgba(0,0,0,0.65)}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;background:#172033;padding:4px;border-radius:10px;margin-bottom:18px}
+.auth-tab{background:transparent;border:0;color:#94a3b8;padding:10px;font-weight:bold;font-size:13.5px;border-radius:8px}
+.auth-tab.active{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
+.auth-links{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:#fbbf24;gap:10px;flex-wrap:wrap}
 .auth-links button{background:none;border:0;color:#fbbf24;font-size:12.5px;text-decoration:underline;padding:0}
-.dash-section{background:#111b30;border:1px solid #334155;border-radius:12px;padding:12px;margin-top:12px}
-.dash-section h4{color:#fbbf24;font-size:13px;margin-bottom:8px}
-.dash-item{background:#172033;padding:9px 10px;border-radius:8px;font-size:12.5px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.dash-badge{background:#fbbf24;color:#080b14;font-size:10.5px;font-weight:bold;padding:3px 7px;border-radius:12px}
-.dash-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+
+/* DEDICATED FULL-SCREEN STUDENT DASHBOARD INTERFACE */
+#dashboardScreen{display:none;min-height:100vh;background:#060913}
+#dashboardScreen.active{display:block}
+.dash-hdr{background:#0b1224;border-bottom:1px solid #b88624;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.dash-hdr-left b{display:block;color:#fbbf24;font-size:15px}
+.dash-hdr-left small{color:#94a3b8;font-size:11px}
+.dash-hdr-right{display:flex;gap:8px;align-items:center}
+.dash-pill-btn{padding:8px 12px;border-radius:8px;font-size:12.5px;font-weight:bold;border:1px solid #475569;background:#172033;color:#fff}
+.dash-pill-btn.logout{background:#7f1d1d;border-color:#dc2626;color:#fecaca}
+
+.dash-wrap{max-width:960px;margin:auto;padding:20px 16px 50px}
+.dash-welcome-banner{background:linear-gradient(135deg,#111b33,#0b1224);border:1px solid #b88624;border-radius:16px;padding:20px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.dash-welcome-banner h2{font-size:22px;color:#fff}
+.dash-welcome-banner h2 span{color:#fbbf24}
+.dash-welcome-banner p{font-size:13px;color:#94a3b8;margin-top:4px}
+.stu-id-badge{background:#172033;border:1px solid #fbbf24;color:#fbbf24;padding:8px 14px;border-radius:10px;font-size:12.5px;font-weight:bold}
+
+.dash-nav-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px}
+.d-tab{background:#111b30;color:#cbd5e1;border:1px solid #334155;padding:10px 15px;border-radius:10px;font-size:13px;font-weight:bold;white-space:nowrap}
+.d-tab.active{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14;border-color:#fbbf24}
+
+.dash-view{display:none}
+.dash-view.active{display:block}
+
+.dash-kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.dash-kpi{background:#111b30;border:1px solid #334155;border-radius:14px;padding:16px}
+.dash-kpi b{display:block;font-size:24px;color:#fbbf24}
+.dash-kpi span{font-size:12px;color:#94a3b8}
+
+.dash-box{background:#111b30;border:1px solid #334155;border-radius:15px;padding:18px;margin-bottom:16px}
+.dash-box h3{color:#fbbf24;font-size:16px;margin-bottom:12px}
+.course-row{background:#172033;border:1px solid #334155;border-radius:11px;padding:14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.course-row b{font-size:15px;color:#fff;display:block}
+.course-row small{color:#94a3b8;font-size:12px}
+.status-chip{padding:5px 10px;border-radius:20px;font-size:11.5px;font-weight:bold}
+.status-chip.active{background:#064e3b;color:#4ade80;border:1px solid #22c55e}
+.status-chip.pending{background:#422006;color:#fbbf24;border:1px solid #f59e0b}
+
+.profile-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.info-pair{background:#172033;padding:11px 13px;border-radius:9px;margin-bottom:8px;font-size:13.5px}
+.info-pair span{color:#94a3b8;font-size:11.5px;display:block}
+
+/* FOOTER */
 footer{text-align:center;background:#050811;padding:28px 15px 34px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
 footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 .desc-box{background:#111b30;border:1px solid #334155;padding:16px;border-radius:13px;margin:15px auto;max-width:420px;text-align:left}
@@ -87,18 +150,25 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 .copy-msg{display:none;margin-top:8px;padding:8px;border-radius:8px;background:#064e3b;color:#dcfce7;font-size:12px}
 .f-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:15px}
 .f-links a{text-decoration:underline;color:#cbd5e1}
+
 @media(min-width:700px){
 .sec{max-width:850px}
 .courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .hero h1{font-size:42px}
+.dash-kpi-grid{grid-template-columns:repeat(4,1fr)}
+.profile-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 
 <body id="top">
 
+<!-- =========================================================
+     1. MAIN LANDING WEBSITE VIEW
+     ========================================================= -->
+<div id="mainSiteView">
 <header class="hdr">
-<a href="#top" class="brand" onclick="closeAllPanels()">
+<a href="#top" class="brand">
 <b>THE MILLIONAIRE SKILLS</b>
 <small>EXECUTIVE MASTERY</small>
 </a>
@@ -111,10 +181,10 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <a href="#courses" onclick="closeMenu()">Courses</a>
 <a href="#about" onclick="closeMenu()">About Us</a>
 <a href="#contact" onclick="closeMenu()">Contact</a>
-<a href="#loginPanel" id="navLoginLink" onclick="closeMenu();showLogin();return false;">Login</a>
-<a href="#signupPanel" id="navSignupLink" onclick="closeMenu();showSignup();return false;">Sign Up</a>
-<a href="#portalPanel" id="navDashLink" style="display:none" onclick="closeMenu();openDashboard();return false;">Dashboard</a>
-<a href="#top" id="navLogoutLink" style="display:none;color:#fca5a5" onclick="closeMenu();doLogout();return false;">Logout</a>
+<a href="#" id="navLoginLink" onclick="closeMenu();openAuthScreen('login');return false;">Login</a>
+<a href="#" id="navSignupLink" onclick="closeMenu();openAuthScreen('signup');return false;">Sign Up</a>
+<a href="#" id="navDashLink" style="display:none" onclick="closeMenu();openDashboardScreen('overview');return false;">Student Dashboard</a>
+<a href="#" id="navLogoutLink" style="display:none;color:#fca5a5" onclick="closeMenu();doLogout();return false;">Logout</a>
 <a href="#courses" class="cta-link" onclick="closeMenu()">Get Started</a>
 </div>
 </div>
@@ -128,130 +198,13 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="hero-actions">
 <a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
 <div class="hero-auth-row" id="heroGuestBtns">
-<button type="button" class="btn dark" onclick="showLogin()">Student Login</button>
-<button type="button" class="btn dark" style="border-color:#b88624;color:#fbbf24" onclick="showSignup()">Create Account</button>
+<button type="button" class="btn dark" onclick="openAuthScreen('login')">Student Login</button>
+<button type="button" class="btn dark" style="border-color:#b88624;color:#fbbf24" onclick="openAuthScreen('signup')">Sign Up</button>
 </div>
 <div class="hero-auth-row" id="heroUserBtns" style="display:none">
-<button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openDashboard()">Student Dashboard</button>
+<button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="openDashboardScreen('overview')">Open Dashboard</button>
 <button type="button" class="btn danger" onclick="doLogout()">Logout</button>
 </div>
-</div>
-
-<!-- LOGIN PANEL -->
-<div class="panel" id="loginPanel">
-<div class="m-top">
-<b>Student Portal Sign In</b>
-<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
-</div>
-<div class="note-box">Demo Login: student1@tms.com / pass1 (or use your newly created account)</div>
-<label class="lbl">Email Address</label>
-<input class="inp" id="lId" type="email" placeholder="Enter your email">
-<label class="lbl">Password</label>
-<input class="inp" id="lPw" type="password" placeholder="Enter password">
-<button type="button" class="btn gold" onclick="doLogin()">Sign In →</button>
-<div class="err-box" id="lErr"></div>
-<div class="auth-links">
-<button type="button" onclick="showForgot()">Forgot Password?</button>
-<button type="button" onclick="showSignup()">New Student? Sign Up</button>
-</div>
-</div>
-
-<!-- SIGN UP PANEL -->
-<div class="panel" id="signupPanel">
-<div class="m-top">
-<b>Create Student Account</b>
-<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
-</div>
-<div class="note-box">Register your student profile to access your personal dashboard and track enrollments.</div>
-<label class="lbl">Full Name</label>
-<input class="inp" id="sName" type="text" placeholder="Enter your full name">
-<label class="lbl">Email Address</label>
-<input class="inp" id="sEmail" type="email" placeholder="Enter your email">
-<label class="lbl">WhatsApp Number (10 Digits)</label>
-<input class="inp" id="sPhone" type="tel" maxlength="10" placeholder="10-digit WhatsApp number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
-<label class="lbl">Create Password (Min 6 Characters)</label>
-<input class="inp" id="sPw" type="password" placeholder="Create strong password">
-<label class="lbl">Confirm Password</label>
-<input class="inp" id="sCpw" type="password" placeholder="Re-enter password">
-<button type="button" class="btn gold" onclick="doSignup()">Create Account →</button>
-<div class="err-box" id="sErr"></div>
-<div class="auth-links">
-<button type="button" onclick="showLogin()">Already have an account? Login</button>
-</div>
-</div>
-
-<!-- FORGOT PASSWORD PANEL -->
-<div class="panel" id="forgotPanel">
-<div class="m-top">
-<b>Forgot Password</b>
-<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
-</div>
-<div class="note-box">Apna registered email enter karein. Hum aapke email par password reset link bhejenge.</div>
-<label class="lbl">Registered Email Address</label>
-<input class="inp" id="fpEmail" type="email" placeholder="Enter registered email">
-<button type="button" class="btn gold" onclick="doForgot()">Send Reset Link →</button>
-<div class="err-box" id="fpErr"></div>
-<div class="ok-box" id="fpOk"></div>
-
-<!-- Instant Reset Link Box (appears after link is generated) -->
-<div id="resetDirectBox" style="display:none;margin-top:14px;padding-top:12px;border-top:1px solid #334155">
-<div class="note-box" style="margin-bottom:10px">Reset Link Generated! Niche click karke ya directly naya password set karein:</div>
-<label class="lbl">New Password (Min 6 Characters)</label>
-<input class="inp" id="fpNewPw" type="password" placeholder="Enter new password">
-<label class="lbl">Confirm New Password</label>
-<input class="inp" id="fpConfirmPw" type="password" placeholder="Confirm new password">
-<button type="button" class="btn green" onclick="completePasswordReset()">Reset Password Now →</button>
-<div class="err-box" id="fpResetErr"></div>
-</div>
-
-<div class="auth-links">
-<button type="button" onclick="showLogin()">← Back to Login</button>
-<button type="button" onclick="showSignup()">Create New Account</button>
-</div>
-</div>
-
-<!-- STUDENT DASHBOARD PANEL -->
-<div class="panel" id="portalPanel">
-<div class="m-top">
-<b>Student Dashboard</b>
-<button type="button" class="m-close" onclick="closeAllPanels()">Hide ×</button>
-</div>
-<div class="success-box">
-<b id="pWelcome">Welcome Student</b>
-<div class="cred-row" id="pStudentId">Student ID: --</div>
-<div class="cred-row" id="pEmailRow">Email: --</div>
-<div class="cred-row" id="pPhoneRow">WhatsApp: --</div>
-</div>
-
-<div class="dash-section">
-<h4>My Enrolled / Submitted Packages</h4>
-<div id="dashCoursesList"></div>
-<a href="#courses" class="btn gold" style="margin-top:8px" onclick="closeAllPanels()">+ Browse &amp; Enroll Packages</a>
-</div>
-
-<div class="dash-actions">
-<button type="button" class="btn dark" style="margin-top:0" onclick="showChangePassword()">Change Password</button>
-<button type="button" class="btn danger" style="margin-top:0" onclick="doLogout()">Logout</button>
-</div>
-<a class="btn green" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Contact Student Support</a>
-</div>
-
-<!-- CHANGE PASSWORD PANEL -->
-<div class="panel" id="changePwPanel">
-<div class="m-top">
-<b>Change Password</b>
-<button type="button" class="m-close" onclick="openDashboard()">← Dashboard</button>
-</div>
-<div class="note-box">Apna current password verify karein aur naya password set karein.</div>
-<label class="lbl">Current Password</label>
-<input class="inp" id="cpOld" type="password" placeholder="Enter current password">
-<label class="lbl">New Password (Min 6 Characters)</label>
-<input class="inp" id="cpNew" type="password" placeholder="Enter new password">
-<label class="lbl">Confirm New Password</label>
-<input class="inp" id="cpConfirm" type="password" placeholder="Confirm new password">
-<button type="button" class="btn gold" onclick="doChangePassword()">Update Password →</button>
-<div class="err-box" id="cpErr"></div>
-<div class="ok-box" id="cpOk"></div>
 </div>
 
 <div class="stats">
@@ -266,52 +219,6 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <div class="sec-h">
 <h2>5 Mastery Packages</h2>
 <p>Select your package and continue to checkout</p>
-</div>
-
-<div class="panel" id="buyPanel">
-<div class="m-top">
-<b id="buyTitle">Package Checkout</b>
-<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
-</div>
-
-<div class="qr-box">
-<b id="qrLabel">Pay via UPI</b>
-<img id="qrImg" src="" alt="UPI QR Code">
-<b>UPI ID: millionaireskills@upi</b>
-</div>
-
-<div class="note-box">Payment submit karne ke baad manual verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
-
-<label class="lbl">Amount (₹)</label>
-<input class="inp" id="fAmt" type="text" readonly>
-
-<label class="lbl">Your Full Name</label>
-<input class="inp" id="fName" type="text" placeholder="Enter full name">
-
-<label class="lbl">WhatsApp Number (10 Digits)</label>
-<input class="inp" id="fPhone" type="tel" maxlength="10" placeholder="10-digit number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
-
-<label class="lbl">UPI UTR (12 Digits)</label>
-<input class="inp" id="fUtr" type="text" maxlength="12" placeholder="12-digit UTR" oninput="this.value=this.value.replace(/\D/g,'').slice(0,12)">
-
-<button type="button" class="btn gold" onclick="doPay()">Submit Payment Details →</button>
-<div class="err-box" id="bErr"></div>
-</div>
-
-<div class="panel" id="donePanel">
-<div class="m-top">
-<b>Registration Submitted</b>
-<button type="button" class="m-close" onclick="closeAllPanels()">Close ×</button>
-</div>
-
-<div class="success-box">
-<b>Registration Request Created</b>
-<div class="cred-row" id="donePkg"></div>
-<div class="cred-row" id="doneReq"></div>
-<div class="cred-row">Status: Awaiting Manual Verification</div>
-</div>
-
-<a class="btn green" id="doneWa" href="#" target="_blank" rel="noopener noreferrer">Send Payment Details on WhatsApp →</a>
 </div>
 
 <div class="courses-grid">
@@ -407,6 +314,268 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 <a href="#contact">Contact</a>
 </div>
 </footer>
+</div>
+
+<!-- =========================================================
+     2. DEDICATED AUTH INTERFACE (LOGIN / SIGN UP / FORGOT PW)
+     ========================================================= -->
+<div id="authScreen">
+<div class="auth-topbar">
+<button type="button" class="back-site-btn" onclick="openMainSite()">← Back to Website</button>
+<div class="auth-brand-mini">
+<b>THE MILLIONAIRE SKILLS</b>
+<small>STUDENT PORTAL</small>
+</div>
+</div>
+
+<div class="auth-card">
+<div class="auth-tabs" id="authTabsBar">
+<button type="button" class="auth-tab active" id="tabLoginBtn" onclick="switchAuthMode('login')">Login</button>
+<button type="button" class="auth-tab" id="tabSignupBtn" onclick="switchAuthMode('signup')">Sign Up</button>
+</div>
+
+<!-- LOGIN FORM -->
+<div id="authLoginForm">
+<div class="note-box">Demo Login: <b>student1@tms.com</b> / <b>pass1</b> (ya apna naya account banayein)</div>
+<label class="lbl">Email Address</label>
+<input class="inp" id="lId" type="email" placeholder="Enter your email">
+<label class="lbl">Password</label>
+<input class="inp" id="lPw" type="password" placeholder="Enter password">
+<button type="button" class="btn gold" onclick="doLogin()">Login to Dashboard →</button>
+<div class="err-box" id="lErr"></div>
+<div class="auth-links">
+<button type="button" onclick="switchAuthMode('forgot')">Forgot Password?</button>
+<button type="button" onclick="switchAuthMode('signup')">New Account? Sign Up</button>
+</div>
+</div>
+
+<!-- SIGN UP FORM -->
+<div id="authSignupForm" style="display:none">
+<div class="note-box">Naya Student Account banayein aur apna personal dashboard access karein.</div>
+<label class="lbl">Full Name</label>
+<input class="inp" id="sName" type="text" placeholder="Enter your full name">
+<label class="lbl">Email Address</label>
+<input class="inp" id="sEmail" type="email" placeholder="Enter your email">
+<label class="lbl">WhatsApp Number (10 Digits)</label>
+<input class="inp" id="sPhone" type="tel" maxlength="10" placeholder="10-digit WhatsApp number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+<label class="lbl">Create Password (Min 6 Characters)</label>
+<input class="inp" id="sPw" type="password" placeholder="Create strong password">
+<label class="lbl">Confirm Password</label>
+<input class="inp" id="sCpw" type="password" placeholder="Re-enter password">
+<button type="button" class="btn gold" onclick="doSignup()">Create Account &amp; Enter Dashboard →</button>
+<div class="err-box" id="sErr"></div>
+<div class="auth-links">
+<button type="button" onclick="switchAuthMode('login')">Already registered? Login</button>
+</div>
+</div>
+
+<!-- FORGOT PASSWORD FORM -->
+<div id="authForgotForm" style="display:none">
+<div class="m-top" style="margin-bottom:10px">
+<b>Reset Your Password</b>
+</div>
+<div class="note-box">Apna registered email enter karein. Reset link generate hone ke baad aap turant naya password set kar sakte hain.</div>
+<label class="lbl">Registered Email Address</label>
+<input class="inp" id="fpEmail" type="email" placeholder="Enter registered email">
+<button type="button" class="btn gold" onclick="doForgot()">Send Reset Link →</button>
+<div class="err-box" id="fpErr"></div>
+<div class="ok-box" id="fpOk"></div>
+
+<div id="resetDirectBox" style="display:none;margin-top:14px;padding-top:12px;border-top:1px solid #334155">
+<label class="lbl">New Password (Min 6 Characters)</label>
+<input class="inp" id="fpNewPw" type="password" placeholder="Enter new password">
+<label class="lbl">Confirm New Password</label>
+<input class="inp" id="fpConfirmPw" type="password" placeholder="Confirm new password">
+<button type="button" class="btn green" onclick="completePasswordReset()">Update Password Now →</button>
+<div class="err-box" id="fpResetErr"></div>
+</div>
+
+<div class="auth-links">
+<button type="button" onclick="switchAuthMode('login')">← Back to Login</button>
+<button type="button" onclick="switchAuthMode('signup')">Create New Account</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- =========================================================
+     3. DEDICATED STUDENT DASHBOARD INTERFACE
+     ========================================================= -->
+<div id="dashboardScreen">
+<header class="dash-hdr">
+<div class="dash-hdr-left">
+<b>THE MILLIONAIRE SKILLS</b>
+<small>STUDENT LEARNING PORTAL</small>
+</div>
+<div class="dash-hdr-right">
+<button type="button" class="dash-pill-btn" onclick="openMainSite()">Home</button>
+<button type="button" class="dash-pill-btn logout" onclick="doLogout()">Logout</button>
+</div>
+</header>
+
+<div class="dash-wrap">
+<div class="dash-welcome-banner">
+<div>
+<h2>Welcome back, <span id="dUserName">Student</span></h2>
+<p id="dUserEmail">student@tms.com</p>
+</div>
+<div class="stu-id-badge" id="dStudentId">ID: TMS-STU-1001</div>
+</div>
+
+<div class="dash-nav-tabs">
+<button type="button" class="d-tab active" id="dTabOverview" onclick="switchDashTab('overview')">Overview</button>
+<button type="button" class="d-tab" id="dTabCourses" onclick="switchDashTab('courses')">My Courses</button>
+<button type="button" class="d-tab" id="dTabStore" onclick="switchDashTab('store')">Upgrade / Buy Packages</button>
+<button type="button" class="d-tab" id="dTabSecurity" onclick="switchDashTab('security')">Profile &amp; Change Password</button>
+</div>
+
+<!-- TAB 1: OVERVIEW -->
+<div class="dash-view active" id="dashViewOverview">
+<div class="dash-kpi-grid">
+<div class="dash-kpi"><b id="kpiTotalPkg">0</b><span>Enrolled Packages</span></div>
+<div class="dash-kpi"><b id="kpiActivePkg">0</b><span>Active Courses</span></div>
+<div class="dash-kpi"><b>85+</b><span>Total Library Modules</span></div>
+<div class="dash-kpi"><b>24/7</b><span>Support Access</span></div>
+</div>
+
+<div class="dash-box">
+<h3>Recent Enrollments &amp; Status</h3>
+<div id="overviewOrdersList"></div>
+</div>
+
+<div class="dash-box">
+<h3>Quick Actions</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<button type="button" class="btn gold" style="margin-top:0" onclick="switchDashTab('store')">+ Enroll New Course</button>
+<button type="button" class="btn dark" style="margin-top:0" onclick="switchDashTab('security')">Change Password</button>
+</div>
+<a class="btn green" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp Mentor Support →</a>
+</div>
+</div>
+
+<!-- TAB 2: MY COURSES -->
+<div class="dash-view" id="dashViewCourses">
+<div class="dash-box">
+<h3>My Mastery Packages</h3>
+<div id="myCoursesList"></div>
+</div>
+</div>
+
+<!-- TAB 3: STORE / BUY MORE -->
+<div class="dash-view" id="dashViewStore">
+<div class="dash-box">
+<h3>Available Mastery Packages</h3>
+<p style="font-size:12.5px;color:#94a3b8;margin-bottom:14px">Kisi bhi package par click karke UPI payment submit karein — aapki request turant dashboard mein add ho jayegi.</p>
+
+<div class="course-row">
+<div><b>Marketing Mastery (12 Modules)</b><small>Funnels, digital marketing &amp; buyer psychology • ₹999</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Marketing Mastery',999)">Buy ₹999</button>
+</div>
+
+<div class="course-row">
+<div><b>Branding Mastery (16 Modules)</b><small>Social media identity, content style &amp; trust • ₹2,499</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Branding Mastery',2499)">Buy ₹2,499</button>
+</div>
+
+<div class="course-row">
+<div><b>Traffic Mastery (20 Modules)</b><small>Targeted leads, ads &amp; conversion systems • ₹4,999</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Traffic Mastery',4999)">Buy ₹4,999</button>
+</div>
+
+<div class="course-row">
+<div><b>Influence Mastery (22 Modules)</b><small>Communication, speaking confidence &amp; closing • ₹9,999</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Influence Mastery',9999)">Buy ₹9,999</button>
+</div>
+
+<div class="course-row" style="border-color:#fbbf24">
+<div><b style="color:#fbbf24">Finance Mastery VIP Bundle (All 85+ Modules)</b><small>Complete access across all 5 mastery packages • ₹14,999</small></div>
+<button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 14px" onclick="showBuy('Finance Mastery (VIP)',14999)">Buy ₹14,999</button>
+</div>
+</div>
+</div>
+
+<!-- TAB 4: PROFILE & CHANGE PASSWORD -->
+<div class="dash-view" id="dashViewSecurity">
+<div class="profile-grid">
+<div class="dash-box">
+<h3>Student Profile Details</h3>
+<div class="info-pair"><span>Full Name</span><b id="profName">--</b></div>
+<div class="info-pair"><span>Student ID</span><b id="profId">--</b></div>
+<div class="info-pair"><span>Registered Email</span><b id="profEmail">--</b></div>
+<div class="info-pair"><span>WhatsApp Number</span><b id="profPhone">--</b></div>
+<button type="button" class="btn danger" onclick="doLogout()">Logout from Account</button>
+</div>
+
+<div class="dash-box">
+<h3>Change Password</h3>
+<div class="note-box">Apna current password verify karke naya password update karein.</div>
+<label class="lbl">Current Password</label>
+<input class="inp" id="cpOld" type="password" placeholder="Enter current password">
+<label class="lbl">New Password (Min 6 Characters)</label>
+<input class="inp" id="cpNew" type="password" placeholder="Enter new password">
+<label class="lbl">Confirm New Password</label>
+<input class="inp" id="cpConfirm" type="password" placeholder="Confirm new password">
+<button type="button" class="btn gold" onclick="doChangePassword()">Save New Password →</button>
+<div class="err-box" id="cpErr"></div>
+<div class="ok-box" id="cpOk"></div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- =========================================================
+     4. CHECKOUT & CONFIRMATION MODAL OVERLAY
+     ========================================================= -->
+<div class="modal-overlay" id="checkoutOverlay">
+<div class="panel" id="buyPanel" style="display:none">
+<div class="m-top">
+<b id="buyTitle">Package Checkout</b>
+<button type="button" class="m-close" onclick="closeCheckoutModal()">Close ×</button>
+</div>
+
+<div class="qr-box">
+<b id="qrLabel">Pay via UPI</b>
+<img id="qrImg" src="" alt="UPI QR Code">
+<b>UPI ID: millionaireskills@upi</b>
+</div>
+
+<div class="note-box">Payment submit karne ke baad manual verification ka wait karein. Payment confirm hone ke baad hi account activate hoga.</div>
+
+<label class="lbl">Amount (₹)</label>
+<input class="inp" id="fAmt" type="text" readonly>
+
+<label class="lbl">Your Full Name</label>
+<input class="inp" id="fName" type="text" placeholder="Enter full name">
+
+<label class="lbl">WhatsApp Number (10 Digits)</label>
+<input class="inp" id="fPhone" type="tel" maxlength="10" placeholder="10-digit number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+
+<label class="lbl">UPI UTR (12 Digits)</label>
+<input class="inp" id="fUtr" type="text" maxlength="12" placeholder="12-digit UTR" oninput="this.value=this.value.replace(/\D/g,'').slice(0,12)">
+
+<button type="button" class="btn gold" onclick="doPay()">Submit Payment Details →</button>
+<div class="err-box" id="bErr"></div>
+</div>
+
+<div class="panel" id="donePanel" style="display:none">
+<div class="m-top">
+<b>Registration Submitted</b>
+<button type="button" class="m-close" onclick="closeCheckoutModal()">Close ×</button>
+</div>
+
+<div class="success-box">
+<b>Registration Request Created</b>
+<div class="cred-row" id="donePkg"></div>
+<div class="cred-row" id="doneReq"></div>
+<div class="cred-row">Status: Awaiting Manual Verification</div>
+</div>
+
+<a class="btn green" id="doneWa" href="#" target="_blank" rel="noopener noreferrer">Send Payment Details on WhatsApp →</a>
+<button type="button" class="btn dark" id="doneDashBtn" style="display:none" onclick="closeCheckoutModal();openDashboardScreen('courses')">View in Student Dashboard</button>
+</div>
+</div>
 
 <script>
 "use strict";
@@ -510,12 +679,162 @@ function syncAuthUI() {
     }
 }
 
+/* =========================================================
+   SCREEN SWITCHER (SEPARATE INTERFACES)
+   ========================================================= */
+function hideAllScreens() {
+    closeMenu();
+    closeCheckoutModal();
+    document.getElementById("mainSiteView").style.display = "none";
+    document.getElementById("authScreen").classList.remove("active");
+    document.getElementById("dashboardScreen").classList.remove("active");
+}
+
+function openMainSite() {
+    hideAllScreens();
+    document.getElementById("mainSiteView").style.display = "block";
+    window.scrollTo(0, 0);
+}
+
+function openAuthScreen(mode) {
+    hideAllScreens();
+    document.getElementById("authScreen").classList.add("active");
+    switchAuthMode(mode || "login");
+    window.scrollTo(0, 0);
+}
+
+function switchAuthMode(mode) {
+    var loginForm = document.getElementById("authLoginForm");
+    var signupForm = document.getElementById("authSignupForm");
+    var forgotForm = document.getElementById("authForgotForm");
+    var tabsBar = document.getElementById("authTabsBar");
+    var tabLogin = document.getElementById("tabLoginBtn");
+    var tabSignup = document.getElementById("tabSignupBtn");
+
+    loginForm.style.display = "none";
+    signupForm.style.display = "none";
+    forgotForm.style.display = "none";
+
+    if (mode === "signup") {
+        tabsBar.style.display = "grid";
+        tabLogin.classList.remove("active");
+        tabSignup.classList.add("active");
+        document.getElementById("sName").value = "";
+        document.getElementById("sEmail").value = "";
+        document.getElementById("sPhone").value = "";
+        document.getElementById("sPw").value = "";
+        document.getElementById("sCpw").value = "";
+        document.getElementById("sErr").style.display = "none";
+        signupForm.style.display = "block";
+    } else if (mode === "forgot") {
+        tabsBar.style.display = "none";
+        resetTargetEmail = "";
+        document.getElementById("fpEmail").value = "";
+        document.getElementById("fpNewPw").value = "";
+        document.getElementById("fpConfirmPw").value = "";
+        document.getElementById("fpErr").style.display = "none";
+        document.getElementById("fpOk").style.display = "none";
+        document.getElementById("fpResetErr").style.display = "none";
+        document.getElementById("resetDirectBox").style.display = "none";
+        forgotForm.style.display = "block";
+    } else {
+        tabsBar.style.display = "grid";
+        tabSignup.classList.remove("active");
+        tabLogin.classList.add("active");
+        document.getElementById("lId").value = "";
+        document.getElementById("lPw").value = "";
+        var lErr = document.getElementById("lErr");
+        lErr.style.display = "none";
+        lErr.style.background = "#581c1c";
+        lErr.style.color = "#fecaca";
+        loginForm.style.display = "block";
+    }
+}
+
+function openDashboardScreen(tab) {
+    var user = getCurrentUser();
+    if (!user) {
+        openAuthScreen("login");
+        return;
+    }
+    hideAllScreens();
+    renderDashboardData(user);
+    document.getElementById("dashboardScreen").classList.add("active");
+    switchDashTab(tab || "overview");
+    window.scrollTo(0, 0);
+}
+
+function switchDashTab(tab) {
+    var tabs = ["Overview", "Courses", "Store", "Security"];
+    for (var i = 0; i < tabs.length; i++) {
+        var tName = tabs[i];
+        var btn = document.getElementById("dTab" + tName);
+        var view = document.getElementById("dashView" + tName);
+        if (btn) btn.classList.remove("active");
+        if (view) view.classList.remove("active");
+    }
+
+    var key = tab.charAt(0).toUpperCase() + tab.slice(1);
+    var activeBtn = document.getElementById("dTab" + key);
+    var activeView = document.getElementById("dashView" + key);
+    if (activeBtn) activeBtn.classList.add("active");
+    if (activeView) activeView.classList.add("active");
+
+    if (tab === "security") {
+        document.getElementById("cpOld").value = "";
+        document.getElementById("cpNew").value = "";
+        document.getElementById("cpConfirm").value = "";
+        document.getElementById("cpErr").style.display = "none";
+        document.getElementById("cpOk").style.display = "none";
+    }
+}
+
+function renderDashboardData(user) {
+    document.getElementById("dUserName").textContent = user.name;
+    document.getElementById("dUserEmail").textContent = user.email + " • +91 " + (user.phone || "");
+    document.getElementById("dStudentId").textContent = "ID: " + user.studentId;
+
+    document.getElementById("profName").textContent = user.name;
+    document.getElementById("profId").textContent = user.studentId;
+    document.getElementById("profEmail").textContent = user.email;
+    document.getElementById("profPhone").textContent = user.phone ? "+91 " + user.phone : "Not added";
+
+    var orders = user.orders || [];
+    var activeCount = 0;
+    for (var i = 0; i < orders.length; i++) {
+        if (orders[i].status === "Active") activeCount++;
+    }
+    document.getElementById("kpiTotalPkg").textContent = orders.length;
+    document.getElementById("kpiActivePkg").textContent = activeCount;
+
+    var html = "";
+    if (orders.length > 0) {
+        for (var j = 0; j < orders.length; j++) {
+            var o = orders[j];
+            var cls = o.status === "Active" ? "active" : "pending";
+            html +=
+                "<div class='course-row'>" +
+                "<div><b>" + o.pkg + "</b><small>Request ID: " + o.reqId + " • Paid: ₹" + o.amt + "</small></div>" +
+                "<span class='status-chip " + cls + "'>" + o.status + "</span>" +
+                "</div>";
+        }
+    } else {
+        html =
+            "<div class='note-box' style='margin-bottom:0'>" +
+            "Abhi aapke account mein koi package enrolled nahi hai. <b>Upgrade / Buy Packages</b> tab se apna pehla course select karein." +
+            "</div>";
+    }
+
+    document.getElementById("overviewOrdersList").innerHTML = html;
+    document.getElementById("myCoursesList").innerHTML = html;
+}
+
 function handleHeaderAuth() {
     var user = getCurrentUser();
     if (user) {
-        openDashboard();
+        openDashboardScreen("overview");
     } else {
-        showLogin();
+        openAuthScreen("login");
     }
 }
 
@@ -534,24 +853,9 @@ function closeMenu() {
     if (b) b.innerHTML = "&#9776;";
 }
 
-function closeAllPanels() {
-    closeMenu();
-    var ps = document.querySelectorAll(".panel");
-    for (var i = 0; i < ps.length; i++) {
-        ps[i].classList.remove("active");
-    }
-}
-
-function showLogin() {
-    closeAllPanels();
-    document.getElementById("lId").value = "";
-    document.getElementById("lPw").value = "";
-    document.getElementById("lErr").style.display = "none";
-    var lp = document.getElementById("loginPanel");
-    lp.classList.add("active");
-    lp.scrollIntoView({ behavior: "smooth", block: "center" });
-}
-
+/* =========================================================
+   AUTHENTICATION LOGIC
+   ========================================================= */
 function doLogin() {
     var id = document.getElementById("lId").value.trim().toLowerCase();
     var pw = document.getElementById("lPw").value;
@@ -575,24 +879,11 @@ function doLogin() {
 
     if (matched) {
         setSession(matched.email);
-        openDashboard();
+        openDashboardScreen("overview");
     } else {
         err.textContent = "Invalid email or password. Try student1@tms.com / pass1 or Sign Up.";
         err.style.display = "block";
     }
-}
-
-function showSignup() {
-    closeAllPanels();
-    document.getElementById("sName").value = "";
-    document.getElementById("sEmail").value = "";
-    document.getElementById("sPhone").value = "";
-    document.getElementById("sPw").value = "";
-    document.getElementById("sCpw").value = "";
-    document.getElementById("sErr").style.display = "none";
-    var sp = document.getElementById("signupPanel");
-    sp.classList.add("active");
-    sp.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function doSignup() {
@@ -651,22 +942,7 @@ function doSignup() {
     users.push(newUser);
     saveUsers(users);
     setSession(newUser.email);
-    openDashboard();
-}
-
-function showForgot() {
-    closeAllPanels();
-    resetTargetEmail = "";
-    document.getElementById("fpEmail").value = "";
-    document.getElementById("fpNewPw").value = "";
-    document.getElementById("fpConfirmPw").value = "";
-    document.getElementById("fpErr").style.display = "none";
-    document.getElementById("fpOk").style.display = "none";
-    document.getElementById("fpResetErr").style.display = "none";
-    document.getElementById("resetDirectBox").style.display = "none";
-    var fp = document.getElementById("forgotPanel");
-    fp.classList.add("active");
-    fp.scrollIntoView({ behavior: "smooth", block: "center" });
+    openDashboardScreen("overview");
 }
 
 function doForgot() {
@@ -739,7 +1015,7 @@ function completePasswordReset() {
     saveUsers(users);
     resetTargetEmail = "";
 
-    showLogin();
+    switchAuthMode("login");
     var lErr = document.getElementById("lErr");
     lErr.style.background = "#064e3b";
     lErr.style.color = "#dcfce7";
@@ -747,62 +1023,10 @@ function completePasswordReset() {
     lErr.style.display = "block";
 }
 
-function openDashboard() {
-    var user = getCurrentUser();
-    if (!user) {
-        showLogin();
-        return;
-    }
-    closeAllPanels();
-
-    document.getElementById("pWelcome").textContent = "Welcome, " + user.name;
-    document.getElementById("pStudentId").textContent = "Student ID: " + user.studentId;
-    document.getElementById("pEmailRow").textContent = "Email: " + user.email;
-    document.getElementById("pPhoneRow").textContent = "WhatsApp: " + (user.phone || "Not added");
-
-    var list = document.getElementById("dashCoursesList");
-    list.innerHTML = "";
-    if (user.orders && user.orders.length > 0) {
-        for (var i = 0; i < user.orders.length; i++) {
-            var o = user.orders[i];
-            var item = document.createElement("div");
-            item.className = "dash-item";
-            item.innerHTML =
-                "<div><b>" + o.pkg + "</b><br><small style='color:#94a3b8'>ID: " + o.reqId + " | ₹" + o.amt + "</small></div>" +
-                "<span class='dash-badge'>" + o.status + "</span>";
-            list.appendChild(item);
-        }
-    } else {
-        list.innerHTML = "<div style='font-size:12px;color:#94a3b8;padding:6px 0'>Abhi koi package enrolled nahi hai. Niche button se package select karein.</div>";
-    }
-
-    var pp = document.getElementById("portalPanel");
-    pp.classList.add("active");
-    pp.scrollIntoView({ behavior: "smooth", block: "center" });
-}
-
-function showChangePassword() {
-    var user = getCurrentUser();
-    if (!user) {
-        showLogin();
-        return;
-    }
-    closeAllPanels();
-    document.getElementById("cpOld").value = "";
-    document.getElementById("cpNew").value = "";
-    document.getElementById("cpConfirm").value = "";
-    document.getElementById("cpErr").style.display = "none";
-    document.getElementById("cpOk").style.display = "none";
-
-    var cp = document.getElementById("changePwPanel");
-    cp.classList.add("active");
-    cp.scrollIntoView({ behavior: "smooth", block: "center" });
-}
-
 function doChangePassword() {
     var user = getCurrentUser();
     if (!user) {
-        showLogin();
+        openAuthScreen("login");
         return;
     }
 
@@ -854,12 +1078,19 @@ function doChangePassword() {
 
 function doLogout() {
     setSession(null);
-    closeAllPanels();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    openMainSite();
+}
+
+/* =========================================================
+   CHECKOUT MODAL LOGIC
+   ========================================================= */
+function closeCheckoutModal() {
+    document.getElementById("checkoutOverlay").classList.remove("active");
+    document.getElementById("buyPanel").style.display = "none";
+    document.getElementById("donePanel").style.display = "none";
 }
 
 function showBuy(pkg, amt) {
-    closeAllPanels();
     selPkg = pkg;
     selAmt = amt;
 
@@ -876,9 +1107,9 @@ function showBuy(pkg, amt) {
     document.getElementById("qrImg").src =
         "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(upi);
 
-    var bp = document.getElementById("buyPanel");
-    bp.classList.add("active");
-    bp.scrollIntoView({ behavior: "smooth", block: "center" });
+    document.getElementById("donePanel").style.display = "none";
+    document.getElementById("buyPanel").style.display = "block";
+    document.getElementById("checkoutOverlay").classList.add("active");
 }
 
 function doPay() {
@@ -927,6 +1158,7 @@ function doPay() {
             }
         }
         saveUsers(users);
+        renderDashboardData(getCurrentUser());
     }
 
     var msg = "Hello THE MILLIONAIRE SKILLS\nName: " + name +
@@ -936,16 +1168,15 @@ function doPay() {
         "\nUTR: " + utr +
         "\nRequest ID: " + reqId;
 
-    closeAllPanels();
-
+    document.getElementById("buyPanel").style.display = "none";
     document.getElementById("donePkg").textContent =
         "Package: " + selPkg + " | Amount: Rs. " + selAmt;
     document.getElementById("doneReq").textContent = "Request ID: " + reqId;
     document.getElementById("doneWa").href =
         "https://wa.me/916289841691?text=" + encodeURIComponent(msg);
+    document.getElementById("doneDashBtn").style.display = user ? "block" : "none";
 
-    document.getElementById("donePanel").classList.add("active");
-    document.getElementById("donePanel").scrollIntoView({ behavior: "smooth", block: "center" });
+    document.getElementById("donePanel").style.display = "block";
 }
 
 function copyVal(val, id) {

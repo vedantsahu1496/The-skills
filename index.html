@@ -27,6 +27,7 @@ button{cursor:pointer;font-family:inherit}
 
 /* BUTTONS & INPUTS */
 .btn{display:block;width:100%;padding:12px;border:0;border-radius:10px;margin-top:10px;font-weight:700;font-size:13.5px;text-align:center}
+.btn-sm{display:inline-block;width:auto;margin:0;padding:6px 10px;font-size:12px;border-radius:8px}
 .gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
 .dark{background:#172033;color:#fff;border:1px solid #475569}
 .green{background:#22c55e;color:#052e16}
@@ -38,22 +39,23 @@ button{cursor:pointer;font-family:inherit}
 .msg{display:none;padding:10px 12px;border-radius:9px;font-size:12px;margin-top:8px;font-weight:600}
 .msg.err{display:block;background:#581c1c;color:#fecaca}
 .msg.ok{display:block;background:#064e3b;color:#dcfce7}
+.msg.warn{display:block;background:#78350f;color:#fde68a}
 
 /* LANDING PAGE */
 .hero{text-align:center;padding:38px 16px;background:linear-gradient(180deg,var(--surf),var(--bg))}
 .tag{display:inline-block;padding:5px 13px;border:1px solid var(--gold);border-radius:99px;color:var(--gold);font-size:11.5px;font-weight:700}
 .hero h1{font-size:30px;margin:14px 0 8px}
 .hero h1 span{color:var(--gold)}
-.hero p{color:var(--mut);font-size:13.5px;max-width:420px;margin:auto}
+.hero p{color:var(--mut);font-size:13.5px;max-width:440px;margin:auto}
 .hero-act{max-width:400px;margin:16px auto}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:440px;margin:20px auto 0}
 .stat{padding:14px;background:var(--surf);border:1px solid #604a21;border-radius:12px;text-align:left}
 .stat b{display:block;color:var(--gold);font-size:20px}
 .stat span{font-size:12px;color:var(--mut)}
 .sec{max-width:540px;margin:auto;padding:24px 16px}
-.sec-h{text-align:center;margin-bottom:18px}
+.sec-h{text-align:center;margin-bottom:16px}
 .sec-h p{color:var(--mut);font-size:13px}
-.card{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:16px;margin-bottom:18px}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:16px;margin-bottom:16px}
 .card.vip{border-color:#fbbf24}
 .img-wrap{background:#080e1c;border-radius:11px;padding:8px;margin-bottom:12px;text-align:center}
 .img-wrap img{width:100%;max-width:320px;border-radius:9px;display:block;margin:auto}
@@ -65,6 +67,23 @@ button{cursor:pointer;font-family:inherit}
 .c-m{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);font-size:12px}
 .c-p{font-size:22px;color:#fbbf24;font-weight:800;margin-top:10px}
 .c-p s{font-size:13px;color:#64748b;font-weight:400}
+
+/* COMPARISON TABLE */
+.tbl-wrap{overflow-x:auto;background:var(--surf);border:1px solid var(--bdr);border-radius:14px}
+table.cmp{width:100%;border-collapse:collapse;font-size:12.5px;min-width:480px}
+table.cmp th,table.cmp td{padding:10px 12px;border-bottom:1px solid var(--bdr);text-align:left}
+table.cmp th{color:var(--gold);background:var(--card);font-size:12px}
+table.cmp tr:last-child td{border-bottom:none}
+
+/* TESTIMONIALS & FAQ */
+.t-grid{display:grid;gap:12px}
+.t-card{background:var(--surf);border:1px solid var(--bdr);border-radius:14px;padding:14px}
+.t-card p{font-size:12.5px;color:var(--txt);margin-bottom:8px}
+.t-card small{color:var(--mut);font-size:11.5px;display:block}
+.faq-item{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;background:none;border:0;color:var(--txt);padding:12px 14px;text-align:left;font-weight:700;font-size:13px;display:flex;justify-content:space-between;align-items:center}
+.faq-a{display:none;padding:0 14px 12px;font-size:12.5px;color:var(--mut)}
+.faq-item.open .faq-a{display:block}
 
 /* LOGIN VIEW */
 #authView{display:none;min-height:100vh;padding:20px 16px 40px;background:radial-gradient(circle at top,#14213d,#060913 70%)}
@@ -100,6 +119,7 @@ button{cursor:pointer;font-family:inherit}
 .w-box .lbl{color:#334155}
 .w-box .inp{background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1}
 .w-box .note{background:#eff6ff;color:#1e3a8a;border-left-color:#2d5fb8}
+.empty-st{text-align:center;padding:18px 10px;color:#64748b;font-size:12.5px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px}
 .bars{height:145px;border-radius:12px;background:linear-gradient(180deg,rgba(249,115,22,.15),rgba(249,115,22,.02));border:1px solid #fed7aa;padding:10px;display:flex;align-items:flex-end;justify-content:space-between;gap:6px;margin-top:10px}
 .b-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}
 .b-fill{width:100%;max-width:26px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#fb923c,#ea580c);min-height:6px}
@@ -115,15 +135,18 @@ button{cursor:pointer;font-family:inherit}
 /* MODAL */
 .modal{display:none;position:fixed;inset:0;background:rgba(3,6,15,.88);z-index:200;overflow-y:auto;padding:20px 14px}
 .modal.open{display:flex;align-items:flex-start;justify-content:center}
-.m-panel{width:100%;max-width:420px;margin:auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px}
+.m-panel{width:100%;max-width:430px;margin:auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px}
 .qr-box{background:#fff;color:#111;padding:12px;border-radius:12px;text-align:center;margin:10px 0}
 .qr-box img{width:150px;height:150px;display:block;margin:8px auto}
+.sum-box{background:#172033;border:1px solid #334155;border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:12.5px}
 
 /* FOOTER */
 footer{text-align:center;background:#050811;padding:26px 15px 32px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
 footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
+.f-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:10px 0;font-size:12px}
+.f-links button{background:none;border:0;color:#fbbf24;text-decoration:underline;font-size:12px}
 .f-card{background:#111b30;border:1px solid #334155;padding:14px;border-radius:12px;margin:12px auto;max-width:420px;text-align:left}
-@media(min-width:700px){.sec{max-width:820px}.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hero h1{font-size:40px}}
+@media(min-width:700px){.sec{max-width:820px}.c-grid,.t-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hero h1{font-size:40px}}
 </style>
 </head>
 <body id="top">
@@ -137,6 +160,8 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       <button type="button" class="m-btn" onclick="toggleDrawer()">☰</button>
       <div class="drawer" id="drawer">
         <a href="#courses" onclick="toggleDrawer(false)">Courses</a>
+        <a href="#compare" onclick="toggleDrawer(false)">Compare Plans</a>
+        <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
         <a href="#contact" onclick="toggleDrawer(false)">Contact</a>
         <a href="#" id="dLogin" onclick="toggleDrawer(false);showAuth('login');return false;">Portal Login</a>
         <a href="#" id="dDash" style="display:none" onclick="toggleDrawer(false);showDash('earnings');return false;">Dashboard</a>
@@ -170,9 +195,34 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     <div class="c-grid" id="coursesGrid"></div>
   </section>
 
+  <section class="sec" id="compare">
+    <div class="sec-h"><h2>Package Comparison</h2><p>Choose the right skill track for your stage</p></div>
+    <div class="tbl-wrap"><table class="cmp" id="cmpTable"></table></div>
+  </section>
+
+  <section class="sec" id="outcomes">
+    <div class="sec-h"><h2>Learner Feedback</h2><p>Practical focus on execution, clarity, and consistency</p></div>
+    <div class="t-grid">
+      <div class="t-card"><p>"Marketing and funnel basics were explained simply so I could apply them right away on my page."</p><small><b>Rohit Verma</b> • Marketing Mastery • Bhopal</small></div>
+      <div class="t-card"><p>"Having all modules and team tracking in one clean mobile portal makes daily study easy."</p><small><b>Ananya Sharma</b> • Branding Mastery • Indore</small></div>
+      <div class="t-card"><p>"Influence and closing frameworks helped me structure calls clearly without guesswork."</p><small><b>Danish Khan</b> • Influence Mastery • Jabalpur</small></div>
+      <div class="t-card"><p>"The VIP bundle covers everything from traffic to personal finance discipline in one place."</p><small><b>Pooja Nair</b> • Finance Mastery (VIP) • Pune</small></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="sec-h"><h2>Frequently Asked Questions</h2><p>Quick answers before you enroll</p></div>
+    <div id="faqList"></div>
+  </section>
+
   <footer id="contact">
     <b>THE MILLIONAIRE SKILLS</b>
     <div>WhatsApp: +91 62898 41691 • Email: mdaadilalam123123@gmail.com</div>
+    <div class="f-links">
+      <button type="button" onclick="openLegal('terms')">Terms &amp; Conditions</button>
+      <button type="button" onclick="openLegal('privacy')">Privacy Policy</button>
+      <button type="button" onclick="openLegal('refund')">Verification &amp; Refund</button>
+    </div>
     <div class="f-card">
       <b style="font-size:13.5px;margin-bottom:4px">Platform &amp; Compliance</b>
       <p style="font-size:12px;color:#cbd5e1">Structured digital skill-building modules with UPI UTR verification and direct student support.</p>
@@ -269,7 +319,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       <button type="button" class="s-tab" data-d="profile" onclick="setDTab('profile')">Profile &amp; Pass</button>
     </div>
 
-    <!-- PANE 1: EARNINGS + CHART + RECENT TEAM -->
     <div id="dp-earnings" class="d-pane active">
       <div class="e-grid">
         <div class="e-card"><small>👤 Today's Earning</small><b id="eToday">₹0</b></div>
@@ -296,7 +345,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       </div>
     </div>
 
-    <!-- PANE 2: PAGINATED TEAM -->
     <div id="dp-team" class="d-pane">
       <div class="w-box">
         <h3>All Team Members</h3>
@@ -316,13 +364,9 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       </div>
     </div>
 
-    <!-- PANE 3: MY PACKAGES -->
     <div id="dp-courses" class="d-pane"><div class="w-box"><h3>My Enrolled Packages</h3><div id="myOrders"></div></div></div>
-
-    <!-- PANE 4: BUY PACKAGE -->
     <div id="dp-buy" class="d-pane"><div class="w-box"><h3>Upgrade / Buy Package</h3><div id="dBuyList"></div></div></div>
 
-    <!-- PANE 5: PROFILE & PASSWORD -->
     <div id="dp-profile" class="d-pane">
       <div class="w-box">
         <h3>Edit Profile</h3>
@@ -340,7 +384,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       </div>
     </div>
 
-    <!-- LEGAL & COMPLIANCE FOOTER -->
     <div class="w-box" style="margin-top:14px">
       <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
         <span class="chip" style="padding:3px 9px;font-size:11px;background:#eff6ff;color:#1e3a8a;border-color:#bfdbfe">✓ Verified Portal</span>
@@ -353,12 +396,13 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
   </div>
 </div>
 
-<!-- 4. MODAL (UPI CHECKOUT + PHOTO) -->
+<!-- 4. MODAL (UPI CHECKOUT + PHOTO + LEGAL) -->
 <div class="modal" id="modal">
   <div class="m-panel" id="buyModal" style="display:none">
     <div class="row-sp" style="margin-bottom:10px"><b id="bTitle" style="color:#fbbf24;font-size:16px">Checkout</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
+    <div class="sum-box" id="sumBox"></div>
     <div class="qr-box"><b id="qrLbl">Pay via UPI</b><img id="qrImg" alt="UPI QR"><b>UPI: millionaireskills@upi</b></div>
-    <div class="note">Payment submit karne ke baad manual verification ka wait karein.</div>
+    <div class="note">Payment submit karne ke baad admin panel se UTR verify hoga.</div>
     <label class="lbl">Amount (₹)</label><input id="fAmt" class="inp" readonly>
     <label class="lbl">Full Name</label><input id="fName" class="inp" placeholder="Your name">
     <label class="lbl">WhatsApp (10 digits)</label><input id="fPhone" class="inp" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
@@ -379,6 +423,11 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     <button type="button" class="btn green" onclick="savePhoto()">Save Photo</button>
     <button type="button" class="btn red" onclick="clearPhoto()">Remove Photo</button>
     <div id="pErr" class="msg"></div>
+  </div>
+
+  <div class="m-panel" id="legalModal" style="display:none">
+    <div class="row-sp" style="margin-bottom:10px"><b id="legTitle" style="color:#fbbf24;font-size:16px">Policy</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
+    <div id="legBody" style="font-size:13px;color:#cbd5e1;line-height:1.6"></div>
   </div>
 </div>
 
@@ -401,6 +450,13 @@ const DEF_COURSES = [
   { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"ALL-IN-ONE VIP", save:"BEST VALUE", title:"Finance Mastery (VIP Bundle)", desc:"Money management, wealth building & full access across all mastery modules.", rating:"★ 5.0", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
 ];
 
+const FAQS = [
+  { q:"UPI payment ke baad package kab active hota hai?", a:"Payment UTR submit karne ke baad admin verification queue mein aata hai aur approve hoti hi order Active dikhne lagta hai." },
+  { q:"Kya main mobile se courses aur dashboard access kar sakta hoon?", a:"Haan, poora portal mobile-first banaya gaya hai taaki aap kahin se bhi apni profile, packages aur team check kar sakein." },
+  { q:"Kya baad mein kisi higher package par upgrade kar sakte hain?", a:"Bilkul, aap dashboard ke 'Buy Package' tab ya landing page se naya package select karke request bhej sakte hain." },
+  { q:"Login ya UTR mein dikkat aaye toh kahan sampark karein?", a:"Aap WhatsApp (+91 62898 41691) ya email (mdaadilalam123123@gmail.com) par turant support le sakte hain." }
+];
+
 const ZERO_E = { today:"₹0", sevenDays:"₹0", thirtyDays:"₹0", allTime:"₹0", industrial:"₹0", wallet:"₹0" };
 
 const TEAM_SEED = Array.from({length:14}, (_,i) => ({
@@ -416,7 +472,7 @@ let selC = null, resetEm = "", tempImg = "", tPage = 1;
 const rJ = (k,fb) => { try { const v=JSON.parse(localStorage.getItem(k)); return v!==null && v!==undefined ? v : fb; } catch { return fb; } };
 const wJ = (k,v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 const inr = n => "₹" + (parseInt(n,10)||0).toLocaleString("en-IN");
-const showM = (id,txt,ok=false) => { const el=document.getElementById(id); el.className="msg "+(ok?"ok":"err"); el.textContent=txt; };
+const showM = (id,txt,mode="err") => { const el=document.getElementById(id); el.className="msg "+mode; el.textContent=txt; };
 
 function getAdminCreds(){ return rJ(K.admin, { email:"admin@tms.com", password:"admin123" }); }
 
@@ -470,10 +526,33 @@ function renderCourses(){
     </div>
   `).join("");
 
+  document.getElementById("cmpTable").innerHTML = `
+    <thead><tr><th>Package</th><th>Modules</th><th>Price</th><th>Action</th></tr></thead>
+    <tbody>${list.map((c,i)=>`
+      <tr>
+        <td><b>${c.title}</b><br><small style="color:var(--mut)">${c.badge}</small></td>
+        <td>${c.modules}</td>
+        <td><b>${inr(c.price)}</b></td>
+        <td><button type="button" class="btn gold btn-sm" onclick="openBuy(${i})">Select</button></td>
+      </tr>
+    `).join("")}</tbody>
+  `;
+
   document.getElementById("dBuyList").innerHTML = list.map((c,i)=>`
     <div class="t-row">
       <div><b>${c.title} (${inr(c.price)})</b><br><small style="color:#64748b">${c.modules}</small></div>
       <button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="openBuy(${i})">Buy</button>
+    </div>
+  `).join("");
+}
+
+function renderFaq(){
+  document.getElementById("faqList").innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item ${i===0?"open":""}" id="fq-${i}">
+      <button type="button" class="faq-q" onclick="document.getElementById('fq-${i}').classList.toggle('open')">
+        <span>${f.q}</span><span>+</span>
+      </button>
+      <div class="faq-a">${f.a}</div>
     </div>
   `).join("");
 }
@@ -545,7 +624,7 @@ function sendReset(){
   if(!getUsers().some(u => u.email.toLowerCase()===em)) return showM("fpMsg", "Email not found.");
   resetEm = em;
   document.getElementById("resetArea").style.display = "block";
-  showM("fpMsg", "Reset enabled for " + em, true);
+  showM("fpMsg", "Reset enabled for " + em, "ok");
 }
 
 function saveReset(){
@@ -557,7 +636,7 @@ function saveReset(){
   wJ(K.users, all);
   resetEm = "";
   showAuth("login");
-  showM("lMsg", "Password updated. Login now.", true);
+  showM("lMsg", "Password updated. Login now.", "ok");
 }
 
 function setDTab(t){
@@ -594,11 +673,13 @@ function renderDash(u){
   document.getElementById("chartBars").innerHTML = days.map((d,i)=>`<div class="b-col"><div class="b-fill" style="height:${hs[i]}%"></div><span>${d}</span></div>`).join("");
 
   const tm = u.team || [];
-  document.getElementById("recentTeam").innerHTML = tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div></div></div>`).join("") || "<small>No team members</small>";
+  document.getElementById("recentTeam").innerHTML = tm.length
+    ? tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div></div></div>`).join("")
+    : `<div class="empty-st">Abhi koi team member nahi juda hai.</div>`;
 
   document.getElementById("myOrders").innerHTML = ord.length
-    ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("")
-    : "<small>No packages enrolled yet.</small>";
+    ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("")
+    : `<div class="empty-st">Aapne abhi tak koi package enroll nahi kiya hai.</div>`;
 
   renderTeam();
 }
@@ -612,12 +693,9 @@ function renderTeam(){
   tPage = Math.min(Math.max(1,tPage), pages);
   const s = (tPage-1)*per, e = Math.min(s+per, fil.length), slice = fil.slice(s,e);
 
-  document.getElementById("teamList").innerHTML = slice.map(m=>`
-    <div class="t-row">
-      <div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div>
-      <div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div>
-    </div>
-  `).join("") || "<small>No matches.</small>";
+  document.getElementById("teamList").innerHTML = slice.length
+    ? slice.map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div><div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div></div>`).join("")
+    : `<div class="empty-st">Search se match karta koi member nahi mila.</div>`;
 
   document.getElementById("tInfo").textContent = fil.length ? `Showing ${s+1}-${e} of ${fil.length} (Page ${tPage}/${pages})` : "Showing 0 of 0";
   let btns = `<button type="button" class="pg-btn" onclick="tPage--;renderTeam()" ${tPage<=1?"disabled":""}>&lt;</button>`;
@@ -627,41 +705,69 @@ function renderTeam(){
 }
 
 function toggleQuickName(){ const b=document.getElementById("qNameBox"); const op=b.style.display!=="block"; b.style.display=op?"block":"none"; if(op){ qNameInp.value=curUser().name||""; qNameMsg.className="msg"; } }
-function saveQuickName(){ const n=qNameInp.value.trim(); if(n.length<2) return showM("qNameMsg","Min 2 chars."); const u=modUser(x=>x.name=n); if(u){ renderDash(u); showM("qNameMsg","Saved!",true); setTimeout(()=>toggleQuickName(),600); } }
-function saveProfile(){ const n=pName.value.trim(), t=pTag.value.trim(); if(n.length<2) return showM("pMsg","Min 2 chars."); const u=modUser(x=>{x.name=n;x.tag=t;}); if(u){ renderDash(u); showM("pMsg","Profile updated!",true); } }
+function saveQuickName(){ const n=qNameInp.value.trim(); if(n.length<2) return showM("qNameMsg","Min 2 chars."); const u=modUser(x=>x.name=n); if(u){ renderDash(u); showM("qNameMsg","Saved!","ok"); setTimeout(()=>toggleQuickName(),600); } }
+function saveProfile(){ const n=pName.value.trim(), t=pTag.value.trim(); if(n.length<2) return showM("pMsg","Min 2 chars."); const u=modUser(x=>{x.name=n;x.tag=t;}); if(u){ renderDash(u); showM("pMsg","Profile updated!","ok"); } }
 function changePass(){
   const u=curUser(); if(!u) return;
   if(cOld.value!==u.password) return showM("cPassMsg","Wrong current password.");
   if(cNew.value.length<6 || cNew.value!==cConf.value) return showM("cPassMsg","New password must be 6+ chars and match.");
-  modUser(x=>x.password=cNew.value); cOld.value=cNew.value=cConf.value=""; showM("cPassMsg","Password updated!",true);
+  modUser(x=>x.password=cNew.value); cOld.value=cNew.value=cConf.value=""; showM("cPassMsg","Password updated!","ok");
+}
+
+function isDuplicateUtr(utr){
+  return getUsers().some(u => (u.orders||[]).some(o => String(o.utr||"") === utr || String(o.reqId||"").includes(utr)));
 }
 
 function openBuy(idx){
   const c=getCourses()[idx]; if(!c) return;
   selC=c; const u=curUser();
   bTitle.textContent=c.title+" Checkout"; qrLbl.textContent="Pay Rs. "+c.price+" via UPI";
+  sumBox.innerHTML = `<b>Package:</b> ${c.title} • <b>${c.modules}</b><br><b>Payable Amount:</b> <span style="color:#fbbf24">${inr(c.price)}</span>`;
   fAmt.value=c.price; fName.value=u?u.name:""; fPhone.value=u?u.phone:""; fUtr.value="";
   bMsg.className="msg"; doneBox.style.display="none";
   qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkills&am=${c.price}&cu=INR`);
-  photoModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
+  photoModal.style.display="none"; legalModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
 }
 
 function submitPay(){
   const nm=fName.value.trim(), ph=fPhone.value.replace(/\D/g,""), utr=fUtr.value.replace(/\D/g,"");
-  if(!selC||nm.length<2||ph.length!==10||utr.length!==12) return showM("bMsg","Enter valid name, 10-digit phone & 12-digit UTR.");
+  if(!selC||nm.length<2) return showM("bMsg","Please enter your full name (min 2 letters).");
+  if(ph.length!==10) return showM("bMsg","Please enter a valid 10-digit WhatsApp number.");
+  if(utr.length!==12) return showM("bMsg","Please enter a valid 12-digit UPI UTR number.");
+  if(isDuplicateUtr(utr)) return showM("bMsg","Warning: Yeh 12-digit UTR pehle hi use ho chuka hai.","warn");
+
   const reqId="TMS-"+Date.now().toString().slice(-8);
-  const u=modUser(x=>{x.orders=x.orders||[];x.orders.push({pkg:selC.title,amt:selC.price,reqId,status:"Pending Verification"});});
-  if(u) renderDash(u);
-  dReqTxt.textContent=`${selC.title} • Rs. ${selC.price} • Req: ${reqId}`;
+  const all=getUsers();
+  const sessEm=sessionStorage.getItem(K.sess);
+  const target=sessEm ? all.find(x=>x.email.toLowerCase()===sessEm.toLowerCase()) : all[0];
+  if(target){
+    target.orders=target.orders||[];
+    target.orders.push({pkg:selC.title,amt:selC.price,reqId,utr,status:"Pending Verification"});
+    wJ(K.users,all);
+    if(curUser()) renderDash(curUser());
+  }
+
+  dReqTxt.textContent=`${selC.title} • Rs. ${selC.price} • UTR: ${utr} • Req: ${reqId}`;
   dWaLink.href="https://wa.me/916289841691?text="+encodeURIComponent(`Name: ${nm}\nPhone: ${ph}\nPackage: ${selC.title}\nAmount: Rs. ${selC.price}\nUTR: ${utr}\nReq: ${reqId}`);
   doneBox.style.display="block";
+}
+
+function openLegal(type){
+  const map={
+    terms:["Terms & Conditions","Aap in packages ka upyog keval educational aur skill-learning ke uddeshya se karte hain. Platform access aur portal niyam samay-samay par update kiye ja sakte hain."],
+    privacy:["Privacy Policy","Aapka naam, email, phone aur order details sirf portal access, support aur verification ke liye browser storage mein rakhe jaate hain."],
+    refund:["Verification & Refund Policy","UPI payment ke baad UTR verification kiya jata hai. Digital access shuru hone ya verify hone ke baad standard policy ke anusar support se sampark karein."]
+  };
+  const item=map[type]||map.terms;
+  legTitle.textContent=item[0]; legBody.textContent=item[1];
+  buyModal.style.display="none"; photoModal.style.display="none"; legalModal.style.display="block"; modal.classList.add("open");
 }
 
 function openPhotoModal(){
   const u=curUser(); if(!u) return showAuth("login");
   tempImg=u.photo||""; pErr.className="msg"; pFile.value="";
   renderAv(document.getElementById("pStage"), {name:u.name, photo:tempImg});
-  buyModal.style.display="none"; photoModal.style.display="block"; modal.classList.add("open");
+  buyModal.style.display="none"; legalModal.style.display="none"; photoModal.style.display="block"; modal.classList.add("open");
 }
 
 function onPhotoPick(e){
@@ -672,11 +778,11 @@ function onPhotoPick(e){
 
 function savePhoto(){ if(!tempImg) return showM("pErr","Choose a photo first."); const u=modUser(x=>x.photo=tempImg); if(u) renderDash(u); closeModal(); }
 function clearPhoto(){ tempImg=""; const u=modUser(x=>x.photo=""); if(u) renderDash(u); closeModal(); }
-function closeModal(){ modal.classList.remove("open"); buyModal.style.display="none"; photoModal.style.display="none"; }
+function closeModal(){ modal.classList.remove("open"); buyModal.style.display="none"; photoModal.style.display="none"; legalModal.style.display="none"; }
 
 function copyText(val, id){
-  if(navigator.clipboard) navigator.clipboard.writeText(val).then(()=>showM(id,"Copied: "+val,true)).catch(()=>showM(id,"Copy: "+val,true));
-  else showM(id,"Copy: "+val,true);
+  if(navigator.clipboard) navigator.clipboard.writeText(val).then(()=>showM(id,"Copied: "+val,"ok")).catch(()=>showM(id,"Copy: "+val,"ok"));
+  else showM(id,"Copy: "+val,"ok");
 }
 
 window.addEventListener("storage", e => {
@@ -685,7 +791,7 @@ window.addEventListener("storage", e => {
   if(e.key === K.users && curUser()) renderDash(curUser());
 });
 
-applyTheme(); renderCourses(); syncHeader();
+applyTheme(); renderCourses(); renderFaq(); syncHeader();
 </script>
 </body>
 </html>

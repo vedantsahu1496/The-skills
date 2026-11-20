@@ -15,7 +15,7 @@ button{cursor:pointer;font-family:inherit}
 .brand small{font-size:10px;color:#94a3b8;letter-spacing:1.2px}
 .hdr-r{display:flex;gap:8px;align-items:center;position:relative}
 .menu-btn{background:#172033;color:#fbbf24;border:1px solid #b88624;border-radius:8px;width:38px;height:38px;font-size:20px;line-height:1}
-.nav-drawer{display:none;position:absolute;top:48px;right:0;width:230px;background:#0b1224;padding:10px 14px 14px;border:1px solid #b88624;border-radius:12px;z-index:200;box-shadow:0 12px 28px rgba(0,0,0,0.55)}
+.nav-drawer{display:none;position:absolute;top:48px;right:0;width:225px;background:#0b1224;padding:10px 14px 14px;border:1px solid #b88624;border-radius:12px;z-index:200;box-shadow:0 12px 28px rgba(0,0,0,0.6)}
 .nav-drawer.open{display:block}
 .nav-drawer a.nav-item{display:block;padding:11px 4px;border-bottom:1px solid #1e293b;font-size:14px;font-weight:bold;color:#f8fafc}
 .nav-drawer a.nav-item:hover{color:#fbbf24}
@@ -88,7 +88,7 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
   </a>
   <div class="hdr-r">
     <button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="showLogin()">Student Login</button>
-    <button type="button" class="menu-btn" id="menuBtn" aria-label="Toggle Menu" aria-expanded="false" onclick="toggleMenu()">&#9776;</button>
+    <button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
     <div class="nav-drawer" id="navDrawer">
       <a href="#courses" class="nav-item" onclick="closeMenu()">Courses</a>
       <a href="#about" class="nav-item" onclick="closeMenu()">About Us</a>
@@ -281,25 +281,23 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
 var selPkg = "";
 var selAmt = 0;
 
-function syncMenuBtn(isOpen){
-  var btn = document.getElementById("menuBtn");
-  if(!btn) return;
-  btn.innerHTML = isOpen ? "&times;" : "&#9776;";
-  btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-}
-
 function toggleMenu(){
   var d = document.getElementById("navDrawer");
-  if(!d) return;
-  var willOpen = !d.classList.contains("open");
-  d.classList.toggle("open", willOpen);
-  syncMenuBtn(willOpen);
+  var btn = document.getElementById("menuBtn");
+  if(!d || !btn) return;
+  d.classList.toggle("open");
+  if(d.classList.contains("open")){
+    btn.innerHTML = "&times;";
+  } else {
+    btn.innerHTML = "&#9776;";
+  }
 }
 
 function closeMenu(){
   var d = document.getElementById("navDrawer");
+  var btn = document.getElementById("menuBtn");
   if(d) d.classList.remove("open");
-  syncMenuBtn(false);
+  if(btn) btn.innerHTML = "&#9776;";
 }
 
 function closeAllPanels(){
@@ -364,4 +362,5 @@ function doPay(){
   closeAllPanels();
   document.getElementById("donePkg").textContent = "Package: " + selPkg + " | Amount: Rs. " + selAmt;
   document.getElementById("doneReq").textContent = "Request ID: " + reqId;
-  document.
+  document.getElementById("doneWa").href = "https://wa.me/916289841691?text=" + encodeURIComponent(msg);
+  document.getEleme

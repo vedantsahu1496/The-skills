@@ -436,4 +436,15 @@ function copyVal(val, id) {
         navigator.clipboard.writeText(val)
             .then(function() {
                 showCopied("Copied: " + val);
-      
+            })
+            .catch(function() {
+                showCopied("Copy failed. Please copy manually: " + val);
+            });
+    } else {
+        showCopied("Clipboard unavailable. Please copy manually: " + val);
+    }
+}
+</script>
+
+</body>
+</html>

@@ -13,8 +13,6 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);line-height:1.55;transition:.2s}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit}
-
-/* HEADER & NAV */
 .hdr{position:sticky;top:0;z-index:90;background:#0b1224;padding:13px 16px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
 .brand b{display:block;color:#fbbf24;font-size:15px}
 .brand small{font-size:10px;color:#94a3b8;letter-spacing:1.2px}
@@ -24,8 +22,6 @@ button{cursor:pointer;font-family:inherit}
 .drawer.open{display:block}
 .drawer a{display:block;padding:10px 4px;border-bottom:1px solid #1e293b;font-size:13.5px;font-weight:700;color:#f8fafc}
 .drawer a:last-child{border-bottom:none}
-
-/* BUTTONS & INPUTS */
 .btn{display:block;width:100%;padding:12px;border:0;border-radius:10px;margin-top:10px;font-weight:700;font-size:13.5px;text-align:center}
 .btn-sm{display:inline-block;width:auto;margin:0;padding:6px 10px;font-size:12px;border-radius:8px}
 .gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
@@ -40,8 +36,6 @@ button{cursor:pointer;font-family:inherit}
 .msg.err{display:block;background:#581c1c;color:#fecaca}
 .msg.ok{display:block;background:#064e3b;color:#dcfce7}
 .msg.warn{display:block;background:#78350f;color:#fde68a}
-
-/* LANDING PAGE */
 .hero{text-align:center;padding:38px 16px;background:linear-gradient(180deg,var(--surf),var(--bg))}
 .tag{display:inline-block;padding:5px 13px;border:1px solid var(--gold);border-radius:99px;color:var(--gold);font-size:11.5px;font-weight:700}
 .hero h1{font-size:30px;margin:14px 0 8px}
@@ -67,30 +61,18 @@ button{cursor:pointer;font-family:inherit}
 .c-m{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);font-size:12px}
 .c-p{font-size:22px;color:#fbbf24;font-weight:800;margin-top:10px}
 .c-p s{font-size:13px;color:#64748b;font-weight:400}
-
-/* COMPARISON TABLE */
 .tbl-wrap{overflow-x:auto;background:var(--surf);border:1px solid var(--bdr);border-radius:14px}
 table.cmp{width:100%;border-collapse:collapse;font-size:12.5px;min-width:480px}
 table.cmp th,table.cmp td{padding:10px 12px;border-bottom:1px solid var(--bdr);text-align:left}
 table.cmp th{color:var(--gold);background:var(--card);font-size:12px}
 table.cmp tr:last-child td{border-bottom:none}
-
-/* TESTIMONIALS & FAQ */
-.t-grid{display:grid;gap:12px}
-.t-card{background:var(--surf);border:1px solid var(--bdr);border-radius:14px;padding:14px}
-.t-card p{font-size:12.5px;color:var(--txt);margin-bottom:8px}
-.t-card small{color:var(--mut);font-size:11.5px;display:block}
 .faq-item{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;margin-bottom:10px;overflow:hidden}
 .faq-q{width:100%;background:none;border:0;color:var(--txt);padding:12px 14px;text-align:left;font-weight:700;font-size:13px;display:flex;justify-content:space-between;align-items:center}
 .faq-a{display:none;padding:0 14px 12px;font-size:12.5px;color:var(--mut)}
 .faq-item.open .faq-a{display:block}
-
-/* LOGIN VIEW */
 #authView{display:none;min-height:100vh;padding:20px 16px 40px;background:radial-gradient(circle at top,#14213d,#060913 70%)}
 #authView.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
 .auth-box{width:100%;max-width:420px;background:#0b1224;border:1.5px solid #b88624;border-radius:18px;padding:22px 18px}
-
-/* DASHBOARD VIEW */
 #dashView{display:none;min-height:100vh;background:#eef2f7;color:#0f172a;padding-bottom:44px}
 #dashView.active{display:block}
 .d-wrap{max-width:560px;margin:auto;padding:12px 14px}
@@ -98,27 +80,22 @@ table.cmp tr:last-child td{border-bottom:none}
 .chip{background:#fff;color:#1e293b;border:1px solid #cbd5e1;border-radius:99px;padding:6px 12px;font-size:12px;font-weight:700}
 .chip.blue{background:#2d5fb8;color:#fff;border-color:#2d5fb8}
 .chip.red{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
-.w-card{background:#fff;border-radius:16px;padding:14px 16px;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.05);margin-bottom:12px}
+.w-card,.p-card,.w-box{background:#fff;border-radius:16px;padding:14px 16px;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.05);margin-bottom:12px}
 .w-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:#fff;color:#1e293b;border:1px solid #cbd5e1;border-radius:10px;padding:7px 13px;font-size:12.5px;font-weight:700}
-.p-card{background:#fff;border-radius:16px;padding:14px 16px;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.05);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.p-card{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .av{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#2d5fb8,#1d4ed8);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;overflow:hidden;flex-shrink:0}
 .av img{width:100%;height:100%;object-fit:cover}
 .m-btn-sm{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;border-radius:8px;padding:6px 10px;font-size:11.5px;font-weight:700}
 .sub-tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
 .s-tab{background:#fff;color:#334155;border:1px solid #cbd5e1;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:700;white-space:nowrap}
 .s-tab.active{background:#2d5fb8;color:#fff;border-color:#2d5fb8}
-.d-pane{display:none}
-.d-pane.active{display:block}
+.d-pane{display:none}.d-pane.active{display:block}
 .e-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:12px}
-.e-card{background:linear-gradient(145deg,#3366c4,#2752a6);color:#fff;border-radius:16px;padding:16px;min-height:118px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 5px 14px rgba(39,82,166,.2)}
+.e-card{background:linear-gradient(145deg,#3366c4,#2752a6);color:#fff;border-radius:16px;padding:16px;min-height:118px;display:flex;flex-direction:column;justify-content:space-between}
 .e-card.full{grid-column:1/-1;min-height:100px}
-.e-card small{color:#dbeafe;font-size:13px}
-.e-card b{font-size:24px;font-weight:800;display:block;margin-top:2px}
-.w-box{background:#fff;border-radius:16px;padding:15px;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.05);margin-bottom:12px}
+.e-card small{color:#dbeafe;font-size:13px}.e-card b{font-size:24px;font-weight:800;display:block;margin-top:2px}
 .w-box h3{font-size:15.5px;color:#1e293b;margin-bottom:4px}
-.w-box .lbl{color:#334155}
-.w-box .inp{background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1}
-.w-box .note{background:#eff6ff;color:#1e3a8a;border-left-color:#2d5fb8}
+.w-box .lbl{color:#334155}.w-box .inp{background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1}
 .empty-st{text-align:center;padding:18px 10px;color:#64748b;font-size:12.5px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px}
 .bars{height:145px;border-radius:12px;background:linear-gradient(180deg,rgba(249,115,22,.15),rgba(249,115,22,.02));border:1px solid #fed7aa;padding:10px;display:flex;align-items:flex-end;justify-content:space-between;gap:6px;margin-top:10px}
 .b-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}
@@ -129,29 +106,23 @@ table.cmp tr:last-child td{border-bottom:none}
 .t-av{width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#1e293b;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
 .pg-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b}
 .pg-btn{min-width:30px;height:30px;padding:0 8px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#1e293b;font-weight:700}
-.pg-btn.active{background:#2d5fb8;color:#fff;border-color:#2d5fb8}
-.pg-btn:disabled{opacity:.4}
-
-/* MODAL */
+.pg-btn.active{background:#2d5fb8;color:#fff;border-color:#2d5fb8}.pg-btn:disabled{opacity:.4}
 .modal{display:none;position:fixed;inset:0;background:rgba(3,6,15,.88);z-index:200;overflow-y:auto;padding:20px 14px}
 .modal.open{display:flex;align-items:flex-start;justify-content:center}
 .m-panel{width:100%;max-width:430px;margin:auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px}
 .qr-box{background:#fff;color:#111;padding:12px;border-radius:12px;text-align:center;margin:10px 0}
 .qr-box img{width:150px;height:150px;display:block;margin:8px auto}
 .sum-box{background:#172033;border:1px solid #334155;border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:12.5px}
-
-/* FOOTER */
 footer{text-align:center;background:#050811;padding:26px 15px 32px;border-top:1px solid #b88624;color:#94a3b8;font-size:13px}
 footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 .f-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:10px 0;font-size:12px}
 .f-links button{background:none;border:0;color:#fbbf24;text-decoration:underline;font-size:12px}
 .f-card{background:#111b30;border:1px solid #334155;padding:14px;border-radius:12px;margin:12px auto;max-width:420px;text-align:left}
-@media(min-width:700px){.sec{max-width:820px}.c-grid,.t-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hero h1{font-size:40px}}
+@media(min-width:700px){.sec{max-width:820px}.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hero h1{font-size:40px}}
 </style>
 </head>
 <body id="top">
 
-<!-- 1. LANDING PAGE -->
 <div id="siteView">
   <header class="hdr">
     <a href="#top" class="brand"><b>THE MILLIONAIRE SKILLS</b><small>EXECUTIVE MASTERY</small></a>
@@ -173,7 +144,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
   <section class="hero">
     <div class="tag">★ EXECUTIVE MASTERY</div>
     <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
-    <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI checkout and student portal.</p>
+    <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI checkout and multi-device sync.</p>
     <div class="hero-act">
       <a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
       <div id="guestBox"><button type="button" class="btn dark" onclick="showAuth('login')">Student / Admin Login</button></div>
@@ -186,7 +157,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       <div class="stat"><b>85+</b><span>Practical Modules</span></div>
       <div class="stat"><b>10K+</b><span>Active Students</span></div>
       <div class="stat"><b>24/7</b><span>Mobile Access</span></div>
-      <div class="stat"><b>Verified</b><span>Student Portal</span></div>
+      <div class="stat"><b>Cloud Sync</b><span>Any Browser</span></div>
     </div>
   </section>
 
@@ -200,16 +171,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     <div class="tbl-wrap"><table class="cmp" id="cmpTable"></table></div>
   </section>
 
-  <section class="sec" id="outcomes">
-    <div class="sec-h"><h2>Learner Feedback</h2><p>Practical focus on execution, clarity, and consistency</p></div>
-    <div class="t-grid">
-      <div class="t-card"><p>"Marketing and funnel basics were explained simply so I could apply them right away on my page."</p><small><b>Rohit Verma</b> • Marketing Mastery • Bhopal</small></div>
-      <div class="t-card"><p>"Having all modules and team tracking in one clean mobile portal makes daily study easy."</p><small><b>Ananya Sharma</b> • Branding Mastery • Indore</small></div>
-      <div class="t-card"><p>"Influence and closing frameworks helped me structure calls clearly without guesswork."</p><small><b>Danish Khan</b> • Influence Mastery • Jabalpur</small></div>
-      <div class="t-card"><p>"The VIP bundle covers everything from traffic to personal finance discipline in one place."</p><small><b>Pooja Nair</b> • Finance Mastery (VIP) • Pune</small></div>
-    </div>
-  </section>
-
   <section class="sec" id="faq">
     <div class="sec-h"><h2>Frequently Asked Questions</h2><p>Quick answers before you enroll</p></div>
     <div id="faqList"></div>
@@ -219,8 +180,8 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     <b>THE MILLIONAIRE SKILLS</b>
     <div>WhatsApp: +91 62898 41691 • Email: mdaadilalam123123@gmail.com</div>
     <div class="f-links">
-      <button type="button" onclick="openLegal('terms')">Terms &amp; Conditions</button>
-      <button type="button" onclick="openLegal('privacy')">Privacy Policy</button>
+      <button type="button" onclick="openLegal('terms')">Terms</button>
+      <button type="button" onclick="openLegal('privacy')">Privacy</button>
       <button type="button" onclick="openLegal('refund')">Verification &amp; Refund</button>
     </div>
     <div class="f-card">
@@ -235,37 +196,29 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
   </footer>
 </div>
 
-<!-- 2. LOGIN / FORGOT PASSWORD -->
 <div id="authView">
   <div style="width:100%;max-width:420px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
     <button type="button" class="btn dark" style="width:auto;margin:0;padding:8px 13px;color:#fbbf24;border-color:#b88624" onclick="showSite()">← Back to Site</button>
     <span style="font-size:12px;color:#94a3b8;font-weight:700">PORTAL ACCESS</span>
   </div>
-
   <div class="auth-box">
     <div id="loginBox">
       <h2 style="color:#fbbf24;font-size:18px;margin-bottom:4px">Portal Login</h2>
       <div class="note">Student: <b>student1@tms.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b></div>
-      <label class="lbl">Email Address</label>
-      <input id="lEmail" class="inp" type="email" placeholder="Enter your email">
-      <label class="lbl">Password</label>
-      <input id="lPass" class="inp" type="password" placeholder="Enter password">
+      <label class="lbl">Email Address</label><input id="lEmail" class="inp" type="email" placeholder="Enter your email">
+      <label class="lbl">Password</label><input id="lPass" class="inp" type="password" placeholder="Enter password">
       <button type="button" class="btn gold" onclick="login()">Login Now →</button>
       <div id="lMsg" class="msg"></div>
       <button type="button" style="background:none;border:0;color:#fbbf24;font-size:12.5px;text-decoration:underline;margin-top:12px" onclick="showAuth('forgot')">Forgot Password?</button>
     </div>
-
     <div id="forgotBox" style="display:none">
       <h2 style="color:#fbbf24;font-size:18px;margin-bottom:8px">Reset Password</h2>
-      <label class="lbl">Registered Email</label>
-      <input id="fpEmail" class="inp" type="email" placeholder="Enter registered email">
+      <label class="lbl">Registered Email</label><input id="fpEmail" class="inp" type="email" placeholder="Enter registered email">
       <button type="button" class="btn gold" onclick="sendReset()">Send Reset Link →</button>
       <div id="fpMsg" class="msg"></div>
       <div id="resetArea" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid #334155">
-        <label class="lbl">New Password (min 6 chars)</label>
-        <input id="fpNew" class="inp" type="password" placeholder="New password">
-        <label class="lbl">Confirm Password</label>
-        <input id="fpConf" class="inp" type="password" placeholder="Confirm password">
+        <label class="lbl">New Password (min 6 chars)</label><input id="fpNew" class="inp" type="password">
+        <label class="lbl">Confirm Password</label><input id="fpConf" class="inp" type="password">
         <button type="button" class="btn green" onclick="saveReset()">Update Password →</button>
       </div>
       <button type="button" style="background:none;border:0;color:#fbbf24;font-size:12.5px;text-decoration:underline;margin-top:12px" onclick="showAuth('login')">← Back to Login</button>
@@ -273,7 +226,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
   </div>
 </div>
 
-<!-- 3. STUDENT DASHBOARD -->
 <div id="dashView">
   <div class="d-wrap">
     <div class="d-top">
@@ -283,13 +235,11 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
         <button type="button" class="chip red" onclick="logout()">Logout</button>
       </div>
     </div>
-
     <div class="w-card">
       <b style="font-size:14.5px;color:#1e293b">Join Our WhatsApp Channel</b>
       <p style="font-size:12px;color:#64748b;margin-top:2px">Stay updated with the latest announcements, offers, and updates.</p>
       <a class="w-btn" href="https://whatsapp.com/channel/0029Vb7863B6mYPIh021dN1b" target="_blank" rel="noopener noreferrer">💬 Join Now</a>
     </div>
-
     <div class="p-card">
       <div style="display:flex;align-items:center;gap:12px">
         <div class="av" id="dAv"></div>
@@ -310,7 +260,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
         <div id="qNameMsg" class="msg"></div>
       </div>
     </div>
-
     <div class="sub-tabs">
       <button type="button" class="s-tab active" data-d="earnings" onclick="setDTab('earnings')">Earnings</button>
       <button type="button" class="s-tab" data-d="team" onclick="setDTab('team')">All Team (10+)</button>
@@ -318,7 +267,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       <button type="button" class="s-tab" data-d="buy" onclick="setDTab('buy')">Buy Package</button>
       <button type="button" class="s-tab" data-d="profile" onclick="setDTab('profile')">Profile &amp; Pass</button>
     </div>
-
     <div id="dp-earnings" class="d-pane active">
       <div class="e-grid">
         <div class="e-card"><small>👤 Today's Earning</small><b id="eToday">₹0</b></div>
@@ -328,75 +276,43 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
         <div class="e-card full"><small>🎁 Industrial Income</small><b id="eInd">₹0</b></div>
         <div class="e-card full"><small>💳 Wallet Balance</small><b id="eWal">₹0</b></div>
       </div>
-
       <div class="w-box">
         <h3>Earnings Chart</h3>
         <p style="font-size:12px;color:#64748b">Showing earnings and referrals over time</p>
         <div class="bars" id="chartBars"></div>
-        <div style="display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:12px;font-weight:700;color:#334155">
-          <span>● Referrals</span><span style="color:#ea580c">● Earnings</span>
-        </div>
       </div>
-
-      <div class="w-box">
-        <h3>Your Recent Team</h3>
-        <div id="recentTeam"></div>
-        <button type="button" class="w-btn" style="width:100%;justify-content:center" onclick="setDTab('team')">View All</button>
-      </div>
+      <div class="w-box"><h3>Your Recent Team</h3><div id="recentTeam"></div><button type="button" class="w-btn" style="width:100%;justify-content:center" onclick="setDTab('team')">View All</button></div>
     </div>
-
     <div id="dp-team" class="d-pane">
       <div class="w-box">
         <h3>All Team Members</h3>
         <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
           <input id="tSearch" class="inp" style="flex:1;min-width:160px;margin:0" placeholder="Search name, email, phone..." oninput="tPage=1;renderTeam()">
-          <select id="tPer" class="inp" style="width:auto;margin:0" onchange="tPage=1;renderTeam()">
-            <option value="10" selected>10 / page</option>
-            <option value="5">5 / page</option>
-            <option value="20">20 / page</option>
-          </select>
+          <select id="tPer" class="inp" style="width:auto;margin:0" onchange="tPage=1;renderTeam()"><option value="10" selected>10 / page</option><option value="5">5 / page</option><option value="20">20 / page</option></select>
         </div>
         <div id="teamList"></div>
-        <div class="pg-bar">
-          <span id="tInfo">Showing 0</span>
-          <div id="tCtrl" style="display:flex;gap:5px"></div>
-        </div>
+        <div class="pg-bar"><span id="tInfo">Showing 0</span><div id="tCtrl" style="display:flex;gap:5px"></div></div>
       </div>
     </div>
-
     <div id="dp-courses" class="d-pane"><div class="w-box"><h3>My Enrolled Packages</h3><div id="myOrders"></div></div></div>
     <div id="dp-buy" class="d-pane"><div class="w-box"><h3>Upgrade / Buy Package</h3><div id="dBuyList"></div></div></div>
-
     <div id="dp-profile" class="d-pane">
       <div class="w-box">
         <h3>Edit Profile</h3>
         <label class="lbl">Display Name</label><input id="pName" class="inp">
         <label class="lbl">Tag (Optional)</label><input id="pTag" class="inp" placeholder="[G.O.D]">
-        <button type="button" class="btn gold" onclick="saveProfile()">Save Profile</button>
-        <div id="pMsg" class="msg"></div>
+        <button type="button" class="btn gold" onclick="saveProfile()">Save Profile</button><div id="pMsg" class="msg"></div>
         <hr style="border:0;border-top:1px solid #e2e8f0;margin:16px 0">
         <h3>Change Password</h3>
         <label class="lbl">Current Password</label><input id="cOld" class="inp" type="password">
         <label class="lbl">New Password (min 6)</label><input id="cNew" class="inp" type="password">
         <label class="lbl">Confirm Password</label><input id="cConf" class="inp" type="password">
-        <button type="button" class="btn gold" onclick="changePass()">Update Password →</button>
-        <div id="cPassMsg" class="msg"></div>
+        <button type="button" class="btn gold" onclick="changePass()">Update Password →</button><div id="cPassMsg" class="msg"></div>
       </div>
-    </div>
-
-    <div class="w-box" style="margin-top:14px">
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-        <span class="chip" style="padding:3px 9px;font-size:11px;background:#eff6ff;color:#1e3a8a;border-color:#bfdbfe">✓ Verified Portal</span>
-        <span class="chip" style="padding:3px 9px;font-size:11px;background:#eff6ff;color:#1e3a8a;border-color:#bfdbfe">✓ Skill Training</span>
-        <span class="chip" style="padding:3px 9px;font-size:11px;background:#eff6ff;color:#1e3a8a;border-color:#bfdbfe">✓ Legal Terms</span>
-      </div>
-      <b style="font-size:13.5px;color:#1e293b">Compliance &amp; Terms</b>
-      <p style="font-size:12px;color:#475569;margin-top:4px">THE MILLIONAIRE SKILLS provides structured skill-development modules subject to terms, verification checks, and individual effort. Support: <b>mdaadilalam123123@gmail.com</b> • <b>+91 62898 41691</b>.</p>
     </div>
   </div>
 </div>
 
-<!-- 4. MODAL (UPI CHECKOUT + PHOTO + LEGAL) -->
 <div class="modal" id="modal">
   <div class="m-panel" id="buyModal" style="display:none">
     <div class="row-sp" style="margin-bottom:10px"><b id="bTitle" style="color:#fbbf24;font-size:16px">Checkout</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
@@ -415,7 +331,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       <a id="dWaLink" class="btn green" target="_blank" rel="noopener noreferrer">Send on WhatsApp →</a>
     </div>
   </div>
-
   <div class="m-panel" id="photoModal" style="display:none">
     <div class="row-sp" style="margin-bottom:10px"><b style="color:#fbbf24;font-size:16px">Edit Profile Photo</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
     <div style="display:flex;justify-content:center;margin:10px 0"><div class="av" id="pStage" style="width:110px;height:110px;font-size:36px;border:2px solid #fbbf24"></div></div>
@@ -424,7 +339,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     <button type="button" class="btn red" onclick="clearPhoto()">Remove Photo</button>
     <div id="pErr" class="msg"></div>
   </div>
-
   <div class="m-panel" id="legalModal" style="display:none">
     <div class="row-sp" style="margin-bottom:10px"><b id="legTitle" style="color:#fbbf24;font-size:16px">Policy</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
     <div id="legBody" style="font-size:13px;color:#cbd5e1;line-height:1.6"></div>
@@ -433,15 +347,10 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 
 <script>
 "use strict";
-const K = {
-  users: "tms_users_v7",
-  sess: "tms_sess_v1",
-  courses: "tms_courses_v7",
-  theme: "tms_theme_v7",
-  admin: "tms_admin_creds_v7",
-  admAuth: "tms_adm_session_v1"
-};
+// Optional Cloud Sync (JSONBin.io) - fill binId & masterKey for multi-device sync
+const CLOUD_CFG = { binId: "", masterKey: "" };
 
+const K = { users:"tms_users_v7", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7", admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1" };
 const DEF_COURSES = [
   { id:"marketing", img:"file_00000000a24082079bd1a0d07ce5ae90.png", badge:"STARTER", save:"SAVE 50%", title:"Marketing Mastery", desc:"Funnels, digital marketing foundations, buyer psychology & conversion systems.", rating:"★ 4.8", modules:"12 Modules", price:999, oldPrice:1999, vip:false },
   { id:"branding", img:"file_000000002914821181cc5ff207a5f834.png", badge:"AUTHORITY", save:"SAVE 50%", title:"Branding Mastery", desc:"Build a strong social media identity, content style & audience trust.", rating:"★ 4.7", modules:"16 Modules", price:2499, oldPrice:4999, vip:false },
@@ -449,33 +358,51 @@ const DEF_COURSES = [
   { id:"influence", img:"IMG-20261120-WA5578.jpg", badge:"PRO POWER", save:"SAVE 50%", title:"Influence Mastery", desc:"Communication, speaking confidence, persuasion & high-trust closing.", rating:"★ 4.9", modules:"22 Modules", price:9999, oldPrice:19999, vip:false },
   { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"ALL-IN-ONE VIP", save:"BEST VALUE", title:"Finance Mastery (VIP Bundle)", desc:"Money management, wealth building & full access across all mastery modules.", rating:"★ 5.0", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
 ];
-
 const FAQS = [
-  { q:"UPI payment ke baad package kab active hota hai?", a:"Payment UTR submit karne ke baad admin verification queue mein aata hai aur approve hoti hi order Active dikhne lagta hai." },
-  { q:"Kya main mobile se courses aur dashboard access kar sakta hoon?", a:"Haan, poora portal mobile-first banaya gaya hai taaki aap kahin se bhi apni profile, packages aur team check kar sakein." },
-  { q:"Kya baad mein kisi higher package par upgrade kar sakte hain?", a:"Bilkul, aap dashboard ke 'Buy Package' tab ya landing page se naya package select karke request bhej sakte hain." },
-  { q:"Login ya UTR mein dikkat aaye toh kahan sampark karein?", a:"Aap WhatsApp (+91 62898 41691) ya email (mdaadilalam123123@gmail.com) par turant support le sakte hain." }
+  { q:"Dusre browser ya phone mein login karne par data kaise milega?", a:"Jab CLOUD_CFG mein Bin ID aur Master Key set hoti hai, toh data cloud par save hota hai aur naye browser mein login karte hi load ho jata hai." },
+  { q:"UPI payment ke baad package kab active hota hai?", a:"UTR submit karne ke baad admin panel se approve hoti hi order Active dikhne lagta hai." },
+  { q:"Kya main mobile se sab kuch access kar sakta hoon?", a:"Haan, landing page aur student dashboard dono mobile-friendly hain." }
 ];
-
 const ZERO_E = { today:"₹0", sevenDays:"₹0", thirtyDays:"₹0", allTime:"₹0", industrial:"₹0", wallet:"₹0" };
-
 const TEAM_SEED = Array.from({length:14}, (_,i) => ({
   name: ["Raman","Praveen","Sher Singh","Kajal","Sumitra","Rijwan","Parikshit","Imamu","Abhishek","Thakeshwar","Deepak","Pooja","Aarav","Neha"][i],
   pkg: i===7 ? "Traffic Mastery" : i===8 ? "Influence Mastery" : "Marketing Mastery",
-  email: "member"+(i+1)+"@tms.com",
-  phone: "98765012"+String(10+i).slice(-2),
-  code: "TMS-TM"+(100+i)
+  email: "member"+(i+1)+"@tms.com", phone: "98765012"+String(10+i).slice(-2), code: "TMS-TM"+(100+i)
 }));
 
 let selC = null, resetEm = "", tempImg = "", tPage = 1;
-
 const rJ = (k,fb) => { try { const v=JSON.parse(localStorage.getItem(k)); return v!==null && v!==undefined ? v : fb; } catch { return fb; } };
 const wJ = (k,v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 const inr = n => "₹" + (parseInt(n,10)||0).toLocaleString("en-IN");
 const showM = (id,txt,mode="err") => { const el=document.getElementById(id); el.className="msg "+mode; el.textContent=txt; };
+const hasCloud = () => Boolean(CLOUD_CFG.binId && CLOUD_CFG.masterKey);
+
+async function pullCloud(){
+  if(!hasCloud()) return;
+  try {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${CLOUD_CFG.binId}/latest`, { headers:{ "X-Master-Key": CLOUD_CFG.masterKey } });
+    if(!res.ok) return;
+    const data = (await res.json()).record || {};
+    if(Array.isArray(data.users) && data.users.length) wJ(K.users, data.users);
+    if(Array.isArray(data.courses) && data.courses.length) wJ(K.courses, data.courses);
+    if(data.theme) localStorage.setItem(K.theme, data.theme);
+    if(data.admin && data.admin.email) wJ(K.admin, data.admin);
+    applyTheme(); renderCourses(); if(curUser()) renderDash(curUser());
+  } catch {}
+}
+
+async function pushCloud(){
+  if(!hasCloud()) return;
+  try {
+    await fetch(`https://api.jsonbin.io/v3/b/${CLOUD_CFG.binId}`, {
+      method: "PUT",
+      headers: { "Content-Type":"application/json", "X-Master-Key": CLOUD_CFG.masterKey },
+      body: JSON.stringify({ users: getUsers(), courses: getCourses(), theme: localStorage.getItem(K.theme)||"t-dark", admin: getAdminCreds() })
+    });
+  } catch {}
+}
 
 function getAdminCreds(){ return rJ(K.admin, { email:"admin@tms.com", password:"admin123" }); }
-
 function getUsers(){
   let u = rJ(K.users, null);
   if(!Array.isArray(u) || !u.length){
@@ -484,314 +411,126 @@ function getUsers(){
   }
   return u;
 }
-
 function getCourses(){
   let c = rJ(K.courses, null);
   if(!Array.isArray(c) || !c.length){ c = DEF_COURSES.map(x=>({...x})); wJ(K.courses, c); }
   return c;
 }
-
-function curUser(){
-  const em = sessionStorage.getItem(K.sess);
-  if(!em) return null;
-  return getUsers().find(u => u.email.toLowerCase() === em.toLowerCase()) || null;
-}
-
+function curUser(){ const em=sessionStorage.getItem(K.sess); return em ? getUsers().find(u=>u.email.toLowerCase()===em.toLowerCase())||null : null; }
 function modUser(fn){
-  const u = curUser(); if(!u) return null;
-  const all = getUsers();
-  const t = all.find(x => x.email.toLowerCase() === u.email.toLowerCase());
-  if(!t) return null;
-  fn(t);
-  wJ(K.users, all);
-  return t;
+  const u=curUser(); if(!u) return null;
+  const all=getUsers(); const t=all.find(x=>x.email.toLowerCase()===u.email.toLowerCase()); if(!t) return null;
+  fn(t); wJ(K.users, all); pushCloud(); return t;
 }
 
-function applyTheme(){
-  const t = localStorage.getItem(K.theme) || "t-dark";
-  document.body.className = t === "t-dark" ? "" : t;
-}
-
+function applyTheme(){ const t=localStorage.getItem(K.theme)||"t-dark"; document.body.className = t==="t-dark"?"":t; }
 function renderCourses(){
-  const list = getCourses();
+  const list=getCourses();
   document.getElementById("coursesGrid").innerHTML = list.map((c,i)=>`
-    <div class="card ${c.vip?"vip":""}">
-      <div class="img-wrap"><img src="${c.img}" alt="${c.title}"></div>
-      <div class="row-sp"><span class="pill">${c.badge}</span><span class="save">${c.save}</span></div>
-      <div class="c-t">${c.title}</div>
-      <div class="c-d">${c.desc}</div>
-      <div class="c-m"><span>${c.rating}</span><span>${c.modules}</span></div>
-      <div class="c-p">${inr(c.price)} <s>${inr(c.oldPrice)}</s></div>
-      <button type="button" class="btn gold" onclick="openBuy(${i})">Buy Now →</button>
-    </div>
-  `).join("");
-
-  document.getElementById("cmpTable").innerHTML = `
-    <thead><tr><th>Package</th><th>Modules</th><th>Price</th><th>Action</th></tr></thead>
-    <tbody>${list.map((c,i)=>`
-      <tr>
-        <td><b>${c.title}</b><br><small style="color:var(--mut)">${c.badge}</small></td>
-        <td>${c.modules}</td>
-        <td><b>${inr(c.price)}</b></td>
-        <td><button type="button" class="btn gold btn-sm" onclick="openBuy(${i})">Select</button></td>
-      </tr>
-    `).join("")}</tbody>
-  `;
-
-  document.getElementById("dBuyList").innerHTML = list.map((c,i)=>`
-    <div class="t-row">
-      <div><b>${c.title} (${inr(c.price)})</b><br><small style="color:#64748b">${c.modules}</small></div>
-      <button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="openBuy(${i})">Buy</button>
-    </div>
-  `).join("");
+    <div class="card ${c.vip?"vip":""}"><div class="img-wrap"><img src="${c.img}" alt="${c.title}"></div>
+    <div class="row-sp"><span class="pill">${c.badge}</span><span class="save">${c.save}</span></div>
+    <div class="c-t">${c.title}</div><div class="c-d">${c.desc}</div>
+    <div class="c-m"><span>${c.rating}</span><span>${c.modules}</span></div>
+    <div class="c-p">${inr(c.price)} <s>${inr(c.oldPrice)}</s></div>
+    <button type="button" class="btn gold" onclick="openBuy(${i})">Buy Now →</button></div>`).join("");
+  document.getElementById("cmpTable").innerHTML = `<thead><tr><th>Package</th><th>Modules</th><th>Price</th><th>Action</th></tr></thead><tbody>${list.map((c,i)=>`<tr><td><b>${c.title}</b><br><small style="color:var(--mut)">${c.badge}</small></td><td>${c.modules}</td><td><b>${inr(c.price)}</b></td><td><button type="button" class="btn gold btn-sm" onclick="openBuy(${i})">Select</button></td></tr>`).join("")}</tbody>`;
+  document.getElementById("dBuyList").innerHTML = list.map((c,i)=>`<div class="t-row"><div><b>${c.title} (${inr(c.price)})</b><br><small style="color:#64748b">${c.modules}</small></div><button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="openBuy(${i})">Buy</button></div>`).join("");
 }
-
-function renderFaq(){
-  document.getElementById("faqList").innerHTML = FAQS.map((f,i)=>`
-    <div class="faq-item ${i===0?"open":""}" id="fq-${i}">
-      <button type="button" class="faq-q" onclick="document.getElementById('fq-${i}').classList.toggle('open')">
-        <span>${f.q}</span><span>+</span>
-      </button>
-      <div class="faq-a">${f.a}</div>
-    </div>
-  `).join("");
+function renderFaq(){ document.getElementById("faqList").innerHTML = FAQS.map((f,i)=>`<div class="faq-item ${i===0?"open":""}" id="fq-${i}"><button type="button" class="faq-q" onclick="document.getElementById('fq-${i}').classList.toggle('open')"><span>${f.q}</span><span>+</span></button><div class="faq-a">${f.a}</div></div>`).join(""); }
+function syncHeader(){ const u=curUser(); hdrBtn.textContent=u?"Dashboard":"Portal Login"; guestBox.style.display=u?"none":"block"; userBox.style.display=u?"grid":"none"; dLogin.style.display=u?"none":"block"; dDash.style.display=u?"block":"none"; dOut.style.display=u?"block":"none"; }
+function hideViews(){ toggleDrawer(false); closeModal(); siteView.style.display="none"; authView.classList.remove("active"); dashView.classList.remove("active"); }
+function showSite(){ applyTheme(); renderCourses(); syncHeader(); hideViews(); siteView.style.display="block"; scrollTo(0,0); }
+function showAuth(mode="login"){ applyTheme(); hideViews(); authView.classList.add("active"); loginBox.style.display=mode==="login"?"block":"none"; forgotBox.style.display=mode==="forgot"?"block":"none"; lMsg.className="msg"; fpMsg.className="msg"; }
+async function showDash(tab="earnings"){
+  await pullCloud();
+  const u=curUser(); if(!u) return showAuth("login");
+  applyTheme(); renderCourses(); hideViews(); dashView.classList.add("active"); renderDash(u); setDTab(tab); scrollTo(0,0);
 }
+function onHdrClick(){ curUser()?showDash("earnings"):showAuth("login"); }
+function toggleDrawer(force){ drawer.classList.toggle("open", typeof force==="boolean"?force:undefined); }
 
-function syncHeader(){
-  const u = curUser();
-  document.getElementById("hdrBtn").textContent = u ? "Dashboard" : "Portal Login";
-  document.getElementById("guestBox").style.display = u ? "none" : "block";
-  document.getElementById("userBox").style.display = u ? "grid" : "none";
-  document.getElementById("dLogin").style.display = u ? "none" : "block";
-  document.getElementById("dDash").style.display = u ? "block" : "none";
-  document.getElementById("dOut").style.display = u ? "block" : "none";
+async function login(){
+  await pullCloud();
+  const em=lEmail.value.trim().toLowerCase(), pw=lPass.value, adm=getAdminCreds();
+  if(em===String(adm.email||"").toLowerCase() && pw===adm.password){ sessionStorage.setItem(K.admAuth,"1"); window.location.href="admin.html"; return; }
+  const hit=getUsers().find(u=>u.email.toLowerCase()===em && u.password===pw);
+  if(!hit) return showM("lMsg","Invalid email or password.");
+  sessionStorage.setItem(K.sess, hit.email); syncHeader(); showDash("earnings");
 }
-
-function hideViews(){
-  toggleDrawer(false); closeModal();
-  document.getElementById("siteView").style.display = "none";
-  document.getElementById("authView").classList.remove("active");
-  document.getElementById("dashView").classList.remove("active");
-}
-
-function showSite(){ applyTheme(); renderCourses(); syncHeader(); hideViews(); document.getElementById("siteView").style.display="block"; scrollTo(0,0); }
-
-function showAuth(mode="login"){
-  applyTheme(); hideViews(); document.getElementById("authView").classList.add("active");
-  document.getElementById("loginBox").style.display = mode==="login" ? "block" : "none";
-  document.getElementById("forgotBox").style.display = mode==="forgot" ? "block" : "none";
-  document.getElementById("lMsg").className = "msg";
-  document.getElementById("fpMsg").className = "msg";
-}
-
-function showDash(tab="earnings"){
-  const u = curUser(); if(!u) return showAuth("login");
-  applyTheme(); renderCourses(); hideViews();
-  document.getElementById("dashView").classList.add("active");
-  renderDash(u); setDTab(tab); scrollTo(0,0);
-}
-
-function onHdrClick(){ curUser() ? showDash("earnings") : showAuth("login"); }
-function toggleDrawer(force){ const d=document.getElementById("drawer"); d.classList.toggle("open", typeof force==="boolean"?force:undefined); }
-
-function login(){
-  const em = document.getElementById("lEmail").value.trim().toLowerCase();
-  const pw = document.getElementById("lPass").value;
-  const adm = getAdminCreds();
-
-  if(em === String(adm.email||"").toLowerCase() && pw === adm.password){
-    sessionStorage.setItem(K.admAuth, "1");
-    window.location.href = "admin.html";
-    return;
-  }
-
-  const hit = getUsers().find(u => u.email.toLowerCase()===em && u.password===pw);
-  if(!hit) return showM("lMsg", "Invalid email or password.");
-  sessionStorage.setItem(K.sess, hit.email);
-  syncHeader();
-  showDash("earnings");
-}
-
-function logout(){
-  sessionStorage.removeItem(K.sess);
-  sessionStorage.removeItem(K.admAuth);
-  syncHeader();
-  showSite();
-}
-
-function sendReset(){
-  const em = document.getElementById("fpEmail").value.trim().toLowerCase();
-  if(!getUsers().some(u => u.email.toLowerCase()===em)) return showM("fpMsg", "Email not found.");
-  resetEm = em;
-  document.getElementById("resetArea").style.display = "block";
-  showM("fpMsg", "Reset enabled for " + em, "ok");
-}
-
-function saveReset(){
-  const n = document.getElementById("fpNew").value, c = document.getElementById("fpConf").value;
-  if(!resetEm || n.length<6 || n!==c) return showM("fpMsg", "Password must be 6+ chars and match.");
-  const all = getUsers();
-  const u = all.find(x => x.email.toLowerCase()===resetEm);
-  if(u) u.password = n;
-  wJ(K.users, all);
-  resetEm = "";
-  showAuth("login");
-  showM("lMsg", "Password updated. Login now.", "ok");
-}
+function logout(){ sessionStorage.removeItem(K.sess); sessionStorage.removeItem(K.admAuth); syncHeader(); showSite(); }
+function sendReset(){ const em=fpEmail.value.trim().toLowerCase(); if(!getUsers().some(u=>u.email.toLowerCase()===em)) return showM("fpMsg","Email not found."); resetEm=em; resetArea.style.display="block"; showM("fpMsg","Reset enabled for "+em,"ok"); }
+function saveReset(){ const n=fpNew.value, c=fpConf.value; if(!resetEm||n.length<6||n!==c) return showM("fpMsg","Password must be 6+ chars and match."); const all=getUsers(); const u=all.find(x=>x.email.toLowerCase()===resetEm); if(u) u.password=n; wJ(K.users,all); pushCloud(); resetEm=""; showAuth("login"); showM("lMsg","Password updated. Login now.","ok"); }
 
 function setDTab(t){
-  document.querySelectorAll(".s-tab").forEach(b => b.classList.toggle("active", b.dataset.d===t));
-  document.querySelectorAll(".d-pane").forEach(p => p.classList.toggle("active", p.id==="dp-"+t));
-  const u = curUser();
-  if(t==="team") renderTeam();
-  if(t==="profile" && u){ document.getElementById("pName").value = u.name||""; document.getElementById("pTag").value = u.tag||""; }
+  document.querySelectorAll(".s-tab").forEach(b=>b.classList.toggle("active",b.dataset.d===t));
+  document.querySelectorAll(".d-pane").forEach(p=>p.classList.toggle("active",p.id==="dp-"+t));
+  const u=curUser(); if(t==="team") renderTeam(); if(t==="profile"&&u){ pName.value=u.name||""; pTag.value=u.tag||""; }
 }
-
-function renderAv(el,u){
-  const init = (u.name||"S")[0].toUpperCase();
-  el.innerHTML = u.photo ? `<img src="${u.photo}" alt="${u.name}">` : init;
-}
-
+function renderAv(el,u){ el.innerHTML = u.photo ? `<img src="${u.photo}" alt="${u.name}">` : (u.name||"S")[0].toUpperCase(); }
 function renderDash(u){
-  renderAv(document.getElementById("dAv"), u);
-  document.getElementById("dName").textContent = u.name || "Student";
-  document.getElementById("dTag").textContent = u.tag || "";
-  document.getElementById("dIdBadge").textContent = "ID: " + (u.studentId || "STU");
-
-  const ord = u.orders || [];
-  document.getElementById("dPkg").textContent = ord.length ? ord[ord.length-1].pkg : "Starter Member";
-
-  const e = u.earnings || ZERO_E;
-  eToday.textContent = e.today || "₹0";
-  e7d.textContent = e.sevenDays || "₹0";
-  e30d.textContent = e.thirtyDays || "₹0";
-  eAll.textContent = e.allTime || "₹0";
-  eInd.textContent = e.industrial || "₹0";
-  eWal.textContent = e.wallet || "₹0";
-
-  const days = ["Nov 14","Nov 15","Nov 16","Nov 17","Nov 18","Nov 19","Nov 20"], hs = [14,22,12,28,18,25,16];
-  document.getElementById("chartBars").innerHTML = days.map((d,i)=>`<div class="b-col"><div class="b-fill" style="height:${hs[i]}%"></div><span>${d}</span></div>`).join("");
-
-  const tm = u.team || [];
-  document.getElementById("recentTeam").innerHTML = tm.length
-    ? tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div></div></div>`).join("")
-    : `<div class="empty-st">Abhi koi team member nahi juda hai.</div>`;
-
-  document.getElementById("myOrders").innerHTML = ord.length
-    ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("")
-    : `<div class="empty-st">Aapne abhi tak koi package enroll nahi kiya hai.</div>`;
-
+  renderAv(dAv,u); dName.textContent=u.name||"Student"; dTag.textContent=u.tag||""; dIdBadge.textContent="ID: "+(u.studentId||"STU");
+  const ord=u.orders||[]; dPkg.textContent=ord.length?ord[ord.length-1].pkg:"Starter Member";
+  const e=u.earnings||ZERO_E; eToday.textContent=e.today||"₹0"; e7d.textContent=e.sevenDays||"₹0"; e30d.textContent=e.thirtyDays||"₹0"; eAll.textContent=e.allTime||"₹0"; eInd.textContent=e.industrial||"₹0"; eWal.textContent=e.wallet||"₹0";
+  const days=["Nov 14","Nov 15","Nov 16","Nov 17","Nov 18","Nov 19","Nov 20"], hs=[14,22,12,28,18,25,16];
+  chartBars.innerHTML = days.map((d,i)=>`<div class="b-col"><div class="b-fill" style="height:${hs[i]}%"></div><span>${d}</span></div>`).join("");
+  const tm=u.team||[]; recentTeam.innerHTML = tm.length ? tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div></div></div>`).join("") : `<div class="empty-st">Abhi koi team member nahi juda hai.</div>`;
+  myOrders.innerHTML = ord.length ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("") : `<div class="empty-st">Aapne abhi tak koi package enroll nahi kiya hai.</div>`;
   renderTeam();
 }
-
 function renderTeam(){
-  const u = curUser(), tm = (u && u.team) || [];
-  const q = (document.getElementById("tSearch").value || "").trim().toLowerCase();
-  const per = parseInt(document.getElementById("tPer").value,10) || 10;
-  const fil = tm.filter(m => !q || ((m.name||"")+(m.email||"")+(m.phone||"")+(m.pkg||"")).toLowerCase().includes(q));
-  const pages = Math.max(1, Math.ceil(fil.length/per));
-  tPage = Math.min(Math.max(1,tPage), pages);
-  const s = (tPage-1)*per, e = Math.min(s+per, fil.length), slice = fil.slice(s,e);
-
-  document.getElementById("teamList").innerHTML = slice.length
-    ? slice.map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div><div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div></div>`).join("")
-    : `<div class="empty-st">Search se match karta koi member nahi mila.</div>`;
-
-  document.getElementById("tInfo").textContent = fil.length ? `Showing ${s+1}-${e} of ${fil.length} (Page ${tPage}/${pages})` : "Showing 0 of 0";
-  let btns = `<button type="button" class="pg-btn" onclick="tPage--;renderTeam()" ${tPage<=1?"disabled":""}>&lt;</button>`;
-  for(let p=1;p<=pages;p++) btns += `<button type="button" class="pg-btn ${p===tPage?"active":""}" onclick="tPage=${p};renderTeam()">${p}</button>`;
-  btns += `<button type="button" class="pg-btn" onclick="tPage++;renderTeam()" ${tPage>=pages?"disabled":""}>&gt;</button>`;
-  document.getElementById("tCtrl").innerHTML = btns;
+  const u=curUser(), tm=(u&&u.team)||[], q=(tSearch.value||"").trim().toLowerCase(), per=parseInt(tPer.value,10)||10;
+  const fil=tm.filter(m=>!q||((m.name||"")+(m.email||"")+(m.phone||"")+(m.pkg||"")).toLowerCase().includes(q));
+  const pages=Math.max(1,Math.ceil(fil.length/per)); tPage=Math.min(Math.max(1,tPage),pages);
+  const s=(tPage-1)*per, e=Math.min(s+per,fil.length), slice=fil.slice(s,e);
+  teamList.innerHTML = slice.length ? slice.map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div><div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div></div>`).join("") : `<div class="empty-st">Search se match karta koi member nahi mila.</div>`;
+  tInfo.textContent = fil.length ? `Showing ${s+1}-${e} of ${fil.length} (Page ${tPage}/${pages})` : "Showing 0 of 0";
+  let btns=`<button type="button" class="pg-btn" onclick="tPage--;renderTeam()" ${tPage<=1?"disabled":""}>&lt;</button>`;
+  for(let p=1;p<=pages;p++) btns+=`<button type="button" class="pg-btn ${p===tPage?"active":""}" onclick="tPage=${p};renderTeam()">${p}</button>`;
+  btns+=`<button type="button" class="pg-btn" onclick="tPage++;renderTeam()" ${tPage>=pages?"disabled":""}>&gt;</button>`;
+  tCtrl.innerHTML=btns;
 }
 
-function toggleQuickName(){ const b=document.getElementById("qNameBox"); const op=b.style.display!=="block"; b.style.display=op?"block":"none"; if(op){ qNameInp.value=curUser().name||""; qNameMsg.className="msg"; } }
+function toggleQuickName(){ const op=qNameBox.style.display!=="block"; qNameBox.style.display=op?"block":"none"; if(op){ qNameInp.value=curUser().name||""; qNameMsg.className="msg"; } }
 function saveQuickName(){ const n=qNameInp.value.trim(); if(n.length<2) return showM("qNameMsg","Min 2 chars."); const u=modUser(x=>x.name=n); if(u){ renderDash(u); showM("qNameMsg","Saved!","ok"); setTimeout(()=>toggleQuickName(),600); } }
 function saveProfile(){ const n=pName.value.trim(), t=pTag.value.trim(); if(n.length<2) return showM("pMsg","Min 2 chars."); const u=modUser(x=>{x.name=n;x.tag=t;}); if(u){ renderDash(u); showM("pMsg","Profile updated!","ok"); } }
-function changePass(){
-  const u=curUser(); if(!u) return;
-  if(cOld.value!==u.password) return showM("cPassMsg","Wrong current password.");
-  if(cNew.value.length<6 || cNew.value!==cConf.value) return showM("cPassMsg","New password must be 6+ chars and match.");
-  modUser(x=>x.password=cNew.value); cOld.value=cNew.value=cConf.value=""; showM("cPassMsg","Password updated!","ok");
-}
+function changePass(){ const u=curUser(); if(!u) return; if(cOld.value!==u.password) return showM("cPassMsg","Wrong current password."); if(cNew.value.length<6||cNew.value!==cConf.value) return showM("cPassMsg","New password must be 6+ chars and match."); modUser(x=>x.password=cNew.value); cOld.value=cNew.value=cConf.value=""; showM("cPassMsg","Password updated!","ok"); }
 
-function isDuplicateUtr(utr){
-  return getUsers().some(u => (u.orders||[]).some(o => String(o.utr||"") === utr || String(o.reqId||"").includes(utr)));
-}
-
+function isDuplicateUtr(utr){ return getUsers().some(u=>(u.orders||[]).some(o=>String(o.utr||"")===utr||String(o.reqId||"").includes(utr))); }
 function openBuy(idx){
-  const c=getCourses()[idx]; if(!c) return;
-  selC=c; const u=curUser();
+  const c=getCourses()[idx]; if(!c) return; selC=c; const u=curUser();
   bTitle.textContent=c.title+" Checkout"; qrLbl.textContent="Pay Rs. "+c.price+" via UPI";
-  sumBox.innerHTML = `<b>Package:</b> ${c.title} • <b>${c.modules}</b><br><b>Payable Amount:</b> <span style="color:#fbbf24">${inr(c.price)}</span>`;
-  fAmt.value=c.price; fName.value=u?u.name:""; fPhone.value=u?u.phone:""; fUtr.value="";
-  bMsg.className="msg"; doneBox.style.display="none";
+  sumBox.innerHTML=`<b>Package:</b> ${c.title} • <b>${c.modules}</b><br><b>Payable Amount:</b> <span style="color:#fbbf24">${inr(c.price)}</span>`;
+  fAmt.value=c.price; fName.value=u?u.name:""; fPhone.value=u?u.phone:""; fUtr.value=""; bMsg.className="msg"; doneBox.style.display="none";
   qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkills&am=${c.price}&cu=INR`);
   photoModal.style.display="none"; legalModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
 }
-
 function submitPay(){
   const nm=fName.value.trim(), ph=fPhone.value.replace(/\D/g,""), utr=fUtr.value.replace(/\D/g,"");
   if(!selC||nm.length<2) return showM("bMsg","Please enter your full name (min 2 letters).");
   if(ph.length!==10) return showM("bMsg","Please enter a valid 10-digit WhatsApp number.");
   if(utr.length!==12) return showM("bMsg","Please enter a valid 12-digit UPI UTR number.");
   if(isDuplicateUtr(utr)) return showM("bMsg","Warning: Yeh 12-digit UTR pehle hi use ho chuka hai.","warn");
-
-  const reqId="TMS-"+Date.now().toString().slice(-8);
-  const all=getUsers();
-  const sessEm=sessionStorage.getItem(K.sess);
-  const target=sessEm ? all.find(x=>x.email.toLowerCase()===sessEm.toLowerCase()) : all[0];
-  if(target){
-    target.orders=target.orders||[];
-    target.orders.push({pkg:selC.title,amt:selC.price,reqId,utr,status:"Pending Verification"});
-    wJ(K.users,all);
-    if(curUser()) renderDash(curUser());
-  }
-
+  const reqId="TMS-"+Date.now().toString().slice(-8), all=getUsers(), sessEm=sessionStorage.getItem(K.sess);
+  const target=sessEm?all.find(x=>x.email.toLowerCase()===sessEm.toLowerCase()):all[0];
+  if(target){ target.orders=target.orders||[]; target.orders.push({pkg:selC.title,amt:selC.price,reqId,utr,status:"Pending Verification"}); wJ(K.users,all); pushCloud(); if(curUser()) renderDash(curUser()); }
   dReqTxt.textContent=`${selC.title} • Rs. ${selC.price} • UTR: ${utr} • Req: ${reqId}`;
   dWaLink.href="https://wa.me/916289841691?text="+encodeURIComponent(`Name: ${nm}\nPhone: ${ph}\nPackage: ${selC.title}\nAmount: Rs. ${selC.price}\nUTR: ${utr}\nReq: ${reqId}`);
   doneBox.style.display="block";
 }
 
 function openLegal(type){
-  const map={
-    terms:["Terms & Conditions","Aap in packages ka upyog keval educational aur skill-learning ke uddeshya se karte hain. Platform access aur portal niyam samay-samay par update kiye ja sakte hain."],
-    privacy:["Privacy Policy","Aapka naam, email, phone aur order details sirf portal access, support aur verification ke liye browser storage mein rakhe jaate hain."],
-    refund:["Verification & Refund Policy","UPI payment ke baad UTR verification kiya jata hai. Digital access shuru hone ya verify hone ke baad standard policy ke anusar support se sampark karein."]
-  };
-  const item=map[type]||map.terms;
-  legTitle.textContent=item[0]; legBody.textContent=item[1];
+  const map={ terms:["Terms & Conditions","Educational aur skill-learning ke uddeshya se platform ka upyog karein."], privacy:["Privacy Policy","Aapka data sirf portal access aur order verification ke liye use hota hai."], refund:["Verification & Refund","UTR verify hone ke baad standard policy ke anusar support se sampark karein."] };
+  const item=map[type]||map.terms; legTitle.textContent=item[0]; legBody.textContent=item[1];
   buyModal.style.display="none"; photoModal.style.display="none"; legalModal.style.display="block"; modal.classList.add("open");
 }
-
-function openPhotoModal(){
-  const u=curUser(); if(!u) return showAuth("login");
-  tempImg=u.photo||""; pErr.className="msg"; pFile.value="";
-  renderAv(document.getElementById("pStage"), {name:u.name, photo:tempImg});
-  buyModal.style.display="none"; legalModal.style.display="none"; photoModal.style.display="block"; modal.classList.add("open");
-}
-
-function onPhotoPick(e){
-  const f=e.target.files&&e.target.files[0]; if(!f) return;
-  if(!f.type.startsWith("image/")||f.size>4*1024*1024) return showM("pErr","Select JPG/PNG/WEBP under 4MB.");
-  const r=new FileReader(); r.onload=ev=>{ tempImg=ev.target.result; renderAv(document.getElementById("pStage"),{name:curUser().name,photo:tempImg}); }; r.readAsDataURL(f);
-}
-
+function openPhotoModal(){ const u=curUser(); if(!u) return showAuth("login"); tempImg=u.photo||""; pErr.className="msg"; pFile.value=""; renderAv(pStage,{name:u.name,photo:tempImg}); buyModal.style.display="none"; legalModal.style.display="none"; photoModal.style.display="block"; modal.classList.add("open"); }
+function onPhotoPick(e){ const f=e.target.files&&e.target.files[0]; if(!f) return; if(!f.type.startsWith("image/")||f.size>4*1024*1024) return showM("pErr","Select JPG/PNG/WEBP under 4MB."); const r=new FileReader(); r.onload=ev=>{ tempImg=ev.target.result; renderAv(pStage,{name:curUser().name,photo:tempImg}); }; r.readAsDataURL(f); }
 function savePhoto(){ if(!tempImg) return showM("pErr","Choose a photo first."); const u=modUser(x=>x.photo=tempImg); if(u) renderDash(u); closeModal(); }
 function clearPhoto(){ tempImg=""; const u=modUser(x=>x.photo=""); if(u) renderDash(u); closeModal(); }
 function closeModal(){ modal.classList.remove("open"); buyModal.style.display="none"; photoModal.style.display="none"; legalModal.style.display="none"; }
+function copyText(val,id){ if(navigator.clipboard) navigator.clipboard.writeText(val).then(()=>showM(id,"Copied: "+val,"ok")).catch(()=>showM(id,"Copy: "+val,"ok")); else showM(id,"Copy: "+val,"ok"); }
 
-function copyText(val, id){
-  if(navigator.clipboard) navigator.clipboard.writeText(val).then(()=>showM(id,"Copied: "+val,"ok")).catch(()=>showM(id,"Copy: "+val,"ok"));
-  else showM(id,"Copy: "+val,"ok");
-}
-
-window.addEventListener("storage", e => {
-  if(e.key === K.theme) applyTheme();
-  if(e.key === K.courses) renderCourses();
-  if(e.key === K.users && curUser()) renderDash(curUser());
-});
-
-applyTheme(); renderCourses(); renderFaq(); syncHeader();
+applyTheme(); renderCourses(); renderFaq(); syncHeader(); pullCloud();
 </script>
 </body>
 </html>

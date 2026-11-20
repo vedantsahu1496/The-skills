@@ -15,11 +15,11 @@ button{cursor:pointer;font-family:inherit}
 .brand small{font-size:10px;color:#94a3b8;letter-spacing:1.2px}
 .hdr-r{display:flex;gap:8px;align-items:center;position:relative}
 .menu-btn{background:#172033;color:#fbbf24;border:1px solid #b88624;border-radius:8px;width:38px;height:38px;font-size:20px;line-height:1}
-.nav-drawer{display:none;position:absolute;top:48px;right:0;width:225px;background:#0b1224;padding:10px 14px 14px;border:1px solid #b88624;border-radius:12px;z-index:200;box-shadow:0 12px 28px rgba(0,0,0,0.6)}
+.nav-drawer{display:none;position:absolute;top:48px;right:0;width:220px;background:#0b1224;padding:10px 14px;border:1px solid #b88624;border-radius:10px;z-index:200}
 .nav-drawer.open{display:block}
-.nav-drawer a.nav-item{display:block;padding:11px 4px;border-bottom:1px solid #1e293b;font-size:14px;font-weight:bold;color:#f8fafc}
-.nav-drawer a.nav-item:hover{color:#fbbf24}
-.nav-drawer a.drawer-cta{display:block;width:100%;margin-top:12px;padding:11px 14px;border-radius:9px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14;font-size:14px;font-weight:bold;text-align:center}
+.nav-drawer a{display:block;padding:10px 4px;border-bottom:1px solid #1e293b;font-size:14px;font-weight:bold}
+.nav-drawer a:last-child{border-bottom:none}
+.nav-drawer .cta-link{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14;border-radius:8px;text-align:center;margin-top:8px;padding:10px}
 .btn{display:block;width:100%;padding:13px;border:0;border-radius:10px;margin-top:10px;font-weight:bold;font-size:14px;text-align:center}
 .gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
 .dark{background:#172033;color:#fff;border:1px solid #475569}
@@ -90,11 +90,11 @@ footer b{display:block;color:#fbbf24;font-size:16px;margin-bottom:8px}
     <button type="button" class="btn gold" style="width:auto;margin:0;padding:9px 12px" onclick="showLogin()">Student Login</button>
     <button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
     <div class="nav-drawer" id="navDrawer">
-      <a href="#courses" class="nav-item" onclick="closeMenu()">Courses</a>
-      <a href="#about" class="nav-item" onclick="closeMenu()">About Us</a>
-      <a href="#contact" class="nav-item" onclick="closeMenu()">Contact</a>
-      <a href="#loginPanel" class="nav-item" onclick="closeMenu();showLogin();return false;">Login</a>
-      <a href="#courses" class="drawer-cta" onclick="closeMenu()">Get Started</a>
+      <a href="#courses" onclick="closeMenu()">Courses</a>
+      <a href="#about" onclick="closeMenu()">About Us</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <a href="#loginPanel" onclick="closeMenu();showLogin();return false;">Login</a>
+      <a href="#courses" class="cta-link" onclick="closeMenu()">Get Started</a>
     </div>
   </div>
 </header>
@@ -283,21 +283,17 @@ var selAmt = 0;
 
 function toggleMenu(){
   var d = document.getElementById("navDrawer");
-  var btn = document.getElementById("menuBtn");
-  if(!d || !btn) return;
+  var b = document.getElementById("menuBtn");
+  if(!d) return;
   d.classList.toggle("open");
-  if(d.classList.contains("open")){
-    btn.innerHTML = "&times;";
-  } else {
-    btn.innerHTML = "&#9776;";
-  }
+  if(b) b.innerHTML = d.classList.contains("open") ? "&times;" : "&#9776;";
 }
 
 function closeMenu(){
   var d = document.getElementById("navDrawer");
-  var btn = document.getElementById("menuBtn");
+  var b = document.getElementById("menuBtn");
   if(d) d.classList.remove("open");
-  if(btn) btn.innerHTML = "&#9776;";
+  if(b) b.innerHTML = "&#9776;";
 }
 
 function closeAllPanels(){
@@ -363,4 +359,12 @@ function doPay(){
   document.getElementById("donePkg").textContent = "Package: " + selPkg + " | Amount: Rs. " + selAmt;
   document.getElementById("doneReq").textContent = "Request ID: " + reqId;
   document.getElementById("doneWa").href = "https://wa.me/916289841691?text=" + encodeURIComponent(msg);
-  document.getEleme
+  document.getElementById("donePanel").classList.add("active");
+}
+
+function copyVal(val, id){
+  var el = document.getElementById(id);
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(val).catch(function(){});
+  }
+  el.textContent

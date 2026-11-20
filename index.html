@@ -133,12 +133,12 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
   <header class="hdr">
     <a href="#top" class="brand"><b>THE MILLIONAIRE SKILLS</b><small>EXECUTIVE MASTERY</small></a>
     <div class="hdr-r">
-      <button type="button" class="btn gold" id="hdrBtn" style="width:auto;margin:0;padding:8px 12px" onclick="onHdrClick()">Student Login</button>
+      <button type="button" class="btn gold" id="hdrBtn" style="width:auto;margin:0;padding:8px 12px" onclick="onHdrClick()">Portal Login</button>
       <button type="button" class="m-btn" onclick="toggleDrawer()">☰</button>
       <div class="drawer" id="drawer">
         <a href="#courses" onclick="toggleDrawer(false)">Courses</a>
         <a href="#contact" onclick="toggleDrawer(false)">Contact</a>
-        <a href="#" id="dLogin" onclick="toggleDrawer(false);showAuth('login');return false;">Student Login</a>
+        <a href="#" id="dLogin" onclick="toggleDrawer(false);showAuth('login');return false;">Portal Login</a>
         <a href="#" id="dDash" style="display:none" onclick="toggleDrawer(false);showDash('earnings');return false;">Dashboard</a>
         <a href="#" id="dOut" style="display:none;color:#fca5a5" onclick="toggleDrawer(false);logout();return false;">Logout</a>
       </div>
@@ -151,7 +151,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI checkout and student portal.</p>
     <div class="hero-act">
       <a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
-      <div id="guestBox"><button type="button" class="btn dark" onclick="showAuth('login')">Student Login</button></div>
+      <div id="guestBox"><button type="button" class="btn dark" onclick="showAuth('login')">Student / Admin Login</button></div>
       <div id="userBox" style="display:none;grid-template-columns:1fr 1fr;gap:10px">
         <button type="button" class="btn dark" style="border-color:#fbbf24;color:#fbbf24" onclick="showDash('earnings')">Open Dashboard</button>
         <button type="button" class="btn red" onclick="logout()">Logout</button>
@@ -189,18 +189,18 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 <div id="authView">
   <div style="width:100%;max-width:420px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
     <button type="button" class="btn dark" style="width:auto;margin:0;padding:8px 13px;color:#fbbf24;border-color:#b88624" onclick="showSite()">← Back to Site</button>
-    <span style="font-size:12px;color:#94a3b8;font-weight:700">STUDENT PORTAL</span>
+    <span style="font-size:12px;color:#94a3b8;font-weight:700">PORTAL ACCESS</span>
   </div>
 
   <div class="auth-box">
     <div id="loginBox">
-      <h2 style="color:#fbbf24;font-size:18px;margin-bottom:4px">Student Login</h2>
-      <div class="note">Demo: <b>student1@tms.com</b> / <b>pass1</b></div>
+      <h2 style="color:#fbbf24;font-size:18px;margin-bottom:4px">Portal Login</h2>
+      <div class="note">Student: <b>student1@tms.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b></div>
       <label class="lbl">Email Address</label>
       <input id="lEmail" class="inp" type="email" placeholder="Enter your email">
       <label class="lbl">Password</label>
       <input id="lPass" class="inp" type="password" placeholder="Enter password">
-      <button type="button" class="btn gold" onclick="login()">Login to Dashboard →</button>
+      <button type="button" class="btn gold" onclick="login()">Login Now →</button>
       <div id="lMsg" class="msg"></div>
       <button type="button" style="background:none;border:0;color:#fbbf24;font-size:12.5px;text-decoration:underline;margin-top:12px" onclick="showAuth('forgot')">Forgot Password?</button>
     </div>
@@ -384,7 +384,15 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 
 <script>
 "use strict";
-const K = { users:"tms_users_v7", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7" };
+const K = {
+  users: "tms_users_v7",
+  sess: "tms_sess_v1",
+  courses: "tms_courses_v7",
+  theme: "tms_theme_v7",
+  admin: "tms_admin_creds_v7",
+  admAuth: "tms_adm_session_v1"
+};
+
 const DEF_COURSES = [
   { id:"marketing", img:"file_00000000a24082079bd1a0d07ce5ae90.png", badge:"STARTER", save:"SAVE 50%", title:"Marketing Mastery", desc:"Funnels, digital marketing foundations, buyer psychology & conversion systems.", rating:"★ 4.8", modules:"12 Modules", price:999, oldPrice:1999, vip:false },
   { id:"branding", img:"file_000000002914821181cc5ff207a5f834.png", badge:"AUTHORITY", save:"SAVE 50%", title:"Branding Mastery", desc:"Build a strong social media identity, content style & audience trust.", rating:"★ 4.7", modules:"16 Modules", price:2499, oldPrice:4999, vip:false },
@@ -392,18 +400,25 @@ const DEF_COURSES = [
   { id:"influence", img:"IMG-20261120-WA5578.jpg", badge:"PRO POWER", save:"SAVE 50%", title:"Influence Mastery", desc:"Communication, speaking confidence, persuasion & high-trust closing.", rating:"★ 4.9", modules:"22 Modules", price:9999, oldPrice:19999, vip:false },
   { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"ALL-IN-ONE VIP", save:"BEST VALUE", title:"Finance Mastery (VIP Bundle)", desc:"Money management, wealth building & full access across all mastery modules.", rating:"★ 5.0", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
 ];
+
 const ZERO_E = { today:"₹0", sevenDays:"₹0", thirtyDays:"₹0", allTime:"₹0", industrial:"₹0", wallet:"₹0" };
+
 const TEAM_SEED = Array.from({length:14}, (_,i) => ({
   name: ["Raman","Praveen","Sher Singh","Kajal","Sumitra","Rijwan","Parikshit","Imamu","Abhishek","Thakeshwar","Deepak","Pooja","Aarav","Neha"][i],
   pkg: i===7 ? "Traffic Mastery" : i===8 ? "Influence Mastery" : "Marketing Mastery",
-  email: "member"+(i+1)+"@tms.com", phone: "98765012"+String(10+i).slice(-2), code: "TMS-TM"+(100+i)
+  email: "member"+(i+1)+"@tms.com",
+  phone: "98765012"+String(10+i).slice(-2),
+  code: "TMS-TM"+(100+i)
 }));
 
 let selC = null, resetEm = "", tempImg = "", tPage = 1;
-const rJ = (k,fb) => { try { return JSON.parse(localStorage.getItem(k)) || fb; } catch { return fb; } };
+
+const rJ = (k,fb) => { try { const v=JSON.parse(localStorage.getItem(k)); return v!==null && v!==undefined ? v : fb; } catch { return fb; } };
 const wJ = (k,v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 const inr = n => "₹" + (parseInt(n,10)||0).toLocaleString("en-IN");
 const showM = (id,txt,ok=false) => { const el=document.getElementById(id); el.className="msg "+(ok?"ok":"err"); el.textContent=txt; };
+
+function getAdminCreds(){ return rJ(K.admin, { email:"admin@tms.com", password:"admin123" }); }
 
 function getUsers(){
   let u = rJ(K.users, null);
@@ -413,13 +428,32 @@ function getUsers(){
   }
   return u;
 }
-function getCourses(){ let c=rJ(K.courses,null); if(!Array.isArray(c)||!c.length){ c=structuredClone(DEF_COURSES); wJ(K.courses,c); } return c; }
-function curUser(){ const em=sessionStorage.getItem(K.sess); return em ? getUsers().find(u=>u.email.toLowerCase()===em.toLowerCase())||null : null; }
-function modUser(fn){ const u=curUser(); if(!u) return null; const all=getUsers(); const t=all.find(x=>x.email.toLowerCase()===u.email.toLowerCase()); if(!t) return null; fn(t); wJ(K.users,all); return t; }
+
+function getCourses(){
+  let c = rJ(K.courses, null);
+  if(!Array.isArray(c) || !c.length){ c = DEF_COURSES.map(x=>({...x})); wJ(K.courses, c); }
+  return c;
+}
+
+function curUser(){
+  const em = sessionStorage.getItem(K.sess);
+  if(!em) return null;
+  return getUsers().find(u => u.email.toLowerCase() === em.toLowerCase()) || null;
+}
+
+function modUser(fn){
+  const u = curUser(); if(!u) return null;
+  const all = getUsers();
+  const t = all.find(x => x.email.toLowerCase() === u.email.toLowerCase());
+  if(!t) return null;
+  fn(t);
+  wJ(K.users, all);
+  return t;
+}
 
 function applyTheme(){
   const t = localStorage.getItem(K.theme) || "t-dark";
-  document.body.className = t==="t-dark" ? "" : t;
+  document.body.className = t === "t-dark" ? "" : t;
 }
 
 function renderCourses(){
@@ -435,14 +469,18 @@ function renderCourses(){
       <button type="button" class="btn gold" onclick="openBuy(${i})">Buy Now →</button>
     </div>
   `).join("");
+
   document.getElementById("dBuyList").innerHTML = list.map((c,i)=>`
-    <div class="t-row"><div><b>${c.title} (${inr(c.price)})</b><br><small style="color:#64748b">${c.modules}</small></div><button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="openBuy(${i})">Buy</button></div>
+    <div class="t-row">
+      <div><b>${c.title} (${inr(c.price)})</b><br><small style="color:#64748b">${c.modules}</small></div>
+      <button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="openBuy(${i})">Buy</button>
+    </div>
   `).join("");
 }
 
 function syncHeader(){
   const u = curUser();
-  document.getElementById("hdrBtn").textContent = u ? "Dashboard" : "Student Login";
+  document.getElementById("hdrBtn").textContent = u ? "Dashboard" : "Portal Login";
   document.getElementById("guestBox").style.display = u ? "none" : "block";
   document.getElementById("userBox").style.display = u ? "grid" : "none";
   document.getElementById("dLogin").style.display = u ? "none" : "block";
@@ -452,95 +490,140 @@ function syncHeader(){
 
 function hideViews(){
   toggleDrawer(false); closeModal();
-  document.getElementById("siteView").style.display="none";
+  document.getElementById("siteView").style.display = "none";
   document.getElementById("authView").classList.remove("active");
   document.getElementById("dashView").classList.remove("active");
 }
+
 function showSite(){ applyTheme(); renderCourses(); syncHeader(); hideViews(); document.getElementById("siteView").style.display="block"; scrollTo(0,0); }
+
 function showAuth(mode="login"){
   applyTheme(); hideViews(); document.getElementById("authView").classList.add("active");
-  document.getElementById("loginBox").style.display = mode==="login"?"block":"none";
-  document.getElementById("forgotBox").style.display = mode==="forgot"?"block":"none";
-  document.getElementById("lMsg").className="msg"; document.getElementById("fpMsg").className="msg";
+  document.getElementById("loginBox").style.display = mode==="login" ? "block" : "none";
+  document.getElementById("forgotBox").style.display = mode==="forgot" ? "block" : "none";
+  document.getElementById("lMsg").className = "msg";
+  document.getElementById("fpMsg").className = "msg";
 }
+
 function showDash(tab="earnings"){
   const u = curUser(); if(!u) return showAuth("login");
   applyTheme(); renderCourses(); hideViews();
   document.getElementById("dashView").classList.add("active");
   renderDash(u); setDTab(tab); scrollTo(0,0);
 }
+
 function onHdrClick(){ curUser() ? showDash("earnings") : showAuth("login"); }
 function toggleDrawer(force){ const d=document.getElementById("drawer"); d.classList.toggle("open", typeof force==="boolean"?force:undefined); }
 
 function login(){
-  const em=document.getElementById("lEmail").value.trim().toLowerCase(), pw=document.getElementById("lPass").value;
-  const hit=getUsers().find(u=>u.email.toLowerCase()===em && u.password===pw);
-  if(!hit) return showM("lMsg","Invalid email or password.");
-  sessionStorage.setItem(K.sess, hit.email); syncHeader(); showDash("earnings");
+  const em = document.getElementById("lEmail").value.trim().toLowerCase();
+  const pw = document.getElementById("lPass").value;
+  const adm = getAdminCreds();
+
+  if(em === String(adm.email||"").toLowerCase() && pw === adm.password){
+    sessionStorage.setItem(K.admAuth, "1");
+    window.location.href = "admin.html";
+    return;
+  }
+
+  const hit = getUsers().find(u => u.email.toLowerCase()===em && u.password===pw);
+  if(!hit) return showM("lMsg", "Invalid email or password.");
+  sessionStorage.setItem(K.sess, hit.email);
+  syncHeader();
+  showDash("earnings");
 }
-function logout(){ sessionStorage.removeItem(K.sess); syncHeader(); showSite(); }
+
+function logout(){
+  sessionStorage.removeItem(K.sess);
+  sessionStorage.removeItem(K.admAuth);
+  syncHeader();
+  showSite();
+}
 
 function sendReset(){
-  const em=document.getElementById("fpEmail").value.trim().toLowerCase();
-  if(!getUsers().some(u=>u.email.toLowerCase()===em)) return showM("fpMsg","Email not found.");
-  resetEm=em; document.getElementById("resetArea").style.display="block";
-  showM("fpMsg","Reset enabled for "+em,true);
+  const em = document.getElementById("fpEmail").value.trim().toLowerCase();
+  if(!getUsers().some(u => u.email.toLowerCase()===em)) return showM("fpMsg", "Email not found.");
+  resetEm = em;
+  document.getElementById("resetArea").style.display = "block";
+  showM("fpMsg", "Reset enabled for " + em, true);
 }
+
 function saveReset(){
-  const n=document.getElementById("fpNew").value, c=document.getElementById("fpConf").value;
-  if(!resetEm || n.length<6 || n!==c) return showM("fpMsg","Password must be 6+ chars and match.");
-  const all=getUsers(); const u=all.find(x=>x.email.toLowerCase()===resetEm); if(u) u.password=n;
-  wJ(K.users,all); resetEm=""; showAuth("login"); showM("lMsg","Password updated. Login now.",true);
+  const n = document.getElementById("fpNew").value, c = document.getElementById("fpConf").value;
+  if(!resetEm || n.length<6 || n!==c) return showM("fpMsg", "Password must be 6+ chars and match.");
+  const all = getUsers();
+  const u = all.find(x => x.email.toLowerCase()===resetEm);
+  if(u) u.password = n;
+  wJ(K.users, all);
+  resetEm = "";
+  showAuth("login");
+  showM("lMsg", "Password updated. Login now.", true);
 }
 
 function setDTab(t){
-  document.querySelectorAll(".s-tab").forEach(b=>b.classList.toggle("active",b.dataset.d===t));
-  document.querySelectorAll(".d-pane").forEach(p=>p.classList.toggle("active",p.id==="dp-"+t));
-  const u=curUser();
+  document.querySelectorAll(".s-tab").forEach(b => b.classList.toggle("active", b.dataset.d===t));
+  document.querySelectorAll(".d-pane").forEach(p => p.classList.toggle("active", p.id==="dp-"+t));
+  const u = curUser();
   if(t==="team") renderTeam();
-  if(t==="profile" && u){ document.getElementById("pName").value=u.name||""; document.getElementById("pTag").value=u.tag||""; }
+  if(t==="profile" && u){ document.getElementById("pName").value = u.name||""; document.getElementById("pTag").value = u.tag||""; }
 }
 
 function renderAv(el,u){
-  const init=(u.name||"S")[0].toUpperCase();
+  const init = (u.name||"S")[0].toUpperCase();
   el.innerHTML = u.photo ? `<img src="${u.photo}" alt="${u.name}">` : init;
 }
 
 function renderDash(u){
   renderAv(document.getElementById("dAv"), u);
-  document.getElementById("dName").textContent = u.name||"Student";
-  document.getElementById("dTag").textContent = u.tag||"";
-  document.getElementById("dIdBadge").textContent = "ID: "+(u.studentId||"STU");
-  const ord = u.orders||[];
-  document.getElementById("dPkg").textContent = ord.length ? ord[ord.length-1].pkg : "Starter Member";
-  const e = u.earnings||ZERO_E;
-  eToday.textContent=e.today||"₹0"; e7d.textContent=e.sevenDays||"₹0"; e30d.textContent=e.thirtyDays||"₹0";
-  eAll.textContent=e.allTime||"₹0"; eInd.textContent=e.industrial||"₹0"; eWal.textContent=e.wallet||"₹0";
+  document.getElementById("dName").textContent = u.name || "Student";
+  document.getElementById("dTag").textContent = u.tag || "";
+  document.getElementById("dIdBadge").textContent = "ID: " + (u.studentId || "STU");
 
-  const days=["Nov 14","Nov 15","Nov 16","Nov 17","Nov 18","Nov 19","Nov 20"], hs=[14,22,12,28,18,25,16];
+  const ord = u.orders || [];
+  document.getElementById("dPkg").textContent = ord.length ? ord[ord.length-1].pkg : "Starter Member";
+
+  const e = u.earnings || ZERO_E;
+  eToday.textContent = e.today || "₹0";
+  e7d.textContent = e.sevenDays || "₹0";
+  e30d.textContent = e.thirtyDays || "₹0";
+  eAll.textContent = e.allTime || "₹0";
+  eInd.textContent = e.industrial || "₹0";
+  eWal.textContent = e.wallet || "₹0";
+
+  const days = ["Nov 14","Nov 15","Nov 16","Nov 17","Nov 18","Nov 19","Nov 20"], hs = [14,22,12,28,18,25,16];
   document.getElementById("chartBars").innerHTML = days.map((d,i)=>`<div class="b-col"><div class="b-fill" style="height:${hs[i]}%"></div><span>${d}</span></div>`).join("");
 
-  const tm = u.team||[];
+  const tm = u.team || [];
   document.getElementById("recentTeam").innerHTML = tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div></div></div>`).join("") || "<small>No team members</small>";
 
-  document.getElementById("myOrders").innerHTML = ord.length ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("") : "<small>No packages enrolled yet.</small>";
+  document.getElementById("myOrders").innerHTML = ord.length
+    ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("")
+    : "<small>No packages enrolled yet.</small>";
+
   renderTeam();
 }
 
 function renderTeam(){
-  const u=curUser(), tm=(u&&u.team)||[];
-  const q=(document.getElementById("tSearch").value||"").trim().toLowerCase();
-  const per=parseInt(document.getElementById("tPer").value,10)||10;
-  const fil=tm.filter(m=>!q || ((m.name||"")+(m.email||"")+(m.phone||"")+(m.pkg||"")).toLowerCase().includes(q));
-  const pages=Math.max(1,Math.ceil(fil.length/per));
-  tPage=Math.min(Math.max(1,tPage),pages);
-  const s=(tPage-1)*per, e=Math.min(s+per,fil.length), slice=fil.slice(s,e);
-  document.getElementById("teamList").innerHTML = slice.map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div><div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div></div>`).join("") || "<small>No matches.</small>";
+  const u = curUser(), tm = (u && u.team) || [];
+  const q = (document.getElementById("tSearch").value || "").trim().toLowerCase();
+  const per = parseInt(document.getElementById("tPer").value,10) || 10;
+  const fil = tm.filter(m => !q || ((m.name||"")+(m.email||"")+(m.phone||"")+(m.pkg||"")).toLowerCase().includes(q));
+  const pages = Math.max(1, Math.ceil(fil.length/per));
+  tPage = Math.min(Math.max(1,tPage), pages);
+  const s = (tPage-1)*per, e = Math.min(s+per, fil.length), slice = fil.slice(s,e);
+
+  document.getElementById("teamList").innerHTML = slice.map(m=>`
+    <div class="t-row">
+      <div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div>
+      <div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div>
+    </div>
+  `).join("") || "<small>No matches.</small>";
+
   document.getElementById("tInfo").textContent = fil.length ? `Showing ${s+1}-${e} of ${fil.length} (Page ${tPage}/${pages})` : "Showing 0 of 0";
-  let btns=`<button class="pg-btn" onclick="tPage--;renderTeam()" ${tPage<=1?"disabled":""}>&lt;</button>`;
-  for(let p=1;p<=pages;p++) btns+=`<button class="pg-btn ${p===tPage?"active":""}" onclick="tPage=${p};renderTeam()">${p}</button>`;
-  btns+=`<button class="pg-btn" onclick="tPage++;renderTeam()" ${tPage>=pages?"disabled":""}>&gt;</button>`;
-  document.getElementById("tCtrl").innerHTML=btns;
+  let btns = `<button type="button" class="pg-btn" onclick="tPage--;renderTeam()" ${tPage<=1?"disabled":""}>&lt;</button>`;
+  for(let p=1;p<=pages;p++) btns += `<button type="button" class="pg-btn ${p===tPage?"active":""}" onclick="tPage=${p};renderTeam()">${p}</button>`;
+  btns += `<button type="button" class="pg-btn" onclick="tPage++;renderTeam()" ${tPage>=pages?"disabled":""}>&gt;</button>`;
+  document.getElementById("tCtrl").innerHTML = btns;
 }
 
 function toggleQuickName(){ const b=document.getElementById("qNameBox"); const op=b.style.display!=="block"; b.style.display=op?"block":"none"; if(op){ qNameInp.value=curUser().name||""; qNameMsg.className="msg"; } }
@@ -562,6 +645,7 @@ function openBuy(idx){
   qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkills&am=${c.price}&cu=INR`);
   photoModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
 }
+
 function submitPay(){
   const nm=fName.value.trim(), ph=fPhone.value.replace(/\D/g,""), utr=fUtr.value.replace(/\D/g,"");
   if(!selC||nm.length<2||ph.length!==10||utr.length!==12) return showM("bMsg","Enter valid name, 10-digit phone & 12-digit UTR.");
@@ -579,11 +663,13 @@ function openPhotoModal(){
   renderAv(document.getElementById("pStage"), {name:u.name, photo:tempImg});
   buyModal.style.display="none"; photoModal.style.display="block"; modal.classList.add("open");
 }
+
 function onPhotoPick(e){
   const f=e.target.files&&e.target.files[0]; if(!f) return;
   if(!f.type.startsWith("image/")||f.size>4*1024*1024) return showM("pErr","Select JPG/PNG/WEBP under 4MB.");
   const r=new FileReader(); r.onload=ev=>{ tempImg=ev.target.result; renderAv(document.getElementById("pStage"),{name:curUser().name,photo:tempImg}); }; r.readAsDataURL(f);
 }
+
 function savePhoto(){ if(!tempImg) return showM("pErr","Choose a photo first."); const u=modUser(x=>x.photo=tempImg); if(u) renderDash(u); closeModal(); }
 function clearPhoto(){ tempImg=""; const u=modUser(x=>x.photo=""); if(u) renderDash(u); closeModal(); }
 function closeModal(){ modal.classList.remove("open"); buyModal.style.display="none"; photoModal.style.display="none"; }
@@ -592,6 +678,12 @@ function copyText(val, id){
   if(navigator.clipboard) navigator.clipboard.writeText(val).then(()=>showM(id,"Copied: "+val,true)).catch(()=>showM(id,"Copy: "+val,true));
   else showM(id,"Copy: "+val,true);
 }
+
+window.addEventListener("storage", e => {
+  if(e.key === K.theme) applyTheme();
+  if(e.key === K.courses) renderCourses();
+  if(e.key === K.users && curUser()) renderDash(curUser());
+});
 
 applyTheme(); renderCourses(); syncHeader();
 </script>

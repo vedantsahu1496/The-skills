@@ -120,7 +120,9 @@ body.t-midnight .dark{background:var(--card);color:var(--txt);border:1px solid v
 .sec-h p{color:var(--mut);font-size:13px;margin-top:4px}
 
 .filter-bar{background:var(--surf);border:1px solid var(--bdr);border-radius:14px;padding:12px;margin-bottom:16px;display:flex;flex-direction:column;gap:10px}
-.filter-bar .inp{margin-bottom:0}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter-row .inp{flex:1;min-width:190px;margin-bottom:0}
+.filter-row .sel-mini{width:auto;min-width:140px;margin-bottom:0}
 .cat-pills{display:flex;gap:7px;flex-wrap:wrap}
 .cat-pill{background:var(--card);color:var(--mut);border:1px solid var(--bdr);border-radius:99px;padding:5px 12px;font-size:12px;font-weight:700;transition:.2s}
 .cat-pill.active,.cat-pill:hover{background:#0b0b0c;color:#f5c85c;border-color:#0b0b0c}
@@ -295,7 +297,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <a href="#contact" onclick="toggleDrawer(false)">Contact</a>
         <a href="#" id="dLogin" onclick="toggleDrawer(false);showAuth('login');return false;">Login</a>
         <a href="#" id="dDash" style="display:none" onclick="toggleDrawer(false);showDash('earnings');return false;">Learner Dashboard</a>
-        <a href="#" id="dOut" style="display:none;color:#b91c1c" onclick="toggleDrawer(false);logout();return false;">Logout</a>
+        <a href="#" id="dOut" style="display:none;color:#b91c1c" onclick="toggleDrawer(false);confirmLogout();return false;">Logout</a>
       </div>
     </div>
   </header>
@@ -312,7 +314,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
           <div id="guestBox"><button type="button" class="btn dark" onclick="showAuth('login')">Login</button></div>
           <div id="userBox" style="display:none;grid-template-columns:1fr 1fr;gap:10px">
             <button type="button" class="btn dark" style="border-color:var(--gold-br);color:var(--gold-br)" onclick="showDash('earnings')">Open Dashboard</button>
-            <button type="button" class="btn red" onclick="logout()">Logout</button>
+            <button type="button" class="btn red" onclick="confirmLogout()">Logout</button>
           </div>
         </div>
         <div class="stats" id="statsGrid">
@@ -346,10 +348,17 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     </section>
 
     <section class="sec reveal" id="courses">
-      <div class="sec-h"><h2>Skill Tracks &amp; Programs</h2><p>Search by topic or filter by track level with upfront pricing</p></div>
+      <div class="sec-h"><h2>Skill Tracks &amp; Programs</h2><p>Search by topic, filter by track level, or sort by price</p></div>
 
       <div class="filter-bar">
-        <input id="courseSearch" class="inp" type="search" placeholder="Search tracks (e.g., Marketing, Branding, Traffic, Finance)..." oninput="renderCourses()">
+        <div class="filter-row">
+          <input id="courseSearch" class="inp" type="search" placeholder="Search tracks (press / to focus)..." oninput="renderCourses()">
+          <select id="courseSort" class="inp sel-mini" onchange="renderCourses()">
+            <option value="default">Default Order</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+        </div>
         <div class="cat-pills" id="catPills">
           <button type="button" class="cat-pill active" data-cat="all" onclick="setCourseCat('all')">All Tracks</button>
           <button type="button" class="cat-pill" data-cat="starter" onclick="setCourseCat('starter')">Beginner / Starter</button>
@@ -434,7 +443,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 
 <div id="authView">
   <div style="width:100%;max-width:420px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-    <button type="button" class="btn dark" style="width:auto;margin:0;padding:8px 13px" onclick="showSite()">← Back to Site</button>
+    <button type="button" class="btn dark" style="width:auto;margin:0;padding:8px 13px" onclick="confirmBackToSite()">← Back to Site</button>
     <span style="font-size:12px;color:var(--mut);font-weight:700">LOGIN</span>
   </div>
   <div class="auth-box">
@@ -493,12 +502,12 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <div class="d-top">
       <div style="display:flex;gap:6px;align-items:center">
         <button type="button" class="chip" onclick="toggleSide(true)">☰ Menu</button>
-        <button type="button" class="chip" onclick="showSite()">← Back to Site</button>
+        <button type="button" class="chip" onclick="confirmBackToSite()">← Back to Site</button>
       </div>
       <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
         <button type="button" class="chip" id="refreshBtn" onclick="refreshDash()">↻ Refresh</button>
         <span class="chip blue selectable" id="dIdBadge">ID: --</span>
-        <button type="button" class="chip red" onclick="logout()">Logout</button>
+        <button type="button" class="chip red" onclick="confirmLogout()">Logout</button>
       </div>
     </div>
     <div id="syncNote" style="font-size:11.5px;color:#52525b;margin-bottom:8px"></div>
@@ -573,7 +582,19 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       </div>
     </div>
 
-    <div id="dp-courses" class="d-pane"><div class="w-box"><h3>My Enrollments</h3><div id="myOrders"></div></div></div>
+    <div id="dp-courses" class="d-pane">
+      <div class="w-box">
+        <div class="row-sp" style="margin-bottom:10px;flex-wrap:wrap">
+          <h3 style="margin:0">My Enrollments</h3>
+          <select id="ordFilter" class="inp" style="width:auto;margin:0;padding:6px 10px;font-size:12px" onchange="if(curUser())renderDash(curUser())">
+            <option value="all">All Status</option>
+            <option value="Active">Active</option>
+            <option value="Pending Verification">Pending Verification</option>
+          </select>
+        </div>
+        <div id="myOrders"></div>
+      </div>
+    </div>
     <div id="dp-buy" class="d-pane"><div class="w-box"><h3>Enroll in a Skill Track</h3><div id="dBuyList"></div></div></div>
 
     <div id="dp-affiliate" class="d-pane">
@@ -645,6 +666,14 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 <button type="button" class="top-btn" id="scrollTopBtn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <div class="modal" id="modal">
+  <div class="m-panel" id="confirmModal" style="display:none">
+    <div class="row-sp" style="margin-bottom:8px"><b id="cfTitle" style="font-size:16px">Are you sure?</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
+    <p id="cfText" style="font-size:13px;color:var(--mut);margin-bottom:14px">Please confirm if you want to continue with this action.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <button type="button" class="btn dark" style="margin:0" onclick="closeModal()">Cancel</button>
+      <button type="button" class="btn gold" id="cfOkBtn" style="margin:0" onclick="runConfirmedAction()">Yes, Continue</button>
+    </div>
+  </div>
   <div class="m-panel" id="buyModal" style="display:none">
     <div class="row-sp" style="margin-bottom:10px"><b id="bTitle" style="font-size:16px">Enrollment Checkout</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
     <div class="sum-box" id="sumBox"></div>
@@ -667,7 +696,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <div style="display:flex;justify-content:center;margin:10px 0"><div class="av" id="pStage" style="width:104px;height:104px;font-size:34px"></div></div>
     <label class="lbl">Upload Image (JPG, PNG, WEBP — max 4MB)</label><input id="pFile" class="inp" type="file" accept="image/*" onchange="onPhotoPick(event)">
     <button type="button" class="btn green" onclick="savePhoto()">Save Photo</button>
-    <button type="button" class="btn red" onclick="clearPhoto()">Remove Photo</button>
+    <button type="button" class="btn red" onclick="confirmClearPhoto()">Remove Photo</button>
     <div id="pErr" class="msg"></div>
   </div>
   <div class="m-panel" id="legalModal" style="display:none">
@@ -717,7 +746,7 @@ const CHART_PTS = [
   { day:"Nov 20", h:15, refs:0, earn:"₹0" }
 ];
 
-let selC = null, resetEm = "", tempImg = "", tPage = 1, activeCat = "all";
+let selC = null, resetEm = "", tempImg = "", tPage = 1, activeCat = "all", pendingConfirmFn = null;
 const rJ = (k,fb) => { try { const v=JSON.parse(localStorage.getItem(k)); return v!==null && v!==undefined ? v : fb; } catch { return fb; } };
 const wJ = (k,v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 const inr = n => "₹" + (parseInt(n,10)||0).toLocaleString("en-IN");
@@ -731,6 +760,58 @@ function notify(text, mode="ok"){
   item.innerHTML = `<span>${text}</span><button type="button" style="background:none;border:0;color:#fff;font-weight:800" onclick="this.parentElement.remove()">×</button>`;
   wrap.appendChild(item);
   setTimeout(() => { if (item.parentElement) item.remove(); }, 3200);
+}
+
+function askConfirm(title, message, okLabel, fn, danger=false){
+  pendingConfirmFn = fn;
+  document.getElementById("cfTitle").textContent = title || "Are you sure?";
+  document.getElementById("cfText").textContent = message || "Do you want to proceed?";
+  const okBtn = document.getElementById("cfOkBtn");
+  okBtn.textContent = okLabel || "Yes, Continue";
+  okBtn.className = "btn " + (danger ? "red" : "gold");
+  okBtn.style.margin = "0";
+  buyModal.style.display = "none";
+  photoModal.style.display = "none";
+  legalModal.style.display = "none";
+  confirmModal.style.display = "block";
+  modal.classList.add("open");
+}
+
+function runConfirmedAction(){
+  const fn = pendingConfirmFn;
+  pendingConfirmFn = null;
+  closeModal();
+  if (typeof fn === "function") fn();
+}
+
+function confirmBackToSite(){
+  askConfirm(
+    "Leave Current View?",
+    "Are you sure you want to go back to the main site?",
+    "Yes, Back to Site",
+    () => showSite(),
+    false
+  );
+}
+
+function confirmLogout(){
+  askConfirm(
+    "Confirm Logout",
+    "Are you sure you want to log out of your current session?",
+    "Yes, Logout",
+    () => logout(),
+    true
+  );
+}
+
+function confirmClearPhoto(){
+  askConfirm(
+    "Remove Profile Photo?",
+    "Are you sure you want to remove your profile photo?",
+    "Yes, Remove",
+    () => clearPhoto(),
+    true
+  );
 }
 
 async function pullCloud(){
@@ -807,12 +888,16 @@ function renderCourses(){
   const allList = getCourses();
   document.getElementById("statTracks").textContent = allList.length + " Tracks";
   const q = (document.getElementById("courseSearch")?.value || "").trim().toLowerCase();
+  const sortMode = document.getElementById("courseSort")?.value || "default";
 
   const indexed = allList.map((c, idx) => ({ c, idx })).filter(({ c }) => {
     const catOk = activeCat === "all" || c.cat === activeCat;
     const textOk = !q || (c.title + " " + c.desc + " " + c.badge + " " + c.modules + " " + c.level).toLowerCase().includes(q);
     return catOk && textOk;
   });
+
+  if (sortMode === "low") indexed.sort((a, b) => (a.c.price || 0) - (b.c.price || 0));
+  if (sortMode === "high") indexed.sort((a, b) => (b.c.price || 0) - (a.c.price || 0));
 
   const grid = document.getElementById("coursesGrid");
   const skel = document.getElementById("courseSkeleton");
@@ -971,8 +1056,11 @@ function renderDash(u){
   chartBars.innerHTML = pts.map((p,i)=>`<div class="b-col" onclick="setChartTip(CHART_PTS[${i}])" onmouseover="setChartTip(CHART_PTS[${i}])"><div class="b-fill" style="height:${p.h}%"></div><span>${p.day}</span></div>`).join("");
   setChartTip(pts[5]);
 
+  const ordSt = document.getElementById("ordFilter")?.value || "all";
+  const filtOrd = ordSt === "all" ? ord : ord.filter(o => o.status === ordSt);
+
   recentTeam.innerHTML = tm.length ? tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#52525b">${m.pkg}</small></div></div></div>`).join("") : `<div class="empty-st">Nothing</div>`;
-  myOrders.innerHTML = ord.length ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#52525b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("") : `<div class="empty-st">Nothing</div>`;
+  myOrders.innerHTML = filtOrd.length ? filtOrd.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#52525b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("") : `<div class="empty-st">Nothing</div>`;
   lbBox.innerHTML = tm.length ? tm.slice(0,3).map((m,i)=>`<div class="t-row"><div><b>#${i+1} ${m.name}</b><br><small style="color:#52525b">${m.pkg}</small></div><span class="chip ${i===0?"blue":""}">#${i+1}</span></div>`).join("") : `<div class="empty-st">Nothing</div>`;
   document.getElementById("qPkgTxt").textContent = dPkg.textContent;
   document.getElementById("qTeamTxt").textContent = tm.length ? tm.length : "Nothing";
@@ -1004,7 +1092,7 @@ function openBuy(idx){
   sumBox.innerHTML=`<b>Track:</b> ${c.title} • <b>${c.modules}</b><br><b>Amount:</b> <b>${inr(c.price)}</b>`;
   fAmt.value=c.price; fName.value=u?u.name:""; fPhone.value=u?u.phone:""; fUtr.value=""; bMsg.className="msg"; doneBox.style.display="none";
   qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkill&am=${c.price}&cu=INR`);
-  photoModal.style.display="none"; legalModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
+  confirmModal.style.display="none"; photoModal.style.display="none"; legalModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
 }
 function submitPay(){
   const nm=fName.value.trim(), ph=fPhone.value.replace(/\D/g,""), utr=fUtr.value.replace(/\D/g,"");
@@ -1028,13 +1116,13 @@ function openLegal(type){
     refund:["Verification & Support","Enrollment requests are reviewed after UTR submission. Contact support with your reference ID for assistance."]
   };
   const item=map[type]||map.terms; legTitle.textContent=item[0]; legBody.textContent=item[1];
-  buyModal.style.display="none"; photoModal.style.display="none"; legalModal.style.display="block"; modal.classList.add("open");
+  confirmModal.style.display="none"; buyModal.style.display="none"; photoModal.style.display="none"; legalModal.style.display="block"; modal.classList.add("open");
 }
-function openPhotoModal(){ const u=curUser(); if(!u) return showAuth("login"); tempImg=u.photo||""; pErr.className="msg"; pFile.value=""; renderAv(pStage,{name:u.name,photo:tempImg}); buyModal.style.display="none"; legalModal.style.display="none"; photoModal.style.display="block"; modal.classList.add("open"); }
+function openPhotoModal(){ const u=curUser(); if(!u) return showAuth("login"); tempImg=u.photo||""; pErr.className="msg"; pFile.value=""; renderAv(pStage,{name:u.name,photo:tempImg}); confirmModal.style.display="none"; buyModal.style.display="none"; legalModal.style.display="none"; photoModal.style.display="block"; modal.classList.add("open"); }
 function onPhotoPick(e){ const f=e.target.files&&e.target.files[0]; if(!f) return; if(!f.type.startsWith("image/")||f.size>4*1024*1024) return showM("pErr","Select a JPG, PNG, or WEBP image under 4MB."); const r=new FileReader(); r.onload=ev=>{ tempImg=ev.target.result; renderAv(pStage,{name:curUser().name,photo:tempImg}); }; r.readAsDataURL(f); }
 function savePhoto(){ if(!tempImg) return showM("pErr","Please choose an image first."); const u=modUser(x=>x.photo=tempImg); if(u){ renderDash(u); notify("Profile photo updated."); } closeModal(); }
 function clearPhoto(){ tempImg=""; const u=modUser(x=>x.photo=""); if(u){ renderDash(u); notify("Profile photo removed."); } closeModal(); }
-function closeModal(){ modal.classList.remove("open"); buyModal.style.display="none"; photoModal.style.display="none"; legalModal.style.display="none"; }
+function closeModal(){ pendingConfirmFn=null; modal.classList.remove("open"); confirmModal.style.display="none"; buyModal.style.display="none"; photoModal.style.display="none"; legalModal.style.display="none"; }
 function copyText(val,id){
   if(navigator.clipboard) navigator.clipboard.writeText(val).then(()=>{ showM(id,"Copied: "+val,"ok"); notify("Copied to clipboard."); }).catch(()=>{ showM(id,"Copy: "+val,"ok"); notify("Copy: "+val); });
   else { showM(id,"Copy: "+val,"ok"); notify("Copy: "+val); }
@@ -1061,6 +1149,20 @@ window.addEventListener("scroll", () => {
   const btn = document.getElementById("scrollTopBtn");
   if (btn) btn.classList.toggle("show", window.scrollY > 320);
 }, { passive: true });
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+    toggleDrawer(false);
+    toggleSide(false);
+  } else if (e.key === "/" && !["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)) {
+    const inp = document.getElementById("courseSearch");
+    if (inp && siteView.style.display !== "none") {
+      e.preventDefault();
+      inp.focus();
+    }
+  }
+});
 
 document.addEventListener("gesturestart", e => e.preventDefault(), { passive: false });
 

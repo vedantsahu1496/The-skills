@@ -8,11 +8,12 @@
 :root{--bg:#060913;--surf:#111b30;--card:#0b1224;--bdr:#334155;--gold:#fbbf24;--txt:#f8fafc;--mut:#94a3b8}
 body.t-midnight{--bg:#060c18;--surf:#0f172a;--card:#090f1d;--bdr:#1e293b;--gold:#38bdf8;--txt:#f1f5f9;--mut:#94a3b8}
 body.t-light{--bg:#eef2f7;--surf:#ffffff;--card:#ffffff;--bdr:#cbd5e1;--gold:#2563eb;--txt:#0f172a;--mut:#475569}
-*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial,sans-serif;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+input,textarea,select,.selectable{user-select:text;-webkit-user-select:text}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);line-height:1.55;transition:.2s}
 a{text-decoration:none;color:inherit}
-button{cursor:pointer;font-family:inherit}
+button{cursor:pointer;font-family:inherit;outline:none}
 .hdr{position:sticky;top:0;z-index:90;background:#090d16;padding:12px 16px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
 .brand-wrap{display:flex;align-items:center;gap:10px}
 .m-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#ffffff 0%,#fde68a 42%,#d97706 78%,#78350f 100%);color:#090d16;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:21px;border:1.5px solid #fbbf24;flex-shrink:0;box-shadow:0 2px 12px rgba(251,191,36,.3)}
@@ -25,6 +26,7 @@ button{cursor:pointer;font-family:inherit}
 .drawer a{display:block;padding:10px 4px;border-bottom:1px solid #1e293b;font-size:13.5px;font-weight:700;color:#f8fafc}
 .drawer a:last-child{border-bottom:none}
 .btn{display:block;width:100%;padding:12px;border:0;border-radius:10px;margin-top:10px;font-weight:700;font-size:13.5px;text-align:center}
+.btn:active,.chip:active,.s-tab:active,.sm-item:active,.m-btn:active,.m-btn-sm:active{transform:scale(.98)}
 .btn-sm{display:inline-block;width:auto;margin:0;padding:6px 10px;font-size:12px;border-radius:8px}
 .gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#080b14}
 .dark{background:#172033;color:#fff;border:1px solid #475569}
@@ -219,7 +221,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 
   <footer id="contact">
     <b>THE MILLIONAIRE SKILLS</b>
-    <div>WhatsApp: +91 62898 41691 • Email: mdaadilalam123123@gmail.com</div>
+    <div class="selectable">WhatsApp: +91 62898 41691 • Email: mdaadilalam123123@gmail.com</div>
     <div class="f-links">
       <button type="button" onclick="openLegal('terms')">Terms</button>
       <button type="button" onclick="openLegal('privacy')">Privacy</button>
@@ -245,7 +247,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
   <div class="auth-box">
     <div id="loginBox">
       <h2 style="color:#fbbf24;font-size:18px;margin-bottom:4px">Portal Login</h2>
-      <div class="note">Student: <b>student1@tms.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b></div>
+      <div class="note selectable">Student: <b>student1@tms.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b></div>
       <label class="lbl">Email Address</label><input id="lEmail" class="inp" type="email" placeholder="Enter your email">
       <label class="lbl">Password</label><input id="lPass" class="inp" type="password" placeholder="Enter password">
       <button type="button" class="btn gold" onclick="login()">Login Now →</button>
@@ -302,7 +304,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       </div>
       <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
         <button type="button" class="chip" id="refreshBtn" onclick="refreshDash()">↻ Refresh</button>
-        <span class="chip blue" id="dIdBadge">ID: --</span>
+        <span class="chip blue selectable" id="dIdBadge">ID: --</span>
         <button type="button" class="chip red" onclick="logout()">Logout</button>
       </div>
     </div>
@@ -447,7 +449,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
   <div class="m-panel" id="buyModal" style="display:none">
     <div class="row-sp" style="margin-bottom:10px"><b id="bTitle" style="color:#fbbf24;font-size:16px">Checkout</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
     <div class="sum-box" id="sumBox"></div>
-    <div class="qr-box"><b id="qrLbl">Pay via UPI</b><img id="qrImg" alt="UPI QR"><b>UPI: millionaireskills@upi</b></div>
+    <div class="qr-box"><b id="qrLbl">Pay via UPI</b><img id="qrImg" alt="UPI QR"><b class="selectable">UPI: millionaireskills@upi</b></div>
     <div class="note">Payment submit karne ke baad admin panel se UTR verify hoga.</div>
     <label class="lbl">Amount (₹)</label><input id="fAmt" class="inp" readonly>
     <label class="lbl">Full Name</label><input id="fName" class="inp" placeholder="Your name">
@@ -457,7 +459,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     <div id="bMsg" class="msg"></div>
     <div id="doneBox" style="display:none;margin-top:12px;background:#064e3b;padding:12px;border-radius:10px">
       <b style="color:#4ade80">Request Submitted</b>
-      <div id="dReqTxt" style="font-size:12.5px;margin:6px 0"></div>
+      <div id="dReqTxt" class="selectable" style="font-size:12.5px;margin:6px 0"></div>
       <a id="dWaLink" class="btn green" target="_blank" rel="noopener noreferrer">Send on WhatsApp →</a>
     </div>
   </div>

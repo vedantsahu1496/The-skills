@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Millionaire Skills — Structured practical skill tracks in Marketing, Branding, Traffic, Communication, and Finance with learner portal access.">
-<title>The Millionaire Skills | Practical Skill Learning Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="The Millionaire Skill — Structured practical skill tracks in Marketing, Branding, Traffic, Communication, and Finance with learner portal access.">
+<title>The Millionaire Skill | Practical Skill Learning Platform</title>
 <style>
 :root{
   --bg:#ffffff;--surf:#ffffff;--card:#faf8f3;--bdr:#e6dfd1;
@@ -23,8 +23,8 @@ body.t-light{
 }
 *{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Inter,Arial,sans-serif;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 input,textarea,select,.selectable{user-select:text;-webkit-user-select:text}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--txt);line-height:1.6;transition:background .25s,color .25s;overflow-x:hidden}
+html{scroll-behavior:smooth;touch-action:pan-y}
+body{background:var(--bg);color:var(--txt);line-height:1.6;transition:background .25s,color .25s;overflow-x:hidden;touch-action:pan-y}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;outline:none}
 
@@ -50,21 +50,22 @@ button{cursor:pointer;font-family:inherit;outline:none}
 .toast.err{border-color:#ef4444}
 @keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* Header & Navigation */
-.hdr{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);padding:11px 16px;border-bottom:1.5px solid var(--gold-br);display:flex;justify-content:space-between;align-items:center;gap:10px}
-body.t-midnight .hdr{background:rgba(11,13,18,.94)}
-.brand-wrap{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.m-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#0b0b0c 0%,#1f1a10 65%,#3b2b0c 100%);color:var(--gold-br);border:1.5px solid var(--gold-br);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;flex-shrink:0;box-shadow:0 3px 10px rgba(180,123,19,.16)}
-.brand-styled{display:flex;flex-direction:column;line-height:1.15}
-.brand-styled b{font-size:13.5px;font-weight:900;letter-spacing:.7px;text-transform:uppercase;color:var(--ink)}
-.brand-styled b em{font-style:normal;color:var(--gold);background:var(--gold-soft);padding:1px 5px;border-radius:5px;border:1px solid rgba(180,123,19,.28)}
-.brand-styled small{font-size:9.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--mut);margin-top:2px}
+/* Header & Stylish Brand */
+.hdr{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:11px 14px;border-bottom:1.5px solid var(--gold-br);display:flex;justify-content:space-between;align-items:center;gap:8px}
+body.t-midnight .hdr{background:rgba(11,13,18,.95)}
+.brand-wrap{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.m-logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#0b0b0c 0%,#241c0d 60%,#4a340b 100%);color:var(--gold-br);border:1.5px solid var(--gold-br);display:flex;align-items:center;justify-content:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:900;font-size:21px;flex-shrink:0;box-shadow:0 4px 12px rgba(180,123,19,.2)}
+.brand-styled{display:flex;flex-direction:column;line-height:1.1}
+.brand-styled b{font-family:Georgia,'Times New Roman',serif;font-size:14.5px;font-weight:700;letter-spacing:.4px;color:var(--ink)}
+.brand-styled b .m-word{font-style:italic;font-weight:900;color:var(--gold);padding:0 2px;text-shadow:0 1px 0 rgba(212,155,39,.25)}
+.brand-styled b .s-word{font-family:'Segoe UI',Inter,Arial,sans-serif;font-style:normal;font-weight:900;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;background:linear-gradient(135deg,#d49b27,#9a6508);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-left:2px}
+.brand-styled small{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);margin-top:2px}
 
 .desk-nav{display:none;align-items:center;gap:18px;font-size:13px;font-weight:600;color:var(--mut)}
 .desk-nav a:hover{color:var(--ink)}
 
-.hdr-r{display:flex;gap:8px;align-items:center;position:relative;flex-shrink:0}
-.theme-btn{background:var(--card);color:var(--ink);border:1px solid var(--bdr);border-radius:8px;height:36px;padding:0 10px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:5px;transition:.2s}
+.hdr-r{display:flex;gap:6px;align-items:center;position:relative;flex-shrink:0}
+.theme-btn{background:var(--card);color:var(--ink);border:1px solid var(--bdr);border-radius:8px;height:36px;padding:0 9px;font-size:11.5px;font-weight:700;display:inline-flex;align-items:center;gap:4px;transition:.2s}
 .theme-btn:hover{border-color:var(--gold-br)}
 .m-btn{background:var(--card);color:var(--ink);border:1px solid var(--gold-br);border-radius:8px;width:36px;height:36px;font-size:18px;font-weight:700;transition:.2s}
 .m-btn:hover{background:var(--gold-soft)}
@@ -99,8 +100,9 @@ body.t-midnight .dark{background:var(--card);color:var(--txt);border:1px solid v
 .hero{padding:44px 16px 36px;border-bottom:1px solid var(--bdr);background:radial-gradient(circle at top,var(--gold-soft) 0%,var(--bg) 72%)}
 .hero-in{max-width:620px;margin:auto;text-align:center}
 .trust-pill{display:inline-block;padding:5px 13px;border:1px solid var(--gold-br);background:var(--surf);border-radius:99px;color:var(--ink);font-size:11.5px;font-weight:700}
-.hero-crest{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:7px 16px;border-radius:999px;background:#0b0b0c;color:#ffffff;border:1.5px solid var(--gold-br);font-size:12px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;box-shadow:0 6px 18px rgba(11,11,12,.12)}
-.hero-crest span{color:var(--gold-br)}
+.hero-crest{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 18px;border-radius:999px;background:linear-gradient(135deg,#0b0b0c,#231a09);color:#ffffff;border:1.5px solid var(--gold-br);font-family:Georgia,'Times New Roman',serif;font-size:14px;font-weight:700;letter-spacing:.7px;box-shadow:0 6px 18px rgba(11,11,12,.14)}
+.hero-crest em{font-style:italic;color:var(--gold-br);font-weight:900}
+.hero-crest span{font-family:'Segoe UI',Inter,Arial,sans-serif;font-weight:900;font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:#f5c85c}
 .hero h1{font-size:28px;line-height:1.22;margin:14px 0 10px;font-weight:900;color:var(--ink)}
 .hero h1 span{color:var(--gold)}
 .hero p{color:var(--mut);font-size:14px;max-width:490px;margin:auto}
@@ -256,7 +258,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 
 <div id="preloader" aria-hidden="true">
   <div class="loader-ring"></div>
-  <div style="font-size:12px;font-weight:700;color:var(--mut);letter-spacing:.6px">THE MILLIONAIRE SKILLS</div>
+  <div style="font-size:12px;font-weight:700;color:var(--mut);letter-spacing:.6px">The Millionaire Skill</div>
 </div>
 
 <div id="toastWrap" aria-live="polite"></div>
@@ -266,7 +268,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <a href="#top" class="brand-wrap">
       <div class="m-logo">M</div>
       <div class="brand-styled">
-        <b>THE <em>MILLIONAIRE</em> SKILLS</b>
+        <b>The <span class="m-word">Millionaire</span> <span class="s-word">Skill</span></b>
         <small>SKILL ACADEMY</small>
       </div>
     </a>
@@ -281,7 +283,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 
     <div class="hdr-r">
       <button type="button" class="theme-btn" id="themeBtn" onclick="cycleTheme()" title="Switch Theme">🌓 <span id="themeLbl">Theme</span></button>
-      <button type="button" class="btn gold" id="hdrBtn" style="width:auto;margin:0;padding:8px 13px" onclick="onHdrClick()">Portal Login</button>
+      <button type="button" class="btn gold" id="hdrBtn" style="width:auto;margin:0;padding:8px 13px" onclick="onHdrClick()">Login</button>
       <button type="button" class="m-btn" aria-label="Open Menu" onclick="toggleDrawer()">☰</button>
       <div class="drawer" id="drawer">
         <a href="#how-it-works" onclick="toggleDrawer(false)">How It Works</a>
@@ -291,7 +293,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <a href="#compare" onclick="toggleDrawer(false)">Compare</a>
         <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
         <a href="#contact" onclick="toggleDrawer(false)">Contact</a>
-        <a href="#" id="dLogin" onclick="toggleDrawer(false);showAuth('login');return false;">Portal Login</a>
+        <a href="#" id="dLogin" onclick="toggleDrawer(false);showAuth('login');return false;">Login</a>
         <a href="#" id="dDash" style="display:none" onclick="toggleDrawer(false);showDash('earnings');return false;">Learner Dashboard</a>
         <a href="#" id="dOut" style="display:none;color:#b91c1c" onclick="toggleDrawer(false);logout();return false;">Logout</a>
       </div>
@@ -302,12 +304,12 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <section class="hero">
       <div class="hero-in">
         <div class="trust-pill">Structured skill tracks • Transparent learner support</div><br>
-        <div class="hero-crest">✦ THE <span>MILLIONAIRE</span> SKILLS ✦</div>
+        <div class="hero-crest">✦ The <em>Millionaire</em> <span>Skill</span> ✦</div>
         <h1>Practical Skills Built for <span>Real-World Growth</span></h1>
         <p>Learn clear, step-by-step foundations in Marketing, Branding, Traffic, Influence, and Finance with guided modules and self-paced access.</p>
         <div class="hero-act">
           <a href="#courses" class="btn gold">Explore Skill Tracks →</a>
-          <div id="guestBox"><button type="button" class="btn dark" onclick="showAuth('login')">Learner / Admin Login</button></div>
+          <div id="guestBox"><button type="button" class="btn dark" onclick="showAuth('login')">Login</button></div>
           <div id="userBox" style="display:none;grid-template-columns:1fr 1fr;gap:10px">
             <button type="button" class="btn dark" style="border-color:var(--gold-br);color:var(--gold-br)" onclick="showDash('earnings')">Open Dashboard</button>
             <button type="button" class="btn red" onclick="logout()">Logout</button>
@@ -387,7 +389,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 
     <section class="sec reveal" id="about">
       <div class="about-box">
-        <h3>About The Millionaire Skills</h3>
+        <h3>About The Millionaire Skill</h3>
         <p>We focus on clear, structured, and practical digital skill education without confusing jargon or unrealistic promises. Every track is organized so learners can study at their own pace and apply concepts consistently.</p>
         <div class="mission-box">
           <b>Our Approach</b>
@@ -408,7 +410,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   </main>
 
   <footer id="contact">
-    <b>THE MILLIONAIRE SKILLS</b>
+    <b>The Millionaire Skill</b>
     <div class="selectable">Support WhatsApp: +91 62898 41691 • Email: mdaadilalam123123@gmail.com</div>
     <div class="f-links">
       <a href="#courses">Skill Tracks</a>
@@ -426,22 +428,22 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       </div>
       <div class="msg" id="cMsg"></div>
     </div>
-    <div style="margin-top:14px;font-size:11.5px;color:var(--mut)">© <span id="yrSpan">2026</span> The Millionaire Skills. All rights reserved.</div>
+    <div style="margin-top:14px;font-size:11.5px;color:var(--mut)">© <span id="yrSpan">2026</span> The Millionaire Skill. All rights reserved.</div>
   </footer>
 </div>
 
 <div id="authView">
   <div style="width:100%;max-width:420px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
     <button type="button" class="btn dark" style="width:auto;margin:0;padding:8px 13px" onclick="showSite()">← Back to Site</button>
-    <span style="font-size:12px;color:var(--mut);font-weight:700">PORTAL SIGN IN</span>
+    <span style="font-size:12px;color:var(--mut);font-weight:700">LOGIN</span>
   </div>
   <div class="auth-box">
     <div id="loginBox">
-      <h2 style="font-size:18px;margin-bottom:4px">Sign In to Portal</h2>
+      <h2 style="font-size:18px;margin-bottom:4px">Login</h2>
       <div class="note selectable">Demo Student: <b>student1@tms.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b></div>
       <label class="lbl">Email Address</label><input id="lEmail" class="inp" type="email" placeholder="name@example.com">
       <label class="lbl">Password</label><input id="lPass" class="inp" type="password" placeholder="Enter password">
-      <button type="button" class="btn gold" onclick="login()">Sign In →</button>
+      <button type="button" class="btn gold" onclick="login()">Login →</button>
       <div id="lMsg" class="msg"></div>
       <button type="button" style="background:none;border:0;color:var(--gold);font-weight:700;font-size:12.5px;text-decoration:underline;margin-top:12px" onclick="showAuth('forgot')">Forgot Password?</button>
     </div>
@@ -455,7 +457,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <label class="lbl">Confirm Password</label><input id="fpConf" class="inp" type="password">
         <button type="button" class="btn green" onclick="saveReset()">Save New Password →</button>
       </div>
-      <button type="button" style="background:none;border:0;color:var(--gold);font-weight:700;font-size:12.5px;text-decoration:underline;margin-top:12px" onclick="showAuth('login')">← Back to Sign In</button>
+      <button type="button" style="background:none;border:0;color:var(--gold);font-weight:700;font-size:12.5px;text-decoration:underline;margin-top:12px" onclick="showAuth('login')">← Back to Login</button>
     </div>
   </div>
 </div>
@@ -466,8 +468,8 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <div>
       <div class="sm-head">
         <div style="display:flex;align-items:center;gap:8px">
-          <div class="m-logo" style="width:28px;height:28px;font-size:15px">M</div>
-          <b style="font-size:13.5px;color:#0b0b0c">Millionaire Skills</b>
+          <div class="m-logo" style="width:28px;height:28px;font-size:16px">M</div>
+          <b style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:13.5px;color:#0b0b0c">The Millionaire Skill</b>
         </div>
         <button type="button" class="m-btn-sm" onclick="toggleSide(false)">✕</button>
       </div>
@@ -847,7 +849,7 @@ function renderFaq(){
     </div>`).join("");
 }
 
-function syncHeader(){ const u=curUser(); hdrBtn.textContent=u?"Dashboard":"Portal Login"; guestBox.style.display=u?"none":"block"; userBox.style.display=u?"grid":"none"; dLogin.style.display=u?"none":"block"; dDash.style.display=u?"block":"none"; dOut.style.display=u?"block":"none"; }
+function syncHeader(){ const u=curUser(); hdrBtn.textContent=u?"Dashboard":"Login"; guestBox.style.display=u?"none":"block"; userBox.style.display=u?"grid":"none"; dLogin.style.display=u?"none":"block"; dDash.style.display=u?"block":"none"; dOut.style.display=u?"block":"none"; }
 
 function hideViews(keepModal=false){
   toggleDrawer(false);
@@ -1001,7 +1003,7 @@ function openBuy(idx){
   bTitle.textContent=c.title+" — Enrollment"; qrLbl.textContent="Pay "+inr(c.price)+" via UPI";
   sumBox.innerHTML=`<b>Track:</b> ${c.title} • <b>${c.modules}</b><br><b>Amount:</b> <b>${inr(c.price)}</b>`;
   fAmt.value=c.price; fName.value=u?u.name:""; fPhone.value=u?u.phone:""; fUtr.value=""; bMsg.className="msg"; doneBox.style.display="none";
-  qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkills&am=${c.price}&cu=INR`);
+  qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkill&am=${c.price}&cu=INR`);
   photoModal.style.display="none"; legalModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
 }
 function submitPay(){
@@ -1059,6 +1061,8 @@ window.addEventListener("scroll", () => {
   const btn = document.getElementById("scrollTopBtn");
   if (btn) btn.classList.toggle("show", window.scrollY > 320);
 }, { passive: true });
+
+document.addEventListener("gesturestart", e => e.preventDefault(), { passive: false });
 
 document.getElementById("yrSpan").textContent = String(new Date().getFullYear());
 applyTheme();

@@ -171,8 +171,8 @@ table.cmp th{color:var(--ink);background:var(--card);font-weight:800}table.cmp t
 
 .e-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .e-card{background:var(--surf);color:var(--ink);border:1.5px solid var(--gold-br);border-top:4px solid var(--gold-br);border-radius:14px;padding:14px;min-height:94px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
-.e-card.full{grid-column:1/-1;min-height:82px;background:linear-gradient(135deg,#251b08,#0b0b0c);color:#fff;border-color:var(--gold-br)}
-.e-card.full small{color:#f5c85c}.e-card.full b{color:#fff}
+.e-card.full{grid-column:1/-1;min-height:82px;background:linear-gradient(135deg,var(--gold-soft),var(--surf));color:var(--ink);border:1.5px solid var(--gold-br);border-top:4px solid var(--gold-br)}
+.e-card.full small{color:var(--gold);font-weight:800}.e-card.full b{color:var(--gold)}
 .e-card small{color:var(--mut);font-size:12px;font-weight:700;display:block;margin-top:4px}.e-card b{font-size:20px;font-weight:900;display:block;margin-top:2px;color:var(--gold)}
 
 .w-box{background:var(--surf);border-radius:14px;padding:14px 16px;border:1px solid var(--bdr);margin-bottom:12px;box-shadow:var(--shadow)}
@@ -385,7 +385,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 
 <div id="authView" class="view-hidden">
   <div style="width:100%;max-width:420px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-    <button type="button" class="btn dark" style="width:auto;margin:0;padding:8px 13px" onclick="confirmBackToSite()">← Back to Site</button>
+    <button type="button" class="btn dark" style="width:auto;margin:0;padding:8px 13px" onclick="backToSiteFromView()">← Back to Site</button>
     <span style="font-size:12px;color:var(--mut);font-weight:700">LOGIN</span>
   </div>
 
@@ -474,8 +474,9 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   </aside>
 
   <div class="d-wrap">
-    <div class="d-top">
+    <div class="d-top" style="justify-content:space-between;gap:8px">
       <button type="button" class="menu-only-btn" onclick="toggleSide(true)">☰ Menu</button>
+      <button type="button" class="menu-only-btn" onclick="backToSiteFromView()">← Home</button>
     </div>
 
     <div class="prof-hero-card">
@@ -494,7 +495,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <div class="e-card"><div><span class="chip gold-chip">7 DAYS</span></div><small>7 Days Earnings</small><b id="e7d">₹0</b></div>
         <div class="e-card"><div><span class="chip gold-chip">30 DAYS</span></div><small>30 Days Earnings</small><b id="e30d">₹0</b></div>
         <div class="e-card"><div><span class="chip gold-chip">ALL TIME</span></div><small>All Time Earnings</small><b id="eAll">₹0</b></div>
-        <div class="e-card full"><div style="display:flex;justify-content:space-between;align-items:center"><div><small style="margin:0">Industrial Income</small><b id="eInd">₹0</b></div><span class="chip gold-chip">REAL-TIME</span></div></div>
+        <div class="e-card full"><div style="display:flex;justify-content:space-between;align-items:center"><div><small style="margin:0">Industrial Income</small><b id="eInd">₹0</b></div><span class="chip gold-chip">GOLDEN THEME</span></div></div>
       </div>
       <div class="w-box">
         <h3>Activity &amp; Referral Trend</h3>
@@ -761,6 +762,7 @@ const FAQS = [
 
 let selC=null, appliedDiscount=0, resetEm="", tempImg="", tPage=1, activeCat="all", pendingConfirmFn=null, editingCoursePhotoIdx=null;
 let playerCourse=null, playerLessons=[], playerIdx=0, playerSec=0, playerTimer=null, cmpSelection=[], lastChartPts=[];
+let ignorePopStateOnce=false;
 const rJ=(k,fb)=>{try{const v=JSON.parse(localStorage.getItem(k));return v??fb;}catch{return fb;}};
 const wJ=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch{}};
 const getS=(k)=>{try{return localStorage.getItem(k)||sessionStorage.getItem(k)||"";}catch{return "";}};
@@ -769,6 +771,37 @@ const delS=(k)=>{try{localStorage.removeItem(k);sessionStorage.removeItem(k);}ca
 const inr=n=>"₹"+(parseInt(n,10)||0).toLocaleString("en-IN");
 const showM=(id,txt,mode="err")=>{const el=document.getElementById(id);el.className="msg "+mode;el.textContent=txt;};
 const hasCloud=()=>Boolean(CLOUD_CFG.binId&&CLOUD_CFG.masterKey);
+
+function pushViewHistory(viewName){
+  try{
+    if(window.history&&typeof window.history.pushState==="function"){
+      window.history.pushState({tmsView:viewName},"","#"+viewName);
+    }
+  }catch{}
+}
+function backToSiteFromView(){
+  if(history.state&&history.state.tmsView&&history.state.tmsView!=="site"){
+    history.back();
+  }else{
+    showSite(false);
+  }
+}
+window.addEventListener("popstate",()=>{
+  if(ignorePopStateOnce){ ignorePopStateOnce=false; return; }
+  if(modal.classList.contains("open")){
+    closeModal();
+    return;
+  }
+  if(sideMenu.classList.contains("open")||drawer.classList.contains("open")){
+    toggleSideClose();
+    toggleDrawer(false);
+    return;
+  }
+  const curV=getS(K.view);
+  if(curV==="dash"||curV==="auth"){
+    showSite(false);
+  }
+});
 
 function togglePassVisibility(inputId, btnId){
   const inp=document.getElementById(inputId), btn=document.getElementById(btnId);
@@ -906,7 +939,6 @@ function askConfirm(title,message,okLabel,fn,danger=false){
   buyModal.style.display=playerModal.style.display=notifModal.style.display=photoModal.style.display=legalModal.style.display="none"; confirmModal.style.display="block"; modal.classList.add("open");
 }
 function runConfirmedAction(){ const fn=pendingConfirmFn; pendingConfirmFn=null; closeModal(); if(typeof fn==="function") fn(); }
-function confirmBackToSite(){ askConfirm("Leave Current View?","Are you sure you want to go back to the main site?","Yes, Back to Site",()=>showSite(),false); }
 function confirmLogout(){ askConfirm("Confirm Logout","Are you sure you want to log out of your current session?","Yes, Logout",()=>logout(),true); }
 function confirmClearPhoto(){ askConfirm("Remove Profile Photo?","Are you sure you want to remove your profile photo?","Yes, Remove",()=>clearPhoto(),true); }
 
@@ -1052,22 +1084,28 @@ function hideViews(keepModal=false){
   authView.classList.add("view-hidden");
   dashView.classList.add("view-hidden");
 }
-function showSite(){
+function showSite(shouldPush=false){
+  const prev=getS(K.view);
   setS(K.view,"site"); applyTheme(); applySiteCfg(); renderCourses(); syncHeader(); syncNotifBadge();
   hideViews(false); siteView.classList.remove("view-hidden"); window.scrollTo(0,0);
+  if(shouldPush&&prev!=="site") pushViewHistory("site");
 }
-function showAuth(mode="login"){
+function showAuth(mode="login",shouldPush=true){
+  const prev=getS(K.view);
   setS(K.view,"auth"); applyTheme(); applySiteCfg(); renderAuthBannerPhoto(); loadSavedCredentials();
   hideViews(false); authView.classList.remove("view-hidden");
   loginBox.style.display=mode==="login"?"block":"none"; forgotBox.style.display=mode==="forgot"?"block":"none";
   lMsg.className=fpMsg.className="msg"; window.scrollTo(0,0);
+  if(shouldPush&&prev!=="auth") pushViewHistory("auth");
 }
-async function showDash(tab="earnings"){
+async function showDash(tab="earnings",shouldPush=true){
   await pullCloud(); const u=curUser();
-  if(!u) return showAuth("login");
+  if(!u) return showAuth("login",shouldPush);
+  const prev=getS(K.view);
   setS(K.view,"dash"); applyTheme(); applySiteCfg(); renderCourses(); syncNotifBadge();
   hideViews(false); dashView.classList.remove("view-hidden");
   renderDash(u); setDTab(tab); window.scrollTo(0,0);
+  if(shouldPush&&prev!=="dash") pushViewHistory("dash");
 }
 function ensureActiveView(){
   const v=getS(K.view), u=curUser();
@@ -1106,7 +1144,7 @@ async function login(){
   setS(K.sess,hit.email); syncHeader(); notify("Welcome, "+(hit.name||"Learner")+"."); showDash("earnings");
 }
 function logout(){
-  delS(K.sess); delS(K.admAuth); toggleSideClose(); syncHeader(); notify("Logged out."); showSite();
+  delS(K.sess); delS(K.admAuth); toggleSideClose(); syncHeader(); notify("Logged out."); showSite(false);
 }
 function sendReset(){ const em=fpEmail.value.trim().toLowerCase(); if(!getUsers().some(u=>u.email.toLowerCase()===em)) return showM("fpMsg","Email not found."); resetEm=em; resetArea.style.display="block"; showM("fpMsg","Reset enabled for "+em,"ok"); }
 function saveReset(){ const n=fpNew.value,c=fpConf.value; if(!resetEm||n.length<6||n!==c) return showM("fpMsg","Password must be 6+ chars and match."); const all=getUsers(), u=all.find(x=>x.email.toLowerCase()===resetEm); if(u) u.password=n; wJ(K.users,all); pushCloud(); resetEm=""; notify("Password updated."); showAuth("login"); showM("lMsg","Password updated. Sign in now.","ok"); }
@@ -1490,6 +1528,10 @@ document.addEventListener("gesturestart",e=>e.preventDefault(),{passive:false});
 try{
   yrSpan.textContent=String(new Date().getFullYear());
   applyTheme(); applySiteCfg(); renderCourses(); renderFaq(); syncHeader(); syncNotifBadge(); renderReviewsSection(); ensureActiveView();
+  if(window.history&&typeof window.history.replaceState==="function"){
+    const initV=getS(K.view)||"site";
+    window.history.replaceState({tmsView:initV},"","#"+initV);
+  }
 }finally{
   preloader.classList.add("hide");
 }

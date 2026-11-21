@@ -3,158 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel | THE MILLIONAIRE SKILLS</title>
+<title>Admin Console | The Millionaire Skills</title>
 <style>
-:root{--bg:#090d16;--card:#111b30;--card2:#0b1224;--border:#293548;--accent:#fbbf24;--pink:#e879f9;--text:#f8fafc;--muted:#94a3b8}
-body.t-midnight{--bg:#060c18;--card:#0f172a;--card2:#090f1d;--border:#1e293b;--accent:#38bdf8;--pink:#818cf8;--text:#f1f5f9;--muted:#94a3b8}
-body.t-light{--bg:#eef2f7;--card:#ffffff;--card2:#f8fafc;--border:#cbd5e1;--accent:#2563eb;--pink:#7c3aed;--text:#0f172a;--muted:#475569}
-*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial,sans-serif;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+:root{--bg:#f7f5f0;--card:#ffffff;--card2:#fcfbf8;--border:#e2ddd2;--accent:#14532d;--pink:#b45309;--text:#18181b;--muted:#52525b}
+body.t-midnight{--bg:#0b1120;--card:#111827;--card2:#0f172a;--border:#243044;--accent:#38bdf8;--pink:#fbbf24;--text:#f8fafc;--muted:#94a3b8}
+body.t-light{--bg:#f8fafc;--card:#ffffff;--card2:#f8fafc;--border:#e2e8f0;--accent:#1d4ed8;--pink:#0f766e;--text:#0f172a;--muted:#475569}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Inter,Arial,sans-serif;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 input,textarea,select,.selectable{user-select:text;-webkit-user-select:text}
 body{background:var(--bg);color:var(--text);line-height:1.5;padding:16px 14px 48px;transition:.2s}
 .wrap{max-width:780px;margin:auto}
-.top{background:var(--card);border:1.5px solid var(--pink);border-radius:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.top b{font-size:18px;display:block}
+.top{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.top b{font-size:17px;display:block}
 .top small{color:var(--muted);font-size:12px}
 .btn{border:0;border-radius:10px;padding:10px 14px;font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;outline:none}
 .btn:active,.tab:active{transform:scale(.98)}
 .btn-full{width:100%;margin-top:8px}
-.btn-gold{background:var(--accent);color:#080b14}
-.btn-pink{background:var(--pink);color:#080b14}
-.btn-green{background:#22c55e;color:#052e16}
-.btn-red{background:#ef4444;color:#fff}
+.btn-gold{background:var(--accent);color:#fff}
+body.t-midnight .btn-gold{color:#08101e}
+.btn-pink{background:var(--pink);color:#fff}
+body.t-midnight .btn-pink{color:#08101e}
+.btn-green{background:#15803d;color:#fff}
+.btn-red{background:#dc2626;color:#fff}
 .btn-ghost{background:var(--card2);color:var(--text);border:1px solid var(--border)}
 .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:14px}
 .stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
-.stat b{font-size:22px;color:var(--accent);display:block}
+.stat b{font-size:21px;color:var(--text);display:block}
 .stat span{font-size:12px;color:var(--muted)}
 .tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px}
 .tab{background:var(--card);color:var(--muted);border:1px solid var(--border);border-radius:10px;padding:9px 14px;font-weight:700;font-size:12.5px;white-space:nowrap;cursor:pointer;outline:none}
-.tab.active{background:var(--accent);color:#080b14;border-color:var(--accent)}
+.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+body.t-midnight .tab.active{color:#08101e}
 .box{display:none;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:14px}
 .box.active{display:block}
-.box h3{font-size:16px;color:var(--accent);margin-bottom:10px}
+.box h3{font-size:16px;color:var(--text);margin-bottom:10px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.lbl{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:4px}
+.lbl{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:4px}
 .inp,.sel{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card2);color:var(--text);font-size:13.5px;margin-bottom:10px}
 .inp:focus{outline:none;border-color:var(--accent)}
 .row{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .row b{display:block;font-size:14px}
 .row small{display:block;color:var(--muted);font-size:12px}
 .badge{padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700}
-.b-ok{background:#14532d;color:#86efac}
-.b-wait{background:#713f12;color:#fde047}
+.b-ok{background:#dcfce7;color:#15803d}
+.b-wait{background:#fef3c7;color:#b45309}
 .msg{display:none;padding:10px 12px;border-radius:10px;font-size:12.5px;margin-top:8px;font-weight:600}
-.msg.ok{display:block;background:#064e3b;color:#dcfce7}
-.msg.err{display:block;background:#7f1d1d;color:#fecaca}
-.login-card{max-width:400px;margin:60px auto;background:var(--card);border:1.5px solid var(--accent);border-radius:18px;padding:22px}
+.msg.ok{display:block;background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.msg.err{display:block;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
+.login-card{max-width:400px;margin:60px auto;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
 @media(max-width:560px){.grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <div id="loginView" class="login-card">
-  <h2 style="color:var(--accent);margin-bottom:4px">⚡ Admin Login</h2>
+  <h2 style="margin-bottom:4px">Admin Console</h2>
   <p class="selectable" style="color:var(--muted);font-size:12.5px;margin-bottom:14px">Default: <b>admin@tms.com</b> / <b>admin123</b></p>
-  <label class="lbl">Admin ID / Email</label>
+  <label class="lbl">Admin Email</label>
   <input id="lEmail" class="inp" type="email" placeholder="admin@tms.com">
   <label class="lbl">Password</label>
   <input id="lPass" class="inp" type="password" placeholder="••••••••">
-  <button class="btn btn-gold btn-full" onclick="doAdminLogin()">Unlock Admin Panel →</button>
+  <button class="btn btn-gold btn-full" onclick="doAdminLogin()">Sign In to Admin →</button>
   <div id="lMsg" class="msg"></div>
 </div>
 
 <div id="panelView" class="wrap" style="display:none">
   <div class="top">
     <div>
-      <b>⚡ THE MILLIONAIRE SKILLS — ADMIN</b>
-      <small id="admSub">Full Control: Users, Passwords, UTR Orders, Rates &amp; Theme</small>
+      <b>The Millionaire Skills — Admin Console</b>
+      <small id="admSub">Manage learners, credentials, UTR verifications, track pricing &amp; appearance</small>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <a class="btn btn-ghost" href="index.html">← index.html</a>
+      <a class="btn btn-ghost" href="index.html">← View Site</a>
       <button class="btn btn-red" onclick="doAdminLogout()">Logout</button>
     </div>
   </div>
 
   <div class="grid4">
-    <div class="stat"><b id="stUsers">0</b><span>Total Users</span></div>
-    <div class="stat"><b id="stPending">0</b><span>Pending Orders</span></div>
-    <div class="stat"><b id="stCourses">5</b><span>Packages</span></div>
-    <div class="stat"><b id="stTheme">Dark Gold</b><span>Active Theme</span></div>
+    <div class="stat"><b id="stUsers">0</b><span>Registered Accounts</span></div>
+    <div class="stat"><b id="stPending">0</b><span>Pending UTRs</span></div>
+    <div class="stat"><b id="stCourses">5</b><span>Skill Tracks</span></div>
+    <div class="stat"><b id="stTheme">Warm Editorial</b><span>Appearance</span></div>
   </div>
 
   <div class="tabs">
-    <button class="tab active" data-t="users" onclick="setTab('users')">Users &amp; Passwords</button>
-    <button class="tab" data-t="orders" onclick="setTab('orders')">Payment / UTR</button>
-    <button class="tab" data-t="courses" onclick="setTab('courses')">Course Rates</button>
-    <button class="tab" data-t="theme" onclick="setTab('theme')">Theme &amp; Security</button>
+    <button class="tab active" data-t="users" onclick="setTab('users')">Learners &amp; Access</button>
+    <button class="tab" data-t="orders" onclick="setTab('orders')">UTR Verification</button>
+    <button class="tab" data-t="courses" onclick="setTab('courses')">Track Pricing</button>
+    <button class="tab" data-t="theme" onclick="setTab('theme')">Appearance &amp; Security</button>
   </div>
 
   <div id="tab-users" class="box active">
-    <h3>Add New User</h3>
+    <h3>Add New Learner Account</h3>
     <div class="grid2">
-      <div><label class="lbl">Full Name</label><input id="uName" class="inp" placeholder="Student Name"></div>
-      <div><label class="lbl">Login ID / Email</label><input id="uEmail" class="inp" type="email" placeholder="user@tms.com"></div>
-      <div><label class="lbl">Phone</label><input id="uPhone" class="inp" maxlength="10" placeholder="9876543210"></div>
+      <div><label class="lbl">Full Name</label><input id="uName" class="inp" placeholder="Learner Name"></div>
+      <div><label class="lbl">Email Address</label><input id="uEmail" class="inp" type="email" placeholder="learner@tms.com"></div>
+      <div><label class="lbl">Phone (10 digits)</label><input id="uPhone" class="inp" maxlength="10" placeholder="9876543210"></div>
       <div><label class="lbl">Password</label><input id="uPass" class="inp" placeholder="Set password"></div>
     </div>
-    <button class="btn btn-green btn-full" onclick="addUser()">+ Create User Account</button>
+    <button class="btn btn-green btn-full" onclick="addUser()">+ Create Learner Account</button>
     <div id="uAddMsg" class="msg"></div>
 
-    <div id="editorCard" style="display:none;margin-top:16px;padding:14px;border:1.5px solid var(--pink);border-radius:14px;background:var(--card2)">
+    <div id="editorCard" style="display:none;margin-top:16px;padding:14px;border:1px solid var(--pink);border-radius:14px;background:var(--card2)">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-        <b id="edTitle" style="color:var(--pink)">Edit User</b>
+        <b id="edTitle" style="color:var(--pink)">Edit Account</b>
         <button class="btn btn-ghost" onclick="closeEditor()">Close</button>
       </div>
       <input type="hidden" id="edOrigEmail">
       <div class="grid2">
-        <div><label class="lbl">Name</label><input id="edName" class="inp"></div>
-        <div><label class="lbl">Tag</label><input id="edTag" class="inp" placeholder="{GOD-FIRE} 🔥"></div>
-        <div><label class="lbl">ID / Email</label><input id="edEmail" class="inp"></div>
+        <div><label class="lbl">Full Name</label><input id="edName" class="inp"></div>
+        <div><label class="lbl">Badge / Note</label><input id="edTag" class="inp" placeholder="Optional"></div>
+        <div><label class="lbl">Email</label><input id="edEmail" class="inp"></div>
         <div><label class="lbl">Password</label><input id="edPass" class="inp"></div>
-        <div><label class="lbl">Today's Earning</label><input id="edToday" class="inp"></div>
-        <div><label class="lbl">7 Days Earning</label><input id="ed7d" class="inp"></div>
-        <div><label class="lbl">30 Days Earning</label><input id="ed30d" class="inp"></div>
-        <div><label class="lbl">All Time Earning</label><input id="edAll" class="inp"></div>
-        <div><label class="lbl">Industrial Income</label><input id="edInd" class="inp"></div>
-        <div><label class="lbl">Wallet Balance</label><input id="edWal" class="inp"></div>
+        <div><label class="lbl">Today's Summary</label><input id="edToday" class="inp"></div>
+        <div><label class="lbl">7 Days Summary</label><input id="ed7d" class="inp"></div>
+        <div><label class="lbl">30 Days Summary</label><input id="ed30d" class="inp"></div>
+        <div><label class="lbl">All Time Summary</label><input id="edAll" class="inp"></div>
+        <div><label class="lbl">Program Bonus Summary</label><input id="edInd" class="inp"></div>
+        <div><label class="lbl">Available Balance</label><input id="edWal" class="inp"></div>
       </div>
-      <button class="btn btn-gold btn-full" onclick="saveUserEdit()">Save User Changes</button>
+      <button class="btn btn-gold btn-full" onclick="saveUserEdit()">Save Account Changes</button>
       <div id="edMsg" class="msg"></div>
     </div>
 
-    <h3 style="margin-top:18px">Registered Users (<span id="uCount">0</span>)</h3>
+    <h3 style="margin-top:18px">Registered Accounts (<span id="uCount">0</span>)</h3>
     <div id="usersList"></div>
   </div>
 
   <div id="tab-orders" class="box">
-    <h3>Payment &amp; UTR Verification Queue</h3>
+    <h3>Enrollment &amp; UPI UTR Verification</h3>
     <div id="ordersList"></div>
   </div>
 
   <div id="tab-courses" class="box">
-    <h3>Edit Mastery Package Rates</h3>
+    <h3>Edit Skill Track Pricing</h3>
     <div id="coursesList"></div>
-    <button class="btn btn-gold btn-full" onclick="saveCourses()">Save All Course Rates</button>
-    <button class="btn btn-ghost btn-full" onclick="resetCourses()">Reset Default Rates</button>
+    <button class="btn btn-gold btn-full" onclick="saveCourses()">Save Track Changes</button>
+    <button class="btn btn-ghost btn-full" onclick="resetCourses()">Reset Default Tracks</button>
     <div id="cMsg" class="msg"></div>
   </div>
 
   <div id="tab-theme" class="box">
-    <h3>Panel Theme</h3>
+    <h3>Appearance Preset</h3>
     <select id="themeSel" class="sel" onchange="applyTheme(this.value)">
-      <option value="t-dark">Dark Gold (Default)</option>
-      <option value="t-midnight">Midnight Sky</option>
-      <option value="t-light">Clean Light</option>
+      <option value="t-dark">Warm Editorial (Default)</option>
+      <option value="t-midnight">Midnight Slate</option>
+      <option value="t-light">Crisp Light</option>
     </select>
     <div id="thMsg" class="msg"></div>
 
-    <h3 style="margin-top:16px">Change Admin ID &amp; Password</h3>
+    <h3 style="margin-top:16px">Update Admin Credentials</h3>
     <div class="grid2">
       <div><label class="lbl">Admin Email</label><input id="secEmail" class="inp"></div>
       <div><label class="lbl">Admin Password</label><input id="secPass" class="inp"></div>
     </div>
-    <button class="btn btn-pink btn-full" onclick="saveSecurity()">Update Admin Login</button>
-    <button class="btn btn-ghost btn-full" onclick="exportData()">Export Backup JSON</button>
+    <button class="btn btn-pink btn-full" onclick="saveSecurity()">Save Admin Credentials</button>
+    <button class="btn btn-ghost btn-full" onclick="exportData()">Export JSON Backup</button>
     <div id="secMsg" class="msg"></div>
   </div>
 </div>
@@ -169,11 +172,11 @@ const K = {
 };
 
 const DEF_COURSES = [
-  { id:"marketing", img:"file_00000000a24082079bd1a0d07ce5ae90.png", badge:"STARTER", save:"SAVE 50%", title:"Marketing Mastery", desc:"Funnels, digital marketing foundations, buyer psychology & conversion systems.", rating:"★ 4.8", modules:"12 Modules", price:999, oldPrice:1999, vip:false },
-  { id:"branding", img:"file_000000002914821181cc5ff207a5f834.png", badge:"AUTHORITY", save:"SAVE 50%", title:"Branding Mastery", desc:"Build a strong social media identity, content style & audience trust.", rating:"★ 4.7", modules:"16 Modules", price:2499, oldPrice:4999, vip:false },
-  { id:"traffic", img:"IMG-20261120-WA8600.jpg", badge:"TRENDING", save:"SAVE 50%", title:"Traffic Mastery", desc:"Drive targeted leads using ads, reach growth & conversion systems.", rating:"★ 4.6", modules:"20 Modules", price:4999, oldPrice:9999, vip:false },
-  { id:"influence", img:"IMG-20261120-WA5578.jpg", badge:"PRO POWER", save:"SAVE 50%", title:"Influence Mastery", desc:"Communication, speaking confidence, persuasion & high-trust closing.", rating:"★ 4.9", modules:"22 Modules", price:9999, oldPrice:19999, vip:false },
-  { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"ALL-IN-ONE VIP", save:"BEST VALUE", title:"Finance Mastery", desc:"Money management, wealth building & full access across all mastery modules.", rating:"★ 5.0", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
+  { id:"marketing", img:"file_00000000a24082079bd1a0d07ce5ae90.png", badge:"FOUNDATION", save:"50% OFF", title:"Marketing Foundations", desc:"Learn audience research, funnel structure, messaging clarity, and practical campaign planning.", rating:"4.8 ★", modules:"12 Modules", price:999, oldPrice:1999, vip:false },
+  { id:"branding", img:"file_000000002914821181cc5ff207a5f834.png", badge:"BRANDING", save:"50% OFF", title:"Personal & Digital Branding", desc:"Develop a consistent voice, visual identity, and helpful content habits across platforms.", rating:"4.7 ★", modules:"16 Modules", price:2499, oldPrice:4999, vip:false },
+  { id:"traffic", img:"IMG-20261120-WA8600.jpg", badge:"GROWTH", save:"50% OFF", title:"Organic & Paid Traffic", desc:"Understand discovery channels, campaign testing, analytics basics, and sustainable reach.", rating:"4.6 ★", modules:"20 Modules", price:4999, oldPrice:9999, vip:false },
+  { id:"influence", img:"IMG-20261120-WA5578.jpg", badge:"COMMUNICATION", save:"50% OFF", title:"Communication & Influence", desc:"Practice clear writing, structured presentations, client conversations, and consultative skills.", rating:"4.9 ★", modules:"22 Modules", price:9999, oldPrice:19999, vip:false },
+  { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"COMPLETE BUNDLE", save:"BUNDLE SAVING", title:"Finance & All-Access Bundle", desc:"Covers budgeting fundamentals, financial discipline, and full access to all 85+ modules.", rating:"5.0 ★", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
 ];
 
 const ZERO_EARN = { today:"₹0", sevenDays:"₹0", thirtyDays:"₹0", allTime:"₹0", industrial:"₹0", wallet:"₹0" };
@@ -190,7 +193,7 @@ function getAdmin() { return readJ(K.admin, { email:"admin@tms.com", password:"a
 function getUsers() {
   let u = readJ(K.users, null);
   if (!Array.isArray(u) || !u.length) {
-    u = [{ studentId:"TMS-STU-1001", name:"AADIL", tag:"{GOD-FIRE} 🔥", email:"student1@tms.com", phone:"6289841691", password:"pass1", photo:"", earnings:{ today:"₹0", sevenDays:"₹200", thirtyDays:"₹300", allTime:"₹49,550", industrial:"₹49,550", wallet:"₹600" }, orders:[{ pkg:"Finance Mastery", amt:14999, reqId:"TMS-FIN01", status:"Active" }], team:[] }];
+    u = [{ studentId:"TMS-STU-1001", name:"Aadil", tag:"Learner", email:"student1@tms.com", phone:"6289841691", password:"pass1", photo:"", earnings:{ today:"₹0", sevenDays:"₹200", thirtyDays:"₹300", allTime:"₹49,550", industrial:"₹49,550", wallet:"₹600" }, orders:[{ pkg:"Finance & All-Access Bundle", amt:14999, reqId:"TMS-FIN01", status:"Active" }], team:[] }];
     writeJ(K.users, u);
   }
   return u;
@@ -202,13 +205,13 @@ function getCourses() {
 }
 
 function applyTheme(t) {
-  const map = { "t-dark":"Dark Gold", "t-midnight":"Midnight Sky", "t-light":"Clean Light" };
+  const map = { "t-dark":"Warm Editorial", "t-midnight":"Midnight Slate", "t-light":"Crisp Light" };
   const cls = map[t] ? t : "t-dark";
   document.body.className = cls === "t-dark" ? "" : cls;
   localStorage.setItem(K.theme, cls);
   document.getElementById("themeSel").value = cls;
   document.getElementById("stTheme").textContent = map[cls];
-  showMsg("thMsg", "Theme changed to " + map[cls], true);
+  showMsg("thMsg", "Appearance updated to " + map[cls], true);
 }
 
 function doAdminLogin() {
@@ -219,7 +222,7 @@ function doAdminLogin() {
     sessionStorage.setItem(K.auth, "1");
     bootPanel();
   } else {
-    showMsg("lMsg", "Invalid Admin ID or Password", false);
+    showMsg("lMsg", "Invalid Admin Email or Password", false);
   }
 }
 function doAdminLogout() { sessionStorage.removeItem(K.auth); location.reload(); }
@@ -253,13 +256,13 @@ function renderAll() {
   document.getElementById("usersList").innerHTML = users.map(u => `
     <div class="row">
       <div class="selectable">
-        <b>${u.name} ${u.tag || ""} <span style="color:var(--muted);font-size:12px">(${u.studentId || "STU"})</span></b>
-        <small>ID: <b>${u.email}</b> • Pass: <b>${u.password}</b></small>
-        <small>Phone: ${u.phone || "-"} • Wallet: ${(u.earnings && u.earnings.wallet) || "₹0"}</small>
+        <b>${u.name} ${u.tag ? "• " + u.tag : ""} <span style="color:var(--muted);font-size:12px">(${u.studentId || "STU"})</span></b>
+        <small>Email: <b>${u.email}</b> • Password: <b>${u.password}</b></small>
+        <small>Phone: ${u.phone || "-"} • Balance: ${(u.earnings && u.earnings.wallet) || "₹0"}</small>
       </div>
       <div style="display:flex;gap:6px">
         <button class="btn btn-gold" onclick="openEditor('${u.email.replace(/'/g,"\\'")}')">Edit</button>
-        ${users.length > 1 ? `<button class="btn btn-red" onclick="delUser('${u.email.replace(/'/g,"\\'")}')">Del</button>` : ""}
+        ${users.length > 1 ? `<button class="btn btn-red" onclick="delUser('${u.email.replace(/'/g,"\\'")}')">Remove</button>` : ""}
       </div>
     </div>
   `).join("");
@@ -272,23 +275,23 @@ function renderAll() {
     <div class="row">
       <div class="selectable">
         <b>${r.pkg} — ₹${r.amt} <span class="badge ${r.status === "Active" ? "b-ok" : "b-wait"}">${r.status}</span></b>
-        <small>User: ${r.uName} (${r.uEmail}) • Req ID: ${r.reqId}${r.utr ? " • UTR: " + r.utr : ""}</small>
+        <small>Learner: ${r.uName} (${r.uEmail}) • Ref: ${r.reqId}${r.utr ? " • UTR: " + r.utr : ""}</small>
       </div>
       <div style="display:flex;gap:6px">
         <button class="btn btn-green" onclick="setOrderStatus('${r.uEmail}',${r.idx},'Active')">Approve</button>
         <button class="btn btn-red" onclick="setOrderStatus('${r.uEmail}',${r.idx},'Pending Verification')">Pending</button>
       </div>
     </div>
-  `).join("") : `<p style="color:var(--muted);font-size:13px">No orders found.</p>`;
+  `).join("") : `<p style="color:var(--muted);font-size:13px">No enrollment requests yet.</p>`;
 
   document.getElementById("coursesList").innerHTML = courses.map((c, i) => `
     <div class="row" style="display:block">
       <b style="color:var(--accent);margin-bottom:8px">#${i+1} — ${c.id.toUpperCase()}</b>
       <div class="grid2">
-        <div><label class="lbl">Title</label><input class="inp c-t" value="${c.title.replace(/"/g,"&quot;")}"></div>
-        <div><label class="lbl">Badge</label><input class="inp c-b" value="${c.badge.replace(/"/g,"&quot;")}"></div>
+        <div><label class="lbl">Track Title</label><input class="inp c-t" value="${c.title.replace(/"/g,"&quot;")}"></div>
+        <div><label class="lbl">Label</label><input class="inp c-b" value="${c.badge.replace(/"/g,"&quot;")}"></div>
         <div><label class="lbl">Price (₹)</label><input class="inp c-p" type="number" value="${c.price}"></div>
-        <div><label class="lbl">Old Price (₹)</label><input class="inp c-o" type="number" value="${c.oldPrice}"></div>
+        <div><label class="lbl">Original Price (₹)</label><input class="inp c-o" type="number" value="${c.oldPrice}"></div>
       </div>
     </div>
   `).join("");
@@ -303,11 +306,11 @@ function addUser() {
     return showMsg("uAddMsg", "Enter Name, valid Email & Password (4+ chars)", false);
   const users = getUsers();
   if (users.some(x => x.email.toLowerCase() === email))
-    return showMsg("uAddMsg", "Email already exists", false);
+    return showMsg("uAddMsg", "An account with this email already exists", false);
   users.push({ studentId:"TMS-STU-" + Math.floor(1000+Math.random()*9000), name, tag:"", email, phone:phone||"9000000000", password, photo:"", earnings:{...ZERO_EARN}, orders:[], team:[] });
   writeJ(K.users, users);
   ["uName","uEmail","uPhone","uPass"].forEach(id => document.getElementById(id).value = "");
-  showMsg("uAddMsg", "User created: " + email, true);
+  showMsg("uAddMsg", "Account created for " + email, true);
   renderAll();
 }
 
@@ -342,7 +345,7 @@ function saveUserEdit() {
     return showMsg("edMsg", "Check Name, Email & Password (4+ chars)", false);
   const users = getUsers();
   if (users.some(x => x.email.toLowerCase() !== orig && x.email.toLowerCase() === email))
-    return showMsg("edMsg", "Email already used by another user", false);
+    return showMsg("edMsg", "Email is already used by another account", false);
   const u = users.find(x => x.email.toLowerCase() === orig);
   if (!u) return;
   u.name = name;
@@ -359,7 +362,7 @@ function saveUserEdit() {
   };
   writeJ(K.users, users);
   document.getElementById("edOrigEmail").value = email;
-  showMsg("edMsg", "Saved user changes!", true);
+  showMsg("edMsg", "Account changes saved.", true);
   renderAll();
 }
 
@@ -390,13 +393,13 @@ function saveCourses() {
     courses[i].price = p[i]; courses[i].oldPrice = o[i];
   }
   writeJ(K.courses, courses);
-  showMsg("cMsg", "Course rates updated!", true);
+  showMsg("cMsg", "Skill track pricing saved.", true);
 }
 
 function resetCourses() {
   writeJ(K.courses, DEF_COURSES.map(x => ({...x})));
   renderAll();
-  showMsg("cMsg", "Default rates restored", true);
+  showMsg("cMsg", "Default tracks restored.", true);
 }
 
 function saveSecurity() {
@@ -405,7 +408,7 @@ function saveSecurity() {
   if (!email.includes("@") || password.length < 4)
     return showMsg("secMsg", "Enter valid Admin Email & Password (4+ chars)", false);
   writeJ(K.admin, { email, password });
-  showMsg("secMsg", "Admin login credentials updated!", true);
+  showMsg("secMsg", "Admin credentials updated.", true);
 }
 
 function exportData() {
@@ -414,7 +417,7 @@ function exportData() {
   a.href = URL.createObjectURL(blob);
   a.download = "tms-admin-backup.json";
   a.click();
-  showMsg("secMsg", "Backup JSON downloaded!", true);
+  showMsg("secMsg", "Backup JSON downloaded.", true);
 }
 
 applyTheme(localStorage.getItem(K.theme) || "t-dark");

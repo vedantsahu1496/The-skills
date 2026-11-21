@@ -8,13 +8,15 @@
 :root{--bg:#090d16;--card:#111b30;--card2:#0b1224;--border:#293548;--accent:#fbbf24;--pink:#e879f9;--text:#f8fafc;--muted:#94a3b8}
 body.t-midnight{--bg:#060c18;--card:#0f172a;--card2:#090f1d;--border:#1e293b;--accent:#38bdf8;--pink:#818cf8;--text:#f1f5f9;--muted:#94a3b8}
 body.t-light{--bg:#eef2f7;--card:#ffffff;--card2:#f8fafc;--border:#cbd5e1;--accent:#2563eb;--pink:#7c3aed;--text:#0f172a;--muted:#475569}
-*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial,sans-serif;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+input,textarea,select,.selectable{user-select:text;-webkit-user-select:text}
 body{background:var(--bg);color:var(--text);line-height:1.5;padding:16px 14px 48px;transition:.2s}
 .wrap{max-width:780px;margin:auto}
 .top{background:var(--card);border:1.5px solid var(--pink);border-radius:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 .top b{font-size:18px;display:block}
 .top small{color:var(--muted);font-size:12px}
-.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;outline:none}
+.btn:active,.tab:active{transform:scale(.98)}
 .btn-full{width:100%;margin-top:8px}
 .btn-gold{background:var(--accent);color:#080b14}
 .btn-pink{background:var(--pink);color:#080b14}
@@ -26,7 +28,7 @@ body{background:var(--bg);color:var(--text);line-height:1.5;padding:16px 14px 48
 .stat b{font-size:22px;color:var(--accent);display:block}
 .stat span{font-size:12px;color:var(--muted)}
 .tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px}
-.tab{background:var(--card);color:var(--muted);border:1px solid var(--border);border-radius:10px;padding:9px 14px;font-weight:700;font-size:12.5px;white-space:nowrap;cursor:pointer}
+.tab{background:var(--card);color:var(--muted);border:1px solid var(--border);border-radius:10px;padding:9px 14px;font-weight:700;font-size:12.5px;white-space:nowrap;cursor:pointer;outline:none}
 .tab.active{background:var(--accent);color:#080b14;border-color:var(--accent)}
 .box{display:none;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:14px}
 .box.active{display:block}
@@ -52,7 +54,7 @@ body{background:var(--bg);color:var(--text);line-height:1.5;padding:16px 14px 48
 
 <div id="loginView" class="login-card">
   <h2 style="color:var(--accent);margin-bottom:4px">⚡ Admin Login</h2>
-  <p style="color:var(--muted);font-size:12.5px;margin-bottom:14px">Default: <b>admin@tms.com</b> / <b>admin123</b></p>
+  <p class="selectable" style="color:var(--muted);font-size:12.5px;margin-bottom:14px">Default: <b>admin@tms.com</b> / <b>admin123</b></p>
   <label class="lbl">Admin ID / Email</label>
   <input id="lEmail" class="inp" type="email" placeholder="admin@tms.com">
   <label class="lbl">Password</label>
@@ -106,7 +108,7 @@ body{background:var(--bg);color:var(--text);line-height:1.5;padding:16px 14px 48
       <input type="hidden" id="edOrigEmail">
       <div class="grid2">
         <div><label class="lbl">Name</label><input id="edName" class="inp"></div>
-        <div><label class="lbl">Tag</label><input id="edTag" class="inp" placeholder="[VIP]"></div>
+        <div><label class="lbl">Tag</label><input id="edTag" class="inp" placeholder="{GOD-FIRE} 🔥"></div>
         <div><label class="lbl">ID / Email</label><input id="edEmail" class="inp"></div>
         <div><label class="lbl">Password</label><input id="edPass" class="inp"></div>
         <div><label class="lbl">Today's Earning</label><input id="edToday" class="inp"></div>
@@ -171,7 +173,7 @@ const DEF_COURSES = [
   { id:"branding", img:"file_000000002914821181cc5ff207a5f834.png", badge:"AUTHORITY", save:"SAVE 50%", title:"Branding Mastery", desc:"Build a strong social media identity, content style & audience trust.", rating:"★ 4.7", modules:"16 Modules", price:2499, oldPrice:4999, vip:false },
   { id:"traffic", img:"IMG-20261120-WA8600.jpg", badge:"TRENDING", save:"SAVE 50%", title:"Traffic Mastery", desc:"Drive targeted leads using ads, reach growth & conversion systems.", rating:"★ 4.6", modules:"20 Modules", price:4999, oldPrice:9999, vip:false },
   { id:"influence", img:"IMG-20261120-WA5578.jpg", badge:"PRO POWER", save:"SAVE 50%", title:"Influence Mastery", desc:"Communication, speaking confidence, persuasion & high-trust closing.", rating:"★ 4.9", modules:"22 Modules", price:9999, oldPrice:19999, vip:false },
-  { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"ALL-IN-ONE VIP", save:"BEST VALUE", title:"Finance Mastery (VIP Bundle)", desc:"Money management, wealth building & full access across all mastery modules.", rating:"★ 5.0", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
+  { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"ALL-IN-ONE VIP", save:"BEST VALUE", title:"Finance Mastery", desc:"Money management, wealth building & full access across all mastery modules.", rating:"★ 5.0", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
 ];
 
 const ZERO_EARN = { today:"₹0", sevenDays:"₹0", thirtyDays:"₹0", allTime:"₹0", industrial:"₹0", wallet:"₹0" };
@@ -188,7 +190,7 @@ function getAdmin() { return readJ(K.admin, { email:"admin@tms.com", password:"a
 function getUsers() {
   let u = readJ(K.users, null);
   if (!Array.isArray(u) || !u.length) {
-    u = [{ studentId:"TMS-STU-1001", name:"Akshh", tag:"[G.O.D]", email:"student1@tms.com", phone:"6289841691", password:"pass1", photo:"", earnings:{...ZERO_EARN}, orders:[{ pkg:"Finance Mastery", amt:14999, reqId:"TMS-FIN01", status:"Active" }], team:[] }];
+    u = [{ studentId:"TMS-STU-1001", name:"AADIL", tag:"{GOD-FIRE} 🔥", email:"student1@tms.com", phone:"6289841691", password:"pass1", photo:"", earnings:{ today:"₹0", sevenDays:"₹200", thirtyDays:"₹300", allTime:"₹49,550", industrial:"₹49,550", wallet:"₹600" }, orders:[{ pkg:"Finance Mastery", amt:14999, reqId:"TMS-FIN01", status:"Active" }], team:[] }];
     writeJ(K.users, u);
   }
   return u;
@@ -250,7 +252,7 @@ function renderAll() {
 
   document.getElementById("usersList").innerHTML = users.map(u => `
     <div class="row">
-      <div>
+      <div class="selectable">
         <b>${u.name} ${u.tag || ""} <span style="color:var(--muted);font-size:12px">(${u.studentId || "STU"})</span></b>
         <small>ID: <b>${u.email}</b> • Pass: <b>${u.password}</b></small>
         <small>Phone: ${u.phone || "-"} • Wallet: ${(u.earnings && u.earnings.wallet) || "₹0"}</small>
@@ -268,7 +270,7 @@ function renderAll() {
   }));
   document.getElementById("ordersList").innerHTML = orderRows.length ? orderRows.map(r => `
     <div class="row">
-      <div>
+      <div class="selectable">
         <b>${r.pkg} — ₹${r.amt} <span class="badge ${r.status === "Active" ? "b-ok" : "b-wait"}">${r.status}</span></b>
         <small>User: ${r.uName} (${r.uEmail}) • Req ID: ${r.reqId}${r.utr ? " • UTR: " + r.utr : ""}</small>
       </div>

@@ -178,10 +178,17 @@ table.cmp tr:last-child td{border-bottom:none}
 .faq-item.open .faq-a{grid-template-rows:1fr}
 .faq-item.open .faq-a-in{padding:0 14px 13px}
 
-/* Auth & Dashboard */
-#authView{display:none;min-height:100vh;padding:24px 16px 40px;background:var(--bg)}
-#authView.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
-.auth-box{width:100%;max-width:420px;background:var(--surf);border:1.5px solid var(--gold-br);border-radius:16px;padding:22px 18px;box-shadow:var(--shadow)}
+/* Auth & Login Top Banner */
+#authView{display:none;min-height:100vh;padding:20px 16px 40px;background:radial-gradient(circle at top,var(--gold-soft) 0%,var(--bg) 65%)}
+#authView.active{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+.auth-top-brand{width:100%;max-width:420px;background:var(--surf);border:1.5px solid var(--gold-br);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow)}
+.auth-brand-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.auth-photo-slot{margin-top:12px;border:1px dashed var(--gold-br);background:var(--card);border-radius:12px;padding:10px;text-align:center}
+.auth-photo-slot img{width:100%;max-height:150px;object-fit:cover;border-radius:9px;display:block;margin:0 auto 8px}
+.auth-photo-placeholder{padding:14px 10px;border-radius:9px;background:linear-gradient(135deg,#0b0b0c 0%,#241a08 100%);color:#ffffff;margin-bottom:8px}
+.auth-photo-placeholder b{display:block;font-family:Georgia,'Times New Roman',serif;font-style:italic;color:var(--gold-br);font-size:15px}
+.auth-photo-placeholder span{font-size:11.5px;color:#e4e4e7}
+.auth-box{width:100%;max-width:420px;background:var(--surf);border:1.5px solid var(--gold-br);border-radius:16px;padding:20px 18px;box-shadow:var(--shadow)}
 
 #dashView{display:none;min-height:100vh;background:#faf9f6;color:#0b0b0c;padding-bottom:44px}
 #dashView.active{display:block}
@@ -442,10 +449,37 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 </div>
 
 <div id="authView">
-  <div style="width:100%;max-width:420px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+  <div style="width:100%;max-width:420px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
     <button type="button" class="btn dark" style="width:auto;margin:0;padding:8px 13px" onclick="confirmBackToSite()">← Back to Site</button>
     <span style="font-size:12px;color:var(--mut);font-weight:700">LOGIN</span>
   </div>
+
+  <div class="auth-top-brand">
+    <div class="auth-brand-row">
+      <div class="brand-wrap">
+        <div class="m-logo">M</div>
+        <div class="brand-styled">
+          <b>The <span class="m-word">Millionaire</span> <span class="s-word">Skill</span></b>
+          <small>LEARNER &amp; ADMIN ACCESS</small>
+        </div>
+      </div>
+      <button type="button" class="m-btn-sm" onclick="document.getElementById('authPhotoInp').click()">+ Add Photo</button>
+    </div>
+
+    <div class="auth-photo-slot">
+      <img id="authBannerImg" src="" alt="Login Banner Photo" style="display:none">
+      <div id="authBannerPlaceholder" class="auth-photo-placeholder">
+        <b>✦ The Millionaire Skill ✦</b>
+        <span>Upload a custom photo/banner above for this login header</span>
+      </div>
+      <input id="authPhotoInp" type="file" accept="image/*" style="display:none" onchange="onAuthPhotoPick(event)">
+      <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap">
+        <button type="button" class="m-btn-sm" onclick="document.getElementById('authPhotoInp').click()">Choose Photo</button>
+        <button type="button" class="m-btn-sm" id="authClearPhotoBtn" style="display:none" onclick="confirmClearAuthPhoto()">Remove Photo</button>
+      </div>
+    </div>
+  </div>
+
   <div class="auth-box">
     <div id="loginBox">
       <h2 style="font-size:18px;margin-bottom:4px">Login</h2>
@@ -709,7 +743,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 "use strict";
 const CLOUD_CFG = { binId: "", masterKey: "" };
 
-const K = { users:"tms_users_v7", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7", admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1" };
+const K = { users:"tms_users_v7", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7", admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1", authPhoto:"tms_auth_photo_v1" };
 const DEF_COURSES = [
   { id:"marketing", cat:"starter", level:"Beginner", duration:"Self-Paced", img:"file_00000000a24082079bd1a0d07ce5ae90.png", badge:"FOUNDATION", save:"50% OFF", title:"Marketing Foundations", desc:"Learn audience research, funnel structure, messaging clarity, and practical campaign planning.", rating:"4.8 ★", modules:"12 Modules", price:999, oldPrice:1999, vip:false },
   { id:"branding", cat:"starter", level:"Beginner–Intermediate", duration:"Self-Paced", img:"file_000000002914821181cc5ff207a5f834.png", badge:"BRANDING", save:"50% OFF", title:"Personal & Digital Branding", desc:"Develop a consistent voice, visual identity, and helpful content habits across platforms.", rating:"4.7 ★", modules:"16 Modules", price:2499, oldPrice:4999, vip:false },
@@ -760,6 +794,61 @@ function notify(text, mode="ok"){
   item.innerHTML = `<span>${text}</span><button type="button" style="background:none;border:0;color:#fff;font-weight:800" onclick="this.parentElement.remove()">×</button>`;
   wrap.appendChild(item);
   setTimeout(() => { if (item.parentElement) item.remove(); }, 3200);
+}
+
+function renderAuthBannerPhoto(){
+  const saved = localStorage.getItem(K.authPhoto) || "";
+  const img = document.getElementById("authBannerImg");
+  const ph = document.getElementById("authBannerPlaceholder");
+  const clr = document.getElementById("authClearPhotoBtn");
+  if (!img || !ph || !clr) return;
+  if (saved) {
+    img.src = saved;
+    img.style.display = "block";
+    ph.style.display = "none";
+    clr.style.display = "inline-block";
+  } else {
+    img.removeAttribute("src");
+    img.style.display = "none";
+    ph.style.display = "block";
+    clr.style.display = "none";
+  }
+}
+
+function onAuthPhotoPick(e){
+  const f = e.target.files && e.target.files[0];
+  if (!f) return;
+  if (!f.type.startsWith("image/") || f.size > 4*1024*1024) {
+    notify("Select a JPG, PNG, or WEBP image under 4MB.", "err");
+    return;
+  }
+  const r = new FileReader();
+  r.onload = ev => {
+    try {
+      localStorage.setItem(K.authPhoto, ev.target.result);
+      renderAuthBannerPhoto();
+      notify("Login banner photo updated.");
+    } catch {
+      notify("Could not save image in browser storage.", "err");
+    }
+  };
+  r.readAsDataURL(f);
+}
+
+function confirmClearAuthPhoto(){
+  askConfirm(
+    "Remove Login Photo?",
+    "Are you sure you want to remove the photo from the login header?",
+    "Yes, Remove",
+    () => {
+      localStorage.removeItem(K.authPhoto);
+      const inp = document.getElementById("authPhotoInp");
+      if (inp) inp.value = "";
+      renderAuthBannerPhoto();
+      notify("Login photo removed.");
+    },
+    true
+  );
 }
 
 function askConfirm(title, message, okLabel, fn, danger=false){
@@ -955,6 +1044,7 @@ function showSite(){
 }
 function showAuth(mode="login"){
   applyTheme();
+  renderAuthBannerPhoto();
   hideViews(false);
   authView.classList.add("active");
   loginBox.style.display=mode==="login"?"block":"none";
@@ -1168,6 +1258,7 @@ document.addEventListener("gesturestart", e => e.preventDefault(), { passive: fa
 
 document.getElementById("yrSpan").textContent = String(new Date().getFullYear());
 applyTheme();
+renderAuthBannerPhoto();
 renderCourses();
 renderFaq();
 syncHeader();

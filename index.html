@@ -33,7 +33,7 @@ button:active{transform:scale(.98)}
 .hdr{position:sticky;top:0;z-index:90;background:var(--surf);padding:8px 12px;border-bottom:1.5px solid var(--gold-br);display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:62px}
 .brand-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0;min-width:0}
 .brand-banner{height:48px;width:auto;max-width:215px;object-fit:contain;border-radius:9px;display:block;background:#fff;padding:2px 5px;border:1.5px solid var(--gold-br)}
-.brand-banner.sm{height:34px;max-width:155px}
+.brand-banner.wide-sm{height:44px;width:210px;max-width:100%;object-fit:contain}
 .brand-styled{display:flex;flex-direction:column;line-height:1.1;min-width:0}
 .brand-styled b{font-family:Georgia,'Times New Roman',serif;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap}
 .brand-styled b .m-word{font-style:italic;font-weight:900;color:var(--gold);padding:0 1px}
@@ -147,7 +147,7 @@ table.cmp th{color:var(--ink);background:var(--card);font-weight:800}table.cmp t
 .auth-photo-placeholder span{font-size:11.5px;color:#e4e4e7}
 .auth-box{width:100%;max-width:420px;background:var(--surf);border:1.5px solid var(--gold-br);border-radius:16px;padding:20px 18px;box-shadow:var(--shadow)}
 
-/* Clean Dashboard (#dashView): Menu button + user photo only above earnings, no clutter */
+/* Reference Dashboard + Gold Theme Accent (#dashView) */
 #dashView{display:none;min-height:100vh;background:#f3f4f6;color:#111827;padding-bottom:44px}
 #dashView.active{display:block}
 .d-wrap{max-width:560px;margin:auto;padding:12px 14px}
@@ -189,9 +189,9 @@ table.cmp th{color:var(--ink);background:var(--card);font-weight:800}table.cmp t
 .pg-btn.active{background:#2563eb;color:#fff;border-color:#2563eb}.pg-btn:disabled{opacity:.4}
 
 .side-backdrop{display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:150}.side-backdrop.open{display:block}
-.side-menu{position:fixed;top:0;left:-295px;width:285px;height:100vh;background:#fff;color:#111827;z-index:160;padding:16px 14px;overflow-y:auto;box-shadow:6px 0 24px rgba(0,0,0,.18);transition:left .18s ease;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid #e5e7eb}
+.side-menu{position:fixed;top:0;left:-295px;width:285px;height:100vh;background:#fff;color:#111827;z-index:160;padding:16px 14px;overflow-y:auto;box-shadow:6px 0 24px rgba(0,0,0,.18);transition:left .18s ease;display:flex;flex-direction:column;justify-content:space-between;border-right:1.5px solid #d49b27}
 .side-menu.open{left:0}
-.sm-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid #e5e7eb;margin-bottom:8px}
+.sm-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid #e5e7eb;margin-bottom:8px;gap:6px}
 .sm-lbl{font-size:11px;font-weight:800;color:#6b7280;margin-bottom:6px;text-transform:uppercase}
 .sm-item{width:100%;background:none;border:0;text-align:left;padding:9px 10px;border-radius:9px;font-size:13px;font-weight:600;color:#1f2937;display:flex;align-items:center;gap:8px;margin-bottom:2px}
 .sm-item:hover,.sm-item.active{background:#eff6ff;color:#1d4ed8;font-weight:700}
@@ -404,7 +404,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   <div class="auth-box">
     <div id="loginBox">
       <h2 style="font-size:18px;margin-bottom:4px">Login</h2>
-      <div class="note selectable">Demo Student: <b>student1@tms.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b><br><small>Note: Client-side login is for local demo only; connect Firebase Auth for production security.</small></div>
+      <div class="note selectable">Demo Student: <b>moassaransari@gmail.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b><br><small>Note: Client-side login is for local demo only; connect Firebase Auth for production security.</small></div>
       <label class="lbl">Email Address</label><input id="lEmail" class="inp" type="email" placeholder="name@example.com">
       <label class="lbl">Password</label><input id="lPass" class="inp" type="password" placeholder="Enter password">
       <button type="button" class="btn gold" onclick="login()">Login →</button>
@@ -431,10 +431,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   <aside class="side-menu" id="sideMenu">
     <div>
       <div class="sm-head">
-        <div class="brand-wrap">
-          <img id="sideLogoImg" class="brand-banner sm" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" decoding="sync">
-          <b style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:12.5px;color:#111827">The Millionaire Skill</b>
-        </div>
+        <img id="sideLogoImg" class="brand-banner wide-sm" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" decoding="sync">
         <button type="button" class="m-btn-sm" onclick="toggleSide(false)">✕</button>
       </div>
       <div class="sm-lbl">Navigation</div>
@@ -448,15 +445,6 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       <button type="button" class="sm-item" data-m="vip" onclick="onSideNav('vip')">☆ VIP Access</button>
       <button type="button" class="sm-item" data-m="community" onclick="onSideNav('community')">🌐 Community Links</button>
       <button type="button" class="sm-item" data-m="qualification" onclick="onSideNav('qualification')">🏅 Qualification</button>
-      <button type="button" class="sm-item" data-m="wishlist" onclick="onSideNav('wishlist')">♡ Wishlist</button>
-      <button type="button" class="sm-item" data-m="payments" onclick="onSideNav('payments')">💳 Orders &amp; Pay</button>
-      <button type="button" class="sm-item" data-m="quizcert" onclick="onSideNav('quizcert')">📝 Quiz &amp; Cert</button>
-      <button type="button" class="sm-item" data-m="support" onclick="onSideNav('support')">🛟 Support</button>
-      <button type="button" class="sm-item" data-m="profile" onclick="onSideNav('profile')">⚙️ Account</button>
-      <button type="button" class="sm-item" onclick="onSideNav('site_exit')">🌐 Back to Site</button>
-      <button type="button" class="sm-item" onclick="onSideNav('refresh_data')">↻ Refresh Data</button>
-      <button type="button" class="sm-item" id="adminMenuBtn" style="display:none;color:#b47b13" data-m="adminpanel" onclick="onSideNav('adminpanel')">🛠️ Admin Panel (Demo)</button>
-      <button type="button" class="sm-item" style="color:#b91c1c" onclick="confirmLogout()">↪ Logout</button>
     </div>
     <div class="sm-foot" id="smFoot"></div>
   </aside>
@@ -512,59 +500,6 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       </div>
     </div>
 
-    <div id="dp-wishlist" class="d-pane">
-      <div class="w-box">
-        <h3>Saved Wishlist Courses</h3>
-        <div id="wishlistBox"></div>
-      </div>
-    </div>
-
-    <div id="dp-payments" class="d-pane">
-      <div class="w-box">
-        <h3>Order &amp; Payment History (Demo)</h3>
-        <div id="paymentHistoryBox"></div>
-      </div>
-    </div>
-
-    <div id="dp-quizcert" class="d-pane">
-      <div class="w-box">
-        <h3>Timed MCQ Quiz &amp; Exam</h3>
-        <label class="lbl">Select Track Quiz</label>
-        <select id="quizTrackSel" class="inp" onchange="loadQuizQuestions()"></select>
-        <div id="quizTimerBar" class="note">Time Remaining: <b id="quizTimerTxt">03:00</b> • Pass Mark: <b>60%</b></div>
-        <div id="quizQuestionsBox"></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-          <button type="button" class="btn gold" style="width:auto;margin:0" onclick="startQuizTimer()">Start Timer</button>
-          <button type="button" class="btn green" style="width:auto;margin:0" onclick="submitQuiz()">Submit Quiz</button>
-        </div>
-        <div id="quizMsg" class="msg"></div>
-        <h3 style="margin-top:14px">Quiz Result History</h3>
-        <div id="quizHistoryBox"></div>
-      </div>
-
-      <div class="w-box">
-        <h3>Completion Certificate Generator (Demo PDF/Print)</h3>
-        <label class="lbl">Certificate Track</label>
-        <select id="certTrackSel" class="inp"></select>
-        <button type="button" class="btn gold" style="margin-top:0" onclick="generateCertificateDoc()">Generate Certificate →</button>
-        <div id="certMsg" class="msg"></div>
-      </div>
-    </div>
-
-    <div id="dp-support" class="d-pane">
-      <div class="w-box">
-        <h3>Student Support &amp; Doubt Desk</h3>
-        <label class="lbl">Topic / Course</label>
-        <input id="supTopic" class="inp" placeholder="e.g. Lesson access or UTR verification">
-        <label class="lbl">Your Question / Doubt</label>
-        <textarea id="supBody" class="inp" rows="3" placeholder="Write your question clearly..."></textarea>
-        <button type="button" class="btn gold" style="margin-top:0" onclick="submitSupportTicket()">Send Doubt →</button>
-        <div id="supMsg" class="msg"></div>
-        <h3 style="margin-top:14px">Submitted Tickets &amp; Replies</h3>
-        <div id="supportTicketsBox"></div>
-      </div>
-    </div>
-
     <div id="dp-team" class="d-pane">
       <div class="w-box">
         <h3>My Team Directory</h3>
@@ -599,21 +534,6 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <div id="dp-vip" class="d-pane"><div class="w-box"><h3>VIP Access</h3><p style="font-size:12.5px;color:#374151;margin-bottom:10px">Access all 85+ lessons across Marketing, Branding, Traffic, Influence, and Finance in one track.</p><button type="button" class="btn gold" style="margin-top:0" onclick="setDTab('buy')">Upgrade / View All Tracks →</button></div></div>
     <div id="dp-community" class="d-pane"><div class="w-box"><h3>Community Links</h3><div class="t-row"><div><b>Official Updates Channel</b><br><small style="color:#6b7280">Announcements &amp; release notes</small></div><a class="w-btn" style="margin:0" href="https://whatsapp.com/channel/0029Vb7863B6mYPIh021dN1b" target="_blank" rel="noopener noreferrer">Open</a></div><div class="t-row"><div><b>Support Desk</b><br><small id="commWaTxt" style="color:#6b7280">+91 62898 41691</small></div><a id="commWaLink" class="w-btn" style="margin:0" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Message</a></div></div></div>
     <div id="dp-qualification" class="d-pane"><div class="w-box"><h3>Qualification Status</h3><p style="font-size:12.5px;color:#374151">Active Track: <b id="qPkgTxt">Nothing</b></p><p style="font-size:12.5px;color:#374151;margin-top:4px">Recorded Referrals: <b id="qTeamTxt">Nothing</b></p></div></div>
-
-    <div id="dp-profile" class="d-pane">
-      <div class="w-box">
-        <h3>Account Details</h3>
-        <label class="lbl">Full Name</label><input id="pName" class="inp">
-        <label class="lbl">Optional Badge / Note</label><input id="pTag" class="inp" placeholder="e.g. {GOD-FIRE 🔥}">
-        <button type="button" class="btn gold" onclick="saveProfile()">Save Account Details</button><div id="pMsg" class="msg"></div>
-        <hr style="border:0;border-top:1px solid #e5e7eb;margin:16px 0">
-        <h3>Change Password</h3>
-        <label class="lbl">Current Password</label><input id="cOld" class="inp" type="password">
-        <label class="lbl">New Password (min 6 chars)</label><input id="cNew" class="inp" type="password">
-        <label class="lbl">Confirm New Password</label><input id="cConf" class="inp" type="password">
-        <button type="button" class="btn gold" onclick="changePass()">Update Password →</button><div id="cPassMsg" class="msg"></div>
-      </div>
-    </div>
 
     <div id="dp-adminpanel" class="d-pane">
       <div class="w-box">
@@ -788,7 +708,7 @@ const FIREBASE_HOOKS = {
 };
 
 const K = {
-  users:"tms_users_v7", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7",
+  users:"tms_users_v8", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7",
   admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1", authPhoto:"tms_auth_photo_v1",
   coupons:"tms_coupons_v1", tickets:"tms_tickets_v1", notifs:"tms_notifs_v1", siteCfg:"tms_site_cfg_v1"
 };
@@ -942,7 +862,7 @@ function getUsers(){
   let u=rJ(K.users,null);
   if(!Array.isArray(u)||!u.length){
     u=[{
-      studentId:"TMS-STU-1001",name:"AAADIL",tag:"{GOD-FIRE 🔥}",email:"student1@tms.com",phone:"6289841691",password:"pass1",photo:"",
+      studentId:"TMS-STU-1001",name:"AAADIL",tag:"{GOD-FIRE 🔥}",email:"moassaransari@gmail.com",phone:"6289841691",password:"pass1",photo:"",
       earnings:{...DEMO_EARN},orders:[{pkg:"Finance Mastery",amt:14999,reqId:"TMS-FIN01",status:"Active",date:"2026-11-10"}],
       team:TEAM_SEED,wishlist:[],progress:{},quizHistory:[],streak:{days:3,lastDay:""},reviews:[]
     }];
@@ -1103,21 +1023,18 @@ function sendReset(){ const em=fpEmail.value.trim().toLowerCase(); if(!getUsers(
 function saveReset(){ const n=fpNew.value,c=fpConf.value; if(!resetEm||n.length<6||n!==c) return showM("fpMsg","Password must be 6+ chars and match."); const all=getUsers(), u=all.find(x=>x.email.toLowerCase()===resetEm); if(u) u.password=n; wJ(K.users,all); pushCloud(); resetEm=""; notify("Password updated."); showAuth("login"); showM("lMsg","Password updated. Sign in now.","ok"); }
 
 function setDTab(t){
-  const valid=["earnings","team","courses","wishlist","payments","quizcert","support","buy","affiliate","leaderboard","trainings","vip","community","qualification","profile","adminpanel"];
+  const valid=["earnings","team","courses","buy","affiliate","leaderboard","trainings","vip","community","qualification","adminpanel"];
   let target=valid.includes(t)?t:"earnings";
   if(target==="adminpanel"&&!isAdminSession()){ notify("Admin demo login required for Admin Panel.","warn"); target="earnings"; }
   document.querySelectorAll(".sm-item").forEach(b=>b.classList.toggle("active",b.dataset.m===target));
   document.querySelectorAll(".d-pane").forEach(p=>p.classList.toggle("active",p.id==="dp-"+target));
   const u=curUser();
   if(target==="team") renderTeam();
-  if(target==="profile"&&u){ pName.value=u.name||""; pTag.value=u.tag||""; }
   if(target==="affiliate"&&u){
     const code=u.studentId||"TMS-STU";
     refCodeInp.value=code;
     refLinkInp.value=`${location.origin}${location.pathname}?ref=${encodeURIComponent(code)}`;
   }
-  if(target==="quizcert") setupQuizAndCert(u);
-  if(target==="support") renderSupportTickets(u);
   if(target==="adminpanel") renderAdminPanel();
 }
 function renderAv(el,u){
@@ -1135,7 +1052,6 @@ function renderDash(u){
     return;
   }
   renderAv(dAv,u); dName.textContent=u.name||"AAADIL"; dTag.textContent=u.tag||"";
-  adminMenuBtn.style.display=isAdminSession()?"flex":"none";
   const ord=u.orders||[], tm=u.team||[], activeOrds=ord.filter(o=>o.status==="Active");
   dPkg.textContent=activeOrds.length?activeOrds[activeOrds.length-1].pkg:(ord.length?ord[ord.length-1].pkg:"Nothing");
   const e=u.earnings||ZERO_E, hasIncome=ord.length>0||tm.length>0||[e.today,e.sevenDays,e.thirtyDays,e.allTime,e.industrial,e.wallet].some(v=>v&&v!=="₹0"&&v!=="0");
@@ -1150,7 +1066,6 @@ function renderDash(u){
   const ordSt=ordFilter?.value||"all", filtOrd=ordSt==="all"?ord:ord.filter(o=>o.status===ordSt);
   recentTeam.innerHTML=tm.length?tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#6b7280">${m.pkg}</small></div></div></div>`).join(""):`<div class="empty-st">Nothing</div>`;
   myOrders.innerHTML=filtOrd.length?filtOrd.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#6b7280">${o.reqId} • ₹${o.amt}${o.date?" • "+o.date:""}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join(""):`<div class="empty-st">Nothing</div>`;
-  paymentHistoryBox.innerHTML=ord.length?ord.map(o=>`<div class="t-row"><div><b>Order #${o.reqId}</b> — ${o.pkg}<br><small style="color:#6b7280">Date: ${o.date||"Recorded"} • Amount: ${inr(o.amt)}</small></div><span class="chip ${o.status==="Active"?"ok":""}">${o.status}</span></div>`).join(""):`<div class="empty-st">No payment or order records yet.</div>`;
 
   const allC=getCourses(), progMap=u.progress||{};
   myCoursesProgress.innerHTML=allC.map((c,idx)=>{
@@ -1160,18 +1075,13 @@ function renderDash(u){
     return `<div class="t-row"><div style="flex:1;min-width:190px"><b>${c.title}</b> <span class="chip ${unlocked?"ok":""}">${unlocked?"Active Access":"Preview Only"}</span><div class="prog-track"><div class="prog-fill" style="width:${pct}%"></div></div><small style="color:#6b7280">Progress: ${pct}% (${(p.done||[]).length}/4 lessons)</small></div><button type="button" class="btn gold btn-sm" onclick="openCoursePlayer(${idx},false)">Open Player</button></div>`;
   }).join("");
 
-  const wIds=u.wishlist||[], wCourses=allC.filter(c=>wIds.includes(c.id));
-  wishlistBox.innerHTML=wCourses.length?wCourses.map(c=>{
-    const realIdx=allC.findIndex(x=>x.id===c.id);
-    return `<div class="t-row"><div><b>${c.title}</b> (${inr(c.price)})<br><small style="color:#6b7280">${c.modules}</small></div><div style="display:flex;gap:6px"><button type="button" class="m-btn-sm" onclick="toggleWishlist('${c.id}')">Remove</button><button type="button" class="btn gold btn-sm" onclick="openBuy(${realIdx})">Enroll</button></div></div>`;
-  }).join(""):`<div class="empty-st">Your wishlist is empty. Click "♡ Wishlist" on any course card.</div>`;
-
   lbBox.innerHTML=tm.length?tm.slice(0,3).map((m,i)=>`<div class="t-row"><div><b>#${i+1} ${m.name}</b><br><small style="color:#6b7280">${m.pkg}</small></div><span class="chip ${i===0?"blue":""}">#${i+1}</span></div>`).join(""):`<div class="empty-st">Nothing</div>`;
   qPkgTxt.textContent=dPkg.textContent; qTeamTxt.textContent=tm.length?tm.length:"Nothing";
 
   const footAv=u.photo?`<img src="${u.photo}" alt="${u.name||"User"}" decoding="sync">`:(u.name||"L")[0].toUpperCase();
   const safeEmail=u.email||"";
-  smFoot.innerHTML=`<div class="t-av">${footAv}</div><div style="min-width:0;flex:1"><b style="font-size:12.5px;color:#111827;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${u.name||"Learner"}</b><small class="selectable" style="color:#6b7280;font-size:11px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${safeEmail}</small></div>`;
+  const dispTitle=[u.name||"AAADIL",u.tag||""].filter(Boolean).join(" ");
+  smFoot.innerHTML=`<div class="t-av">${footAv}</div><div style="min-width:0;flex:1"><b style="font-size:12px;color:#111827;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${dispTitle}</b><small class="selectable" style="color:#6b7280;font-size:11px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${safeEmail}</small></div>`;
   renderTeam();
 }
 
@@ -1284,79 +1194,6 @@ function renderReviewsSection(){
   reviewsGrid.innerHTML=extra+sampleHtml;
 }
 
-function setupQuizAndCert(u){
-  const list=getCourses();
-  quizTrackSel.innerHTML=list.map(c=>`<option value="${c.title}">${c.title}</option>`).join("");
-  certTrackSel.innerHTML=list.map(c=>`<option value="${c.title}">${c.title}</option>`).join("");
-  loadQuizQuestions();
-  renderQuizHistory(u);
-  certMsg.className="msg";
-}
-function loadQuizQuestions(){
-  quizQuestionsBox.innerHTML=QUIZ_BANK.map((q,qi)=>`<div class="lesson-item" style="display:block"><b>Q${qi+1}. ${q.q}</b><div style="margin-top:6px">${q.opts.map((op,oi)=>`<label style="display:block;font-size:12.5px;margin:3px 0"><input type="radio" name="qz_${qi}" value="${oi}"> ${op}</label>`).join("")}</div></div>`).join("");
-}
-function startQuizTimer(){
-  if(quizInterval) clearInterval(quizInterval);
-  quizSec=180;
-  quizInterval=setInterval(()=>{
-    quizSec--;
-    const m=String(Math.floor(Math.max(0,quizSec)/60)).padStart(2,"0"), s=String(Math.max(0,quizSec)%60).padStart(2,"0");
-    quizTimerTxt.textContent=`${m}:${s}`;
-    if(quizSec<=0){ clearInterval(quizInterval); submitQuiz(); }
-  },1000);
-}
-function submitQuiz(){
-  if(quizInterval){ clearInterval(quizInterval); quizInterval=null; }
-  let correct=0;
-  QUIZ_BANK.forEach((q,qi)=>{
-    const sel=document.querySelector(`input[name="qz_${qi}"]:checked`);
-    if(sel&&parseInt(sel.value,10)===q.ans) correct++;
-  });
-  const scorePct=Math.round((correct/QUIZ_BANK.length)*100), track=quizTrackSel.value||"Skill Track";
-  modUser(u=>{
-    u.quizHistory=u.quizHistory||[];
-    u.quizHistory.unshift({track,score:scorePct,passed:scorePct>=60,date:new Date().toLocaleDateString()});
-  });
-  showM("quizMsg",`Score: ${scorePct}% (${correct}/${QUIZ_BANK.length}) — ${scorePct>=60?"Passed":"Try Again"}`,scorePct>=60?"ok":"warn");
-  renderQuizHistory(curUser());
-  if(curUser()) renderDash(curUser());
-}
-function renderQuizHistory(u){
-  const h=(u&&u.quizHistory)||[];
-  quizHistoryBox.innerHTML=h.length?h.map(x=>`<div class="t-row"><div><b>${x.track}</b> • Score: <b>${x.score}%</b><br><small style="color:#6b7280">${x.date}</small></div><span class="chip ${x.passed?"ok":""}">${x.passed?"Passed":"Needs Retry"}</span></div>`).join(""):`<div class="empty-st">No quiz attempts yet.</div>`;
-}
-
-function generateCertificateDoc(){
-  const u=curUser(); if(!u) return;
-  const trackTitle=certTrackSel.value||"Skill Track", all=getCourses(), cObj=all.find(x=>x.title===trackTitle);
-  const doneCnt=(cObj&&u.progress&&u.progress[cObj.id]&&u.progress[cObj.id].done&&u.progress[cObj.id].done.length)||0;
-  const passedQuiz=(u.quizHistory||[]).some(q=>q.track===trackTitle&&q.passed);
-  if(doneCnt<2&&!passedQuiz){
-    return showM("certMsg","Complete at least 2 lessons in this track or pass (≥60%) the quiz first.","warn");
-  }
-  const win=window.open("","_blank");
-  if(!win) return showM("certMsg","Popup blocked. Allow popups to view/print the Demo Certificate.","warn");
-  win.document.write(`<!DOCTYPE html><html><head><title>Demo Certificate</title><style>body{font-family:Georgia,serif;background:#faf8f3;padding:30px;text-align:center}.box{max-width:680px;margin:auto;background:#fff;border:4px double #d49b27;padding:36px;border-radius:14px}h1{color:#0b0b0c;margin-bottom:8px}.gold{color:#b47b13;font-size:24px;font-weight:700;margin:14px 0}.note{font-family:sans-serif;font-size:12px;color:#52525b;margin-top:22px}</style></head><body><div class="box"><div>THE MILLIONAIRE SKILL • DEMO CERTIFICATE</div><h1>Certificate of Completion</h1><p>This certifies that</p><div class="gold">${u.name||"Learner"}</div><p>has completed study requirements for</p><h3>${trackTitle}</h3><p>Date: ${new Date().toLocaleDateString()} • ID: ${u.studentId||"TMS"}</p><button onclick="window.print()" style="margin-top:16px;padding:10px 18px;background:#0b0b0c;color:#f5c85c;border:0;border-radius:8px;cursor:pointer">Print / Save as PDF</button><div class="note">Demo Certificate generated in browser without server-side verification.</div></div></body></html>`);
-  win.document.close();
-  showM("certMsg","Demo certificate opened in new tab (use Print -> Save as PDF).","ok");
-}
-
-function submitSupportTicket(){
-  const u=curUser(); if(!u) return;
-  const topic=supTopic.value.trim(), body=supBody.value.trim();
-  if(topic.length<2||body.length<4) return showM("supMsg","Please enter a topic and your question.");
-  const list=getTickets();
-  list.unshift({id:"TKT-"+Date.now().toString().slice(-5),userEmail:u.email,userName:u.name||"Learner",topic,body,reply:"",status:"Open"});
-  wJ(K.tickets,list);
-  supTopic.value=supBody.value="";
-  showM("supMsg","Doubt submitted to support queue (Demo).","ok");
-  renderSupportTickets(u);
-}
-function renderSupportTickets(u){
-  const mine=getTickets().filter(t=>!u||t.userEmail.toLowerCase()===u.email.toLowerCase());
-  supportTicketsBox.innerHTML=mine.length?mine.map(t=>`<div class="t-row"><div><b>[${t.id}] ${t.topic}</b><br><small style="color:#6b7280">${t.body}</small>${t.reply?`<br><small style="color:#15803d;font-weight:700">Reply: ${t.reply}</small>`:""}</div><span class="chip ${t.reply?"ok":""}">${t.reply?"Answered":"Open"}</span></div>`).join(""):`<div class="empty-st">No support tickets submitted yet.</div>`;
-}
-
 function logDemoReferral(){
   modUser(u=>{
     u.team=u.team||[];
@@ -1383,9 +1220,6 @@ function renderTeam(){
   btns+=`<button type="button" class="pg-btn" onclick="tPage++;renderTeam()" ${tPage>=pages?"disabled":""}>&gt;</button>`;
   tCtrl.innerHTML=btns;
 }
-
-function saveProfile(){ const n=pName.value.trim(),t=pTag.value.trim(); if(n.length<2) return showM("pMsg","Please enter at least 2 characters."); const u=modUser(x=>{x.name=n;x.tag=t;}); if(u){ renderDash(u); notify("Account details saved."); showM("pMsg","Details saved.","ok"); } }
-function changePass(){ const u=curUser(); if(!u) return; if(cOld.value!==u.password) return showM("cPassMsg","Current password is incorrect."); if(cNew.value.length<6||cNew.value!==cConf.value) return showM("cPassMsg","New password must be 6+ chars and match."); modUser(x=>x.password=cNew.value); cOld.value=cNew.value=cConf.value=""; notify("Password updated."); showM("cPassMsg","Password updated.","ok"); }
 
 function applyCheckoutCoupon(){
   if(!selC) return;

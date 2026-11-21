@@ -17,6 +17,7 @@ body{background:var(--bg);color:var(--txt);line-height:1.55;overflow-x:hidden;to
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;outline:none;transition:transform .14s ease,opacity .15s ease,background .15s ease}
 button:active{transform:scale(.98)}
+.view-hidden{display:none !important}
 
 #preloader{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:opacity .2s ease,visibility .2s ease}
 #preloader.hide{opacity:0;visibility:hidden;pointer-events:none}
@@ -67,6 +68,13 @@ body.t-midnight .dark{background:var(--card);color:var(--txt);border:1px solid v
 .lbl{display:block;font-size:12px;font-weight:700;margin-bottom:4px;color:var(--mut)}
 .inp{width:100%;padding:10px 12px;background:var(--card);color:var(--txt);border:1px solid var(--bdr);border-radius:9px;margin-bottom:10px;font-size:13.5px}
 .inp:focus{outline:none;border-color:var(--gold-br)}
+.pw-wrap{position:relative;display:flex;align-items:center;margin-bottom:10px}
+.pw-wrap .inp{margin-bottom:0;padding-right:42px}
+.eye-btn{position:absolute;right:8px;background:transparent;border:0;color:var(--mut);font-size:15px;height:32px;width:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px}
+.eye-btn:hover{color:var(--gold);background:var(--gold-soft)}
+.rem-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:4px 0 8px;font-size:12.5px;color:var(--txt)}
+.rem-check{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-weight:700}
+.rem-check input{width:16px;height:16px;accent-color:var(--gold-br);cursor:pointer}
 .note{background:var(--gold-soft);padding:10px 12px;border-left:3px solid var(--gold-br);border-radius:8px;font-size:12px;color:var(--txt);margin-bottom:12px}
 .msg{display:none;padding:9px 12px;border-radius:9px;font-size:12px;margin-top:8px;font-weight:600}
 .msg.err{display:block;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
@@ -135,8 +143,7 @@ table.cmp th{color:var(--ink);background:var(--card);font-weight:800}table.cmp t
 .faq-a{display:none;padding:0 14px 12px;font-size:12.5px;color:var(--mut)}
 .faq-item.open .faq-a{display:block}
 
-#authView{display:none;min-height:100vh;padding:18px 16px 36px;background:var(--bg)}
-#authView.active{display:flex;flex-direction:column;align-items:center}
+#authView{min-height:100vh;padding:18px 16px 36px;background:var(--bg);display:flex;flex-direction:column;align-items:center}
 .auth-top-brand{width:100%;max-width:420px;background:var(--surf);border:1.5px solid var(--gold-br);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow)}
 .auth-brand-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .auth-full-logo{width:100%;max-height:110px;object-fit:contain;display:block;margin:10px auto 0;border-radius:10px;background:#fff;padding:6px;border:1px solid var(--bdr)}
@@ -147,9 +154,7 @@ table.cmp th{color:var(--ink);background:var(--card);font-weight:800}table.cmp t
 .auth-photo-placeholder span{font-size:11.5px;color:#e4e4e7}
 .auth-box{width:100%;max-width:420px;background:var(--surf);border:1.5px solid var(--gold-br);border-radius:16px;padding:20px 18px;box-shadow:var(--shadow)}
 
-/* Golden Theme Dashboard (#dashView) */
-#dashView{display:none;min-height:100vh;background:var(--bg);color:var(--txt);padding-bottom:44px}
-#dashView.active{display:block}
+#dashView{min-height:100vh;background:var(--bg);color:var(--txt);padding-bottom:44px}
 .d-wrap{max-width:560px;margin:auto;padding:12px 14px}
 .d-top{display:flex;justify-content:flex-start;align-items:center;margin-bottom:12px}
 .menu-only-btn{background:var(--surf);color:var(--ink);border:1.5px solid var(--gold-br);border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;box-shadow:var(--shadow)}
@@ -164,7 +169,6 @@ table.cmp th{color:var(--ink);background:var(--card);font-weight:800}table.cmp t
 
 .d-pane{display:none;animation:popIn .18s ease}.d-pane.active{display:block}
 
-/* Separate Golden Earnings Cards */
 .e-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .e-card{background:var(--surf);color:var(--ink);border:1.5px solid var(--gold-br);border-top:4px solid var(--gold-br);border-radius:14px;padding:14px;min-height:94px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
 .e-card.full{grid-column:1/-1;min-height:82px;background:linear-gradient(135deg,#251b08,#0b0b0c);color:#fff;border-color:var(--gold-br)}
@@ -379,7 +383,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   </footer>
 </div>
 
-<div id="authView">
+<div id="authView" class="view-hidden">
   <div style="width:100%;max-width:420px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
     <button type="button" class="btn dark" style="width:auto;margin:0;padding:8px 13px" onclick="confirmBackToSite()">← Back to Site</button>
     <span style="font-size:12px;color:var(--mut);font-weight:700">LOGIN</span>
@@ -407,9 +411,18 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   <div class="auth-box">
     <div id="loginBox">
       <h2 style="font-size:18px;margin-bottom:4px">Login</h2>
-      <div class="note selectable">Demo Student: <b>moassaransari@gmail.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b><br><small>Note: Client-side login is for local demo only; connect Firebase Auth for production security.</small></div>
-      <label class="lbl">Email Address</label><input id="lEmail" class="inp" type="email" placeholder="name@example.com">
-      <label class="lbl">Password</label><input id="lPass" class="inp" type="password" placeholder="Enter password">
+      <div class="note selectable">Demo Student: <b>moassaransari@gmail.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b><br><small>Saved info is stored locally on this browser for convenience; avoid saving on shared devices.</small></div>
+      <label class="lbl">Email Address</label>
+      <input id="lEmail" class="inp" type="email" autocomplete="username" placeholder="name@example.com">
+      <label class="lbl">Password</label>
+      <div class="pw-wrap">
+        <input id="lPass" class="inp" type="password" autocomplete="current-password" placeholder="Enter password">
+        <button type="button" class="eye-btn" id="lEyeBtn" aria-label="Show or hide password" onclick="togglePassVisibility('lPass','lEyeBtn')">👁️</button>
+      </div>
+      <div class="rem-row">
+        <label class="rem-check"><input type="checkbox" id="remMe"> Remember Me (Save ID &amp; Password)</label>
+        <button type="button" style="background:none;border:0;color:var(--mut);font-size:11.5px;text-decoration:underline" onclick="clearSavedCredentials()">Clear Saved</button>
+      </div>
       <button type="button" class="btn gold" onclick="login()">Login →</button>
       <div id="lMsg" class="msg"></div>
       <button type="button" style="background:none;border:0;color:var(--gold);font-weight:700;font-size:12.5px;text-decoration:underline;margin-top:12px" onclick="showAuth('forgot')">Forgot Password?</button>
@@ -420,8 +433,16 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       <button type="button" class="btn gold" onclick="sendReset()">Verify Email →</button>
       <div id="fpMsg" class="msg"></div>
       <div id="resetArea" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--bdr)">
-        <label class="lbl">New Password (min 6 chars)</label><input id="fpNew" class="inp" type="password">
-        <label class="lbl">Confirm Password</label><input id="fpConf" class="inp" type="password">
+        <label class="lbl">New Password (min 6 chars)</label>
+        <div class="pw-wrap">
+          <input id="fpNew" class="inp" type="password">
+          <button type="button" class="eye-btn" id="fpNewEye" aria-label="Show or hide new password" onclick="togglePassVisibility('fpNew','fpNewEye')">👁️</button>
+        </div>
+        <label class="lbl">Confirm Password</label>
+        <div class="pw-wrap">
+          <input id="fpConf" class="inp" type="password">
+          <button type="button" class="eye-btn" id="fpConfEye" aria-label="Show or hide confirm password" onclick="togglePassVisibility('fpConf','fpConfEye')">👁️</button>
+        </div>
         <button type="button" class="btn green" onclick="saveReset()">Save New Password →</button>
       </div>
       <button type="button" style="background:none;border:0;color:var(--gold);font-weight:700;font-size:12.5px;text-decoration:underline;margin-top:12px" onclick="showAuth('login')">← Back to Login</button>
@@ -429,7 +450,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   </div>
 </div>
 
-<div id="dashView">
+<div id="dashView" class="view-hidden">
   <div class="side-backdrop" id="sideBackdrop" onclick="toggleSide(false)"></div>
   <aside class="side-menu" id="sideMenu">
     <div>
@@ -711,9 +732,9 @@ const FIREBASE_HOOKS = {
 };
 
 const K = {
-  users:"tms_users_v9", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7",
-  admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1", authPhoto:"tms_auth_photo_v1",
-  coupons:"tms_coupons_v1", tickets:"tms_tickets_v1", notifs:"tms_notifs_v1", siteCfg:"tms_site_cfg_v1"
+  users:"tms_users_v10", sess:"tms_active_sess_v1", view:"tms_active_view_v1", savedCreds:"tms_saved_creds_v1",
+  courses:"tms_courses_v7", theme:"tms_theme_v7", admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1",
+  authPhoto:"tms_auth_photo_v1", coupons:"tms_coupons_v1", tickets:"tms_tickets_v1", notifs:"tms_notifs_v1", siteCfg:"tms_site_cfg_v1"
 };
 const DEF_LOGO = "https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg";
 const DEF_SITE_CFG = { logoUrl: DEF_LOGO, waNumber: "916289841691", upiId: "millionaireskills@upi", customQrUrl: "" };
@@ -734,7 +755,7 @@ const DEF_NOTIFS = [
 ];
 const FAQS = [
   { q:"How are Today, 7 Days, 30 Days, and All Time earnings calculated?", a:"Each recorded work/referral entry stores its date. Today sums today's entries, 7 Days sums last 7 days, 30 Days sums last 30 days, and All Time sums every recorded entry." },
-  { q:"What appears before any work or referrals are recorded?", a:"Everything starts at ₹0 and Nothing so learners only see real recorded activity." },
+  { q:"How does Remember Me & Refresh persistence work?", a:"With Remember Me checked, your ID and password are saved locally for quick login, and your active session stays intact across page refreshes." },
   { q:"When is a track marked active after payment?", a:"Once your 12-digit UPI UTR is submitted and approved in the admin queue, the enrollment status updates to Active." }
 ];
 
@@ -742,9 +763,33 @@ let selC=null, appliedDiscount=0, resetEm="", tempImg="", tPage=1, activeCat="al
 let playerCourse=null, playerLessons=[], playerIdx=0, playerSec=0, playerTimer=null, cmpSelection=[], lastChartPts=[];
 const rJ=(k,fb)=>{try{const v=JSON.parse(localStorage.getItem(k));return v??fb;}catch{return fb;}};
 const wJ=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch{}};
+const getS=(k)=>{try{return localStorage.getItem(k)||sessionStorage.getItem(k)||"";}catch{return "";}};
+const setS=(k,v)=>{try{localStorage.setItem(k,v);sessionStorage.setItem(k,v);}catch{}};
+const delS=(k)=>{try{localStorage.removeItem(k);sessionStorage.removeItem(k);}catch{}};
 const inr=n=>"₹"+(parseInt(n,10)||0).toLocaleString("en-IN");
 const showM=(id,txt,mode="err")=>{const el=document.getElementById(id);el.className="msg "+mode;el.textContent=txt;};
 const hasCloud=()=>Boolean(CLOUD_CFG.binId&&CLOUD_CFG.masterKey);
+
+function togglePassVisibility(inputId, btnId){
+  const inp=document.getElementById(inputId), btn=document.getElementById(btnId);
+  if(!inp) return;
+  const show=inp.type==="password";
+  inp.type=show?"text":"password";
+  if(btn) btn.textContent=show?"🙈":"👁️";
+}
+function loadSavedCredentials(){
+  const saved=rJ(K.savedCreds,null);
+  if(saved&&saved.email){
+    lEmail.value=saved.email;
+    lPass.value=saved.password||"";
+    remMe.checked=true;
+  }
+}
+function clearSavedCredentials(){
+  localStorage.removeItem(K.savedCreds);
+  remMe.checked=false;
+  notify("Saved login info cleared.");
+}
 
 function isoDateOffset(daysAgo=0){
   const d=new Date();
@@ -905,8 +950,8 @@ function getCourses(){
     return {...fb,...item,rating:Number(item.rating||fb.rating||4.8),popularity:Number(item.popularity||fb.popularity||85),createdAt:Number(item.createdAt||idx+1)};
   });
 }
-function curUser(){ const em=sessionStorage.getItem(K.sess); return em?getUsers().find(u=>u.email.toLowerCase()===em.toLowerCase())||null:null; }
-function isAdminSession(){ return sessionStorage.getItem(K.admAuth)==="1"; }
+function curUser(){ const em=getS(K.sess); return em?getUsers().find(u=>u.email.toLowerCase()===em.toLowerCase())||null:null; }
+function isAdminSession(){ return getS(K.admAuth)==="1"; }
 function modUser(fn){ const u=curUser(); if(!u) return null; const all=getUsers(), t=all.find(x=>x.email.toLowerCase()===u.email.toLowerCase()); if(!t) return null; fn(t); wJ(K.users,all); pushCloud(); return t; }
 
 function applyTheme(){
@@ -1001,10 +1046,35 @@ function renderFaq(){
 }
 
 function syncHeader(){ const u=curUser(); hdrBtn.textContent=u?"Dashboard":"Login"; guestBox.style.display=u?"none":"block"; userBox.style.display=u?"grid":"none"; dLogin.style.display=u?"none":"block"; dDash.style.display=u?"block":"none"; dOut.style.display=u?"block":"none"; }
-function hideViews(keepModal=false){ toggleDrawer(false); toggleSide(false); if(!keepModal) closeModal(); siteView.style.display="none"; authView.classList.remove("active"); dashView.classList.remove("active"); }
-function showSite(){ applyTheme(); applySiteCfg(); renderCourses(); syncHeader(); syncNotifBadge(); hideViews(false); siteView.style.display="block"; window.scrollTo(0,0); }
-function showAuth(mode="login"){ applyTheme(); applySiteCfg(); renderAuthBannerPhoto(); hideViews(false); authView.classList.add("active"); loginBox.style.display=mode==="login"?"block":"none"; forgotBox.style.display=mode==="forgot"?"block":"none"; lMsg.className=fpMsg.className="msg"; window.scrollTo(0,0); }
-async function showDash(tab="earnings"){ await pullCloud(); const u=curUser(); if(!u) return showAuth("login"); applyTheme(); applySiteCfg(); renderCourses(); syncNotifBadge(); hideViews(false); dashView.classList.add("active"); renderDash(u); setDTab(tab); window.scrollTo(0,0); }
+function hideViews(keepModal=false){
+  toggleDrawer(false); toggleSide(false); if(!keepModal) closeModal();
+  siteView.classList.add("view-hidden");
+  authView.classList.add("view-hidden");
+  dashView.classList.add("view-hidden");
+}
+function showSite(){
+  setS(K.view,"site"); applyTheme(); applySiteCfg(); renderCourses(); syncHeader(); syncNotifBadge();
+  hideViews(false); siteView.classList.remove("view-hidden"); window.scrollTo(0,0);
+}
+function showAuth(mode="login"){
+  setS(K.view,"auth"); applyTheme(); applySiteCfg(); renderAuthBannerPhoto(); loadSavedCredentials();
+  hideViews(false); authView.classList.remove("view-hidden");
+  loginBox.style.display=mode==="login"?"block":"none"; forgotBox.style.display=mode==="forgot"?"block":"none";
+  lMsg.className=fpMsg.className="msg"; window.scrollTo(0,0);
+}
+async function showDash(tab="earnings"){
+  await pullCloud(); const u=curUser();
+  if(!u) return showAuth("login");
+  setS(K.view,"dash"); applyTheme(); applySiteCfg(); renderCourses(); syncNotifBadge();
+  hideViews(false); dashView.classList.remove("view-hidden");
+  renderDash(u); setDTab(tab); window.scrollTo(0,0);
+}
+function ensureActiveView(){
+  const v=getS(K.view), u=curUser();
+  if(v==="dash"&&u){ dashView.classList.remove("view-hidden"); renderDash(u); setDTab(isAdminSession()?"adminpanel":"earnings"); return; }
+  if(v==="auth"){ authView.classList.remove("view-hidden"); renderAuthBannerPhoto(); loadSavedCredentials(); return; }
+  siteView.classList.remove("view-hidden");
+}
 function onHdrClick(){ curUser()?showDash("earnings"):showAuth("login"); }
 function toggleDrawer(force){ drawer.classList.toggle("open",typeof force==="boolean"?force:undefined); }
 function toggleSide(force){
@@ -1016,26 +1086,28 @@ function toggleSide(force){
   sideBackdrop.classList.toggle("open",open);
 }
 function toggleSideClose(){ sideMenu.classList.remove("open"); sideBackdrop.classList.remove("open"); }
-function onSideNav(tab){
-  toggleSideClose();
-  setDTab(tab);
-}
+function onSideNav(tab){ toggleSideClose(); setDTab(tab); }
 
 async function login(){
   await pullCloud();
   const em=lEmail.value.trim().toLowerCase(), pw=lPass.value, adm=getAdminCreds();
+  if(remMe.checked){
+    wJ(K.savedCreds,{email:lEmail.value.trim(),password:pw});
+  }
   if(em===String(adm.email||"").trim().toLowerCase()&&pw===adm.password){
-    sessionStorage.setItem(K.admAuth,"1");
+    setS(K.admAuth,"1");
     const admUser=getUsers()[0];
-    if(admUser) sessionStorage.setItem(K.sess,admUser.email);
+    if(admUser) setS(K.sess,admUser.email);
     syncHeader(); notify("Admin demo session active."); showDash("adminpanel"); return;
   }
-  sessionStorage.removeItem(K.admAuth);
+  delS(K.admAuth);
   const hit=getUsers().find(u=>u.email.toLowerCase()===em&&u.password===pw);
   if(!hit) return showM("lMsg","Invalid email or password.");
-  sessionStorage.setItem(K.sess,hit.email); syncHeader(); notify("Welcome, "+(hit.name||"Learner")+"."); showDash("earnings");
+  setS(K.sess,hit.email); syncHeader(); notify("Welcome, "+(hit.name||"Learner")+"."); showDash("earnings");
 }
-function logout(){ sessionStorage.removeItem(K.sess); sessionStorage.removeItem(K.admAuth); toggleSideClose(); syncHeader(); notify("Logged out."); showSite(); }
+function logout(){
+  delS(K.sess); delS(K.admAuth); toggleSideClose(); syncHeader(); notify("Logged out."); showSite();
+}
 function sendReset(){ const em=fpEmail.value.trim().toLowerCase(); if(!getUsers().some(u=>u.email.toLowerCase()===em)) return showM("fpMsg","Email not found."); resetEm=em; resetArea.style.display="block"; showM("fpMsg","Reset enabled for "+em,"ok"); }
 function saveReset(){ const n=fpNew.value,c=fpConf.value; if(!resetEm||n.length<6||n!==c) return showM("fpMsg","Password must be 6+ chars and match."); const all=getUsers(), u=all.find(x=>x.email.toLowerCase()===resetEm); if(u) u.password=n; wJ(K.users,all); pushCloud(); resetEm=""; notify("Password updated."); showAuth("login"); showM("lMsg","Password updated. Sign in now.","ok"); }
 
@@ -1279,7 +1351,7 @@ function submitPay(){
   if(utr.length!==12) return showM("bMsg","Please enter a valid 12-digit UPI UTR reference.");
   if(isDuplicateUtr(utr)) return showM("bMsg","This 12-digit UTR has already been submitted.","warn");
   const paidAmt=Math.max(0,(Number(selC.price)||0)-appliedDiscount);
-  const reqId="TMS-"+Date.now().toString().slice(-8), all=getUsers(), sessEm=sessionStorage.getItem(K.sess);
+  const reqId="TMS-"+Date.now().toString().slice(-8), all=getUsers(), sessEm=getS(K.sess);
   const target=sessEm?all.find(x=>x.email.toLowerCase()===sessEm.toLowerCase()):all[0];
   if(target){
     target.orders=target.orders||[];
@@ -1412,12 +1484,15 @@ function closeModal(){ pendingConfirmFn=null; if(playerTimer){clearInterval(play
 function copyText(val,id){ navigator.clipboard?.writeText(val).then(()=>{ showM(id,"Copied: "+val,"ok"); notify("Copied to clipboard."); }).catch(()=>{ showM(id,"Copy: "+val,"ok"); notify("Copy: "+val); }); }
 
 window.addEventListener("scroll",()=>scrollTopBtn.classList.toggle("show",window.scrollY>300),{passive:true});
-document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeModal(); toggleDrawer(false); toggleSideClose(); } else if(e.key==="/"&&!["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)&&siteView.style.display!=="none"){ e.preventDefault(); courseSearch.focus(); } });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeModal(); toggleDrawer(false); toggleSideClose(); } else if(e.key==="/"&&!["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)&&!siteView.classList.contains("view-hidden")){ e.preventDefault(); courseSearch.focus(); } });
 document.addEventListener("gesturestart",e=>e.preventDefault(),{passive:false});
 
-yrSpan.textContent=String(new Date().getFullYear());
-applyTheme(); applySiteCfg(); renderAuthBannerPhoto(); renderCourses(); renderFaq(); syncHeader(); syncNotifBadge(); renderReviewsSection();
-preloader.classList.add("hide");
+try{
+  yrSpan.textContent=String(new Date().getFullYear());
+  applyTheme(); applySiteCfg(); renderCourses(); renderFaq(); syncHeader(); syncNotifBadge(); renderReviewsSection(); ensureActiveView();
+}finally{
+  preloader.classList.add("hide");
+}
 pullCloud();
 </script>
 </body>

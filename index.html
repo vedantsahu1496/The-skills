@@ -13,12 +13,14 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);line-height:1.55;transition:.2s}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit}
-.hdr{position:sticky;top:0;z-index:90;background:#0b1224;padding:13px 16px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
-.brand b{display:block;color:#fbbf24;font-size:15px}
-.brand small{font-size:10px;color:#94a3b8;letter-spacing:1.2px}
+.hdr{position:sticky;top:0;z-index:90;background:#090d16;padding:12px 16px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
+.brand-wrap{display:flex;align-items:center;gap:10px}
+.m-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#fff,#fde68a 45%,#d97706);color:#090d16;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:21px;border:1px solid #fbbf24;flex-shrink:0;box-shadow:0 2px 10px rgba(251,191,36,.25)}
+.brand b{display:block;color:#fbbf24;font-size:14.5px;letter-spacing:.6px;text-transform:uppercase}
+.brand small{font-size:10px;color:#cbd5e1;letter-spacing:1.4px}
 .hdr-r{display:flex;gap:8px;align-items:center;position:relative}
 .m-btn{background:#172033;color:#fbbf24;border:1px solid #b88624;border-radius:8px;width:38px;height:38px;font-size:20px}
-.drawer{display:none;position:absolute;top:46px;right:0;width:210px;background:#0b1224;padding:8px 14px;border:1px solid #b88624;border-radius:10px;z-index:120}
+.drawer{display:none;position:absolute;top:46px;right:0;width:220px;background:#0b1224;padding:8px 14px;border:1px solid #b88624;border-radius:10px;z-index:120}
 .drawer.open{display:block}
 .drawer a{display:block;padding:10px 4px;border-bottom:1px solid #1e293b;font-size:13.5px;font-weight:700;color:#f8fafc}
 .drawer a:last-child{border-bottom:none}
@@ -36,9 +38,11 @@ button{cursor:pointer;font-family:inherit}
 .msg.err{display:block;background:#581c1c;color:#fecaca}
 .msg.ok{display:block;background:#064e3b;color:#dcfce7}
 .msg.warn{display:block;background:#78350f;color:#fde68a}
-.hero{text-align:center;padding:38px 16px;background:linear-gradient(180deg,var(--surf),var(--bg))}
+.hero{text-align:center;padding:38px 16px;background:linear-gradient(180deg,#111827,#090d16 55%,var(--bg))}
 .tag{display:inline-block;padding:5px 13px;border:1px solid var(--gold);border-radius:99px;color:var(--gold);font-size:11.5px;font-weight:700}
-.hero h1{font-size:30px;margin:14px 0 8px}
+.brand-banner{margin:14px auto 4px;font-size:13px;font-weight:900;letter-spacing:2.2px;color:#fff;text-transform:uppercase}
+.brand-banner span{color:#fbbf24}
+.hero h1{font-size:30px;margin:8px 0 8px}
 .hero h1 span{color:var(--gold)}
 .hero p{color:var(--mut);font-size:13.5px;max-width:440px;margin:auto}
 .hero-act{max-width:400px;margin:16px auto}
@@ -97,16 +101,29 @@ table.cmp tr:last-child td{border-bottom:none}
 .w-box h3{font-size:15.5px;color:#1e293b;margin-bottom:4px}
 .w-box .lbl{color:#334155}.w-box .inp{background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1}
 .empty-st{text-align:center;padding:18px 10px;color:#64748b;font-size:12.5px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px}
-.bars{height:145px;border-radius:12px;background:linear-gradient(180deg,rgba(249,115,22,.15),rgba(249,115,22,.02));border:1px solid #fed7aa;padding:10px;display:flex;align-items:flex-end;justify-content:space-between;gap:6px;margin-top:10px}
-.b-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}
-.b-fill{width:100%;max-width:26px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#fb923c,#ea580c);min-height:6px}
+.chart-wrap{position:relative}
+.bars{height:145px;border-radius:12px;background:linear-gradient(180deg,rgba(249,115,22,.16),rgba(249,115,22,.02));border:1px solid #fed7aa;padding:10px;display:flex;align-items:flex-end;justify-content:space-between;gap:6px;margin-top:10px}
+.b-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;cursor:pointer}
+.b-fill{width:100%;max-width:26px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#fb923c,#ea580c);min-height:6px;transition:.15s}
+.b-col:hover .b-fill{filter:brightness(1.1)}
 .b-col span{font-size:10px;color:#64748b;font-weight:600}
+.c-tip{background:#fff;border:1px solid #e2e8f0;box-shadow:0 8px 20px rgba(15,23,42,.12);border-radius:10px;padding:8px 12px;margin-top:8px;font-size:12px;color:#1e293b;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .t-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #f1f5f9}
 .t-row:last-child{border-bottom:none}
 .t-av{width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#1e293b;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
 .pg-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b}
 .pg-btn{min-width:30px;height:30px;padding:0 8px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#1e293b;font-weight:700}
 .pg-btn.active{background:#2d5fb8;color:#fff;border-color:#2d5fb8}.pg-btn:disabled{opacity:.4}
+.side-backdrop{display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:150}
+.side-backdrop.open{display:block}
+.side-menu{position:fixed;top:0;left:-280px;width:270px;height:100vh;background:#fff;color:#0f172a;z-index:160;padding:16px 14px;overflow-y:auto;box-shadow:6px 0 24px rgba(0,0,0,.18);transition:.2s;display:flex;flex-direction:column;justify-content:space-between}
+.side-menu.open{left:0}
+.sm-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid #e2e8f0;margin-bottom:8px}
+.sm-lbl{font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px}
+.sm-item{width:100%;background:none;border:0;text-align:left;padding:9px 10px;border-radius:9px;font-size:13px;font-weight:700;color:#1e293b;display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.sm-item:hover,.sm-item.active{background:#eff6ff;color:#1d4ed8}
+.sm-item.vip-i{color:#b45309}
+.sm-foot{border-top:1px solid #e2e8f0;padding-top:10px;margin-top:12px;display:flex;align-items:center;gap:10px}
 .modal{display:none;position:fixed;inset:0;background:rgba(3,6,15,.88);z-index:200;overflow-y:auto;padding:20px 14px}
 .modal.open{display:flex;align-items:flex-start;justify-content:center}
 .m-panel{width:100%;max-width:430px;margin:auto;background:#0b1224;border:2px solid #fbbf24;border-radius:16px;padding:18px}
@@ -125,7 +142,10 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 
 <div id="siteView">
   <header class="hdr">
-    <a href="#top" class="brand"><b>THE MILLIONAIRE SKILLS</b><small>EXECUTIVE MASTERY</small></a>
+    <a href="#top" class="brand-wrap">
+      <div class="m-logo">M</div>
+      <div class="brand"><b>THE MILLIONAIRE SKILLS</b><small>EXECUTIVE MASTERY</small></div>
+    </a>
     <div class="hdr-r">
       <button type="button" class="btn gold" id="hdrBtn" style="width:auto;margin:0;padding:8px 12px" onclick="onHdrClick()">Portal Login</button>
       <button type="button" class="m-btn" onclick="toggleDrawer()">☰</button>
@@ -143,6 +163,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 
   <section class="hero">
     <div class="tag">★ EXECUTIVE MASTERY</div>
+    <div class="brand-banner">THE <span>MILLIONAIRE</span> SKILLS</div>
     <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
     <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI checkout and multi-device sync.</p>
     <div class="hero-act">
@@ -227,19 +248,52 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 </div>
 
 <div id="dashView">
+  <div class="side-backdrop" id="sideBackdrop" onclick="toggleSide(false)"></div>
+  <aside class="side-menu" id="sideMenu">
+    <div>
+      <div class="sm-head">
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="m-logo" style="width:28px;height:28px;font-size:15px">M</div>
+          <b style="font-size:14px;color:#0f172a">Millionaire Skills</b>
+        </div>
+        <button type="button" class="m-btn-sm" onclick="toggleSide(false)">✕</button>
+      </div>
+      <div class="sm-lbl">Navigation</div>
+      <button type="button" class="sm-item active" data-m="earnings" onclick="onSideNav('earnings')">📊 Dashboard</button>
+      <button type="button" class="sm-item" data-m="team" onclick="onSideNav('team')">👥 My Team</button>
+      <button type="button" class="sm-item" data-m="affiliate" onclick="onSideNav('affiliate')">🔗 Affiliate Links</button>
+      <button type="button" class="sm-item" data-m="buy" onclick="onSideNav('buy')">⬆️ Upgrade Course</button>
+      <button type="button" class="sm-item" data-m="leaderboard" onclick="onSideNav('leaderboard')">🏆 Leaderboard</button>
+      <button type="button" class="sm-item" data-m="trainings" onclick="onSideNav('trainings')">🎓 Trainings</button>
+      <button type="button" class="sm-item" data-m="courses" onclick="onSideNav('courses')">📚 My Courses</button>
+      <button type="button" class="sm-item vip-i" data-m="vip" onclick="onSideNav('vip')">⭐ VIP Access</button>
+      <button type="button" class="sm-item" data-m="community" onclick="onSideNav('community')">💬 Community Links</button>
+      <button type="button" class="sm-item" data-m="qualification" onclick="onSideNav('qualification')">🎯 Qualification</button>
+      <button type="button" class="sm-item" data-m="profile" onclick="onSideNav('profile')">⚙️ Profile &amp; Pass</button>
+    </div>
+    <div class="sm-foot" id="smFoot"></div>
+  </aside>
+
   <div class="d-wrap">
     <div class="d-top">
-      <button type="button" class="chip" onclick="showSite()">← Website</button>
-      <div style="display:flex;gap:7px">
+      <div style="display:flex;gap:6px;align-items:center">
+        <button type="button" class="chip" onclick="toggleSide(true)">☰ Menu</button>
+        <button type="button" class="chip" onclick="showSite()">← Website</button>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+        <button type="button" class="chip" id="refreshBtn" onclick="refreshDash()">↻ Refresh</button>
         <span class="chip blue" id="dIdBadge">ID: --</span>
         <button type="button" class="chip red" onclick="logout()">Logout</button>
       </div>
     </div>
+    <div id="syncNote" style="font-size:11.5px;color:#64748b;margin-bottom:8px"></div>
+
     <div class="w-card">
       <b style="font-size:14.5px;color:#1e293b">Join Our WhatsApp Channel</b>
       <p style="font-size:12px;color:#64748b;margin-top:2px">Stay updated with the latest announcements, offers, and updates.</p>
       <a class="w-btn" href="https://whatsapp.com/channel/0029Vb7863B6mYPIh021dN1b" target="_blank" rel="noopener noreferrer">💬 Join Now</a>
     </div>
+
     <div class="p-card">
       <div style="display:flex;align-items:center;gap:12px">
         <div class="av" id="dAv"></div>
@@ -260,13 +314,16 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
         <div id="qNameMsg" class="msg"></div>
       </div>
     </div>
+
     <div class="sub-tabs">
-      <button type="button" class="s-tab active" data-d="earnings" onclick="setDTab('earnings')">Earnings</button>
-      <button type="button" class="s-tab" data-d="team" onclick="setDTab('team')">All Team (10+)</button>
-      <button type="button" class="s-tab" data-d="courses" onclick="setDTab('courses')">My Packages</button>
-      <button type="button" class="s-tab" data-d="buy" onclick="setDTab('buy')">Buy Package</button>
+      <button type="button" class="s-tab active" data-d="earnings" onclick="setDTab('earnings')">Dashboard</button>
+      <button type="button" class="s-tab" data-d="team" onclick="setDTab('team')">My Team</button>
+      <button type="button" class="s-tab" data-d="courses" onclick="setDTab('courses')">My Courses</button>
+      <button type="button" class="s-tab" data-d="buy" onclick="setDTab('buy')">Upgrade Course</button>
+      <button type="button" class="s-tab" data-d="affiliate" onclick="setDTab('affiliate')">Affiliate Links</button>
       <button type="button" class="s-tab" data-d="profile" onclick="setDTab('profile')">Profile &amp; Pass</button>
     </div>
+
     <div id="dp-earnings" class="d-pane active">
       <div class="e-grid">
         <div class="e-card"><small>👤 Today's Earning</small><b id="eToday">₹0</b></div>
@@ -276,13 +333,15 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
         <div class="e-card full"><small>🎁 Industrial Income</small><b id="eInd">₹0</b></div>
         <div class="e-card full"><small>💳 Wallet Balance</small><b id="eWal">₹0</b></div>
       </div>
-      <div class="w-box">
+      <div class="w-box chart-wrap">
         <h3>Earnings Chart</h3>
         <p style="font-size:12px;color:#64748b">Showing earnings and referrals over time</p>
         <div class="bars" id="chartBars"></div>
+        <div class="c-tip" id="chartTip"><b>Nov 19</b><span>Referrals: <b>1</b></span><span>Earnings: <b>₹100</b></span></div>
       </div>
       <div class="w-box"><h3>Your Recent Team</h3><div id="recentTeam"></div><button type="button" class="w-btn" style="width:100%;justify-content:center" onclick="setDTab('team')">View All</button></div>
     </div>
+
     <div id="dp-team" class="d-pane">
       <div class="w-box">
         <h3>All Team Members</h3>
@@ -294,8 +353,61 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
         <div class="pg-bar"><span id="tInfo">Showing 0</span><div id="tCtrl" style="display:flex;gap:5px"></div></div>
       </div>
     </div>
-    <div id="dp-courses" class="d-pane"><div class="w-box"><h3>My Enrolled Packages</h3><div id="myOrders"></div></div></div>
-    <div id="dp-buy" class="d-pane"><div class="w-box"><h3>Upgrade / Buy Package</h3><div id="dBuyList"></div></div></div>
+
+    <div id="dp-courses" class="d-pane"><div class="w-box"><h3>My Enrolled Courses</h3><div id="myOrders"></div></div></div>
+    <div id="dp-buy" class="d-pane"><div class="w-box"><h3>Upgrade / Buy Course</h3><div id="dBuyList"></div></div></div>
+
+    <div id="dp-affiliate" class="d-pane">
+      <div class="w-box">
+        <h3>Affiliate Links</h3>
+        <p style="font-size:12px;color:#64748b;margin-bottom:10px">Share your personal referral link with students.</p>
+        <input id="refLinkInp" class="inp" readonly>
+        <button type="button" class="btn gold" style="margin-top:0" onclick="copyText(refLinkInp.value,'refMsg')">Copy Referral Link</button>
+        <div id="refMsg" class="msg"></div>
+      </div>
+    </div>
+
+    <div id="dp-leaderboard" class="d-pane">
+      <div class="w-box">
+        <h3>Leaderboard</h3>
+        <div class="t-row"><div><b>1. Top Performer</b><br><small style="color:#64748b">Finance Mastery</small></div><span class="chip blue">#1</span></div>
+        <div class="t-row"><div><b>2. Rising Builder</b><br><small style="color:#64748b">Influence Mastery</small></div><span class="chip">#2</span></div>
+        <div class="t-row"><div><b>3. Consistent Learner</b><br><small style="color:#64748b">Traffic Mastery</small></div><span class="chip">#3</span></div>
+      </div>
+    </div>
+
+    <div id="dp-trainings" class="d-pane">
+      <div class="w-box">
+        <h3>Trainings &amp; Sessions</h3>
+        <div class="t-row"><div><b>Marketing &amp; Funnel Basics</b><br><small style="color:#64748b">Core Foundation Track</small></div><span class="chip blue">Available</span></div>
+        <div class="t-row"><div><b>Client Communication &amp; Closing</b><br><small style="color:#64748b">Practical Skill Track</small></div><span class="chip">Live / Recorded</span></div>
+      </div>
+    </div>
+
+    <div id="dp-vip" class="d-pane">
+      <div class="w-box">
+        <h3>VIP Access</h3>
+        <p style="font-size:12.5px;color:#475569;margin-bottom:10px">Unlock all 85+ modules and priority support with the Finance Mastery (VIP Bundle).</p>
+        <button type="button" class="btn gold" style="margin-top:0" onclick="setDTab('buy')">View VIP Bundle →</button>
+      </div>
+    </div>
+
+    <div id="dp-community" class="d-pane">
+      <div class="w-box">
+        <h3>Community Links</h3>
+        <div class="t-row"><div><b>Official WhatsApp Channel</b><br><small style="color:#64748b">Announcements &amp; updates</small></div><a class="w-btn" style="margin:0" href="https://whatsapp.com/channel/0029Vb7863B6mYPIh021dN1b" target="_blank" rel="noopener noreferrer">Open</a></div>
+        <div class="t-row"><div><b>Direct Support WhatsApp</b><br><small style="color:#64748b">+91 62898 41691</small></div><a class="w-btn" style="margin:0" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Chat</a></div>
+      </div>
+    </div>
+
+    <div id="dp-qualification" class="d-pane">
+      <div class="w-box">
+        <h3>Qualification Status</h3>
+        <p style="font-size:12.5px;color:#475569">Current Package: <b id="qPkgTxt">Starter Member</b></p>
+        <p style="font-size:12.5px;color:#475569;margin-top:4px">Active Team Count: <b id="qTeamTxt">0</b></p>
+      </div>
+    </div>
+
     <div id="dp-profile" class="d-pane">
       <div class="w-box">
         <h3>Edit Profile</h3>
@@ -347,7 +459,6 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 
 <script>
 "use strict";
-// Optional Cloud Sync (JSONBin.io) - fill binId & masterKey for multi-device sync
 const CLOUD_CFG = { binId: "", masterKey: "" };
 
 const K = { users:"tms_users_v7", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7", admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1" };
@@ -369,6 +480,15 @@ const TEAM_SEED = Array.from({length:14}, (_,i) => ({
   pkg: i===7 ? "Traffic Mastery" : i===8 ? "Influence Mastery" : "Marketing Mastery",
   email: "member"+(i+1)+"@tms.com", phone: "98765012"+String(10+i).slice(-2), code: "TMS-TM"+(100+i)
 }));
+const CHART_PTS = [
+  { day:"Nov 14", h:14, refs:0, earn:"₹0" },
+  { day:"Nov 15", h:22, refs:1, earn:"₹200" },
+  { day:"Nov 16", h:12, refs:0, earn:"₹0" },
+  { day:"Nov 17", h:28, refs:2, earn:"₹400" },
+  { day:"Nov 18", h:18, refs:1, earn:"₹200" },
+  { day:"Nov 19", h:25, refs:1, earn:"₹100" },
+  { day:"Nov 20", h:16, refs:0, earn:"₹0" }
+];
 
 let selC = null, resetEm = "", tempImg = "", tPage = 1;
 const rJ = (k,fb) => { try { const v=JSON.parse(localStorage.getItem(k)); return v!==null && v!==undefined ? v : fb; } catch { return fb; } };
@@ -438,7 +558,7 @@ function renderCourses(){
 }
 function renderFaq(){ document.getElementById("faqList").innerHTML = FAQS.map((f,i)=>`<div class="faq-item ${i===0?"open":""}" id="fq-${i}"><button type="button" class="faq-q" onclick="document.getElementById('fq-${i}').classList.toggle('open')"><span>${f.q}</span><span>+</span></button><div class="faq-a">${f.a}</div></div>`).join(""); }
 function syncHeader(){ const u=curUser(); hdrBtn.textContent=u?"Dashboard":"Portal Login"; guestBox.style.display=u?"none":"block"; userBox.style.display=u?"grid":"none"; dLogin.style.display=u?"none":"block"; dDash.style.display=u?"block":"none"; dOut.style.display=u?"block":"none"; }
-function hideViews(){ toggleDrawer(false); closeModal(); siteView.style.display="none"; authView.classList.remove("active"); dashView.classList.remove("active"); }
+function hideViews(){ toggleDrawer(false); toggleSide(false); closeModal(); siteView.style.display="none"; authView.classList.remove("active"); dashView.classList.remove("active"); }
 function showSite(){ applyTheme(); renderCourses(); syncHeader(); hideViews(); siteView.style.display="block"; scrollTo(0,0); }
 function showAuth(mode="login"){ applyTheme(); hideViews(); authView.classList.add("active"); loginBox.style.display=mode==="login"?"block":"none"; forgotBox.style.display=mode==="forgot"?"block":"none"; lMsg.className="msg"; fpMsg.className="msg"; }
 async function showDash(tab="earnings"){
@@ -448,11 +568,27 @@ async function showDash(tab="earnings"){
 }
 function onHdrClick(){ curUser()?showDash("earnings"):showAuth("login"); }
 function toggleDrawer(force){ drawer.classList.toggle("open", typeof force==="boolean"?force:undefined); }
+function toggleSide(force){
+  const open = typeof force==="boolean" ? force : !sideMenu.classList.contains("open");
+  sideMenu.classList.toggle("open", open);
+  sideBackdrop.classList.toggle("open", open);
+}
+function onSideNav(tab){ toggleSide(false); setDTab(tab); }
+
+async function refreshDash(){
+  const btn = document.getElementById("refreshBtn");
+  btn.textContent = "↻ Syncing...";
+  await pullCloud();
+  const u = curUser();
+  if(u) renderDash(u);
+  btn.textContent = "↻ Refresh";
+  document.getElementById("syncNote").textContent = "Synced at " + new Date().toLocaleTimeString();
+}
 
 async function login(){
   await pullCloud();
   const em=lEmail.value.trim().toLowerCase(), pw=lPass.value, adm=getAdminCreds();
-  if(em===String(adm.email||"").toLowerCase() && pw===adm.password){ sessionStorage.setItem(K.admAuth,"1"); window.location.href="admin.html"; return; }
+  if(em===String(adm.email||"").trim().toLowerCase() && pw===adm.password){ sessionStorage.setItem(K.admAuth,"1"); window.location.href="admin.html"; return; }
   const hit=getUsers().find(u=>u.email.toLowerCase()===em && u.password===pw);
   if(!hit) return showM("lMsg","Invalid email or password.");
   sessionStorage.setItem(K.sess, hit.email); syncHeader(); showDash("earnings");
@@ -462,19 +598,34 @@ function sendReset(){ const em=fpEmail.value.trim().toLowerCase(); if(!getUsers(
 function saveReset(){ const n=fpNew.value, c=fpConf.value; if(!resetEm||n.length<6||n!==c) return showM("fpMsg","Password must be 6+ chars and match."); const all=getUsers(); const u=all.find(x=>x.email.toLowerCase()===resetEm); if(u) u.password=n; wJ(K.users,all); pushCloud(); resetEm=""; showAuth("login"); showM("lMsg","Password updated. Login now.","ok"); }
 
 function setDTab(t){
-  document.querySelectorAll(".s-tab").forEach(b=>b.classList.toggle("active",b.dataset.d===t));
-  document.querySelectorAll(".d-pane").forEach(p=>p.classList.toggle("active",p.id==="dp-"+t));
-  const u=curUser(); if(t==="team") renderTeam(); if(t==="profile"&&u){ pName.value=u.name||""; pTag.value=u.tag||""; }
+  const valid = ["earnings","team","courses","buy","affiliate","leaderboard","trainings","vip","community","qualification","profile"];
+  const target = valid.includes(t) ? t : "earnings";
+  document.querySelectorAll(".s-tab").forEach(b=>b.classList.toggle("active",b.dataset.d===target));
+  document.querySelectorAll(".sm-item").forEach(b=>b.classList.toggle("active",b.dataset.m===target));
+  document.querySelectorAll(".d-pane").forEach(p=>p.classList.toggle("active",p.id==="dp-"+target));
+  const u=curUser();
+  if(target==="team") renderTeam();
+  if(target==="profile"&&u){ pName.value=u.name||""; pTag.value=u.tag||""; }
+  if(target==="affiliate"&&u){ refLinkInp.value = `${location.origin}${location.pathname}?ref=${encodeURIComponent(u.studentId||"TMS")}`; }
 }
 function renderAv(el,u){ el.innerHTML = u.photo ? `<img src="${u.photo}" alt="${u.name}">` : (u.name||"S")[0].toUpperCase(); }
+function setChartTip(pt){
+  document.getElementById("chartTip").innerHTML = `<b>${pt.day}</b><span>Referrals: <b>${pt.refs}</b></span><span>Earnings: <b>${pt.earn}</b></span>`;
+}
 function renderDash(u){
   renderAv(dAv,u); dName.textContent=u.name||"Student"; dTag.textContent=u.tag||""; dIdBadge.textContent="ID: "+(u.studentId||"STU");
-  const ord=u.orders||[]; dPkg.textContent=ord.length?ord[ord.length-1].pkg:"Starter Member";
+  const ord=u.orders||[]; dPkg.textContent=ord.length?ord[ord.length-1].pkg:"No Active Package";
   const e=u.earnings||ZERO_E; eToday.textContent=e.today||"₹0"; e7d.textContent=e.sevenDays||"₹0"; e30d.textContent=e.thirtyDays||"₹0"; eAll.textContent=e.allTime||"₹0"; eInd.textContent=e.industrial||"₹0"; eWal.textContent=e.wallet||"₹0";
-  const days=["Nov 14","Nov 15","Nov 16","Nov 17","Nov 18","Nov 19","Nov 20"], hs=[14,22,12,28,18,25,16];
-  chartBars.innerHTML = days.map((d,i)=>`<div class="b-col"><div class="b-fill" style="height:${hs[i]}%"></div><span>${d}</span></div>`).join("");
-  const tm=u.team||[]; recentTeam.innerHTML = tm.length ? tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div></div></div>`).join("") : `<div class="empty-st">Abhi koi team member nahi juda hai.</div>`;
-  myOrders.innerHTML = ord.length ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("") : `<div class="empty-st">Aapne abhi tak koi package enroll nahi kiya hai.</div>`;
+  const tm=u.team||[];
+  const hasAnyEarn = [e.today,e.sevenDays,e.thirtyDays,e.allTime,e.industrial,e.wallet].some(v=>v && v!=="₹0" && v!=="0");
+  const pts = (!hasAnyEarn && !tm.length) ? CHART_PTS.map(p=>({...p, h:6, refs:0, earn:"₹0"})) : CHART_PTS;
+  chartBars.innerHTML = pts.map((p,i)=>`<div class="b-col" onclick="setChartTip(CHART_PTS[${i}])" onmouseover="setChartTip(CHART_PTS[${i}])"><div class="b-fill" style="height:${p.h}%"></div><span>${p.day}</span></div>`).join("");
+  setChartTip(pts[5]);
+  recentTeam.innerHTML = tm.length ? tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div></div></div>`).join("") : `<div class="empty-st">Nothing here yet — no team members added.</div>`;
+  myOrders.innerHTML = ord.length ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("") : `<div class="empty-st">Nothing here yet — no packages enrolled.</div>`;
+  document.getElementById("qPkgTxt").textContent = ord.length ? ord[ord.length-1].pkg : "No Active Package";
+  document.getElementById("qTeamTxt").textContent = tm.length;
+  document.getElementById("smFoot").innerHTML = `<div class="t-av">${(u.name||"S")[0].toUpperCase()}</div><div><b style="font-size:12.5px;color:#0f172a">${u.name||"Student"} ${u.tag||""}</b><br><small style="color:#64748b;font-size:11px">${u.studentId||""}</small></div>`;
   renderTeam();
 }
 function renderTeam(){
@@ -482,7 +633,7 @@ function renderTeam(){
   const fil=tm.filter(m=>!q||((m.name||"")+(m.email||"")+(m.phone||"")+(m.pkg||"")).toLowerCase().includes(q));
   const pages=Math.max(1,Math.ceil(fil.length/per)); tPage=Math.min(Math.max(1,tPage),pages);
   const s=(tPage-1)*per, e=Math.min(s+per,fil.length), slice=fil.slice(s,e);
-  teamList.innerHTML = slice.length ? slice.map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div><div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div></div>`).join("") : `<div class="empty-st">Search se match karta koi member nahi mila.</div>`;
+  teamList.innerHTML = slice.length ? slice.map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div><div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div></div>`).join("") : `<div class="empty-st">Nothing to show.</div>`;
   tInfo.textContent = fil.length ? `Showing ${s+1}-${e} of ${fil.length} (Page ${tPage}/${pages})` : "Showing 0 of 0";
   let btns=`<button type="button" class="pg-btn" onclick="tPage--;renderTeam()" ${tPage<=1?"disabled":""}>&lt;</button>`;
   for(let p=1;p<=pages;p++) btns+=`<button type="button" class="pg-btn ${p===tPage?"active":""}" onclick="tPage=${p};renderTeam()">${p}</button>`;

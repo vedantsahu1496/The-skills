@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#b47b13">
 <meta name="description" content="The Millionaire Skill — Structured practical skill tracks in Marketing, Branding, Traffic, Communication, and Finance.">
 <title>The Millionaire Skill | Skill Academy</title>
 <style>
@@ -12,50 +13,56 @@ body.t-light{--bg:#fff;--surf:#fff;--card:#f8f7f4;--bdr:#e2ddd2;--gold:#a16207;-
 *{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Inter,Arial,sans-serif;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 input,textarea,select,.selectable{user-select:text;-webkit-user-select:text}
 html{scroll-behavior:smooth;touch-action:pan-y}
-body{background:var(--bg);color:var(--txt);line-height:1.55;overflow-x:hidden;touch-action:pan-y}
+body{background:var(--bg);color:var(--txt);line-height:1.55;overflow-x:hidden;touch-action:pan-y;transition:background .2s ease,color .2s ease}
 a{text-decoration:none;color:inherit}
-button{cursor:pointer;font-family:inherit;outline:none}
+button{cursor:pointer;font-family:inherit;outline:none;transition:transform .14s ease,opacity .15s ease,background .15s ease}
+button:active{transform:scale(.98)}
 
 #preloader{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:opacity .2s ease,visibility .2s ease}
 #preloader.hide{opacity:0;visibility:hidden;pointer-events:none}
 .loader-ring{width:36px;height:36px;border-radius:50%;border:3px solid var(--bdr);border-top-color:var(--gold-br);animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+@keyframes popIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
 
 .reveal{opacity:1;transform:none}
 
-#toastWrap{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:500;display:flex;flex-direction:column;gap:6px;width:calc(100% - 32px);max-width:360px;pointer-events:none}
-.toast{pointer-events:auto;background:#0b0b0c;color:#fff;border:1px solid var(--gold-br);border-radius:10px;padding:10px 12px;font-size:12px;font-weight:600;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:8px}
+#toastWrap{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:550;display:flex;flex-direction:column;gap:6px;width:calc(100% - 32px);max-width:380px;pointer-events:none}
+.toast{pointer-events:auto;background:#0b0b0c;color:#fff;border:1px solid var(--gold-br);border-radius:10px;padding:10px 12px;font-size:12px;font-weight:600;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:8px;animation:popIn .2s ease}
 .toast.ok{border-color:#22c55e}.toast.err{border-color:#ef4444}
 
-.hdr{position:sticky;top:0;z-index:90;background:var(--surf);padding:8px 12px;border-bottom:1.5px solid var(--gold-br);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.hdr{position:sticky;top:0;z-index:90;background:var(--surf);padding:8px 12px;border-bottom:1.5px solid var(--gold-br);display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:62px}
 .brand-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0;min-width:0}
-.brand-banner{height:40px;width:auto;max-width:190px;object-fit:contain;border-radius:8px;display:block;background:#fff;padding:2px 4px;border:1px solid var(--bdr)}
-.brand-banner.sm{height:28px;max-width:125px}
+.brand-banner{height:48px;width:auto;max-width:215px;object-fit:contain;border-radius:9px;display:block;background:#fff;padding:2px 5px;border:1.5px solid var(--gold-br)}
+.brand-banner.sm{height:34px;max-width:155px}
 .brand-styled{display:flex;flex-direction:column;line-height:1.1;min-width:0}
 .brand-styled b{font-family:Georgia,'Times New Roman',serif;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap}
 .brand-styled b .m-word{font-style:italic;font-weight:900;color:var(--gold);padding:0 1px}
 .brand-styled b .s-word{font-family:'Segoe UI',Inter,Arial,sans-serif;font-weight:900;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:var(--gold);margin-left:2px}
 .brand-styled small{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--mut);margin-top:2px;white-space:nowrap}
 
-.desk-nav{display:none;align-items:center;gap:18px;font-size:13px;font-weight:600;color:var(--mut)}
-.desk-nav a:hover{color:var(--ink)}
+.desk-nav{display:none;align-items:center;gap:14px;font-size:12.5px;font-weight:700;color:var(--mut)}
+.desk-nav a:hover{color:var(--gold)}
 
-.hdr-r{display:flex;gap:6px;align-items:center;position:relative;flex-shrink:0}
-.theme-btn,.m-btn{background:var(--card);color:var(--ink);border:1px solid var(--bdr);border-radius:8px;height:36px;font-weight:700}
-.theme-btn{padding:0 9px;font-size:11.5px;display:inline-flex;align-items:center;gap:4px}
+.hdr-r{display:flex;gap:5px;align-items:center;position:relative;flex-shrink:0}
+.theme-btn,.m-btn,.icon-btn{background:var(--card);color:var(--ink);border:1px solid var(--bdr);border-radius:8px;height:36px;font-weight:700;position:relative}
+.theme-btn{padding:0 8px;font-size:11px;display:inline-flex;align-items:center;gap:4px}
+.icon-btn{width:36px;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
 .m-btn{border-color:var(--gold-br);width:36px;font-size:18px}
-.drawer{display:none;position:absolute;top:44px;right:0;width:220px;background:var(--surf);padding:8px 12px;border:1.5px solid var(--gold-br);border-radius:12px;box-shadow:var(--shadow);z-index:120}
+.badge-dot{position:absolute;top:-4px;right:-4px;min-width:16px;height:16px;padding:0 4px;border-radius:99px;background:#dc2626;color:#fff;font-size:10px;font-weight:800;display:none;align-items:center;justify-content:center}
+.badge-dot.show{display:inline-flex}
+.drawer{display:none;position:absolute;top:44px;right:0;width:230px;background:var(--surf);padding:8px 12px;border:1.5px solid var(--gold-br);border-radius:12px;box-shadow:var(--shadow);z-index:120;animation:popIn .16s ease}
 .drawer.open{display:block}
 .drawer a{display:block;padding:8px 6px;border-bottom:1px solid var(--bdr);font-size:13px;font-weight:600;color:var(--txt)}
 .drawer a:last-child{border-bottom:none}
 
 .btn{display:block;width:100%;padding:10px 14px;border:0;border-radius:10px;margin-top:10px;font-weight:700;font-size:13.5px;text-align:center}
-.btn-sm{display:inline-block;width:auto;margin:0;padding:7px 12px;font-size:12px;border-radius:8px}
+.btn-sm{display:inline-block;width:auto;margin:0;padding:7px 11px;font-size:12px;border-radius:8px}
 .gold{background:linear-gradient(135deg,#d49b27,#b47b13);color:#fff}
 .dark{background:#0b0b0c;color:#fff;border:1px solid #0b0b0c}
 body.t-midnight .dark{background:var(--card);color:var(--txt);border:1px solid var(--gold-br)}
 .green{background:#15803d;color:#fff}
 .red{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
+.ghost-btn{background:var(--card);color:var(--ink);border:1px solid var(--bdr)}
 
 .lbl{display:block;font-size:12px;font-weight:700;margin-bottom:4px;color:var(--mut)}
 .inp{width:100%;padding:10px 12px;background:var(--card);color:var(--txt);border:1px solid var(--bdr);border-radius:9px;margin-bottom:10px;font-size:13.5px}
@@ -66,27 +73,27 @@ body.t-midnight .dark{background:var(--card);color:var(--txt);border:1px solid v
 .msg.ok{display:block;background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
 .msg.warn{display:block;background:#fffbeb;color:#b45309;border:1px solid #fde68a}
 
-.hero{padding:38px 16px 32px;border-bottom:1px solid var(--bdr);background:var(--gold-soft)}
-.hero-in{max-width:620px;margin:auto;text-align:center}
+.hero{padding:36px 16px 30px;border-bottom:1px solid var(--bdr);background:var(--gold-soft)}
+.hero-in{max-width:640px;margin:auto;text-align:center}
 .trust-pill{display:inline-block;padding:5px 13px;border:1px solid var(--gold-br);background:var(--surf);border-radius:99px;color:var(--ink);font-size:11.5px;font-weight:700}
 .hero-crest{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:7px 16px;border-radius:999px;background:#0b0b0c;color:#fff;border:1.5px solid var(--gold-br);font-family:Georgia,'Times New Roman',serif;font-size:13.5px;font-weight:700}
 .hero-crest em{font-style:italic;color:var(--gold-br);font-weight:900}
 .hero-crest span{font-family:'Segoe UI',Inter,Arial,sans-serif;font-weight:900;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#f5c85c}
 .hero h1{font-size:27px;line-height:1.22;margin:12px 0 8px;font-weight:900;color:var(--ink)}
 .hero h1 span{color:var(--gold)}
-.hero p{color:var(--mut);font-size:13.5px;max-width:490px;margin:auto}
-.hero-act{max-width:390px;margin:16px auto 0}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:520px;margin:22px auto 0}
+.hero p{color:var(--mut);font-size:13.5px;max-width:520px;margin:auto}
+.hero-act{max-width:420px;margin:16px auto 0}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:540px;margin:22px auto 0}
 .stat{padding:12px 14px;background:var(--surf);border:1px solid var(--bdr);border-top:2.5px solid var(--gold-br);border-radius:12px;text-align:left}
 .stat b{display:block;color:var(--ink);font-size:17px;font-weight:800}.stat span{font-size:12px;color:var(--mut)}
 
-.sec{max-width:580px;margin:auto;padding:28px 16px}
+.sec{max-width:600px;margin:auto;padding:28px 16px}
 .sec-h{text-align:center;margin-bottom:16px}
 .sec-h h2{font-size:20px;font-weight:800;color:var(--ink)}.sec-h p{color:var(--mut);font-size:13px;margin-top:4px}
 
 .filter-bar{background:var(--surf);border:1px solid var(--bdr);border-radius:14px;padding:12px;margin-bottom:16px;display:flex;flex-direction:column;gap:10px}
 .filter-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.filter-row .inp{flex:1;min-width:180px;margin-bottom:0}.filter-row .sel-mini{width:auto;min-width:135px;margin-bottom:0}
+.filter-row .inp{flex:1;min-width:170px;margin-bottom:0}.filter-row .sel-mini{width:auto;min-width:140px;margin-bottom:0}
 .cat-pills{display:flex;gap:7px;flex-wrap:wrap}
 .cat-pill{background:var(--card);color:var(--mut);border:1px solid var(--bdr);border-radius:99px;padding:5px 12px;font-size:12px;font-weight:700}
 .cat-pill.active,.cat-pill:hover{background:#0b0b0c;color:#f5c85c;border-color:#0b0b0c}
@@ -100,22 +107,26 @@ body.t-midnight .cat-pill.active,body.t-midnight .cat-pill:hover{background:var(
 .mission-box{background:var(--gold-soft);border:1px solid rgba(180,123,19,.35);border-radius:12px;padding:12px 14px}
 .mission-box b{display:block;font-size:13px;margin-bottom:3px;color:var(--ink)}.mission-box span{font-size:12.5px;color:var(--mut)}
 
-.card{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:15px;margin-bottom:14px;display:flex;flex-direction:column;justify-content:space-between}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:15px;margin-bottom:14px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .card.vip{border:1.5px solid var(--gold-br);background:linear-gradient(180deg,var(--gold-soft),var(--surf) 38%)}
-.img-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:6px;margin-bottom:10px;text-align:center}
+.img-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:6px;margin-bottom:10px;text-align:center;position:relative}
 .img-wrap img{width:100%;max-width:300px;height:165px;object-fit:cover;border-radius:8px;display:block;margin:auto}
-.row-sp{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.wish-btn{position:absolute;top:12px;right:12px;background:rgba(11,11,12,.78);color:#fff;border:1px solid var(--gold-br);border-radius:99px;padding:4px 9px;font-size:11px;font-weight:700}
+.wish-btn.saved{background:var(--gold-br);color:#0b0b0c}
+.row-sp{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .pill{color:var(--ink);background:var(--gold-soft);font-size:11px;font-weight:700;border:1px solid rgba(180,123,19,.35);padding:3px 9px;border-radius:99px}
 .save{color:var(--gold);font-size:11px;font-weight:800}
 .c-t{font-size:16.5px;font-weight:800;margin-top:8px;color:var(--ink)}.c-d{font-size:12.5px;color:var(--mut);margin:5px 0 10px}
 .c-m{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);font-size:12px;color:var(--mut)}
 .c-p{font-size:19px;color:var(--ink);font-weight:900;margin-top:8px}.c-p s{font-size:12px;color:var(--mut);font-weight:400;margin-left:4px}
+.card-act-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
 
 .testi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px}
 .testi-stars{color:var(--gold);font-weight:800}.testi-card p{font-size:13px;color:var(--txt);margin-bottom:8px}.testi-meta{font-size:12px;color:var(--mut);font-weight:600}
 
 .tbl-wrap{overflow-x:auto;background:var(--surf);border:1px solid var(--bdr);border-radius:14px}
-table.cmp{width:100%;border-collapse:collapse;font-size:12.5px;min-width:450px}
+table.cmp{width:100%;border-collapse:collapse;font-size:12.5px;min-width:520px}
 table.cmp th,table.cmp td{padding:10px 12px;border-bottom:1px solid var(--bdr);text-align:left}
 table.cmp th{color:var(--ink);background:var(--card);font-weight:800}table.cmp tr:last-child td{border-bottom:none}
 
@@ -136,54 +147,60 @@ table.cmp th{color:var(--ink);background:var(--card);font-weight:800}table.cmp t
 .auth-photo-placeholder span{font-size:11.5px;color:#e4e4e7}
 .auth-box{width:100%;max-width:420px;background:var(--surf);border:1.5px solid var(--gold-br);border-radius:16px;padding:20px 18px;box-shadow:var(--shadow)}
 
-#dashView{display:none;min-height:100vh;background:#faf9f6;color:#0b0b0c;padding-bottom:40px}
+#dashView{display:none;min-height:100vh;background:#faf9f6;color:#0b0b0c;padding-bottom:44px}
 #dashView.active{display:block}
-.d-wrap{max-width:560px;margin:auto;padding:12px 14px}
+.d-wrap{max-width:600px;margin:auto;padding:12px 14px}
 .d-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
 .chip{background:#fff;color:#0b0b0c;border:1px solid #d6cfc2;border-radius:99px;padding:6px 12px;font-size:12px;font-weight:700}
-.chip.blue{background:#0b0b0c;color:#f5c85c;border-color:#0b0b0c}.chip.red{background:#fef2f2;color:#b91c1c;border-color:#fecaca}
+.chip.blue{background:#0b0b0c;color:#f5c85c;border-color:#0b0b0c}.chip.red{background:#fef2f2;color:#b91c1c;border-color:#fecaca}.chip.ok{background:#f0fdf4;color:#15803d;border-color:#bbf7d0}
 .w-card,.p-card,.w-box{background:#fff;border-radius:16px;padding:14px 16px;border:1px solid #e6dfd1;margin-bottom:12px}
 .w-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:#fff;color:#0b0b0c;border:1px solid #d6cfc2;border-radius:10px;padding:7px 13px;font-size:12.5px;font-weight:700}
 .p-card{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .av{width:54px;height:54px;border-radius:50%;background:#0b0b0c;color:#f5c85c;border:1.5px solid #d49b27;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;overflow:hidden;flex-shrink:0}
 .av img{width:100%;height:100%;object-fit:cover}
 .m-btn-sm{background:#fdf6e7;color:#0b0b0c;border:1px solid #d49b27;border-radius:8px;padding:6px 10px;font-size:11.5px;font-weight:700}
-.sub-tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
+.sub-tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px}
 .s-tab{background:#fff;color:#3f3f46;border:1px solid #d6cfc2;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:700;white-space:nowrap}
 .s-tab.active{background:#0b0b0c;color:#f5c85c;border-color:#0b0b0c}
-.d-pane{display:none}.d-pane.active{display:block}
+.d-pane{display:none;animation:popIn .18s ease}.d-pane.active{display:block}
 .e-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.e-card{background:#fff;color:#0b0b0c;border:1px solid #e6dfd1;border-top:3px solid #d49b27;border-radius:14px;padding:13px;min-height:96px;display:flex;flex-direction:column;justify-content:space-between}
-.e-card.full{grid-column:1/-1;min-height:84px}
-.e-card small{color:#52525b;font-size:12px;font-weight:600}.e-card b{font-size:20px;font-weight:900;display:block;margin-top:2px}
-.w-box h3{font-size:15px;color:#0b0b0c;margin-bottom:4px}.w-box .lbl{color:#3f3f46}.w-box .inp{background:#faf8f3;color:#0b0b0c;border:1px solid #d6cfc2}
+.e-card{background:#fff;color:#0b0b0c;border:1px solid #e6dfd1;border-top:3px solid #d49b27;border-radius:14px;padding:13px;min-height:92px;display:flex;flex-direction:column;justify-content:space-between}
+.e-card.full{grid-column:1/-1;min-height:80px}
+.e-card small{color:#52525b;font-size:12px;font-weight:600}.e-card b{font-size:19px;font-weight:900;display:block;margin-top:2px}
+.w-box h3{font-size:15px;color:#0b0b0c;margin-bottom:6px}.w-box .lbl{color:#3f3f46}.w-box .inp{background:#faf8f3;color:#0b0b0c;border:1px solid #d6cfc2}
 .empty-st{text-align:center;padding:16px 10px;color:#52525b;font-size:13px;font-weight:600;background:#faf8f3;border:1px dashed #d6cfc2;border-radius:12px}
 .bars{height:130px;border-radius:12px;background:#faf8f3;border:1px solid #e6dfd1;padding:10px;display:flex;align-items:flex-end;justify-content:space-between;gap:6px;margin-top:10px}
 .b-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;cursor:pointer}
 .b-fill{width:100%;max-width:24px;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#d49b27,#0b0b0c);min-height:6px}
 .b-col span{font-size:10px;color:#52525b;font-weight:600}
 .c-tip{background:#faf8f3;border:1px solid #e6dfd1;border-radius:10px;padding:8px 12px;margin-top:8px;font-size:12px;color:#0b0b0c;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.t-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #f1ece1}.t-row:last-child{border-bottom:none}
+.t-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #f1ece1;flex-wrap:wrap}.t-row:last-child{border-bottom:none}
 .t-av{width:36px;height:36px;border-radius:50%;background:#0b0b0c;color:#f5c85c;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+.prog-track{width:100%;height:8px;background:#ece6d8;border-radius:99px;overflow:hidden;margin-top:6px}
+.prog-fill{height:100%;background:linear-gradient(90deg,#d49b27,#15803d);border-radius:99px}
+.badge-chip{display:inline-flex;align-items:center;gap:4px;background:#fdf6e7;border:1px solid #d49b27;color:#0b0b0c;border-radius:99px;padding:4px 10px;font-size:11.5px;font-weight:700;margin:3px 4px 0 0}
 .pg-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid #e6dfd1;font-size:12px;color:#52525b}
 .pg-btn{min-width:30px;height:30px;padding:0 8px;border-radius:8px;border:1px solid #d6cfc2;background:#fff;color:#0b0b0c;font-weight:700}
 .pg-btn.active{background:#0b0b0c;color:#f5c85c;border-color:#0b0b0c}.pg-btn:disabled{opacity:.4}
 
 .side-backdrop{display:none;position:fixed;inset:0;background:rgba(11,11,12,.45);z-index:150}.side-backdrop.open{display:block}
-.side-menu{position:fixed;top:0;left:-280px;width:270px;height:100vh;background:#fff;color:#0b0b0c;z-index:160;padding:16px 14px;overflow-y:auto;box-shadow:6px 0 24px rgba(0,0,0,.18);transition:left .18s ease;display:flex;flex-direction:column;justify-content:space-between;border-right:1.5px solid #d49b27}
+.side-menu{position:fixed;top:0;left:-285px;width:275px;height:100vh;background:#fff;color:#0b0b0c;z-index:160;padding:16px 14px;overflow-y:auto;box-shadow:6px 0 24px rgba(0,0,0,.18);transition:left .18s ease;display:flex;flex-direction:column;justify-content:space-between;border-right:1.5px solid #d49b27}
 .side-menu.open{left:0}
 .sm-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid #e6dfd1;margin-bottom:8px}
 .sm-lbl{font-size:11px;font-weight:800;color:#71717a;margin-bottom:6px;text-transform:uppercase}
-.sm-item{width:100%;background:none;border:0;text-align:left;padding:9px 10px;border-radius:9px;font-size:13px;font-weight:600;color:#18181b;display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.sm-item{width:100%;background:none;border:0;text-align:left;padding:8px 10px;border-radius:9px;font-size:12.5px;font-weight:600;color:#18181b;display:flex;align-items:center;gap:8px;margin-bottom:2px}
 .sm-item:hover,.sm-item.active{background:#fdf6e7;color:#0b0b0c;font-weight:700}
 .sm-foot{border-top:1px solid #e6dfd1;padding-top:10px;margin-top:12px;display:flex;align-items:center;gap:10px}
 
-.modal{display:none;position:fixed;inset:0;background:rgba(11,11,12,.65);z-index:200;overflow-y:auto;padding:20px 14px}
+.modal{display:none;position:fixed;inset:0;background:rgba(11,11,12,.68);z-index:220;overflow-y:auto;padding:20px 14px}
 .modal.open{display:flex;align-items:flex-start;justify-content:center}
-.m-panel{width:100%;max-width:430px;margin:auto;background:var(--surf);color:var(--txt);border:1.5px solid var(--gold-br);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.m-panel{width:100%;max-width:490px;margin:auto;background:var(--surf);color:var(--txt);border:1.5px solid var(--gold-br);border-radius:16px;padding:18px;box-shadow:var(--shadow);animation:popIn .18s ease}
 .qr-box{background:#fff;color:#111;border:1px solid #e6dfd1;padding:12px;border-radius:12px;text-align:center;margin:10px 0}
 .qr-box img{width:150px;height:150px;display:block;margin:8px auto}
 .sum-box{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:12.5px}
+.lesson-box{background:#0b0b0c;color:#fff;border-radius:12px;padding:14px;margin:10px 0;border:1px solid var(--gold-br)}
+.lesson-item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--bdr);border-radius:9px;margin-bottom:6px;font-size:12.5px;background:var(--card)}
+.lesson-item.active{border-color:var(--gold-br);background:var(--gold-soft)}
 
 footer{text-align:center;background:var(--card);padding:26px 15px 38px;border-top:1.5px solid var(--gold-br);color:var(--mut);font-size:13px}
 footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
@@ -194,11 +211,11 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 .top-btn.show{opacity:1;pointer-events:auto}
 
 @media(min-width:700px){
-  .desk-nav{display:flex}.sec{max-width:860px}
+  .desk-nav{display:flex}.sec{max-width:880px}
   .steps-grid,.testi-grid{grid-template-columns:repeat(3,1fr)}
   .c-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .hero h1{font-size:35px}
-  .brand-banner{max-width:225px;height:42px}
+  .brand-banner{max-width:255px;height:52px}
 }
 </style>
 </head>
@@ -213,11 +230,16 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       <img class="brand-banner" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" fetchpriority="high" decoding="sync">
     </a>
     <nav class="desk-nav" aria-label="Primary Navigation">
-      <a href="#how-it-works">How It Works</a><a href="#courses">Skill Tracks</a><a href="#testimonials">Reviews</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#courses">Skill Tracks</a>
+      <a href="#compare">Compare</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="hdr-r">
+      <button type="button" class="icon-btn" id="notifBtn" aria-label="Notifications" onclick="openNotificationsModal()">🔔<span class="badge-dot" id="notifBadge">0</span></button>
       <button type="button" class="theme-btn" id="themeBtn" onclick="cycleTheme()">🌓 <span id="themeLbl">Theme</span></button>
-      <button type="button" class="btn gold" id="hdrBtn" style="width:auto;margin:0;padding:8px 13px" onclick="onHdrClick()">Login</button>
+      <button type="button" class="btn gold" id="hdrBtn" style="width:auto;margin:0;padding:8px 12px" onclick="onHdrClick()">Login</button>
       <button type="button" class="m-btn" aria-label="Open Menu" onclick="toggleDrawer()">☰</button>
       <div class="drawer" id="drawer">
         <a href="#how-it-works" onclick="toggleDrawer(false)">How It Works</a>
@@ -268,12 +290,23 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     </section>
 
     <section class="sec reveal" id="courses">
-      <div class="sec-h"><h2>Skill Tracks &amp; Programs</h2><p>Search by topic, filter by track level, or sort by price</p></div>
+      <div class="sec-h"><h2>Skill Tracks &amp; Programs</h2><p>Search by topic, filter by category/price, or sort by price, rating, popularity &amp; latest</p></div>
       <div class="filter-bar">
         <div class="filter-row">
-          <input id="courseSearch" class="inp" type="search" placeholder="Search tracks (press / to focus)..." oninput="renderCourses()">
+          <input id="courseSearch" class="inp" type="search" placeholder="Search tracks, keywords, category (press / to focus)..." oninput="renderCourses()">
+          <select id="priceFilter" class="inp sel-mini" onchange="renderCourses()">
+            <option value="all">All Prices</option>
+            <option value="under3k">Under ₹3,000</option>
+            <option value="3kTo10k">₹3,000 – ₹10,000</option>
+            <option value="above10k">Above ₹10,000</option>
+          </select>
           <select id="courseSort" class="inp sel-mini" onchange="renderCourses()">
-            <option value="default">Default Order</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option>
+            <option value="default">Default Order</option>
+            <option value="popular">Most Popular</option>
+            <option value="rating">Highest Rated</option>
+            <option value="latest">Latest Tracks</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
           </select>
         </div>
         <div class="cat-pills" id="catPills">
@@ -287,8 +320,8 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     </section>
 
     <section class="sec reveal" id="testimonials">
-      <div class="sec-h"><h2>Learner Feedback</h2><p>Sample feedback structure showing how learners share study notes</p></div>
-      <div class="testi-grid">
+      <div class="sec-h"><h2>Learner Feedback &amp; Reviews</h2><p>Verified learner reviews &amp; sample feedback entries</p></div>
+      <div class="testi-grid" id="reviewsGrid">
         <div class="testi-card"><div class="testi-top"><span class="pill">Sample Entry</span><span class="testi-stars">★★★★★</span></div><p>"Clear structure without fluff. Breaking marketing and funnel basics into small lessons made daily practice easier."</p><div class="testi-meta">Rohan M. • Marketing Track</div></div>
         <div class="testi-card"><div class="testi-top"><span class="pill">Sample Entry</span><span class="testi-stars">★★★★★</span></div><p>"Helpful for organizing content ideas and communication steps at my own pace on mobile."</p><div class="testi-meta">Ananya S. • Branding Track</div></div>
         <div class="testi-card"><div class="testi-top"><span class="pill">Sample Entry</span><span class="testi-stars">★★★★☆</span></div><p>"Transparent checkout and easy portal view to keep track of enrollments and support queries."</p><div class="testi-meta">Deepak K. • Bundle Learner</div></div>
@@ -300,11 +333,13 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <h3>About The Millionaire Skill</h3>
         <p>We focus on clear, structured, and practical digital skill education without confusing jargon or unrealistic promises. Every track is organized so learners can study at their own pace and apply concepts consistently.</p>
         <div class="mission-box"><b>Our Approach</b><span>Keep lessons practical, documentation clear, pricing transparent, and support responsive for every enrolled learner.</span></div>
+        <div class="note" style="margin-top:10px;margin-bottom:0"><b>Platform Mode (Demo):</b> Currently running on LocalStorage without a live backend server. Real payment verification, role security, and server-side exam/certificate validation require connecting Firebase / a backend API.</div>
       </div>
     </section>
 
     <section class="sec reveal" id="compare">
-      <div class="sec-h"><h2>Track Overview</h2><p>Compare scope and pricing across available tracks</p></div>
+      <div class="sec-h"><h2>Track Comparison &amp; Overview</h2><p>Compare scope, rating, and pricing across available tracks</p></div>
+      <div id="selectedCmpBox" class="note" style="display:none"></div>
       <div class="tbl-wrap"><table class="cmp" id="cmpTable"></table></div>
     </section>
 
@@ -364,7 +399,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   <div class="auth-box">
     <div id="loginBox">
       <h2 style="font-size:18px;margin-bottom:4px">Login</h2>
-      <div class="note selectable">Demo Student: <b>student1@tms.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b></div>
+      <div class="note selectable">Demo Student: <b>student1@tms.com</b> / <b>pass1</b> • Admin: <b>admin@tms.com</b> / <b>admin123</b><br><small>Note: Client-side login is for local demo only; connect Firebase Auth for production security.</small></div>
       <label class="lbl">Email Address</label><input id="lEmail" class="inp" type="email" placeholder="name@example.com">
       <label class="lbl">Password</label><input id="lPass" class="inp" type="password" placeholder="Enter password">
       <button type="button" class="btn gold" onclick="login()">Login →</button>
@@ -400,15 +435,20 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       <div class="sm-lbl">Portal Menu</div>
       <button type="button" class="sm-item active" data-m="earnings" onclick="onSideNav('earnings')">Overview &amp; Summary</button>
       <button type="button" class="sm-item" data-m="team" onclick="onSideNav('team')">Referred Learners</button>
-      <button type="button" class="sm-item" data-m="affiliate" onclick="onSideNav('affiliate')">Invite Link</button>
+      <button type="button" class="sm-item" data-m="affiliate" onclick="onSideNav('affiliate')">Invite Link &amp; Referral</button>
       <button type="button" class="sm-item" data-m="buy" onclick="onSideNav('buy')">Enroll in Track</button>
+      <button type="button" class="sm-item" data-m="courses" onclick="onSideNav('courses')">My Courses &amp; Progress</button>
+      <button type="button" class="sm-item" data-m="wishlist" onclick="onSideNav('wishlist')">Wishlist</button>
+      <button type="button" class="sm-item" data-m="payments" onclick="onSideNav('payments')">Orders &amp; Payments</button>
+      <button type="button" class="sm-item" data-m="quizcert" onclick="onSideNav('quizcert')">Quiz &amp; Certificate</button>
+      <button type="button" class="sm-item" data-m="support" onclick="onSideNav('support')">Support &amp; Doubts</button>
       <button type="button" class="sm-item" data-m="leaderboard" onclick="onSideNav('leaderboard')">Activity Standing</button>
       <button type="button" class="sm-item" data-m="trainings" onclick="onSideNav('trainings')">Learning Modules</button>
-      <button type="button" class="sm-item" data-m="courses" onclick="onSideNav('courses')">My Enrollments</button>
       <button type="button" class="sm-item" data-m="vip" onclick="onSideNav('vip')">Full Bundle Access</button>
       <button type="button" class="sm-item" data-m="community" onclick="onSideNav('community')">Community &amp; Help</button>
       <button type="button" class="sm-item" data-m="qualification" onclick="onSideNav('qualification')">Track Status</button>
       <button type="button" class="sm-item" data-m="profile" onclick="onSideNav('profile')">Account Settings</button>
+      <button type="button" class="sm-item" id="adminMenuBtn" style="display:none;color:#b47b13" data-m="adminpanel" onclick="onSideNav('adminpanel')">Admin Panel (Demo)</button>
     </div>
     <div class="sm-foot" id="smFoot"></div>
   </aside>
@@ -439,6 +479,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <div>
           <div style="font-size:18px;font-weight:800;color:#0b0b0c"><span id="dName">Learner</span> <span style="color:#b47b13;font-size:13px" id="dTag"></span></div>
           <div style="font-size:12.5px;color:#52525b;font-weight:600" id="dPkg">Nothing</div>
+          <div style="margin-top:4px" id="streakBadges"></div>
         </div>
       </div>
       <div style="display:flex;gap:6px">
@@ -456,10 +497,14 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 
     <div class="sub-tabs">
       <button type="button" class="s-tab active" data-d="earnings" onclick="setDTab('earnings')">Overview</button>
+      <button type="button" class="s-tab" data-d="courses" onclick="setDTab('courses')">My Courses</button>
+      <button type="button" class="s-tab" data-d="wishlist" onclick="setDTab('wishlist')">Wishlist</button>
+      <button type="button" class="s-tab" data-d="payments" onclick="setDTab('payments')">Orders &amp; Pay</button>
+      <button type="button" class="s-tab" data-d="quizcert" onclick="setDTab('quizcert')">Quiz &amp; Cert</button>
+      <button type="button" class="s-tab" data-d="affiliate" onclick="setDTab('affiliate')">Referral</button>
+      <button type="button" class="s-tab" data-d="support" onclick="setDTab('support')">Support</button>
       <button type="button" class="s-tab" data-d="team" onclick="setDTab('team')">Referred Learners</button>
-      <button type="button" class="s-tab" data-d="courses" onclick="setDTab('courses')">My Enrollments</button>
       <button type="button" class="s-tab" data-d="buy" onclick="setDTab('buy')">Enroll Track</button>
-      <button type="button" class="s-tab" data-d="affiliate" onclick="setDTab('affiliate')">Invite Link</button>
       <button type="button" class="s-tab" data-d="profile" onclick="setDTab('profile')">Account</button>
     </div>
 
@@ -469,8 +514,14 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <div class="e-card"><small>7 Days Summary</small><b id="e7d">₹0</b></div>
         <div class="e-card"><small>30 Days Summary</small><b id="e30d">₹0</b></div>
         <div class="e-card"><small>All Time Summary</small><b id="eAll">₹0</b></div>
-        <div class="e-card full"><small>Program Bonus Summary</small><b id="eInd">₹0</b></div>
-        <div class="e-card full"><small>Available Balance</small><b id="eWal">₹0</b></div>
+        <div class="e-card full"><small>Program Bonus &amp; Referral Summary</small><b id="eInd">₹0</b></div>
+        <div class="e-card full"><small>Available Balance &amp; Daily Streak</small><b id="eWal">₹0 • 0d Streak</b></div>
+      </div>
+      <div class="w-box">
+        <h3>Learning Streak &amp; Achievement Badges</h3>
+        <p id="streakDesc" style="font-size:12px;color:#52525b">Log study activity or watch a lesson to build your daily learning streak.</p>
+        <div id="badgeShelf" style="margin-top:8px"></div>
+        <button type="button" class="w-btn" onclick="recordDailyStudy()">🔥 Check-in Today's Study</button>
       </div>
       <div class="w-box">
         <h3>Activity &amp; Referral Trend</h3>
@@ -482,6 +533,77 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <h3>Recent Referred Learners</h3>
         <div id="recentTeam"></div>
         <button type="button" class="w-btn" style="width:100%;justify-content:center" onclick="setDTab('team')">View Full List</button>
+      </div>
+    </div>
+
+    <div id="dp-courses" class="d-pane">
+      <div class="w-box">
+        <div class="row-sp" style="margin-bottom:10px;flex-wrap:wrap">
+          <h3 style="margin:0">My Courses, Purchased &amp; Learning Progress</h3>
+          <select id="ordFilter" class="inp" style="width:auto;margin:0;padding:6px 10px;font-size:12px" onchange="if(curUser())renderDash(curUser())">
+            <option value="all">All Status</option><option value="Active">Active (Unlocked)</option><option value="Pending Verification">Pending Verification</option>
+          </select>
+        </div>
+        <div id="myCoursesProgress"></div>
+        <hr style="border:0;border-top:1px solid #e6dfd1;margin:14px 0">
+        <h3>Enrollment Orders</h3>
+        <div id="myOrders"></div>
+      </div>
+    </div>
+
+    <div id="dp-wishlist" class="d-pane">
+      <div class="w-box">
+        <h3>Saved Wishlist Courses</h3>
+        <p style="font-size:12px;color:#52525b;margin-bottom:10px">Courses you bookmarked for later enrollment.</p>
+        <div id="wishlistBox"></div>
+      </div>
+    </div>
+
+    <div id="dp-payments" class="d-pane">
+      <div class="w-box">
+        <h3>Order &amp; Payment History (Demo)</h3>
+        <p style="font-size:12px;color:#52525b;margin-bottom:10px">Shows Order ID, Course Name, Purchase Date, Amount, and Payment Status.</p>
+        <div id="paymentHistoryBox"></div>
+      </div>
+    </div>
+
+    <div id="dp-quizcert" class="d-pane">
+      <div class="w-box">
+        <h3>Timed MCQ Quiz &amp; Exam</h3>
+        <label class="lbl">Select Track Quiz</label>
+        <select id="quizTrackSel" class="inp" onchange="loadQuizQuestions()"></select>
+        <div id="quizTimerBar" class="note">Time Remaining: <b id="quizTimerTxt">03:00</b> • Pass Mark: <b>60%</b></div>
+        <div id="quizQuestionsBox"></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+          <button type="button" class="btn gold" style="width:auto;margin:0" onclick="startQuizTimer()">Start Timer</button>
+          <button type="button" class="btn green" style="width:auto;margin:0" onclick="submitQuiz()">Submit Quiz</button>
+        </div>
+        <div id="quizMsg" class="msg"></div>
+        <h3 style="margin-top:14px">Quiz Result History</h3>
+        <div id="quizHistoryBox"></div>
+      </div>
+
+      <div class="w-box">
+        <h3>Completion Certificate Generator (Demo PDF/Print)</h3>
+        <p style="font-size:12px;color:#52525b;margin-bottom:10px">Complete at least 50% of lessons or pass a quiz (≥60%) to generate your learner certificate.</p>
+        <label class="lbl">Certificate Track</label>
+        <select id="certTrackSel" class="inp"></select>
+        <button type="button" class="btn gold" style="margin-top:0" onclick="generateCertificateDoc()">Generate Certificate →</button>
+        <div id="certMsg" class="msg"></div>
+      </div>
+    </div>
+
+    <div id="dp-support" class="d-pane">
+      <div class="w-box">
+        <h3>Student Support &amp; Doubt Desk</h3>
+        <label class="lbl">Topic / Course</label>
+        <input id="supTopic" class="inp" placeholder="e.g. Lesson access or UTR verification">
+        <label class="lbl">Your Question / Doubt</label>
+        <textarea id="supBody" class="inp" rows="3" placeholder="Write your question clearly..."></textarea>
+        <button type="button" class="btn gold" style="margin-top:0" onclick="submitSupportTicket()">Send Doubt →</button>
+        <div id="supMsg" class="msg"></div>
+        <h3 style="margin-top:14px">Submitted Tickets &amp; Replies</h3>
+        <div id="supportTicketsBox"></div>
       </div>
     </div>
 
@@ -497,25 +619,20 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       </div>
     </div>
 
-    <div id="dp-courses" class="d-pane">
-      <div class="w-box">
-        <div class="row-sp" style="margin-bottom:10px;flex-wrap:wrap">
-          <h3 style="margin:0">My Enrollments</h3>
-          <select id="ordFilter" class="inp" style="width:auto;margin:0;padding:6px 10px;font-size:12px" onchange="if(curUser())renderDash(curUser())">
-            <option value="all">All Status</option><option value="Active">Active</option><option value="Pending Verification">Pending Verification</option>
-          </select>
-        </div>
-        <div id="myOrders"></div>
-      </div>
-    </div>
     <div id="dp-buy" class="d-pane"><div class="w-box"><h3>Enroll in a Skill Track</h3><div id="dBuyList"></div></div></div>
 
     <div id="dp-affiliate" class="d-pane">
       <div class="w-box">
-        <h3>Personal Invite Link</h3>
-        <p style="font-size:12px;color:#52525b;margin-bottom:10px">Share your learner invite link with peers interested in these tracks.</p>
-        <input id="refLinkInp" class="inp" readonly>
-        <button type="button" class="btn gold" style="margin-top:0" onclick="copyText(refLinkInp.value,'refMsg')">Copy Invite Link</button>
+        <h3>Unique Referral Code &amp; Invite Link</h3>
+        <p style="font-size:12px;color:#52525b;margin-bottom:10px">Share your unique code/link. Successful demo referral logging adds a ₹200 reward credit in LocalStorage.</p>
+        <label class="lbl">Your Referral Code</label>
+        <input id="refCodeInp" class="inp selectable" readonly>
+        <label class="lbl">Personal Invite Link</label>
+        <input id="refLinkInp" class="inp selectable" readonly>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn gold" style="width:auto;margin:0" onclick="copyText(refLinkInp.value,'refMsg')">Copy Invite Link</button>
+          <button type="button" class="btn green" style="width:auto;margin:0" onclick="logDemoReferral()">Record Demo Referral (+₹200)</button>
+        </div>
         <div id="refMsg" class="msg"></div>
       </div>
     </div>
@@ -540,6 +657,45 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <button type="button" class="btn gold" onclick="changePass()">Update Password →</button><div id="cPassMsg" class="msg"></div>
       </div>
     </div>
+
+    <div id="dp-adminpanel" class="d-pane">
+      <div class="w-box">
+        <h3>Admin Panel (Local Demo — Not Production Backend)</h3>
+        <p style="font-size:12px;color:#52525b;margin-bottom:10px">Manage Courses, Coupons, Orders, Students, and Support Replies locally.</p>
+
+        <h4 style="font-size:13.5px;margin:8px 0 6px">Add / Edit Course</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div><label class="lbl">Title</label><input id="admCTitle" class="inp" placeholder="Track title"></div>
+          <div><label class="lbl">Category</label>
+            <select id="admCCat" class="inp"><option value="starter">starter</option><option value="growth">growth</option><option value="bundle">bundle</option></select>
+          </div>
+          <div><label class="lbl">Price (₹)</label><input id="admCPrice" class="inp" type="number" placeholder="1999"></div>
+          <div><label class="lbl">Modules Label</label><input id="admCMod" class="inp" placeholder="14 Modules"></div>
+        </div>
+        <button type="button" class="btn gold" style="width:auto;margin:0" onclick="admAddCourse()">Add Course</button>
+        <div id="admCourseList" style="margin-top:8px"></div>
+
+        <hr style="border:0;border-top:1px solid #e6dfd1;margin:14px 0">
+        <h4 style="font-size:13.5px;margin-bottom:6px">Coupons (Percentage / Fixed / Expiry)</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div><label class="lbl">Code</label><input id="admCpCode" class="inp" placeholder="SAVE20"></div>
+          <div><label class="lbl">Type</label><select id="admCpType" class="inp"><option value="percent">Percentage (%)</option><option value="fixed">Fixed (₹)</option></select></div>
+          <div><label class="lbl">Value</label><input id="admCpVal" class="inp" type="number" placeholder="20"></div>
+          <div><label class="lbl">Expiry Date</label><input id="admCpExp" class="inp" type="date" value="2026-12-31"></div>
+        </div>
+        <button type="button" class="btn green" style="width:auto;margin:0" onclick="admSaveCoupon()">Save Coupon</button>
+        <div id="admCouponList" style="margin-top:8px"></div>
+
+        <hr style="border:0;border-top:1px solid #e6dfd1;margin:14px 0">
+        <h4 style="font-size:13.5px;margin-bottom:6px">Orders Approval &amp; Students</h4>
+        <div id="admOrdersBox"></div>
+        <div id="admStudentsBox" style="margin-top:8px"></div>
+
+        <hr style="border:0;border-top:1px solid #e6dfd1;margin:14px 0">
+        <h4 style="font-size:13.5px;margin-bottom:6px">Support Replies</h4>
+        <div id="admSupportBox"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -554,23 +710,61 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       <button type="button" class="btn gold" id="cfOkBtn" style="margin:0" onclick="runConfirmedAction()">Yes, Continue</button>
     </div>
   </div>
+
   <div class="m-panel" id="buyModal" style="display:none">
     <div class="row-sp" style="margin-bottom:10px"><b id="bTitle" style="font-size:16px">Enrollment Checkout</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
     <div class="sum-box" id="sumBox"></div>
+    <div style="display:flex;gap:8px;align-items:flex-end;margin-bottom:4px">
+      <div style="flex:1"><label class="lbl">Coupon Code (Demo)</label><input id="fCoupon" class="inp" style="margin:0" placeholder="Try TMS10 or SAVE20"></div>
+      <button type="button" class="btn dark" style="width:auto;margin:0;padding:10px 12px" onclick="applyCheckoutCoupon()">Apply</button>
+    </div>
+    <div id="cpMsg" class="msg" style="margin-bottom:8px"></div>
     <div class="qr-box"><b id="qrLbl">UPI Payment</b><img id="qrImg" alt="UPI QR"><b class="selectable">UPI ID: millionaireskills@upi</b></div>
-    <div class="note">Complete the UPI transfer and enter the 12-digit UTR reference for verification.</div>
-    <label class="lbl">Amount (₹)</label><input id="fAmt" class="inp" readonly>
+    <div class="note">Demo Checkout: Complete the UPI transfer and enter the 12-digit UTR reference. Real payment gateway verification requires backend/gateway integration.</div>
+    <label class="lbl">Final Amount (₹)</label><input id="fAmt" class="inp" readonly>
     <label class="lbl">Full Name</label><input id="fName" class="inp" placeholder="Your full name">
     <label class="lbl">WhatsApp Number (10 digits)</label><input id="fPhone" class="inp" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
     <label class="lbl">UPI UTR Number (12 digits)</label><input id="fUtr" class="inp" maxlength="12" oninput="this.value=this.value.replace(/\D/g,'').slice(0,12)">
     <button type="button" class="btn gold" onclick="submitPay()">Submit Enrollment Request →</button>
     <div id="bMsg" class="msg"></div>
     <div id="doneBox" style="display:none;margin-top:12px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;padding:12px;border-radius:10px">
-      <b>Enrollment Request Recorded</b>
+      <b>Enrollment Request Recorded (Demo)</b>
       <div id="dReqTxt" class="selectable" style="font-size:12.5px;margin:6px 0"></div>
       <a id="dWaLink" class="btn green" target="_blank" rel="noopener noreferrer">Share Receipt on WhatsApp →</a>
     </div>
   </div>
+
+  <div class="m-panel" id="playerModal" style="display:none">
+    <div class="row-sp" style="margin-bottom:8px"><b id="plTitle" style="font-size:16px">Smart Course Player</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
+    <div id="plAccessBadge" class="note" style="margin-bottom:8px"></div>
+    <div class="lesson-box">
+      <div class="row-sp"><b id="plLessonTitle" style="font-size:14px;color:#f5c85c">Lesson 1</b><span id="plResumeTxt" style="font-size:11.5px;color:#d4d4d8">0:00</span></div>
+      <p id="plLessonDesc" style="font-size:12px;color:#e4e4e7;margin:6px 0 10px">Structured lesson overview.</p>
+      <input type="range" id="plSeek" min="0" max="100" value="0" style="width:100%;accent-color:#d49b27" oninput="onPlayerSeek(this.value)">
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <button type="button" class="btn gold" style="width:auto;margin:0;padding:7px 12px" id="plPlayBtn" onclick="togglePlayerPlay()">▶ Play / Pause</button>
+        <button type="button" class="btn dark" style="width:auto;margin:0;padding:7px 12px" onclick="prevLesson()">← Prev</button>
+        <button type="button" class="btn dark" style="width:auto;margin:0;padding:7px 12px" onclick="nextLesson()">Next →</button>
+        <button type="button" class="btn green" style="width:auto;margin:0;padding:7px 12px" onclick="markLessonComplete()">✓ Mark Done</button>
+      </div>
+    </div>
+    <div id="plLessonList"></div>
+    <hr style="border:0;border-top:1px solid var(--bdr);margin:12px 0">
+    <b style="font-size:13.5px">Enrolled Learner Review</b>
+    <div style="display:flex;gap:8px;margin-top:6px">
+      <select id="revRating" class="inp" style="width:auto;margin:0"><option value="5">★★★★★ (5)</option><option value="4">★★★★☆ (4)</option><option value="3">★★★☆☆ (3)</option></select>
+      <input id="revText" class="inp" style="flex:1;margin:0" placeholder="Write your review (enrolled learners only)...">
+    </div>
+    <button type="button" class="btn dark" style="margin-top:8px;padding:8px" onclick="submitCourseReview()">Post Review</button>
+    <div id="revMsg" class="msg"></div>
+  </div>
+
+  <div class="m-panel" id="notifModal" style="display:none">
+    <div class="row-sp" style="margin-bottom:10px"><b style="font-size:16px">Notification Center</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
+    <div id="notifListBox"></div>
+    <button type="button" class="btn dark" onclick="markAllNotifsRead()">Mark All as Read</button>
+  </div>
+
   <div class="m-panel" id="photoModal" style="display:none">
     <div class="row-sp" style="margin-bottom:10px"><b style="font-size:16px">Profile Photo</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
     <div style="display:flex;justify-content:center;margin:10px 0"><div class="av" id="pStage" style="width:104px;height:104px;font-size:34px"></div></div>
@@ -579,6 +773,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <button type="button" class="btn red" onclick="confirmClearPhoto()">Remove Photo</button>
     <div id="pErr" class="msg"></div>
   </div>
+
   <div class="m-panel" id="legalModal" style="display:none">
     <div class="row-sp" style="margin-bottom:10px"><b id="legTitle" style="font-size:16px">Information</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
     <div id="legBody" style="font-size:13px;color:var(--mut);line-height:1.65"></div>
@@ -588,13 +783,34 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 <script>
 "use strict";
 const CLOUD_CFG = { binId:"", masterKey:"" };
-const K = { users:"tms_users_v7", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7", admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1", authPhoto:"tms_auth_photo_v1" };
+// Future Firebase Integration Hook Stubs (replace with Firebase SDK initialization when ready)
+const FIREBASE_HOOKS = {
+  auth: null,
+  db: null,
+  paymentGateway: null,
+  onAuthChange: null,
+  onSyncState: null
+};
+
+const K = {
+  users:"tms_users_v7", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7",
+  admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1", authPhoto:"tms_auth_photo_v1",
+  coupons:"tms_coupons_v1", tickets:"tms_tickets_v1", notifs:"tms_notifs_v1"
+};
 const DEF_COURSES = [
-  { id:"marketing", cat:"starter", level:"Beginner", duration:"Self-Paced", img:"file_00000000a24082079bd1a0d07ce5ae90.png", badge:"FOUNDATION", save:"50% OFF", title:"Marketing Foundations", desc:"Learn audience research, funnel structure, messaging clarity, and practical campaign planning.", modules:"12 Modules", price:999, oldPrice:1999, vip:false },
-  { id:"branding", cat:"starter", level:"Beginner–Intermediate", duration:"Self-Paced", img:"file_000000002914821181cc5ff207a5f834.png", badge:"BRANDING", save:"50% OFF", title:"Personal & Digital Branding", desc:"Develop a consistent voice, visual identity, and helpful content habits across platforms.", modules:"16 Modules", price:2499, oldPrice:4999, vip:false },
-  { id:"traffic", cat:"growth", level:"Intermediate", duration:"Self-Paced", img:"IMG-20261120-WA8600.jpg", badge:"GROWTH", save:"50% OFF", title:"Organic & Paid Traffic", desc:"Understand discovery channels, campaign testing, analytics basics, and sustainable reach.", modules:"20 Modules", price:4999, oldPrice:9999, vip:false },
-  { id:"influence", cat:"growth", level:"Intermediate", duration:"Self-Paced", img:"IMG-20261120-WA5578.jpg", badge:"COMMUNICATION", save:"50% OFF", title:"Communication & Influence", desc:"Practice clear writing, structured presentations, client conversations, and consultative skills.", modules:"22 Modules", price:9999, oldPrice:19999, vip:false },
-  { id:"finance", cat:"bundle", level:"All Levels", duration:"Full Access", img:"IMG-20261120-WA2541.jpg", badge:"COMPLETE BUNDLE", save:"BUNDLE SAVING", title:"Finance & All-Access Bundle", desc:"Covers budgeting fundamentals, financial discipline, and full access to all 85+ modules.", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
+  { id:"marketing", cat:"starter", level:"Beginner", duration:"Self-Paced", img:"file_00000000a24082079bd1a0d07ce5ae90.png", badge:"FOUNDATION", save:"50% OFF", title:"Marketing Foundations", desc:"Learn audience research, funnel structure, messaging clarity, and practical campaign planning.", modules:"12 Modules", price:999, oldPrice:1999, vip:false, rating:4.8, popularity:92, createdAt:1 },
+  { id:"branding", cat:"starter", level:"Beginner–Intermediate", duration:"Self-Paced", img:"file_000000002914821181cc5ff207a5f834.png", badge:"BRANDING", save:"50% OFF", title:"Personal & Digital Branding", desc:"Develop a consistent voice, visual identity, and helpful content habits across platforms.", modules:"16 Modules", price:2499, oldPrice:4999, vip:false, rating:4.7, popularity:84, createdAt:2 },
+  { id:"traffic", cat:"growth", level:"Intermediate", duration:"Self-Paced", img:"IMG-20261120-WA8600.jpg", badge:"GROWTH", save:"50% OFF", title:"Organic & Paid Traffic", desc:"Understand discovery channels, campaign testing, analytics basics, and sustainable reach.", modules:"20 Modules", price:4999, oldPrice:9999, vip:false, rating:4.9, popularity:96, createdAt:3 },
+  { id:"influence", cat:"growth", level:"Intermediate", duration:"Self-Paced", img:"IMG-20261120-WA5578.jpg", badge:"COMMUNICATION", save:"50% OFF", title:"Communication & Influence", desc:"Practice clear writing, structured presentations, client conversations, and consultative skills.", modules:"22 Modules", price:9999, oldPrice:19999, vip:false, rating:4.8, popularity:88, createdAt:4 },
+  { id:"finance", cat:"bundle", level:"All Levels", duration:"Full Access", img:"IMG-20261120-WA2541.jpg", badge:"COMPLETE BUNDLE", save:"BUNDLE SAVING", title:"Finance & All-Access Bundle", desc:"Covers budgeting fundamentals, financial discipline, and full access to all 85+ modules.", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true, rating:5.0, popularity:99, createdAt:5 }
+];
+const DEF_COUPONS = [
+  { code:"TMS10", type:"percent", value:10, expiry:"2027-12-31" },
+  { code:"SAVE500", type:"fixed", value:500, expiry:"2027-12-31" }
+];
+const DEF_NOTIFS = [
+  { id:"n1", kind:"Offer", title:"Demo Coupon TMS10 Available", body:"Use TMS10 during checkout for a 10% demo discount.", unread:true },
+  { id:"n2", kind:"Update", title:"Smart Course Player & Quiz Ready", body:"Resume lessons from saved progress and test your skills in the dashboard.", unread:true }
 ];
 const FAQS = [
   { q:"How does data sync across devices or browsers?", a:"When CLOUD_CFG has a valid JSONBin Bin ID and Master Key, account data syncs to the cloud; otherwise browser storage is used locally." },
@@ -621,8 +837,14 @@ const CHART_PTS = [
   { day:"Nov 18", h:18, refs:1, earn:"₹200" }, { day:"Nov 19", h:26, refs:1, earn:"₹100" },
   { day:"Nov 20", h:15, refs:0, earn:"₹0" }
 ];
+const QUIZ_BANK = [
+  { q:"What is the primary goal of a marketing funnel?", opts:["Awareness to action flow","Random posting","Skipping audience research"], ans:0 },
+  { q:"Why is brand consistency important?", opts:["Builds trust & recognition","Increases confusion","Avoids value delivery"], ans:0 },
+  { q:"What helps measure campaign performance?", opts:["Tracking & review","Guessing without data","Ignoring feedback"], ans:0 }
+];
 
-let selC=null, resetEm="", tempImg="", tPage=1, activeCat="all", pendingConfirmFn=null;
+let selC=null, appliedDiscount=0, resetEm="", tempImg="", tPage=1, activeCat="all", pendingConfirmFn=null;
+let playerCourse=null, playerLessons=[], playerIdx=0, playerSec=0, playerTimer=null, quizSec=180, quizInterval=null, cmpSelection=[];
 const rJ=(k,fb)=>{try{const v=JSON.parse(localStorage.getItem(k));return v??fb;}catch{return fb;}};
 const wJ=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch{}};
 const inr=n=>"₹"+(parseInt(n,10)||0).toLocaleString("en-IN");
@@ -635,6 +857,19 @@ function notify(text,mode="ok"){
   item.innerHTML=`<span>${text}</span><button type="button" style="background:none;border:0;color:#fff;font-weight:800" onclick="this.parentElement.remove()">×</button>`;
   wrap.appendChild(item); setTimeout(()=>item.remove(),2800);
 }
+
+function getCoupons(){ let cp=rJ(K.coupons,null); if(!Array.isArray(cp)||!cp.length){ cp=DEF_COUPONS.slice(); wJ(K.coupons,cp); } return cp; }
+function getNotifs(){ let n=rJ(K.notifs,null); if(!Array.isArray(n)||!n.length){ n=DEF_NOTIFS.slice(); wJ(K.notifs,n); } return n; }
+function getTickets(){ return rJ(K.tickets,[]); }
+function pushNotif(kind,title,body){ const n=getNotifs(); n.unshift({id:"n-"+Date.now(),kind,title,body,unread:true}); wJ(K.notifs,n); syncNotifBadge(); }
+function syncNotifBadge(){ const cnt=getNotifs().filter(x=>x.unread).length; notifBadge.textContent=String(cnt); notifBadge.classList.toggle("show",cnt>0); }
+function openNotificationsModal(){
+  const list=getNotifs();
+  notifListBox.innerHTML=list.map(n=>`<div class="t-row"><div><b>${n.title}</b> <span class="pill">${n.kind}</span><br><small style="color:var(--mut)">${n.body}</small></div><span class="chip ${n.unread?"blue":""}">${n.unread?"New":"Read"}</span></div>`).join("");
+  confirmModal.style.display=buyModal.style.display=playerModal.style.display=photoModal.style.display=legalModal.style.display="none";
+  notifModal.style.display="block"; modal.classList.add("open");
+}
+function markAllNotifsRead(){ const n=getNotifs().map(x=>({...x,unread:false})); wJ(K.notifs,n); syncNotifBadge(); openNotificationsModal(); notify("All notifications marked as read."); }
 
 function renderAuthBannerPhoto(){
   const saved=localStorage.getItem(K.authPhoto)||"", img=document.getElementById("authBannerImg"), ph=document.getElementById("authBannerPlaceholder"), clr=document.getElementById("authClearPhotoBtn");
@@ -656,7 +891,7 @@ function confirmClearAuthPhoto(){
 function askConfirm(title,message,okLabel,fn,danger=false){
   pendingConfirmFn=fn; cfTitle.textContent=title||"Are you sure?"; cfText.textContent=message||"Do you want to proceed?";
   cfOkBtn.textContent=okLabel||"Yes, Continue"; cfOkBtn.className="btn "+(danger?"red":"gold"); cfOkBtn.style.margin="0";
-  buyModal.style.display=photoModal.style.display=legalModal.style.display="none"; confirmModal.style.display="block"; modal.classList.add("open");
+  buyModal.style.display=playerModal.style.display=notifModal.style.display=photoModal.style.display=legalModal.style.display="none"; confirmModal.style.display="block"; modal.classList.add("open");
 }
 function runConfirmedAction(){ const fn=pendingConfirmFn; pendingConfirmFn=null; closeModal(); if(typeof fn==="function") fn(); }
 function confirmBackToSite(){ askConfirm("Leave Current View?","Are you sure you want to go back to the main site?","Yes, Back to Site",()=>showSite(),false); }
@@ -684,15 +919,28 @@ async function pushCloud(){
 function getAdminCreds(){ return rJ(K.admin,{email:"admin@tms.com",password:"admin123"}); }
 function getUsers(){
   let u=rJ(K.users,null);
-  if(!Array.isArray(u)||!u.length){ u=[{studentId:"TMS-STU-1001",name:"Aadil",tag:"Learner",email:"student1@tms.com",phone:"6289841691",password:"pass1",photo:"",earnings:{...DEMO_EARN},orders:[{pkg:"Finance & All-Access Bundle",amt:14999,reqId:"TMS-FIN01",status:"Active"}],team:TEAM_SEED}]; wJ(K.users,u); }
-  return u;
+  if(!Array.isArray(u)||!u.length){
+    u=[{
+      studentId:"TMS-STU-1001",name:"Aadil",tag:"Learner",email:"student1@tms.com",phone:"6289841691",password:"pass1",photo:"",
+      earnings:{...DEMO_EARN},orders:[{pkg:"Finance & All-Access Bundle",amt:14999,reqId:"TMS-FIN01",status:"Active",date:"2026-11-10"}],
+      team:TEAM_SEED,wishlist:[],progress:{},quizHistory:[],streak:{days:3,lastDay:""},reviews:[]
+    }];
+    wJ(K.users,u);
+  }
+  return u.map(x=>({
+    wishlist:[],progress:{},quizHistory:[],streak:{days:1,lastDay:""},reviews:[],...x
+  }));
 }
 function getCourses(){
   let c=rJ(K.courses,null);
   if(!Array.isArray(c)||!c.length){ c=DEF_COURSES.map(x=>({...x})); wJ(K.courses,c); }
-  return c.map((item,idx)=>({...DEF_COURSES[idx]||DEF_COURSES[0],...item}));
+  return c.map((item,idx)=>{
+    const fb=DEF_COURSES[idx]||DEF_COURSES[0];
+    return {...fb,...item,rating:Number(item.rating||fb.rating||4.8),popularity:Number(item.popularity||fb.popularity||85),createdAt:Number(item.createdAt||idx+1)};
+  });
 }
 function curUser(){ const em=sessionStorage.getItem(K.sess); return em?getUsers().find(u=>u.email.toLowerCase()===em.toLowerCase())||null:null; }
+function isAdminSession(){ return sessionStorage.getItem(K.admAuth)==="1"; }
 function modUser(fn){ const u=curUser(); if(!u) return null; const all=getUsers(), t=all.find(x=>x.email.toLowerCase()===u.email.toLowerCase()); if(!t) return null; fn(t); wJ(K.users,all); pushCloud(); return t; }
 
 function applyTheme(){
@@ -706,28 +954,81 @@ function cycleTheme(){
   localStorage.setItem(K.theme,next); applyTheme(); notify("Theme updated.");
 }
 
+function toggleWishlist(courseId){
+  const u=curUser();
+  if(!u){ notify("Login first to manage Wishlist.","warn"); showAuth("login"); return; }
+  modUser(x=>{
+    x.wishlist=x.wishlist||[];
+    const i=x.wishlist.indexOf(courseId);
+    if(i>-1){ x.wishlist.splice(i,1); notify("Removed from Wishlist."); }
+    else{ x.wishlist.push(courseId); notify("Added to Wishlist."); }
+  });
+  renderCourses();
+  if(curUser()) renderDash(curUser());
+}
+
+function toggleCompareTrack(courseId){
+  const idx=cmpSelection.indexOf(courseId);
+  if(idx>-1) cmpSelection.splice(idx,1);
+  else{
+    if(cmpSelection.length>=3) cmpSelection.shift();
+    cmpSelection.push(courseId);
+  }
+  renderSelectedComparison();
+}
+function renderSelectedComparison(){
+  const all=getCourses(), box=document.getElementById("selectedCmpBox");
+  if(!box) return;
+  if(!cmpSelection.length){ box.style.display="none"; return; }
+  const picked=cmpSelection.map(id=>all.find(c=>c.id===id)).filter(Boolean);
+  box.style.display="block";
+  box.innerHTML=`<b>Selected Comparison (${picked.length}/3):</b> ` + picked.map(c=>`<span class="badge-chip">${c.title} • ${inr(c.price)} • ${c.modules} • ★${c.rating}</span>`).join(" ");
+}
+
 function setCourseCat(cat){ activeCat=cat; document.querySelectorAll(".cat-pill").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat)); renderCourses(); }
 function renderCourses(){
   const allList=getCourses(); statTracks.textContent=allList.length+" Tracks";
-  const q=(courseSearch?.value||"").trim().toLowerCase(), sort=courseSort?.value||"default";
-  const list=allList.map((c,idx)=>({c,idx})).filter(({c})=>(activeCat==="all"||c.cat===activeCat)&&(!q||(c.title+c.desc+c.badge+c.modules+c.level).toLowerCase().includes(q)));
+  const q=(courseSearch?.value||"").trim().toLowerCase(), sort=courseSort?.value||"default", pFilt=priceFilter?.value||"all";
+  const u=curUser(), wish=new Set((u&&u.wishlist)||[]);
+  const list=allList.map((c,idx)=>({c,idx})).filter(({c})=>{
+    if(activeCat!=="all"&&c.cat!==activeCat) return false;
+    if(pFilt==="under3k"&&c.price>=3000) return false;
+    if(pFilt==="3kTo10k"&&(c.price<3000||c.price>10000)) return false;
+    if(pFilt==="above10k"&&c.price<=10000) return false;
+    return !q||(c.title+c.desc+c.badge+c.modules+c.level+c.cat).toLowerCase().includes(q);
+  });
   if(sort==="low") list.sort((a,b)=>(a.c.price||0)-(b.c.price||0));
   if(sort==="high") list.sort((a,b)=>(b.c.price||0)-(a.c.price||0));
-  coursesGrid.innerHTML=list.length?list.map(({c,idx})=>`
+  if(sort==="rating") list.sort((a,b)=>(b.c.rating||0)-(a.c.rating||0));
+  if(sort==="popular") list.sort((a,b)=>(b.c.popularity||0)-(a.c.popularity||0));
+  if(sort==="latest") list.sort((a,b)=>(b.c.createdAt||0)-(a.c.createdAt||0));
+
+  coursesGrid.innerHTML=list.length?list.map(({c,idx})=>{
+    const isW=wish.has(c.id);
+    return `
     <article class="card ${c.vip?"vip":""}">
       <div>
-        <div class="img-wrap"><img src="${c.img}" alt="${c.title}" loading="eager" decoding="async"></div>
-        <div class="row-sp"><span class="pill">${c.badge}</span><span class="save">${c.save}</span></div>
+        <div class="img-wrap">
+          <img src="${c.img}" alt="${c.title}" loading="eager" decoding="async">
+          <button type="button" class="wish-btn ${isW?"saved":""}" onclick="toggleWishlist('${c.id}')">${isW?"♥ Saved":"♡ Wishlist"}</button>
+        </div>
+        <div class="row-sp"><span class="pill">${c.badge} • ★${c.rating}</span><span class="save">${c.save}</span></div>
         <div class="c-t">${c.title}</div><div class="c-d">${c.desc}</div>
       </div>
       <div>
         <div class="c-m"><span>${c.level} • ${c.duration}</span><span>${c.modules}</span></div>
         <div class="c-p">${inr(c.price)} <s>${inr(c.oldPrice)}</s></div>
-        <button type="button" class="btn gold" onclick="openBuy(${idx})">Enroll Now →</button>
+        <div class="card-act-row">
+          <button type="button" class="btn dark" style="margin:0;padding:8px 10px;font-size:12px" onclick="openCoursePlayer(${idx},true)">▶ Free Preview</button>
+          <button type="button" class="btn gold" style="margin:0;padding:8px 10px;font-size:12px" onclick="openBuy(${idx})">Enroll Now →</button>
+        </div>
       </div>
-    </article>`).join(""):`<div class="empty-st" style="grid-column:1/-1">No matching tracks found.</div>`;
-  cmpTable.innerHTML=`<thead><tr><th>Skill Track</th><th>Level &amp; Scope</th><th>Fee</th><th>Action</th></tr></thead><tbody>${allList.map((c,i)=>`<tr><td><b>${c.title}</b><br><small style="color:var(--mut)">${c.badge}</small></td><td>${c.level} • ${c.modules}</td><td><b>${inr(c.price)}</b></td><td><button type="button" class="btn gold btn-sm" onclick="openBuy(${i})">Enroll Now</button></td></tr>`).join("")}</tbody>`;
-  dBuyList.innerHTML=allList.map((c,i)=>`<div class="t-row"><div><b>${c.title} (${inr(c.price)})</b><br><small style="color:#52525b">${c.level} • ${c.modules}</small></div><button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="openBuy(${i})">Enroll Now</button></div>`).join("");
+    </article>`;
+  }).join(""):`<div class="empty-st" style="grid-column:1/-1">No matching tracks found.</div>`;
+
+  cmpTable.innerHTML=`<thead><tr><th>Skill Track</th><th>Level &amp; Scope</th><th>Rating</th><th>Fee</th><th>Compare &amp; Enroll</th></tr></thead><tbody>${allList.map((c,i)=>`<tr><td><b>${c.title}</b><br><small style="color:var(--mut)">${c.badge}</small></td><td>${c.level} • ${c.modules}</td><td>★ ${c.rating}</td><td><b>${inr(c.price)}</b></td><td><button type="button" class="btn ghost-btn btn-sm" style="margin-right:4px" onclick="toggleCompareTrack('${c.id}')">+ Compare</button><button type="button" class="btn gold btn-sm" onclick="openBuy(${i})">Enroll</button></td></tr>`).join("")}</tbody>`;
+  dBuyList.innerHTML=allList.map((c,i)=>`<div class="t-row"><div><b>${c.title} (${inr(c.price)})</b><br><small style="color:#52525b">${c.level} • ${c.modules} • ★${c.rating}</small></div><div style="display:flex;gap:6px"><button type="button" class="m-btn-sm" onclick="openCoursePlayer(${i},false)">Player</button><button type="button" class="btn gold" style="width:auto;margin:0;padding:8px 12px" onclick="openBuy(${i})">Enroll Now</button></div></div>`).join("");
+  renderSelectedComparison();
 }
 
 function renderFaq(){
@@ -736,9 +1037,9 @@ function renderFaq(){
 
 function syncHeader(){ const u=curUser(); hdrBtn.textContent=u?"Dashboard":"Login"; guestBox.style.display=u?"none":"block"; userBox.style.display=u?"grid":"none"; dLogin.style.display=u?"none":"block"; dDash.style.display=u?"block":"none"; dOut.style.display=u?"block":"none"; }
 function hideViews(keepModal=false){ toggleDrawer(false); toggleSide(false); if(!keepModal) closeModal(); siteView.style.display="none"; authView.classList.remove("active"); dashView.classList.remove("active"); }
-function showSite(){ applyTheme(); renderCourses(); syncHeader(); hideViews(false); siteView.style.display="block"; window.scrollTo(0,0); }
+function showSite(){ applyTheme(); renderCourses(); syncHeader(); syncNotifBadge(); hideViews(false); siteView.style.display="block"; window.scrollTo(0,0); }
 function showAuth(mode="login"){ applyTheme(); renderAuthBannerPhoto(); hideViews(false); authView.classList.add("active"); loginBox.style.display=mode==="login"?"block":"none"; forgotBox.style.display=mode==="forgot"?"block":"none"; lMsg.className=fpMsg.className="msg"; window.scrollTo(0,0); }
-async function showDash(tab="earnings"){ await pullCloud(); const u=curUser(); if(!u) return showAuth("login"); applyTheme(); renderCourses(); hideViews(false); dashView.classList.add("active"); renderDash(u); setDTab(tab); window.scrollTo(0,0); }
+async function showDash(tab="earnings"){ await pullCloud(); const u=curUser(); if(!u) return showAuth("login"); applyTheme(); renderCourses(); syncNotifBadge(); hideViews(false); dashView.classList.add("active"); renderDash(u); setDTab(tab); window.scrollTo(0,0); }
 function onHdrClick(){ curUser()?showDash("earnings"):showAuth("login"); }
 function toggleDrawer(force){ drawer.classList.toggle("open",typeof force==="boolean"?force:undefined); }
 function toggleSide(force){ const open=typeof force==="boolean"?force:!sideMenu.classList.contains("open"); sideMenu.classList.toggle("open",open); sideBackdrop.classList.toggle("open",open); }
@@ -753,7 +1054,13 @@ async function refreshDash(){
 async function login(){
   await pullCloud();
   const em=lEmail.value.trim().toLowerCase(), pw=lPass.value, adm=getAdminCreds();
-  if(em===String(adm.email||"").trim().toLowerCase()&&pw===adm.password){ sessionStorage.setItem(K.admAuth,"1"); notify("Admin sign-in successful."); window.location.href="admin.html"; return; }
+  if(em===String(adm.email||"").trim().toLowerCase()&&pw===adm.password){
+    sessionStorage.setItem(K.admAuth,"1");
+    const admUser=getUsers()[0];
+    if(admUser) sessionStorage.setItem(K.sess,admUser.email);
+    syncHeader(); notify("Admin demo session active."); showDash("adminpanel"); return;
+  }
+  sessionStorage.removeItem(K.admAuth);
   const hit=getUsers().find(u=>u.email.toLowerCase()===em&&u.password===pw);
   if(!hit) return showM("lMsg","Invalid email or password.");
   sessionStorage.setItem(K.sess,hit.email); syncHeader(); notify("Welcome, "+(hit.name||"Learner")+"."); showDash("earnings");
@@ -763,36 +1070,277 @@ function sendReset(){ const em=fpEmail.value.trim().toLowerCase(); if(!getUsers(
 function saveReset(){ const n=fpNew.value,c=fpConf.value; if(!resetEm||n.length<6||n!==c) return showM("fpMsg","Password must be 6+ chars and match."); const all=getUsers(), u=all.find(x=>x.email.toLowerCase()===resetEm); if(u) u.password=n; wJ(K.users,all); pushCloud(); resetEm=""; notify("Password updated."); showAuth("login"); showM("lMsg","Password updated. Sign in now.","ok"); }
 
 function setDTab(t){
-  const valid=["earnings","team","courses","buy","affiliate","leaderboard","trainings","vip","community","qualification","profile"], target=valid.includes(t)?t:"earnings";
+  const valid=["earnings","team","courses","wishlist","payments","quizcert","support","buy","affiliate","leaderboard","trainings","vip","community","qualification","profile","adminpanel"];
+  let target=valid.includes(t)?t:"earnings";
+  if(target==="adminpanel"&&!isAdminSession()){ notify("Admin demo login required for Admin Panel.","warn"); target="earnings"; }
   document.querySelectorAll(".s-tab").forEach(b=>b.classList.toggle("active",b.dataset.d===target));
   document.querySelectorAll(".sm-item").forEach(b=>b.classList.toggle("active",b.dataset.m===target));
   document.querySelectorAll(".d-pane").forEach(p=>p.classList.toggle("active",p.id==="dp-"+target));
   const u=curUser();
   if(target==="team") renderTeam();
   if(target==="profile"&&u){ pName.value=u.name||""; pTag.value=u.tag||""; }
-  if(target==="affiliate"&&u){ refLinkInp.value=`${location.origin}${location.pathname}?ref=${encodeURIComponent(u.studentId||"TMS")}`; }
+  if(target==="affiliate"&&u){
+    const code=u.studentId||"TMS-STU";
+    refCodeInp.value=code;
+    refLinkInp.value=`${location.origin}${location.pathname}?ref=${encodeURIComponent(code)}`;
+  }
+  if(target==="quizcert") setupQuizAndCert(u);
+  if(target==="support") renderSupportTickets(u);
+  if(target==="adminpanel") renderAdminPanel();
 }
 function renderAv(el,u){ el.innerHTML=u.photo?`<img src="${u.photo}" alt="${u.name}" decoding="sync">`:(u.name||"L")[0].toUpperCase(); }
 function setChartTip(pt){ chartTip.innerHTML=`<b>${pt.day}</b><span>Referrals: <b>${pt.refs}</b></span><span>Value: <b>${pt.earn}</b></span>`; }
+
+function recordDailyStudy(){
+  const todayStr=new Date().toISOString().slice(0,10);
+  modUser(u=>{
+    u.streak=u.streak||{days:0,lastDay:""};
+    if(u.streak.lastDay!==todayStr){ u.streak.days=(u.streak.days||0)+1; u.streak.lastDay=todayStr; }
+  });
+  if(curUser()) renderDash(curUser());
+  notify("Daily learning streak updated!");
+}
+
 function renderDash(u){
   renderAv(dAv,u); dName.textContent=u.name||"Learner"; dTag.textContent=u.tag||""; dIdBadge.textContent="ID: "+(u.studentId||"STU");
+  adminMenuBtn.style.display=isAdminSession()?"flex":"none";
   const ord=u.orders||[], tm=u.team||[], activeOrds=ord.filter(o=>o.status==="Active");
   dPkg.textContent=activeOrds.length?activeOrds[activeOrds.length-1].pkg:(ord.length?ord[ord.length-1].pkg:"Nothing");
   const e=u.earnings||ZERO_E, hasIncome=ord.length>0||tm.length>0||[e.today,e.sevenDays,e.thirtyDays,e.allTime,e.industrial,e.wallet].some(v=>v&&v!=="₹0"&&v!=="0");
   const dispE=hasIncome?e:ZERO_E;
+  const stDays=(u.streak&&u.streak.days)||1;
   eToday.textContent=dispE.today||"₹0"; e7d.textContent=dispE.sevenDays||"₹0"; e30d.textContent=dispE.thirtyDays||"₹0";
-  eAll.textContent=dispE.allTime||"₹0"; eInd.textContent=dispE.industrial||"₹0"; eWal.textContent=dispE.wallet||"₹0";
+  eAll.textContent=dispE.allTime||"₹0"; eInd.textContent=dispE.industrial||"₹0"; eWal.textContent=`${dispE.wallet||"₹0"} • ${stDays}d Streak`;
+  streakDesc.textContent=`Current Streak: ${stDays} Day(s) • Completed Quizzes: ${(u.quizHistory||[]).length}`;
+  const badges=[stDays>=1?"🌱 Starter Learner":null, stDays>=3?"🔥 3-Day Streak":null, activeOrds.length>0?"🎓 Enrolled Track":null, (u.quizHistory||[]).length>0?"📝 Quiz Taker":null].filter(Boolean);
+  const bHtml=badges.length?badges.map(b=>`<span class="badge-chip">${b}</span>`).join(""):`<span style="font-size:12px;color:#52525b">No badges unlocked yet</span>`;
+  streakBadges.innerHTML=bHtml; badgeShelf.innerHTML=bHtml;
+
   const pts=hasIncome?CHART_PTS:CHART_PTS.map(p=>({...p,h:6,refs:0,earn:"₹0"}));
   chartBars.innerHTML=pts.map((p,i)=>`<div class="b-col" onclick="setChartTip(CHART_PTS[${i}])" onmouseover="setChartTip(CHART_PTS[${i}])"><div class="b-fill" style="height:${p.h}%"></div><span>${p.day}</span></div>`).join("");
   setChartTip(pts[5]);
+
   const ordSt=ordFilter?.value||"all", filtOrd=ordSt==="all"?ord:ord.filter(o=>o.status===ordSt);
   recentTeam.innerHTML=tm.length?tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#52525b">${m.pkg}</small></div></div></div>`).join(""):`<div class="empty-st">Nothing</div>`;
-  myOrders.innerHTML=filtOrd.length?filtOrd.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#52525b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join(""):`<div class="empty-st">Nothing</div>`;
+  myOrders.innerHTML=filtOrd.length?filtOrd.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#52525b">${o.reqId} • ₹${o.amt}${o.date?" • "+o.date:""}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join(""):`<div class="empty-st">Nothing</div>`;
+  paymentHistoryBox.innerHTML=ord.length?ord.map(o=>`<div class="t-row"><div><b>Order #${o.reqId}</b> — ${o.pkg}<br><small style="color:#52525b">Date: ${o.date||"Recorded"} • Amount: ${inr(o.amt)}</small></div><span class="chip ${o.status==="Active"?"ok":""}">${o.status}</span></div>`).join(""):`<div class="empty-st">No payment or order records yet.</div>`;
+
+  const allC=getCourses(), progMap=u.progress||{};
+  myCoursesProgress.innerHTML=allC.map((c,idx)=>{
+    const unlocked=activeOrds.some(o=>o.pkg===c.title);
+    const p=progMap[c.id]||{done:[],sec:0};
+    const pct=Math.min(100,Math.round(((p.done||[]).length/4)*100));
+    return `<div class="t-row"><div style="flex:1;min-width:190px"><b>${c.title}</b> <span class="chip ${unlocked?"ok":""}">${unlocked?"Active Access":"Preview Only"}</span><div class="prog-track"><div class="prog-fill" style="width:${pct}%"></div></div><small style="color:#52525b">Progress: ${pct}% (${(p.done||[]).length}/4 lessons)</small></div><button type="button" class="btn gold btn-sm" onclick="openCoursePlayer(${idx},false)">Open Player</button></div>`;
+  }).join("");
+
+  const wIds=u.wishlist||[], wCourses=allC.filter(c=>wIds.includes(c.id));
+  wishlistBox.innerHTML=wCourses.length?wCourses.map(c=>{
+    const realIdx=allC.findIndex(x=>x.id===c.id);
+    return `<div class="t-row"><div><b>${c.title}</b> (${inr(c.price)})<br><small style="color:#52525b">${c.modules}</small></div><div style="display:flex;gap:6px"><button type="button" class="m-btn-sm" onclick="toggleWishlist('${c.id}')">Remove</button><button type="button" class="btn gold btn-sm" onclick="openBuy(${realIdx})">Enroll</button></div></div>`;
+  }).join(""):`<div class="empty-st">Your wishlist is empty. Click "♡ Wishlist" on any course card.</div>`;
+
   lbBox.innerHTML=tm.length?tm.slice(0,3).map((m,i)=>`<div class="t-row"><div><b>#${i+1} ${m.name}</b><br><small style="color:#52525b">${m.pkg}</small></div><span class="chip ${i===0?"blue":""}">#${i+1}</span></div>`).join(""):`<div class="empty-st">Nothing</div>`;
   qPkgTxt.textContent=dPkg.textContent; qTeamTxt.textContent=tm.length?tm.length:"Nothing";
   smFoot.innerHTML=`<div class="t-av">${(u.name||"L")[0].toUpperCase()}</div><div><b style="font-size:12.5px;color:#0b0b0c">${u.name||"Learner"}</b><br><small style="color:#52525b;font-size:11px">${u.studentId||""}</small></div>`;
   renderTeam();
 }
+
+function getLessonsForCourse(c){
+  return [
+    { id:1, title:`${c.title} — Free Preview Intro`, sec:15, desc:"Free preview lesson covering roadmap, objectives, and practical framework.", preview:true },
+    { id:2, title:`${c.title} — Core Concepts & Setup`, sec:45, desc:"Step-by-step execution rules and common mistakes to avoid.", preview:false },
+    { id:3, title:`${c.title} — Live Case Walkthrough`, sec:75, desc:"Practical real-world example applying the module steps.", preview:false },
+    { id:4, title:`${c.title} — Action Checklist & Wrap-Up`, sec:100, desc:"Summary checklist to prepare for the track quiz.", preview:false }
+  ];
+}
+function hasCourseAccess(u,course){
+  if(!u||!course) return false;
+  return (u.orders||[]).some(o=>o.status==="Active"&&o.pkg===course.title);
+}
+function openCoursePlayer(idx,previewMode=false){
+  const list=getCourses(), c=list[idx]; if(!c) return;
+  const u=curUser(), unlocked=hasCourseAccess(u,c);
+  playerCourse=c; playerLessons=getLessonsForCourse(c);
+  const savedProg=(u&&u.progress&&u.progress[c.id])||{done:[],sec:0,lastLesson:0};
+  playerIdx=previewMode?0:Math.min(savedProg.lastLesson||0,playerLessons.length-1);
+  playerSec=savedProg.sec||0;
+  confirmModal.style.display=buyModal.style.display=notifModal.style.display=photoModal.style.display=legalModal.style.display="none";
+  playerModal.style.display="block"; modal.classList.add("open");
+  revMsg.className="msg";
+  renderPlayerState(unlocked);
+}
+function renderPlayerState(unlocked){
+  const lsn=playerLessons[playerIdx]||playerLessons[0];
+  plTitle.textContent=playerCourse.title;
+  plAccessBadge.innerHTML=unlocked
+    ? `<span style="color:#15803d;font-weight:700">✓ Enrolled Access Active</span> — Continue watching from saved timestamp.`
+    : `<span style="color:#b45309;font-weight:700">🔒 Preview Mode</span> — Lesson 1 is a Free Preview; full lessons unlock after Active enrollment.`;
+  plLessonTitle.textContent=`Lesson ${playerIdx+1}: ${lsn.title}`;
+  plLessonDesc.textContent=lsn.desc;
+  plSeek.value=String(playerSec);
+  plResumeTxt.textContent=`Resumed: ${playerSec}%`;
+  const u=curUser(), doneSet=new Set((u&&u.progress&&u.progress[playerCourse.id]&&u.progress[playerCourse.id].done)||[]);
+  plLessonList.innerHTML=playerLessons.map((item,i)=>{
+    const canOpen=unlocked||item.preview;
+    return `<div class="lesson-item ${i===playerIdx?"active":""}"><div><b>${i+1}. ${item.title}</b> ${item.preview?'<span class="pill">Free Preview</span>':""} ${doneSet.has(item.id)?'<span class="save">✓ Done</span>':""}</div><button type="button" class="m-btn-sm" onclick="selectLesson(${i},${unlocked})">${canOpen?"Watch":"Locked"}</button></div>`;
+  }).join("");
+}
+function selectLesson(i,unlocked){
+  const item=playerLessons[i]; if(!item) return;
+  if(!unlocked&&!item.preview){ notify("Enroll in this track to unlock full lessons.","warn"); return; }
+  playerIdx=i; playerSec=0; savePlayerProgress(); renderPlayerState(unlocked);
+}
+function prevLesson(){ if(playerIdx>0){ playerIdx--; playerSec=0; savePlayerProgress(); renderPlayerState(hasCourseAccess(curUser(),playerCourse)); } }
+function nextLesson(){
+  const unlocked=hasCourseAccess(curUser(),playerCourse);
+  if(playerIdx<playerLessons.length-1){
+    if(!unlocked&&!playerLessons[playerIdx+1].preview){ notify("Enroll to watch next lesson.","warn"); return; }
+    playerIdx++; playerSec=0; savePlayerProgress(); renderPlayerState(unlocked);
+  }
+}
+function onPlayerSeek(val){ playerSec=parseInt(val,10)||0; plResumeTxt.textContent=`Resumed: ${playerSec}%`; savePlayerProgress(); }
+function togglePlayerPlay(){
+  if(playerTimer){ clearInterval(playerTimer); playerTimer=null; plPlayBtn.textContent="▶ Play / Pause"; return; }
+  plPlayBtn.textContent="⏸ Playing...";
+  playerTimer=setInterval(()=>{
+    playerSec=(playerSec+5)%101;
+    plSeek.value=String(playerSec);
+    plResumeTxt.textContent=`Resumed: ${playerSec}%`;
+    savePlayerProgress();
+  },700);
+}
+function markLessonComplete(){
+  const lsn=playerLessons[playerIdx]; if(!lsn) return;
+  modUser(u=>{
+    u.progress=u.progress||{};
+    const p=u.progress[playerCourse.id]||{done:[],sec:playerSec,lastLesson:playerIdx};
+    if(!p.done.includes(lsn.id)) p.done.push(lsn.id);
+    p.sec=playerSec; p.lastLesson=playerIdx;
+    u.progress[playerCourse.id]=p;
+  });
+  notify("Lesson marked complete.");
+  renderPlayerState(hasCourseAccess(curUser(),playerCourse));
+  if(curUser()) renderDash(curUser());
+}
+function savePlayerProgress(){
+  if(!curUser()||!playerCourse) return;
+  modUser(u=>{
+    u.progress=u.progress||{};
+    const p=u.progress[playerCourse.id]||{done:[],sec:0,lastLesson:0};
+    p.sec=playerSec; p.lastLesson=playerIdx;
+    u.progress[playerCourse.id]=p;
+  });
+}
+function submitCourseReview(){
+  const u=curUser();
+  if(!u){ notify("Login first to review.","warn"); return; }
+  if(!hasCourseAccess(u,playerCourse)) return showM("revMsg","Only enrolled learners with Active access can submit reviews.");
+  const txt=revText.value.trim(), rating=parseInt(revRating.value,10)||5;
+  if(txt.length<4) return showM("revMsg","Please write at least 4 characters.");
+  modUser(x=>{
+    x.reviews=x.reviews||[];
+    x.reviews.unshift({course:playerCourse.title,rating,text:txt,by:u.name||"Learner"});
+  });
+  revText.value="";
+  showM("revMsg","Review added to your account (Demo).","ok");
+  renderReviewsSection();
+}
+function renderReviewsSection(){
+  const u=curUser(), userRevs=(u&&u.reviews)||[];
+  if(!userRevs.length) return;
+  const extra=userRevs.slice(0,3).map(r=>`<div class="testi-card"><div class="testi-top"><span class="pill">Enrolled Learner</span><span class="testi-stars">${"★".repeat(r.rating)}${"☆".repeat(5-r.rating)}</span></div><p>"${r.text}"</p><div class="testi-meta">${r.by} • ${r.course}</div></div>`).join("");
+  const base=document.querySelectorAll("#reviewsGrid .testi-card");
+  const sampleHtml=Array.from(base).slice(0,3).map(el=>el.outerHTML).join("");
+  reviewsGrid.innerHTML=extra+sampleHtml;
+}
+
+function setupQuizAndCert(u){
+  const list=getCourses();
+  quizTrackSel.innerHTML=list.map(c=>`<option value="${c.title}">${c.title}</option>`).join("");
+  certTrackSel.innerHTML=list.map(c=>`<option value="${c.title}">${c.title}</option>`).join("");
+  loadQuizQuestions();
+  renderQuizHistory(u);
+  certMsg.className="msg";
+}
+function loadQuizQuestions(){
+  quizQuestionsBox.innerHTML=QUIZ_BANK.map((q,qi)=>`<div class="lesson-item" style="display:block"><b>Q${qi+1}. ${q.q}</b><div style="margin-top:6px">${q.opts.map((op,oi)=>`<label style="display:block;font-size:12.5px;margin:3px 0"><input type="radio" name="qz_${qi}" value="${oi}"> ${op}</label>`).join("")}</div></div>`).join("");
+}
+function startQuizTimer(){
+  if(quizInterval) clearInterval(quizInterval);
+  quizSec=180;
+  quizInterval=setInterval(()=>{
+    quizSec--;
+    const m=String(Math.floor(Math.max(0,quizSec)/60)).padStart(2,"0"), s=String(Math.max(0,quizSec)%60).padStart(2,"0");
+    quizTimerTxt.textContent=`${m}:${s}`;
+    if(quizSec<=0){ clearInterval(quizInterval); submitQuiz(); }
+  },1000);
+}
+function submitQuiz(){
+  if(quizInterval){ clearInterval(quizInterval); quizInterval=null; }
+  let correct=0;
+  QUIZ_BANK.forEach((q,qi)=>{
+    const sel=document.querySelector(`input[name="qz_${qi}"]:checked`);
+    if(sel&&parseInt(sel.value,10)===q.ans) correct++;
+  });
+  const scorePct=Math.round((correct/QUIZ_BANK.length)*100), track=quizTrackSel.value||"Skill Track";
+  modUser(u=>{
+    u.quizHistory=u.quizHistory||[];
+    u.quizHistory.unshift({track,score:scorePct,passed:scorePct>=60,date:new Date().toLocaleDateString()});
+  });
+  showM("quizMsg",`Score: ${scorePct}% (${correct}/${QUIZ_BANK.length}) — ${scorePct>=60?"Passed":"Try Again"}`,scorePct>=60?"ok":"warn");
+  renderQuizHistory(curUser());
+  if(curUser()) renderDash(curUser());
+}
+function renderQuizHistory(u){
+  const h=(u&&u.quizHistory)||[];
+  quizHistoryBox.innerHTML=h.length?h.map(x=>`<div class="t-row"><div><b>${x.track}</b> • Score: <b>${x.score}%</b><br><small style="color:#52525b">${x.date}</small></div><span class="chip ${x.passed?"ok":""}">${x.passed?"Passed":"Needs Retry"}</span></div>`).join(""):`<div class="empty-st">No quiz attempts yet.</div>`;
+}
+
+function generateCertificateDoc(){
+  const u=curUser(); if(!u) return;
+  const trackTitle=certTrackSel.value||"Skill Track", all=getCourses(), cObj=all.find(x=>x.title===trackTitle);
+  const doneCnt=(cObj&&u.progress&&u.progress[cObj.id]&&u.progress[cObj.id].done&&u.progress[cObj.id].done.length)||0;
+  const passedQuiz=(u.quizHistory||[]).some(q=>q.track===trackTitle&&q.passed);
+  if(doneCnt<2&&!passedQuiz){
+    return showM("certMsg","Complete at least 2 lessons in this track or pass (≥60%) the quiz first.","warn");
+  }
+  const win=window.open("","_blank");
+  if(!win) return showM("certMsg","Popup blocked. Allow popups to view/print the Demo Certificate.","warn");
+  win.document.write(`<!DOCTYPE html><html><head><title>Demo Certificate</title><style>body{font-family:Georgia,serif;background:#faf8f3;padding:30px;text-align:center}.box{max-width:680px;margin:auto;background:#fff;border:4px double #d49b27;padding:36px;border-radius:14px}h1{color:#0b0b0c;margin-bottom:8px}.gold{color:#b47b13;font-size:24px;font-weight:700;margin:14px 0}.note{font-family:sans-serif;font-size:12px;color:#52525b;margin-top:22px}</style></head><body><div class="box"><div>THE MILLIONAIRE SKILL • DEMO CERTIFICATE</div><h1>Certificate of Completion</h1><p>This certifies that</p><div class="gold">${u.name||"Learner"}</div><p>has completed study requirements for</p><h3>${trackTitle}</h3><p>Date: ${new Date().toLocaleDateString()} • ID: ${u.studentId||"TMS"}</p><button onclick="window.print()" style="margin-top:16px;padding:10px 18px;background:#0b0b0c;color:#f5c85c;border:0;border-radius:8px;cursor:pointer">Print / Save as PDF</button><div class="note">Demo Certificate generated in browser without server-side verification.</div></div></body></html>`);
+  win.document.close();
+  showM("certMsg","Demo certificate opened in new tab (use Print -> Save as PDF).","ok");
+}
+
+function submitSupportTicket(){
+  const u=curUser(); if(!u) return;
+  const topic=supTopic.value.trim(), body=supBody.value.trim();
+  if(topic.length<2||body.length<4) return showM("supMsg","Please enter a topic and your question.");
+  const list=getTickets();
+  list.unshift({id:"TKT-"+Date.now().toString().slice(-5),userEmail:u.email,userName:u.name||"Learner",topic,body,reply:"",status:"Open"});
+  wJ(K.tickets,list);
+  supTopic.value=supBody.value="";
+  showM("supMsg","Doubt submitted to support queue (Demo).","ok");
+  renderSupportTickets(u);
+}
+function renderSupportTickets(u){
+  const mine=getTickets().filter(t=>!u||t.userEmail.toLowerCase()===u.email.toLowerCase());
+  supportTicketsBox.innerHTML=mine.length?mine.map(t=>`<div class="t-row"><div><b>[${t.id}] ${t.topic}</b><br><small style="color:#52525b">${t.body}</small>${t.reply?`<br><small style="color:#15803d;font-weight:700">Reply: ${t.reply}</small>`:""}</div><span class="chip ${t.reply?"ok":""}">${t.reply?"Answered":"Open"}</span></div>`).join(""):`<div class="empty-st">No support tickets submitted yet.</div>`;
+}
+
+function logDemoReferral(){
+  modUser(u=>{
+    u.team=u.team||[];
+    const idx=u.team.length+1;
+    u.team.unshift({name:`Invited Learner ${idx}`,pkg:"Marketing Foundations",email:`ref${idx}@demo.tms`,phone:"9876500000",code:`TMS-REF${idx}`});
+    u.earnings=u.earnings||{...ZERO_E};
+    const curW=parseInt(String(u.earnings.wallet||"0").replace(/\D/g,""),10)||0;
+    u.earnings.wallet=inr(curW+200);
+  });
+  if(curUser()) renderDash(curUser());
+  showM("refMsg","Demo referral recorded (+₹200 wallet credit in LocalStorage).","ok");
+  pushNotif("Referral","New Demo Referral Logged","A demo referral was added to your account.");
+}
+
 function renderTeam(){
   const u=curUser(), tm=(u&&u.team)||[], q=(tSearch.value||"").trim().toLowerCase(), per=parseInt(tPer.value,10)||10;
   const fil=tm.filter(m=>!q||((m.name||"")+(m.email||"")+(m.phone||"")+(m.pkg||"")).toLowerCase().includes(q));
@@ -811,14 +1359,31 @@ function saveQuickName(){ const n=qNameInp.value.trim(); if(n.length<2) return s
 function saveProfile(){ const n=pName.value.trim(),t=pTag.value.trim(); if(n.length<2) return showM("pMsg","Please enter at least 2 characters."); const u=modUser(x=>{x.name=n;x.tag=t;}); if(u){ renderDash(u); notify("Account details saved."); showM("pMsg","Details saved.","ok"); } }
 function changePass(){ const u=curUser(); if(!u) return; if(cOld.value!==u.password) return showM("cPassMsg","Current password is incorrect."); if(cNew.value.length<6||cNew.value!==cConf.value) return showM("cPassMsg","New password must be 6+ chars and match."); modUser(x=>x.password=cNew.value); cOld.value=cNew.value=cConf.value=""; notify("Password updated."); showM("cPassMsg","Password updated.","ok"); }
 
+function applyCheckoutCoupon(){
+  if(!selC) return;
+  const code=fCoupon.value.trim().toUpperCase();
+  if(!code) return showM("cpMsg","Enter a coupon code first.");
+  const cp=getCoupons().find(x=>x.code.toUpperCase()===code);
+  if(!cp) return showM("cpMsg","Invalid coupon code.");
+  if(cp.expiry&&new Date(cp.expiry)<new Date(new Date().toISOString().slice(0,10))) return showM("cpMsg","This coupon has expired.");
+  const disc=cp.type==="percent"?Math.round((selC.price*cp.value)/100):Math.min(selC.price,Number(cp.value)||0);
+  appliedDiscount=disc;
+  const finalAmt=Math.max(0,selC.price-disc);
+  fAmt.value=String(finalAmt);
+  qrLbl.textContent="Pay "+inr(finalAmt)+" via UPI (Discount: -"+inr(disc)+")";
+  qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkill&am=${finalAmt}&cu=INR`);
+  showM("cpMsg",`Applied ${cp.code}: saved ${inr(disc)} (Demo).`,"ok");
+}
+
 function isDuplicateUtr(utr){ return getUsers().some(u=>(u.orders||[]).some(o=>String(o.utr||"")===utr||String(o.reqId||"").includes(utr))); }
 function openBuy(idx){
-  const c=getCourses()[idx]; if(!c) return; selC=c; const u=curUser();
+  const c=getCourses()[idx]; if(!c) return; selC=c; appliedDiscount=0; const u=curUser();
   bTitle.textContent=c.title+" — Enrollment"; qrLbl.textContent="Pay "+inr(c.price)+" via UPI";
   sumBox.innerHTML=`<b>Track:</b> ${c.title} • <b>${c.modules}</b><br><b>Amount:</b> <b>${inr(c.price)}</b>`;
+  fCoupon.value=""; cpMsg.className="msg";
   fAmt.value=c.price; fName.value=u?u.name:""; fPhone.value=u?u.phone:""; fUtr.value=""; bMsg.className="msg"; doneBox.style.display="none";
   qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkill&am=${c.price}&cu=INR`);
-  confirmModal.style.display=photoModal.style.display=legalModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
+  confirmModal.style.display=playerModal.style.display=notifModal.style.display=photoModal.style.display=legalModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
 }
 function submitPay(){
   const nm=fName.value.trim(), ph=fPhone.value.replace(/\D/g,""), utr=fUtr.value.replace(/\D/g,"");
@@ -826,24 +1391,79 @@ function submitPay(){
   if(ph.length!==10) return showM("bMsg","Please enter a valid 10-digit WhatsApp number.");
   if(utr.length!==12) return showM("bMsg","Please enter a valid 12-digit UPI UTR reference.");
   if(isDuplicateUtr(utr)) return showM("bMsg","This 12-digit UTR has already been submitted.","warn");
+  const paidAmt=Math.max(0,(Number(selC.price)||0)-appliedDiscount);
   const reqId="TMS-"+Date.now().toString().slice(-8), all=getUsers(), sessEm=sessionStorage.getItem(K.sess);
   const target=sessEm?all.find(x=>x.email.toLowerCase()===sessEm.toLowerCase()):all[0];
-  if(target){ target.orders=target.orders||[]; target.orders.push({pkg:selC.title,amt:selC.price,reqId,utr,status:"Pending Verification"}); wJ(K.users,all); pushCloud(); if(curUser()) renderDash(curUser()); }
-  dReqTxt.textContent=`${selC.title} • ${inr(selC.price)} • UTR: ${utr} • Ref: ${reqId}`;
-  dWaLink.href="https://wa.me/916289841691?text="+encodeURIComponent(`Name: ${nm}\nPhone: ${ph}\nTrack: ${selC.title}\nAmount: ${inr(selC.price)}\nUTR: ${utr}\nRef: ${reqId}`);
+  if(target){
+    target.orders=target.orders||[];
+    target.orders.push({pkg:selC.title,amt:paidAmt,reqId,utr,status:"Pending Verification",date:new Date().toISOString().slice(0,10)});
+    wJ(K.users,all); pushCloud(); if(curUser()) renderDash(curUser());
+  }
+  pushNotif("Payment","Enrollment Order Recorded ("+reqId+")",`Order for ${selC.title} (${inr(paidAmt)}) is Pending Verification.`);
+  dReqTxt.textContent=`${selC.title} • ${inr(paidAmt)} • UTR: ${utr} • Ref: ${reqId}`;
+  dWaLink.href="https://wa.me/916289841691?text="+encodeURIComponent(`Name: ${nm}\nPhone: ${ph}\nTrack: ${selC.title}\nAmount: ${inr(paidAmt)}\nUTR: ${utr}\nRef: ${reqId}`);
   doneBox.style.display="block"; notify("Enrollment request submitted ("+reqId+").");
 }
 
-function openLegal(type){
-  const map={ terms:["Terms of Use","Structured educational modules for personal skill development."], privacy:["Privacy Notice","Account and enrollment details are used for course access and verification."], refund:["Verification & Support","Enrollment requests are reviewed after UTR submission."] };
-  const item=map[type]||map.terms; legTitle.textContent=item[0]; legBody.textContent=item[1];
-  confirmModal.style.display=buyModal.style.display=photoModal.style.display="none"; legalModal.style.display="block"; modal.classList.add("open");
+function renderAdminPanel(){
+  if(!isAdminSession()) return;
+  const courses=getCourses(), coupons=getCoupons(), users=getUsers(), tickets=getTickets();
+  admCourseList.innerHTML=courses.map((c,i)=>`<div class="t-row"><div><b>${c.title}</b> (${c.cat} • ${inr(c.price)})</div><div style="display:flex;gap:6px"><button type="button" class="m-btn-sm" onclick="admEditCourse(${i})">Edit</button><button type="button" class="chip red" onclick="admDelCourse(${i})">Delete</button></div></div>`).join("");
+  admCouponList.innerHTML=coupons.map((cp,i)=>`<div class="t-row"><div><b>${cp.code}</b> (${cp.type==="percent"?cp.value+"%":inr(cp.value)} • Exp: ${cp.expiry||"N/A"})</div><button type="button" class="chip red" onclick="admDelCoupon(${i})">Delete</button></div>`).join("");
+
+  const orderRows=[];
+  users.forEach((u,ui)=>(u.orders||[]).forEach((o,oi)=>{
+    orderRows.push(`<div class="t-row"><div><b>${o.reqId}</b> • ${u.name} (${o.pkg}) • ${inr(o.amt)}</div><div style="display:flex;gap:6px;align-items:center"><span class="chip ${o.status==="Active"?"ok":""}">${o.status}</span>${o.status!=="Active"?`<button type="button" class="m-btn-sm" onclick="admApproveOrder(${ui},${oi})">Approve</button>`:""}</div></div>`);
+  }));
+  admOrdersBox.innerHTML=orderRows.length?orderRows.join(""):`<div class="empty-st">No orders yet.</div>`;
+  admStudentsBox.innerHTML=`<small style="color:#52525b;font-weight:700">Students (${users.length}):</small>`+users.map(u=>`<div class="t-row"><div><b>${u.name}</b> (${u.email}) • ID: ${u.studentId}</div></div>`).join("");
+
+  admSupportBox.innerHTML=tickets.length?tickets.map((t,ti)=>`<div class="t-row" style="display:block"><b>[${t.id}] ${t.userName}: ${t.topic}</b><div style="font-size:12px;color:#52525b">${t.body}</div><div style="display:flex;gap:6px;margin-top:6px"><input id="repInp_${ti}" class="inp" style="margin:0;flex:1" value="${t.reply||""}" placeholder="Write admin reply..."><button type="button" class="btn gold btn-sm" onclick="admReplyTicket(${ti})">Reply</button></div></div>`).join(""):`<div class="empty-st">No support doubts yet.</div>`;
 }
-function openPhotoModal(){ const u=curUser(); if(!u) return showAuth("login"); tempImg=u.photo||""; pErr.className="msg"; pFile.value=""; renderAv(pStage,{name:u.name,photo:tempImg}); confirmModal.style.display=buyModal.style.display=legalModal.style.display="none"; photoModal.style.display="block"; modal.classList.add("open"); }
+function admAddCourse(){
+  const title=admCTitle.value.trim(), cat=admCCat.value, price=parseInt(admCPrice.value,10)||999, mod=admCMod.value.trim()||"12 Modules";
+  if(title.length<2) return notify("Enter course title.","err");
+  const list=getCourses();
+  list.push({id:"c-"+Date.now(),cat,level:"All Levels",duration:"Self-Paced",img:DEF_COURSES[0].img,badge:cat.toUpperCase(),save:"NEW",title,desc:"Structured skill track added in Admin Demo.",modules:mod,price,oldPrice:price*2,vip:cat==="bundle",rating:4.8,popularity:80,createdAt:Date.now()});
+  wJ(K.courses,list); pushCloud(); admCTitle.value=admCPrice.value=""; renderCourses(); renderAdminPanel(); notify("Course added (Demo).");
+}
+function admEditCourse(i){
+  const list=getCourses(), c=list[i]; if(!c) return;
+  const np=prompt("New Price (₹):",String(c.price));
+  if(np!==null&&!isNaN(parseInt(np,10))){ c.price=Math.max(0,parseInt(np,10)); wJ(K.courses,list); pushCloud(); renderCourses(); renderAdminPanel(); notify("Course updated."); }
+}
+function admDelCourse(i){
+  const list=getCourses(); list.splice(i,1); wJ(K.courses,list); pushCloud(); renderCourses(); renderAdminPanel(); notify("Course deleted.");
+}
+function admSaveCoupon(){
+  const code=admCpCode.value.trim().toUpperCase(), type=admCpType.value, value=parseInt(admCpVal.value,10)||0, expiry=admCpExp.value||"2027-12-31";
+  if(!code||value<=0) return notify("Enter valid coupon code and value.","err");
+  const cp=getCoupons().filter(x=>x.code.toUpperCase()!==code);
+  cp.unshift({code,type,value,expiry}); wJ(K.coupons,cp); admCpCode.value=admCpVal.value=""; renderAdminPanel(); notify("Coupon saved.");
+}
+function admDelCoupon(i){ const cp=getCoupons(); cp.splice(i,1); wJ(K.coupons,cp); renderAdminPanel(); notify("Coupon removed."); }
+function admApproveOrder(ui,oi){
+  const users=getUsers();
+  if(users[ui]&&users[ui].orders&&users[ui].orders[oi]){
+    users[ui].orders[oi].status="Active"; wJ(K.users,users); pushCloud(); renderAdminPanel(); if(curUser()) renderDash(curUser()); notify("Order marked Active.");
+  }
+}
+function admReplyTicket(ti){
+  const list=getTickets(), inp=document.getElementById("repInp_"+ti);
+  if(!list[ti]||!inp) return;
+  list[ti].reply=inp.value.trim(); wJ(K.tickets,list); renderAdminPanel(); notify("Reply saved.");
+}
+
+function openLegal(type){
+  const map={ terms:["Terms of Use","Structured educational modules for personal skill development. LocalStorage features are for demo purposes."], privacy:["Privacy Notice","Account and enrollment details are used locally for demo course access and verification."], refund:["Verification & Support","Enrollment requests are reviewed after UTR submission; connect a real backend/gateway for live verification."] };
+  const item=map[type]||map.terms; legTitle.textContent=item[0]; legBody.textContent=item[1];
+  confirmModal.style.display=buyModal.style.display=playerModal.style.display=notifModal.style.display=photoModal.style.display="none"; legalModal.style.display="block"; modal.classList.add("open");
+}
+function openPhotoModal(){ const u=curUser(); if(!u) return showAuth("login"); tempImg=u.photo||""; pErr.className="msg"; pFile.value=""; renderAv(pStage,{name:u.name,photo:tempImg}); confirmModal.style.display=buyModal.style.display=playerModal.style.display=notifModal.style.display=legalModal.style.display="none"; photoModal.style.display="block"; modal.classList.add("open"); }
 function onPhotoPick(e){ const f=e.target.files&&e.target.files[0]; if(!f) return; if(!f.type.startsWith("image/")||f.size>4*1024*1024) return showM("pErr","Select a JPG, PNG, or WEBP image under 4MB."); const r=new FileReader(); r.onload=ev=>{ tempImg=ev.target.result; renderAv(pStage,{name:curUser().name,photo:tempImg}); }; r.readAsDataURL(f); }
 function savePhoto(){ if(!tempImg) return showM("pErr","Please choose an image first."); const u=modUser(x=>x.photo=tempImg); if(u){ renderDash(u); notify("Profile photo updated."); } closeModal(); }
 function clearPhoto(){ tempImg=""; const u=modUser(x=>x.photo=""); if(u){ renderDash(u); notify("Profile photo removed."); } closeModal(); }
-function closeModal(){ pendingConfirmFn=null; modal.classList.remove("open"); confirmModal.style.display=buyModal.style.display=photoModal.style.display=legalModal.style.display="none"; }
+function closeModal(){ pendingConfirmFn=null; if(playerTimer){clearInterval(playerTimer);playerTimer=null;plPlayBtn.textContent="▶ Play / Pause";} modal.classList.remove("open"); confirmModal.style.display=buyModal.style.display=playerModal.style.display=notifModal.style.display=photoModal.style.display=legalModal.style.display="none"; }
 function copyText(val,id){ navigator.clipboard?.writeText(val).then(()=>{ showM(id,"Copied: "+val,"ok"); notify("Copied to clipboard."); }).catch(()=>{ showM(id,"Copy: "+val,"ok"); notify("Copy: "+val); }); }
 
 window.addEventListener("scroll",()=>scrollTopBtn.classList.toggle("show",window.scrollY>300),{passive:true});
@@ -851,7 +1471,7 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeModal(); tog
 document.addEventListener("gesturestart",e=>e.preventDefault(),{passive:false});
 
 yrSpan.textContent=String(new Date().getFullYear());
-applyTheme(); renderAuthBannerPhoto(); renderCourses(); renderFaq(); syncHeader();
+applyTheme(); renderAuthBannerPhoto(); renderCourses(); renderFaq(); syncHeader(); syncNotifBadge(); renderReviewsSection();
 preloader.classList.add("hide");
 pullCloud();
 </script>

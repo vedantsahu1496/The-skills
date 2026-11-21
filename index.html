@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE MILLIONAIRE SKILLS | Executive Mastery</title>
+<title>THE MILLIONAIRE SKILLS | Learn Skills That Matter For Your Career</title>
 <style>
 :root{--bg:#060913;--surf:#111b30;--card:#0b1224;--bdr:#334155;--gold:#fbbf24;--txt:#f8fafc;--mut:#94a3b8}
 body.t-midnight{--bg:#060c18;--surf:#0f172a;--card:#090f1d;--bdr:#1e293b;--gold:#38bdf8;--txt:#f1f5f9;--mut:#94a3b8}
@@ -15,9 +15,9 @@ a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit}
 .hdr{position:sticky;top:0;z-index:90;background:#090d16;padding:12px 16px;border-bottom:1px solid #b88624;display:flex;justify-content:space-between;align-items:center}
 .brand-wrap{display:flex;align-items:center;gap:10px}
-.m-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#fff,#fde68a 45%,#d97706);color:#090d16;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:21px;border:1px solid #fbbf24;flex-shrink:0;box-shadow:0 2px 10px rgba(251,191,36,.25)}
-.brand b{display:block;color:#fbbf24;font-size:14.5px;letter-spacing:.6px;text-transform:uppercase}
-.brand small{font-size:10px;color:#cbd5e1;letter-spacing:1.4px}
+.m-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#ffffff 0%,#fde68a 42%,#d97706 78%,#78350f 100%);color:#090d16;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:21px;border:1.5px solid #fbbf24;flex-shrink:0;box-shadow:0 2px 12px rgba(251,191,36,.3)}
+.brand b{display:block;color:#fbbf24;font-size:14px;letter-spacing:.8px;text-transform:uppercase}
+.brand small{font-size:10px;color:#e2e8f0;letter-spacing:1.3px}
 .hdr-r{display:flex;gap:8px;align-items:center;position:relative}
 .m-btn{background:#172033;color:#fbbf24;border:1px solid #b88624;border-radius:8px;width:38px;height:38px;font-size:20px}
 .drawer{display:none;position:absolute;top:46px;right:0;width:220px;background:#0b1224;padding:8px 14px;border:1px solid #b88624;border-radius:10px;z-index:120}
@@ -38,13 +38,14 @@ button{cursor:pointer;font-family:inherit}
 .msg.err{display:block;background:#581c1c;color:#fecaca}
 .msg.ok{display:block;background:#064e3b;color:#dcfce7}
 .msg.warn{display:block;background:#78350f;color:#fde68a}
-.hero{text-align:center;padding:38px 16px;background:linear-gradient(180deg,#111827,#090d16 55%,var(--bg))}
-.tag{display:inline-block;padding:5px 13px;border:1px solid var(--gold);border-radius:99px;color:var(--gold);font-size:11.5px;font-weight:700}
-.brand-banner{margin:14px auto 4px;font-size:13px;font-weight:900;letter-spacing:2.2px;color:#fff;text-transform:uppercase}
-.brand-banner span{color:#fbbf24}
-.hero h1{font-size:30px;margin:8px 0 8px}
+.hero{text-align:center;padding:34px 16px 38px;background:linear-gradient(180deg,#111827,#090d16 55%,var(--bg))}
+.trust-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid rgba(251,191,36,.55);background:rgba(255,255,255,.06);border-radius:99px;color:#f8fafc;font-size:11.5px;font-weight:700}
+.trust-pill span{color:#4ade80}
+.brand-title-box{margin:14px auto 6px;display:inline-block;padding:6px 16px;border-radius:12px;background:#ffffff;color:#090d16;border:2px solid #fbbf24;font-weight:900;font-size:15px;letter-spacing:1.4px;text-transform:uppercase;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.brand-title-box em{font-style:normal;color:#b45309}
+.hero h1{font-size:29px;margin:12px 0 8px}
 .hero h1 span{color:var(--gold)}
-.hero p{color:var(--mut);font-size:13.5px;max-width:440px;margin:auto}
+.hero p{color:var(--mut);font-size:13.5px;max-width:460px;margin:auto}
 .hero-act{max-width:400px;margin:16px auto}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:440px;margin:20px auto 0}
 .stat{padding:14px;background:var(--surf);border:1px solid #604a21;border-radius:12px;text-align:left}
@@ -52,7 +53,14 @@ button{cursor:pointer;font-family:inherit}
 .stat span{font-size:12px;color:var(--mut)}
 .sec{max-width:540px;margin:auto;padding:24px 16px}
 .sec-h{text-align:center;margin-bottom:16px}
-.sec-h p{color:var(--mut);font-size:13px}
+.sec-h h2{font-size:22px}
+.sec-h p{color:var(--mut);font-size:13px;margin-top:4px}
+.about-box{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:18px;margin-bottom:14px}
+.about-box h3{color:var(--gold);font-size:17px;margin-bottom:6px}
+.about-box p{color:var(--mut);font-size:13px;margin-bottom:10px}
+.mission-box{background:var(--card);border:1px solid #604a21;border-radius:12px;padding:12px 14px}
+.mission-box b{display:block;color:#fbbf24;font-size:13.5px;margin-bottom:4px}
+.mission-box span{font-size:12.5px;color:var(--txt)}
 .card{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:16px;margin-bottom:16px}
 .card.vip{border-color:#fbbf24}
 .img-wrap{background:#080e1c;border-radius:11px;padding:8px;margin-bottom:12px;text-align:center}
@@ -100,9 +108,9 @@ table.cmp tr:last-child td{border-bottom:none}
 .e-card small{color:#dbeafe;font-size:13px}.e-card b{font-size:24px;font-weight:800;display:block;margin-top:2px}
 .w-box h3{font-size:15.5px;color:#1e293b;margin-bottom:4px}
 .w-box .lbl{color:#334155}.w-box .inp{background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1}
-.empty-st{text-align:center;padding:18px 10px;color:#64748b;font-size:12.5px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px}
+.empty-st{text-align:center;padding:18px 10px;color:#64748b;font-size:13px;font-weight:600;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px}
 .chart-wrap{position:relative}
-.bars{height:145px;border-radius:12px;background:linear-gradient(180deg,rgba(249,115,22,.16),rgba(249,115,22,.02));border:1px solid #fed7aa;padding:10px;display:flex;align-items:flex-end;justify-content:space-between;gap:6px;margin-top:10px}
+.bars{height:145px;border-radius:12px;background:linear-gradient(180deg,rgba(249,115,22,.22),rgba(249,115,22,.03));border:1px solid #fed7aa;padding:10px;display:flex;align-items:flex-end;justify-content:space-between;gap:6px;margin-top:10px}
 .b-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;cursor:pointer}
 .b-fill{width:100%;max-width:26px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#fb923c,#ea580c);min-height:6px;transition:.15s}
 .b-col:hover .b-fill{filter:brightness(1.1)}
@@ -135,7 +143,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
 .f-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:10px 0;font-size:12px}
 .f-links button{background:none;border:0;color:#fbbf24;text-decoration:underline;font-size:12px}
 .f-card{background:#111b30;border:1px solid #334155;padding:14px;border-radius:12px;margin:12px auto;max-width:420px;text-align:left}
-@media(min-width:700px){.sec{max-width:820px}.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hero h1{font-size:40px}}
+@media(min-width:700px){.sec{max-width:820px}.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hero h1{font-size:38px}}
 </style>
 </head>
 <body id="top">
@@ -150,6 +158,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       <button type="button" class="btn gold" id="hdrBtn" style="width:auto;margin:0;padding:8px 12px" onclick="onHdrClick()">Portal Login</button>
       <button type="button" class="m-btn" onclick="toggleDrawer()">☰</button>
       <div class="drawer" id="drawer">
+        <a href="#about" onclick="toggleDrawer(false)">About Us</a>
         <a href="#courses" onclick="toggleDrawer(false)">Courses</a>
         <a href="#compare" onclick="toggleDrawer(false)">Compare Plans</a>
         <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
@@ -162,10 +171,10 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
   </header>
 
   <section class="hero">
-    <div class="tag">★ EXECUTIVE MASTERY</div>
-    <div class="brand-banner">THE <span>MILLIONAIRE</span> SKILLS</div>
-    <h1>Build Bold &amp; <span>High-Income Skills</span></h1>
-    <p>Marketing, Branding, Traffic, Influence &amp; Finance with UPI checkout and multi-device sync.</p>
+    <div class="trust-pill"><span>✓</span> Trusted by 10,000+ students</div><br>
+    <div class="brand-title-box">THE <em>MILLIONAIRE</em> SKILLS</div>
+    <h1>Learn Skills That <span>Matter For Your Career</span></h1>
+    <p>Practical mastery in Marketing, Branding, Traffic, Influence &amp; Finance with UPI checkout and multi-device sync.</p>
     <div class="hero-act">
       <a href="#courses" class="btn gold">Explore 5 Mastery Packages →</a>
       <div id="guestBox"><button type="button" class="btn dark" onclick="showAuth('login')">Student / Admin Login</button></div>
@@ -176,9 +185,20 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     </div>
     <div class="stats">
       <div class="stat"><b>85+</b><span>Practical Modules</span></div>
-      <div class="stat"><b>10K+</b><span>Active Students</span></div>
+      <div class="stat"><b>10K+</b><span>Trusted Students</span></div>
       <div class="stat"><b>24/7</b><span>Mobile Access</span></div>
       <div class="stat"><b>Cloud Sync</b><span>Any Browser</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="about-box">
+      <h3>About Us</h3>
+      <p><b style="color:var(--txt)">Discover Our Journey Of Growth</b> — We are passionate about making high-income skill education accessible, practical, and structured for learners and creators.</p>
+      <div class="mission-box">
+        <b>Our Mission</b>
+        <span>Empower students and professionals with real-world digital skills, clear execution roadmaps, and guided growth.</span>
+      </div>
     </div>
   </section>
 
@@ -299,7 +319,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
         <div class="av" id="dAv"></div>
         <div>
           <div style="font-size:19px;font-weight:800;color:#1e293b"><span id="dName">Student</span> <span style="color:#d97706;font-size:14px" id="dTag"></span></div>
-          <div style="font-size:12.5px;color:#64748b;font-weight:600" id="dPkg">Starter Member</div>
+          <div style="font-size:12.5px;color:#64748b;font-weight:600" id="dPkg">Nothing</div>
         </div>
       </div>
       <div style="display:flex;gap:6px">
@@ -337,7 +357,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
         <h3>Earnings Chart</h3>
         <p style="font-size:12px;color:#64748b">Showing earnings and referrals over time</p>
         <div class="bars" id="chartBars"></div>
-        <div class="c-tip" id="chartTip"><b>Nov 19</b><span>Referrals: <b>1</b></span><span>Earnings: <b>₹100</b></span></div>
+        <div class="c-tip" id="chartTip"><b>Nov 19</b><span>Referrals: <b>0</b></span><span>Earnings: <b>₹0</b></span></div>
       </div>
       <div class="w-box"><h3>Your Recent Team</h3><div id="recentTeam"></div><button type="button" class="w-btn" style="width:100%;justify-content:center" onclick="setDTab('team')">View All</button></div>
     </div>
@@ -370,9 +390,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     <div id="dp-leaderboard" class="d-pane">
       <div class="w-box">
         <h3>Leaderboard</h3>
-        <div class="t-row"><div><b>1. Top Performer</b><br><small style="color:#64748b">Finance Mastery</small></div><span class="chip blue">#1</span></div>
-        <div class="t-row"><div><b>2. Rising Builder</b><br><small style="color:#64748b">Influence Mastery</small></div><span class="chip">#2</span></div>
-        <div class="t-row"><div><b>3. Consistent Learner</b><br><small style="color:#64748b">Traffic Mastery</small></div><span class="chip">#3</span></div>
+        <div id="lbBox"></div>
       </div>
     </div>
 
@@ -403,7 +421,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
     <div id="dp-qualification" class="d-pane">
       <div class="w-box">
         <h3>Qualification Status</h3>
-        <p style="font-size:12.5px;color:#475569">Current Package: <b id="qPkgTxt">Starter Member</b></p>
+        <p style="font-size:12.5px;color:#475569">Current Package: <b id="qPkgTxt">Nothing</b></p>
         <p style="font-size:12.5px;color:#475569;margin-top:4px">Active Team Count: <b id="qTeamTxt">0</b></p>
       </div>
     </div>
@@ -412,7 +430,7 @@ footer b{display:block;color:#fbbf24;font-size:15px;margin-bottom:6px}
       <div class="w-box">
         <h3>Edit Profile</h3>
         <label class="lbl">Display Name</label><input id="pName" class="inp">
-        <label class="lbl">Tag (Optional)</label><input id="pTag" class="inp" placeholder="[G.O.D]">
+        <label class="lbl">Tag (Optional)</label><input id="pTag" class="inp" placeholder="{GOD-FIRE} 🔥">
         <button type="button" class="btn gold" onclick="saveProfile()">Save Profile</button><div id="pMsg" class="msg"></div>
         <hr style="border:0;border-top:1px solid #e2e8f0;margin:16px 0">
         <h3>Change Password</h3>
@@ -467,27 +485,35 @@ const DEF_COURSES = [
   { id:"branding", img:"file_000000002914821181cc5ff207a5f834.png", badge:"AUTHORITY", save:"SAVE 50%", title:"Branding Mastery", desc:"Build a strong social media identity, content style & audience trust.", rating:"★ 4.7", modules:"16 Modules", price:2499, oldPrice:4999, vip:false },
   { id:"traffic", img:"IMG-20261120-WA8600.jpg", badge:"TRENDING", save:"SAVE 50%", title:"Traffic Mastery", desc:"Drive targeted leads using ads, reach growth & conversion systems.", rating:"★ 4.6", modules:"20 Modules", price:4999, oldPrice:9999, vip:false },
   { id:"influence", img:"IMG-20261120-WA5578.jpg", badge:"PRO POWER", save:"SAVE 50%", title:"Influence Mastery", desc:"Communication, speaking confidence, persuasion & high-trust closing.", rating:"★ 4.9", modules:"22 Modules", price:9999, oldPrice:19999, vip:false },
-  { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"ALL-IN-ONE VIP", save:"BEST VALUE", title:"Finance Mastery (VIP Bundle)", desc:"Money management, wealth building & full access across all mastery modules.", rating:"★ 5.0", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
+  { id:"finance", img:"IMG-20261120-WA2541.jpg", badge:"ALL-IN-ONE VIP", save:"BEST VALUE", title:"Finance Mastery", desc:"Money management, wealth building & full access across all mastery modules.", rating:"★ 5.0", modules:"All 85+ Modules", price:14999, oldPrice:29999, vip:true }
 ];
 const FAQS = [
   { q:"Dusre browser ya phone mein login karne par data kaise milega?", a:"Jab CLOUD_CFG mein Bin ID aur Master Key set hoti hai, toh data cloud par save hota hai aur naye browser mein login karte hi load ho jata hai." },
-  { q:"UPI payment ke baad package kab active hota hai?", a:"UTR submit karne ke baad admin panel se approve hoti hi order Active dikhne lagta hai." },
-  { q:"Kya main mobile se sab kuch access kar sakta hoon?", a:"Haan, landing page aur student dashboard dono mobile-friendly hain." }
+  { q:"Nayi ID par team ya income na ho toh kya dikhta hai?", a:"Nayi ID par default team/orders mein Nothing aur earnings mein ₹0 dikhta hai; Refresh karne par fresh data sync hota hai." },
+  { q:"UPI payment ke baad package kab active hota hai?", a:"UTR submit karne ke baad admin panel se approve hoti hi order Active dikhne lagta hai." }
 ];
 const ZERO_E = { today:"₹0", sevenDays:"₹0", thirtyDays:"₹0", allTime:"₹0", industrial:"₹0", wallet:"₹0" };
-const TEAM_SEED = Array.from({length:14}, (_,i) => ({
-  name: ["Raman","Praveen","Sher Singh","Kajal","Sumitra","Rijwan","Parikshit","Imamu","Abhishek","Thakeshwar","Deepak","Pooja","Aarav","Neha"][i],
-  pkg: i===7 ? "Traffic Mastery" : i===8 ? "Influence Mastery" : "Marketing Mastery",
-  email: "member"+(i+1)+"@tms.com", phone: "98765012"+String(10+i).slice(-2), code: "TMS-TM"+(100+i)
-}));
+const DEMO_EARN = { today:"₹0", sevenDays:"₹200", thirtyDays:"₹300", allTime:"₹49,550", industrial:"₹49,550", wallet:"₹600" };
+const TEAM_SEED = [
+  { name:"Raman {GOD-FIRE} 🔥", pkg:"Marketing mastery", email:"raman@tms.com", phone:"9876501210", code:"TMS-TM101" },
+  { name:"Praveen", pkg:"Marketing mastery", email:"praveen@tms.com", phone:"9876501211", code:"TMS-TM102" },
+  { name:"Sher singh", pkg:"Marketing mastery", email:"shersingh@tms.com", phone:"9876501212", code:"TMS-TM103" },
+  { name:"Kajal yadav", pkg:"Marketing mastery", email:"kajal@tms.com", phone:"9876501213", code:"TMS-TM104" },
+  { name:"Sumitra", pkg:"Marketing mastery", email:"sumitra@tms.com", phone:"9876501214", code:"TMS-TM105" },
+  { name:"Rijwan", pkg:"Marketing mastery", email:"rijwan@tms.com", phone:"9876501215", code:"TMS-TM106" },
+  { name:"Parikshit", pkg:"Marketing mastery", email:"parikshit@tms.com", phone:"9876501216", code:"TMS-TM107" },
+  { name:"Imamu", pkg:"Traffic mastery", email:"imamu@tms.com", phone:"9876501217", code:"TMS-TM108" },
+  { name:"Abhishek", pkg:"Influence mastery", email:"abhishek@tms.com", phone:"9876501218", code:"TMS-TM109" },
+  { name:"Thakeshwar", pkg:"Marketing mastery", email:"thakeshwar@tms.com", phone:"9876501219", code:"TMS-TM110" }
+];
 const CHART_PTS = [
-  { day:"Nov 14", h:14, refs:0, earn:"₹0" },
-  { day:"Nov 15", h:22, refs:1, earn:"₹200" },
-  { day:"Nov 16", h:12, refs:0, earn:"₹0" },
-  { day:"Nov 17", h:28, refs:2, earn:"₹400" },
+  { day:"Nov 14", h:12, refs:0, earn:"₹0" },
+  { day:"Nov 15", h:24, refs:1, earn:"₹200" },
+  { day:"Nov 16", h:10, refs:0, earn:"₹0" },
+  { day:"Nov 17", h:30, refs:2, earn:"₹400" },
   { day:"Nov 18", h:18, refs:1, earn:"₹200" },
-  { day:"Nov 19", h:25, refs:1, earn:"₹100" },
-  { day:"Nov 20", h:16, refs:0, earn:"₹0" }
+  { day:"Nov 19", h:26, refs:1, earn:"₹100" },
+  { day:"Nov 20", h:15, refs:0, earn:"₹0" }
 ];
 
 let selC = null, resetEm = "", tempImg = "", tPage = 1;
@@ -526,7 +552,7 @@ function getAdminCreds(){ return rJ(K.admin, { email:"admin@tms.com", password:"
 function getUsers(){
   let u = rJ(K.users, null);
   if(!Array.isArray(u) || !u.length){
-    u=[{studentId:"TMS-STU-1001",name:"Akshh",tag:"[G.O.D]",email:"student1@tms.com",phone:"6289841691",password:"pass1",photo:"",earnings:{...ZERO_E},orders:[{pkg:"Finance Mastery",amt:14999,reqId:"TMS-FIN01",status:"Active"}],team:TEAM_SEED}];
+    u=[{studentId:"TMS-STU-1001",name:"AADIL",tag:"{GOD-FIRE} 🔥",email:"student1@tms.com",phone:"6289841691",password:"pass1",photo:"",earnings:{...DEMO_EARN},orders:[{pkg:"Finance Mastery",amt:14999,reqId:"TMS-FIN01",status:"Active"}],team:TEAM_SEED}];
     wJ(K.users, u);
   }
   return u;
@@ -577,12 +603,19 @@ function onSideNav(tab){ toggleSide(false); setDTab(tab); }
 
 async function refreshDash(){
   const btn = document.getElementById("refreshBtn");
-  btn.textContent = "↻ Syncing...";
+  btn.textContent = "↻ Refreshing...";
   await pullCloud();
   const u = curUser();
-  if(u) renderDash(u);
+  if(u){
+    const ord = u.orders || [];
+    const tm = u.team || [];
+    if(!ord.length && !tm.length){
+      modUser(x => { x.earnings = { ...ZERO_E }; });
+    }
+    renderDash(curUser());
+  }
   btn.textContent = "↻ Refresh";
-  document.getElementById("syncNote").textContent = "Synced at " + new Date().toLocaleTimeString();
+  document.getElementById("syncNote").textContent = "Refreshed at " + new Date().toLocaleTimeString();
 }
 
 async function login(){
@@ -614,17 +647,29 @@ function setChartTip(pt){
 }
 function renderDash(u){
   renderAv(dAv,u); dName.textContent=u.name||"Student"; dTag.textContent=u.tag||""; dIdBadge.textContent="ID: "+(u.studentId||"STU");
-  const ord=u.orders||[]; dPkg.textContent=ord.length?ord[ord.length-1].pkg:"No Active Package";
-  const e=u.earnings||ZERO_E; eToday.textContent=e.today||"₹0"; e7d.textContent=e.sevenDays||"₹0"; e30d.textContent=e.thirtyDays||"₹0"; eAll.textContent=e.allTime||"₹0"; eInd.textContent=e.industrial||"₹0"; eWal.textContent=e.wallet||"₹0";
+  const ord=u.orders||[];
   const tm=u.team||[];
-  const hasAnyEarn = [e.today,e.sevenDays,e.thirtyDays,e.allTime,e.industrial,e.wallet].some(v=>v && v!=="₹0" && v!=="0");
-  const pts = (!hasAnyEarn && !tm.length) ? CHART_PTS.map(p=>({...p, h:6, refs:0, earn:"₹0"})) : CHART_PTS;
+  const activeOrds = ord.filter(o=>o.status==="Active");
+  dPkg.textContent = activeOrds.length ? activeOrds[activeOrds.length-1].pkg : (ord.length ? ord[ord.length-1].pkg : "Nothing");
+  const e=u.earnings||ZERO_E;
+  const hasIncome = ord.length>0 || tm.length>0 || [e.today,e.sevenDays,e.thirtyDays,e.allTime,e.industrial,e.wallet].some(v=>v && v!=="₹0" && v!=="0");
+  const dispE = hasIncome ? e : ZERO_E;
+  eToday.textContent=dispE.today||"₹0";
+  e7d.textContent=dispE.sevenDays||"₹0";
+  e30d.textContent=dispE.thirtyDays||"₹0";
+  eAll.textContent=dispE.allTime||"₹0";
+  eInd.textContent=dispE.industrial||"₹0";
+  eWal.textContent=dispE.wallet||"₹0";
+
+  const pts = hasIncome ? CHART_PTS : CHART_PTS.map(p=>({...p, h:6, refs:0, earn:"₹0"}));
   chartBars.innerHTML = pts.map((p,i)=>`<div class="b-col" onclick="setChartTip(CHART_PTS[${i}])" onmouseover="setChartTip(CHART_PTS[${i}])"><div class="b-fill" style="height:${p.h}%"></div><span>${p.day}</span></div>`).join("");
   setChartTip(pts[5]);
-  recentTeam.innerHTML = tm.length ? tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div></div></div>`).join("") : `<div class="empty-st">Nothing here yet — no team members added.</div>`;
-  myOrders.innerHTML = ord.length ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("") : `<div class="empty-st">Nothing here yet — no packages enrolled.</div>`;
-  document.getElementById("qPkgTxt").textContent = ord.length ? ord[ord.length-1].pkg : "No Active Package";
-  document.getElementById("qTeamTxt").textContent = tm.length;
+
+  recentTeam.innerHTML = tm.length ? tm.slice(0,4).map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div></div></div>`).join("") : `<div class="empty-st">Nothing</div>`;
+  myOrders.innerHTML = ord.length ? ord.map(o=>`<div class="t-row"><div><b>${o.pkg}</b><br><small style="color:#64748b">${o.reqId} • ₹${o.amt}${o.utr?" • UTR: "+o.utr:""}</small></div><span class="chip ${o.status==="Active"?"blue":""}">${o.status}</span></div>`).join("") : `<div class="empty-st">Nothing</div>`;
+  lbBox.innerHTML = tm.length ? tm.slice(0,3).map((m,i)=>`<div class="t-row"><div><b>#${i+1} ${m.name}</b><br><small style="color:#64748b">${m.pkg}</small></div><span class="chip ${i===0?"blue":""}">#${i+1}</span></div>`).join("") : `<div class="empty-st">Nothing</div>`;
+  document.getElementById("qPkgTxt").textContent = dPkg.textContent;
+  document.getElementById("qTeamTxt").textContent = tm.length ? tm.length : "Nothing";
   document.getElementById("smFoot").innerHTML = `<div class="t-av">${(u.name||"S")[0].toUpperCase()}</div><div><b style="font-size:12.5px;color:#0f172a">${u.name||"Student"} ${u.tag||""}</b><br><small style="color:#64748b;font-size:11px">${u.studentId||""}</small></div>`;
   renderTeam();
 }
@@ -633,7 +678,7 @@ function renderTeam(){
   const fil=tm.filter(m=>!q||((m.name||"")+(m.email||"")+(m.phone||"")+(m.pkg||"")).toLowerCase().includes(q));
   const pages=Math.max(1,Math.ceil(fil.length/per)); tPage=Math.min(Math.max(1,tPage),pages);
   const s=(tPage-1)*per, e=Math.min(s+per,fil.length), slice=fil.slice(s,e);
-  teamList.innerHTML = slice.length ? slice.map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div><div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div></div>`).join("") : `<div class="empty-st">Nothing to show.</div>`;
+  teamList.innerHTML = slice.length ? slice.map(m=>`<div class="t-row"><div style="display:flex;align-items:center;gap:10px"><div class="t-av">${(m.name||"M")[0]}</div><div><b>${m.name}</b><br><small style="color:#64748b">${m.email} • ${m.phone}</small></div></div><div style="text-align:right"><b>${m.pkg}</b><br><small style="color:#64748b">${m.code}</small></div></div>`).join("") : `<div class="empty-st">Nothing</div>`;
   tInfo.textContent = fil.length ? `Showing ${s+1}-${e} of ${fil.length} (Page ${tPage}/${pages})` : "Showing 0 of 0";
   let btns=`<button type="button" class="pg-btn" onclick="tPage--;renderTeam()" ${tPage<=1?"disabled":""}>&lt;</button>`;
   for(let p=1;p<=pages;p++) btns+=`<button type="button" class="pg-btn ${p===tPage?"active":""}" onclick="tPage=${p};renderTeam()">${p}</button>`;

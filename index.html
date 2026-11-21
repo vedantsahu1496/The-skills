@@ -27,15 +27,15 @@ button{cursor:pointer;font-family:inherit;outline:none}
 .toast{pointer-events:auto;background:#0b0b0c;color:#fff;border:1px solid var(--gold-br);border-radius:10px;padding:10px 12px;font-size:12px;font-weight:600;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:8px}
 .toast.ok{border-color:#22c55e}.toast.err{border-color:#ef4444}
 
-.hdr{position:sticky;top:0;z-index:90;background:var(--surf);padding:10px 14px;border-bottom:1.5px solid var(--gold-br);display:flex;justify-content:space-between;align-items:center;gap:8px}
-.brand-wrap{display:flex;align-items:center;gap:9px;flex-shrink:0}
-.m-logo{width:38px;height:38px;border-radius:10px;background:#0b0b0c;border:1.5px solid var(--gold-br);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
-.m-logo img{width:100%;height:100%;object-fit:cover;display:block}
-.brand-styled{display:flex;flex-direction:column;line-height:1.1}
-.brand-styled b{font-family:Georgia,'Times New Roman',serif;font-size:14px;font-weight:700;color:var(--ink)}
-.brand-styled b .m-word{font-style:italic;font-weight:900;color:var(--gold);padding:0 2px}
-.brand-styled b .s-word{font-family:'Segoe UI',Inter,Arial,sans-serif;font-weight:900;font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-left:2px}
-.brand-styled small{font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--mut);margin-top:2px}
+.hdr{position:sticky;top:0;z-index:90;background:var(--surf);padding:8px 12px;border-bottom:1.5px solid var(--gold-br);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.brand-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0;min-width:0}
+.brand-banner{height:38px;width:auto;max-width:165px;object-fit:contain;border-radius:7px;display:block;background:#fff;padding:2px;border:1px solid var(--bdr)}
+.brand-banner.sm{height:28px;max-width:125px}
+.brand-styled{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+.brand-styled b{font-family:Georgia,'Times New Roman',serif;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap}
+.brand-styled b .m-word{font-style:italic;font-weight:900;color:var(--gold);padding:0 1px}
+.brand-styled b .s-word{font-family:'Segoe UI',Inter,Arial,sans-serif;font-weight:900;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:var(--gold);margin-left:2px}
+.brand-styled small{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--mut);margin-top:2px;white-space:nowrap}
 
 .desk-nav{display:none;align-items:center;gap:18px;font-size:13px;font-weight:600;color:var(--mut)}
 .desk-nav a:hover{color:var(--ink)}
@@ -128,10 +128,11 @@ table.cmp th{color:var(--ink);background:var(--card);font-weight:800}table.cmp t
 #authView.active{display:flex;flex-direction:column;align-items:center}
 .auth-top-brand{width:100%;max-width:420px;background:var(--surf);border:1.5px solid var(--gold-br);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow)}
 .auth-brand-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.auth-full-logo{width:100%;max-height:110px;object-fit:contain;display:block;margin:10px auto 0;border-radius:10px;background:#fff;padding:6px;border:1px solid var(--bdr)}
 .auth-photo-slot{margin-top:10px;border:1px dashed var(--gold-br);background:var(--card);border-radius:12px;padding:10px;text-align:center}
 .auth-photo-slot img{width:100%;max-height:145px;object-fit:cover;border-radius:9px;display:block;margin:0 auto 8px}
-.auth-photo-placeholder{padding:12px 10px;border-radius:9px;background:#0b0b0c;color:#fff;margin-bottom:8px}
-.auth-photo-placeholder b{display:block;font-family:Georgia,'Times New Roman',serif;font-style:italic;color:var(--gold-br);font-size:14.5px}
+.auth-photo-placeholder{padding:10px;border-radius:9px;background:#0b0b0c;color:#fff;margin-bottom:8px}
+.auth-photo-placeholder b{display:block;font-family:Georgia,'Times New Roman',serif;font-style:italic;color:var(--gold-br);font-size:14px}
 .auth-photo-placeholder span{font-size:11.5px;color:#e4e4e7}
 .auth-box{width:100%;max-width:420px;background:var(--surf);border:1.5px solid var(--gold-br);border-radius:16px;padding:20px 18px;box-shadow:var(--shadow)}
 
@@ -197,6 +198,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   .steps-grid,.testi-grid{grid-template-columns:repeat(3,1fr)}
   .c-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .hero h1{font-size:35px}
+  .brand-banner{max-width:210px;height:42px}
 }
 </style>
 </head>
@@ -208,7 +210,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 <div id="siteView">
   <header class="hdr">
     <a href="#top" class="brand-wrap">
-      <div class="m-logo"><img src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="Logo" fetchpriority="high" decoding="sync"></div>
+      <img class="brand-banner" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" fetchpriority="high" decoding="sync">
       <div class="brand-styled"><b>The <span class="m-word">Millionaire</span> <span class="s-word">Skill</span></b><small>SKILL ACADEMY</small></div>
     </a>
     <nav class="desk-nav" aria-label="Primary Navigation">
@@ -343,15 +345,15 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 
   <div class="auth-top-brand">
     <div class="auth-brand-row">
-      <div class="brand-wrap">
-        <div class="m-logo"><img src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="Logo" decoding="sync"></div>
-        <div class="brand-styled"><b>The <span class="m-word">Millionaire</span> <span class="s-word">Skill</span></b><small>LEARNER &amp; ADMIN ACCESS</small></div>
-      </div>
+      <div class="brand-styled"><b>The <span class="m-word">Millionaire</span> <span class="s-word">Skill</span></b><small>LEARNER &amp; ADMIN ACCESS</small></div>
       <button type="button" class="m-btn-sm" onclick="document.getElementById('authPhotoInp').click()">+ Add Photo</button>
     </div>
+
+    <img class="auth-full-logo" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" decoding="sync">
+
     <div class="auth-photo-slot">
       <img id="authBannerImg" src="" alt="Login Banner Photo" style="display:none" decoding="sync">
-      <div id="authBannerPlaceholder" class="auth-photo-placeholder"><b>✦ The Millionaire Skill ✦</b><span>Upload a custom photo/banner above for this login header</span></div>
+      <div id="authBannerPlaceholder" class="auth-photo-placeholder"><b>✦ The Millionaire Skill ✦</b><span>Upload an extra custom banner/photo here if needed</span></div>
       <input id="authPhotoInp" type="file" accept="image/*" style="display:none" onchange="onAuthPhotoPick(event)">
       <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap">
         <button type="button" class="m-btn-sm" onclick="document.getElementById('authPhotoInp').click()">Choose Photo</button>
@@ -390,9 +392,9 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
   <aside class="side-menu" id="sideMenu">
     <div>
       <div class="sm-head">
-        <div style="display:flex;align-items:center;gap:8px">
-          <div class="m-logo" style="width:28px;height:28px;border-radius:8px"><img src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="Logo" decoding="sync"></div>
-          <b style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:13.5px;color:#0b0b0c">The Millionaire Skill</b>
+        <div class="brand-wrap">
+          <img class="brand-banner sm" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" decoding="sync">
+          <b style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:12.5px;color:#0b0b0c">The Millionaire Skill</b>
         </div>
         <button type="button" class="m-btn-sm" onclick="toggleSide(false)">✕</button>
       </div>

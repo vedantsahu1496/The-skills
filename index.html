@@ -227,7 +227,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 <div id="siteView">
   <header class="hdr">
     <a href="#top" class="brand-wrap">
-      <img class="brand-banner" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" fetchpriority="high" decoding="sync">
+      <img id="hdrLogoImg" class="brand-banner" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" fetchpriority="high" decoding="sync">
     </a>
     <nav class="desk-nav" aria-label="Primary Navigation">
       <a href="#how-it-works">How It Works</a>
@@ -351,7 +351,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 
   <footer id="contact">
     <b>The Millionaire Skill</b>
-    <div class="selectable">Support WhatsApp: +91 62898 41691 • Email: mdaadilalam123123@gmail.com</div>
+    <div id="footerContactLine" class="selectable">Support WhatsApp: +91 62898 41691 • Email: mdaadilalam123123@gmail.com</div>
     <div class="f-links">
       <a href="#courses">Skill Tracks</a><a href="#faq">FAQ</a>
       <button type="button" onclick="openLegal('terms')">Terms of Use</button>
@@ -362,7 +362,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       <b style="font-size:13.5px;margin-bottom:4px">Learner Support Desk</b>
       <p style="font-size:12px;color:var(--mut)">Need help with login, UTR verification, or choosing a track? Reach out directly via WhatsApp or email.</p>
       <div style="display:flex;gap:8px;margin-top:10px">
-        <a class="btn green" style="margin:0;padding:9px" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+        <a id="footerWaBtn" class="btn green" style="margin:0;padding:9px" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
         <button type="button" class="btn dark" style="margin:0;padding:9px" onclick="copyText('mdaadilalam123123@gmail.com','cMsg')">Copy Email</button>
       </div>
       <div class="msg" id="cMsg"></div>
@@ -383,7 +383,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
       <button type="button" class="m-btn-sm" onclick="document.getElementById('authPhotoInp').click()">+ Add Photo</button>
     </div>
 
-    <img class="auth-full-logo" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" decoding="sync">
+    <img id="authLogoImg" class="auth-full-logo" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" decoding="sync">
 
     <div class="auth-photo-slot">
       <img id="authBannerImg" src="" alt="Login Banner Photo" style="display:none" decoding="sync">
@@ -427,7 +427,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <div>
       <div class="sm-head">
         <div class="brand-wrap">
-          <img class="brand-banner sm" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" decoding="sync">
+          <img id="sideLogoImg" class="brand-banner sm" src="https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg" alt="The Millionaire Skill" decoding="sync">
           <b style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:12.5px;color:#0b0b0c">The Millionaire Skill</b>
         </div>
         <button type="button" class="m-btn-sm" onclick="toggleSide(false)">✕</button>
@@ -640,7 +640,7 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <div id="dp-leaderboard" class="d-pane"><div class="w-box"><h3>Activity Standing</h3><div id="lbBox"></div></div></div>
     <div id="dp-trainings" class="d-pane"><div class="w-box"><h3>Structured Modules</h3><div class="t-row"><div><b>Marketing &amp; Funnel Foundations</b><br><small style="color:#52525b">12 Structured Lessons</small></div><span class="chip blue">Included</span></div><div class="t-row"><div><b>Brand Positioning &amp; Communication</b><br><small style="color:#52525b">16 Structured Lessons</small></div><span class="chip">Included</span></div></div></div>
     <div id="dp-vip" class="d-pane"><div class="w-box"><h3>Complete Bundle Access</h3><p style="font-size:12.5px;color:#3f3f46;margin-bottom:10px">Access all 85+ lessons across Marketing, Branding, Traffic, Influence, and Finance in one track.</p><button type="button" class="btn gold" style="margin-top:0" onclick="setDTab('buy')">View All Tracks →</button></div></div>
-    <div id="dp-community" class="d-pane"><div class="w-box"><h3>Community &amp; Support</h3><div class="t-row"><div><b>Official Updates Channel</b><br><small style="color:#52525b">Announcements &amp; release notes</small></div><a class="w-btn" style="margin:0" href="https://whatsapp.com/channel/0029Vb7863B6mYPIh021dN1b" target="_blank" rel="noopener noreferrer">Open</a></div><div class="t-row"><div><b>Support Desk</b><br><small style="color:#52525b">+91 62898 41691</small></div><a class="w-btn" style="margin:0" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Message</a></div></div></div>
+    <div id="dp-community" class="d-pane"><div class="w-box"><h3>Community &amp; Support</h3><div class="t-row"><div><b>Official Updates Channel</b><br><small style="color:#52525b">Announcements &amp; release notes</small></div><a class="w-btn" style="margin:0" href="https://whatsapp.com/channel/0029Vb7863B6mYPIh021dN1b" target="_blank" rel="noopener noreferrer">Open</a></div><div class="t-row"><div><b>Support Desk</b><br><small id="commWaTxt" style="color:#52525b">+91 62898 41691</small></div><a id="commWaLink" class="w-btn" style="margin:0" href="https://wa.me/916289841691" target="_blank" rel="noopener noreferrer">Message</a></div></div></div>
     <div id="dp-qualification" class="d-pane"><div class="w-box"><h3>Current Track Status</h3><p style="font-size:12.5px;color:#3f3f46">Active Track: <b id="qPkgTxt">Nothing</b></p><p style="font-size:12.5px;color:#3f3f46;margin-top:4px">Recorded Referrals: <b id="qTeamTxt">Nothing</b></p></div></div>
 
     <div id="dp-profile" class="d-pane">
@@ -661,9 +661,45 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <div id="dp-adminpanel" class="d-pane">
       <div class="w-box">
         <h3>Admin Panel (Local Demo — Not Production Backend)</h3>
-        <p style="font-size:12px;color:#52525b;margin-bottom:10px">Manage Courses, Coupons, Orders, Students, and Support Replies locally.</p>
+        <p style="font-size:12px;color:#52525b;margin-bottom:10px">Manually control Logo, Bell Notifications, Course Photos &amp; Details, WhatsApp &amp; QR, Coupons, Orders, and Support.</p>
 
-        <h4 style="font-size:13.5px;margin:8px 0 6px">Add / Edit Course</h4>
+        <h4 style="font-size:13.5px;margin:10px 0 6px">1. Manual Logo &amp; Brand Control</h4>
+        <label class="lbl">Logo Image URL (or upload below)</label>
+        <input id="admLogoUrl" class="inp" placeholder="https://... or data:image/...">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+          <button type="button" class="btn gold btn-sm" onclick="admApplyLogoUrl()">Apply Logo URL</button>
+          <button type="button" class="m-btn-sm" onclick="admLogoFile.click()">Upload Logo File</button>
+          <button type="button" class="chip red" onclick="admResetLogo()">Reset Default Logo</button>
+          <input id="admLogoFile" type="file" accept="image/*" style="display:none" onchange="admOnLogoFile(event)">
+        </div>
+
+        <hr style="border:0;border-top:1px solid #e6dfd1;margin:12px 0">
+        <h4 style="font-size:13.5px;margin-bottom:6px">2. Bell Icon Notification Composer</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div><label class="lbl">Type / Tag</label><input id="admNKind" class="inp" placeholder="Offer / Update / Alert" value="Update"></div>
+          <div><label class="lbl">Notification Title</label><input id="admNTitle" class="inp" placeholder="New lesson or announcement"></div>
+        </div>
+        <label class="lbl">Notification Message</label>
+        <input id="admNBody" class="inp" placeholder="Details shown when clicking the top bell icon...">
+        <button type="button" class="btn green btn-sm" onclick="admPushBellNotif()">+ Push to Bell Icon</button>
+
+        <hr style="border:0;border-top:1px solid #e6dfd1;margin:12px 0">
+        <h4 style="font-size:13.5px;margin-bottom:6px">3. Manual WhatsApp Number &amp; UPI / QR Control</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div><label class="lbl">WhatsApp Number (digits)</label><input id="admWaNum" class="inp" placeholder="916289841691"></div>
+          <div><label class="lbl">UPI ID</label><input id="admUpiId" class="inp" placeholder="yourupi@bank"></div>
+        </div>
+        <label class="lbl">Custom QR Image URL (leave blank to auto-generate QR from UPI ID &amp; amount)</label>
+        <input id="admQrUrl" class="inp" placeholder="https://... custom QR image URL">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn gold btn-sm" onclick="admSaveContactQr()">Save WhatsApp &amp; QR</button>
+          <button type="button" class="m-btn-sm" onclick="admQrFile.click()">Upload Custom QR Image</button>
+          <button type="button" class="chip red" onclick="admResetContactQr()">Reset Default</button>
+          <input id="admQrFile" type="file" accept="image/*" style="display:none" onchange="admOnQrFile(event)">
+        </div>
+
+        <hr style="border:0;border-top:1px solid #e6dfd1;margin:12px 0">
+        <h4 style="font-size:13.5px;margin:8px 0 6px">4. Add / Edit Course &amp; Course Photo</h4>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
           <div><label class="lbl">Title</label><input id="admCTitle" class="inp" placeholder="Track title"></div>
           <div><label class="lbl">Category</label>
@@ -672,11 +708,14 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
           <div><label class="lbl">Price (₹)</label><input id="admCPrice" class="inp" type="number" placeholder="1999"></div>
           <div><label class="lbl">Modules Label</label><input id="admCMod" class="inp" placeholder="14 Modules"></div>
         </div>
+        <label class="lbl">Course Photo URL (optional for new course)</label>
+        <input id="admCImg" class="inp" placeholder="https://... or image filename">
         <button type="button" class="btn gold" style="width:auto;margin:0" onclick="admAddCourse()">Add Course</button>
+        <input id="admCoursePhotoFile" type="file" accept="image/*" style="display:none" onchange="admOnCoursePhotoFile(event)">
         <div id="admCourseList" style="margin-top:8px"></div>
 
         <hr style="border:0;border-top:1px solid #e6dfd1;margin:14px 0">
-        <h4 style="font-size:13.5px;margin-bottom:6px">Coupons (Percentage / Fixed / Expiry)</h4>
+        <h4 style="font-size:13.5px;margin-bottom:6px">5. Coupons (Percentage / Fixed / Expiry)</h4>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
           <div><label class="lbl">Code</label><input id="admCpCode" class="inp" placeholder="SAVE20"></div>
           <div><label class="lbl">Type</label><select id="admCpType" class="inp"><option value="percent">Percentage (%)</option><option value="fixed">Fixed (₹)</option></select></div>
@@ -687,12 +726,12 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
         <div id="admCouponList" style="margin-top:8px"></div>
 
         <hr style="border:0;border-top:1px solid #e6dfd1;margin:14px 0">
-        <h4 style="font-size:13.5px;margin-bottom:6px">Orders Approval &amp; Students</h4>
+        <h4 style="font-size:13.5px;margin-bottom:6px">6. Orders Approval &amp; Students</h4>
         <div id="admOrdersBox"></div>
         <div id="admStudentsBox" style="margin-top:8px"></div>
 
         <hr style="border:0;border-top:1px solid #e6dfd1;margin:14px 0">
-        <h4 style="font-size:13.5px;margin-bottom:6px">Support Replies</h4>
+        <h4 style="font-size:13.5px;margin-bottom:6px">7. Support Replies</h4>
         <div id="admSupportBox"></div>
       </div>
     </div>
@@ -715,11 +754,11 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
     <div class="row-sp" style="margin-bottom:10px"><b id="bTitle" style="font-size:16px">Enrollment Checkout</b><button type="button" class="m-btn-sm" onclick="closeModal()">Close ×</button></div>
     <div class="sum-box" id="sumBox"></div>
     <div style="display:flex;gap:8px;align-items:flex-end;margin-bottom:4px">
-      <div style="flex:1"><label class="lbl">Coupon Code (Demo)</label><input id="fCoupon" class="inp" style="margin:0" placeholder="Try TMS10 or SAVE20"></div>
+      <div style="flex:1"><label class="lbl">Coupon Code (Demo)</label><input id="fCoupon" class="inp" style="margin:0" placeholder="Try TMS10 or SAVE500"></div>
       <button type="button" class="btn dark" style="width:auto;margin:0;padding:10px 12px" onclick="applyCheckoutCoupon()">Apply</button>
     </div>
     <div id="cpMsg" class="msg" style="margin-bottom:8px"></div>
-    <div class="qr-box"><b id="qrLbl">UPI Payment</b><img id="qrImg" alt="UPI QR"><b class="selectable">UPI ID: millionaireskills@upi</b></div>
+    <div class="qr-box"><b id="qrLbl">UPI Payment</b><img id="qrImg" alt="UPI QR"><b id="qrUpiLabel" class="selectable">UPI ID: millionaireskills@upi</b></div>
     <div class="note">Demo Checkout: Complete the UPI transfer and enter the 12-digit UTR reference. Real payment gateway verification requires backend/gateway integration.</div>
     <label class="lbl">Final Amount (₹)</label><input id="fAmt" class="inp" readonly>
     <label class="lbl">Full Name</label><input id="fName" class="inp" placeholder="Your full name">
@@ -783,7 +822,6 @@ footer b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
 <script>
 "use strict";
 const CLOUD_CFG = { binId:"", masterKey:"" };
-// Future Firebase Integration Hook Stubs (replace with Firebase SDK initialization when ready)
 const FIREBASE_HOOKS = {
   auth: null,
   db: null,
@@ -795,8 +833,10 @@ const FIREBASE_HOOKS = {
 const K = {
   users:"tms_users_v7", sess:"tms_sess_v1", courses:"tms_courses_v7", theme:"tms_theme_v7",
   admin:"tms_admin_creds_v7", admAuth:"tms_adm_session_v1", authPhoto:"tms_auth_photo_v1",
-  coupons:"tms_coupons_v1", tickets:"tms_tickets_v1", notifs:"tms_notifs_v1"
+  coupons:"tms_coupons_v1", tickets:"tms_tickets_v1", notifs:"tms_notifs_v1", siteCfg:"tms_site_cfg_v1"
 };
+const DEF_LOGO = "https://raw.githubusercontent.com/vedantsahu1496/The-skills/refs/heads/main/SAVE_20261121_150015.jpg";
+const DEF_SITE_CFG = { logoUrl: DEF_LOGO, waNumber: "916289841691", upiId: "millionaireskills@upi", customQrUrl: "" };
 const DEF_COURSES = [
   { id:"marketing", cat:"starter", level:"Beginner", duration:"Self-Paced", img:"file_00000000a24082079bd1a0d07ce5ae90.png", badge:"FOUNDATION", save:"50% OFF", title:"Marketing Foundations", desc:"Learn audience research, funnel structure, messaging clarity, and practical campaign planning.", modules:"12 Modules", price:999, oldPrice:1999, vip:false, rating:4.8, popularity:92, createdAt:1 },
   { id:"branding", cat:"starter", level:"Beginner–Intermediate", duration:"Self-Paced", img:"file_000000002914821181cc5ff207a5f834.png", badge:"BRANDING", save:"50% OFF", title:"Personal & Digital Branding", desc:"Develop a consistent voice, visual identity, and helpful content habits across platforms.", modules:"16 Modules", price:2499, oldPrice:4999, vip:false, rating:4.7, popularity:84, createdAt:2 },
@@ -843,13 +883,37 @@ const QUIZ_BANK = [
   { q:"What helps measure campaign performance?", opts:["Tracking & review","Guessing without data","Ignoring feedback"], ans:0 }
 ];
 
-let selC=null, appliedDiscount=0, resetEm="", tempImg="", tPage=1, activeCat="all", pendingConfirmFn=null;
+let selC=null, appliedDiscount=0, resetEm="", tempImg="", tPage=1, activeCat="all", pendingConfirmFn=null, editingCoursePhotoIdx=null;
 let playerCourse=null, playerLessons=[], playerIdx=0, playerSec=0, playerTimer=null, quizSec=180, quizInterval=null, cmpSelection=[];
 const rJ=(k,fb)=>{try{const v=JSON.parse(localStorage.getItem(k));return v??fb;}catch{return fb;}};
 const wJ=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch{}};
 const inr=n=>"₹"+(parseInt(n,10)||0).toLocaleString("en-IN");
 const showM=(id,txt,mode="err")=>{const el=document.getElementById(id);el.className="msg "+mode;el.textContent=txt;};
 const hasCloud=()=>Boolean(CLOUD_CFG.binId&&CLOUD_CFG.masterKey);
+
+function getSiteCfg(){ return {...DEF_SITE_CFG,...rJ(K.siteCfg,{})}; }
+function saveSiteCfg(patch){ const next={...getSiteCfg(),...patch}; wJ(K.siteCfg,next); applySiteCfg(); return next; }
+function formatWaDisplay(num){
+  const digits=String(num||"").replace(/\D/g,"")||"916289841691";
+  if(digits.length===12&&digits.startsWith("91")) return `+91 ${digits.slice(2,7)} ${digits.slice(7)}`;
+  return `+${digits}`;
+}
+function buildQrSrc(amt,cfg){
+  if(cfg.customQrUrl) return cfg.customQrUrl;
+  const upi=cfg.upiId||"millionaireskills@upi";
+  return "https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=${upi}&pn=TheMillionaireSkill&am=${amt}&cu=INR`);
+}
+function applySiteCfg(){
+  const cfg=getSiteCfg(), logo=cfg.logoUrl||DEF_LOGO;
+  if(hdrLogoImg) hdrLogoImg.src=logo;
+  if(authLogoImg) authLogoImg.src=logo;
+  if(sideLogoImg) sideLogoImg.src=logo;
+  const waDigits=String(cfg.waNumber||"916289841691").replace(/\D/g,"")||"916289841691";
+  if(footerContactLine) footerContactLine.textContent=`Support WhatsApp: ${formatWaDisplay(waDigits)} • Email: mdaadilalam123123@gmail.com`;
+  if(footerWaBtn) footerWaBtn.href=`https://wa.me/${waDigits}`;
+  if(commWaTxt) commWaTxt.textContent=formatWaDisplay(waDigits);
+  if(commWaLink) commWaLink.href=`https://wa.me/${waDigits}`;
+}
 
 function notify(text,mode="ok"){
   const wrap=document.getElementById("toastWrap"), item=document.createElement("div");
@@ -908,7 +972,7 @@ async function pullCloud(){
     if(Array.isArray(d.courses)&&d.courses.length) wJ(K.courses,d.courses);
     if(d.theme) localStorage.setItem(K.theme,d.theme);
     if(d.admin&&d.admin.email) wJ(K.admin,d.admin);
-    applyTheme(); renderCourses(); if(curUser()) renderDash(curUser());
+    applyTheme(); applySiteCfg(); renderCourses(); if(curUser()) renderDash(curUser());
   }catch{}
 }
 async function pushCloud(){
@@ -1037,9 +1101,9 @@ function renderFaq(){
 
 function syncHeader(){ const u=curUser(); hdrBtn.textContent=u?"Dashboard":"Login"; guestBox.style.display=u?"none":"block"; userBox.style.display=u?"grid":"none"; dLogin.style.display=u?"none":"block"; dDash.style.display=u?"block":"none"; dOut.style.display=u?"block":"none"; }
 function hideViews(keepModal=false){ toggleDrawer(false); toggleSide(false); if(!keepModal) closeModal(); siteView.style.display="none"; authView.classList.remove("active"); dashView.classList.remove("active"); }
-function showSite(){ applyTheme(); renderCourses(); syncHeader(); syncNotifBadge(); hideViews(false); siteView.style.display="block"; window.scrollTo(0,0); }
-function showAuth(mode="login"){ applyTheme(); renderAuthBannerPhoto(); hideViews(false); authView.classList.add("active"); loginBox.style.display=mode==="login"?"block":"none"; forgotBox.style.display=mode==="forgot"?"block":"none"; lMsg.className=fpMsg.className="msg"; window.scrollTo(0,0); }
-async function showDash(tab="earnings"){ await pullCloud(); const u=curUser(); if(!u) return showAuth("login"); applyTheme(); renderCourses(); syncNotifBadge(); hideViews(false); dashView.classList.add("active"); renderDash(u); setDTab(tab); window.scrollTo(0,0); }
+function showSite(){ applyTheme(); applySiteCfg(); renderCourses(); syncHeader(); syncNotifBadge(); hideViews(false); siteView.style.display="block"; window.scrollTo(0,0); }
+function showAuth(mode="login"){ applyTheme(); applySiteCfg(); renderAuthBannerPhoto(); hideViews(false); authView.classList.add("active"); loginBox.style.display=mode==="login"?"block":"none"; forgotBox.style.display=mode==="forgot"?"block":"none"; lMsg.className=fpMsg.className="msg"; window.scrollTo(0,0); }
+async function showDash(tab="earnings"){ await pullCloud(); const u=curUser(); if(!u) return showAuth("login"); applyTheme(); applySiteCfg(); renderCourses(); syncNotifBadge(); hideViews(false); dashView.classList.add("active"); renderDash(u); setDTab(tab); window.scrollTo(0,0); }
 function onHdrClick(){ curUser()?showDash("earnings"):showAuth("login"); }
 function toggleDrawer(force){ drawer.classList.toggle("open",typeof force==="boolean"?force:undefined); }
 function toggleSide(force){ const open=typeof force==="boolean"?force:!sideMenu.classList.contains("open"); sideMenu.classList.toggle("open",open); sideBackdrop.classList.toggle("open",open); }
@@ -1369,20 +1433,22 @@ function applyCheckoutCoupon(){
   const disc=cp.type==="percent"?Math.round((selC.price*cp.value)/100):Math.min(selC.price,Number(cp.value)||0);
   appliedDiscount=disc;
   const finalAmt=Math.max(0,selC.price-disc);
+  const cfg=getSiteCfg();
   fAmt.value=String(finalAmt);
   qrLbl.textContent="Pay "+inr(finalAmt)+" via UPI (Discount: -"+inr(disc)+")";
-  qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkill&am=${finalAmt}&cu=INR`);
+  qrImg.src=buildQrSrc(finalAmt,cfg);
   showM("cpMsg",`Applied ${cp.code}: saved ${inr(disc)} (Demo).`,"ok");
 }
 
 function isDuplicateUtr(utr){ return getUsers().some(u=>(u.orders||[]).some(o=>String(o.utr||"")===utr||String(o.reqId||"").includes(utr))); }
 function openBuy(idx){
-  const c=getCourses()[idx]; if(!c) return; selC=c; appliedDiscount=0; const u=curUser();
+  const c=getCourses()[idx]; if(!c) return; selC=c; appliedDiscount=0; const u=curUser(), cfg=getSiteCfg();
   bTitle.textContent=c.title+" — Enrollment"; qrLbl.textContent="Pay "+inr(c.price)+" via UPI";
+  qrUpiLabel.textContent="UPI ID: "+(cfg.upiId||"millionaireskills@upi");
   sumBox.innerHTML=`<b>Track:</b> ${c.title} • <b>${c.modules}</b><br><b>Amount:</b> <b>${inr(c.price)}</b>`;
   fCoupon.value=""; cpMsg.className="msg";
   fAmt.value=c.price; fName.value=u?u.name:""; fPhone.value=u?u.phone:""; fUtr.value=""; bMsg.className="msg"; doneBox.style.display="none";
-  qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(`upi://pay?pa=millionaireskills@upi&pn=TheMillionaireSkill&am=${c.price}&cu=INR`);
+  qrImg.src=buildQrSrc(c.price,cfg);
   confirmModal.style.display=playerModal.style.display=notifModal.style.display=photoModal.style.display=legalModal.style.display="none"; buyModal.style.display="block"; modal.classList.add("open");
 }
 function submitPay(){
@@ -1400,15 +1466,21 @@ function submitPay(){
     wJ(K.users,all); pushCloud(); if(curUser()) renderDash(curUser());
   }
   pushNotif("Payment","Enrollment Order Recorded ("+reqId+")",`Order for ${selC.title} (${inr(paidAmt)}) is Pending Verification.`);
+  const waDigits=String(getSiteCfg().waNumber||"916289841691").replace(/\D/g,"")||"916289841691";
   dReqTxt.textContent=`${selC.title} • ${inr(paidAmt)} • UTR: ${utr} • Ref: ${reqId}`;
-  dWaLink.href="https://wa.me/916289841691?text="+encodeURIComponent(`Name: ${nm}\nPhone: ${ph}\nTrack: ${selC.title}\nAmount: ${inr(paidAmt)}\nUTR: ${utr}\nRef: ${reqId}`);
+  dWaLink.href=`https://wa.me/${waDigits}?text=`+encodeURIComponent(`Name: ${nm}\nPhone: ${ph}\nTrack: ${selC.title}\nAmount: ${inr(paidAmt)}\nUTR: ${utr}\nRef: ${reqId}`);
   doneBox.style.display="block"; notify("Enrollment request submitted ("+reqId+").");
 }
 
 function renderAdminPanel(){
   if(!isAdminSession()) return;
-  const courses=getCourses(), coupons=getCoupons(), users=getUsers(), tickets=getTickets();
-  admCourseList.innerHTML=courses.map((c,i)=>`<div class="t-row"><div><b>${c.title}</b> (${c.cat} • ${inr(c.price)})</div><div style="display:flex;gap:6px"><button type="button" class="m-btn-sm" onclick="admEditCourse(${i})">Edit</button><button type="button" class="chip red" onclick="admDelCourse(${i})">Delete</button></div></div>`).join("");
+  const cfg=getSiteCfg(), courses=getCourses(), coupons=getCoupons(), users=getUsers(), tickets=getTickets();
+  admLogoUrl.value=cfg.logoUrl||DEF_LOGO;
+  admWaNum.value=cfg.waNumber||"916289841691";
+  admUpiId.value=cfg.upiId||"millionaireskills@upi";
+  admQrUrl.value=cfg.customQrUrl||"";
+
+  admCourseList.innerHTML=courses.map((c,i)=>`<div class="t-row"><div><b>${c.title}</b> (${c.cat} • ${inr(c.price)} • ${c.modules})</div><div style="display:flex;gap:6px;flex-wrap:wrap"><button type="button" class="m-btn-sm" onclick="admPickCoursePhoto(${i})">Photo</button><button type="button" class="m-btn-sm" onclick="admEditCourse(${i})">Edit</button><button type="button" class="chip red" onclick="admDelCourse(${i})">Delete</button></div></div>`).join("");
   admCouponList.innerHTML=coupons.map((cp,i)=>`<div class="t-row"><div><b>${cp.code}</b> (${cp.type==="percent"?cp.value+"%":inr(cp.value)} • Exp: ${cp.expiry||"N/A"})</div><button type="button" class="chip red" onclick="admDelCoupon(${i})">Delete</button></div>`).join("");
 
   const orderRows=[];
@@ -1420,17 +1492,69 @@ function renderAdminPanel(){
 
   admSupportBox.innerHTML=tickets.length?tickets.map((t,ti)=>`<div class="t-row" style="display:block"><b>[${t.id}] ${t.userName}: ${t.topic}</b><div style="font-size:12px;color:#52525b">${t.body}</div><div style="display:flex;gap:6px;margin-top:6px"><input id="repInp_${ti}" class="inp" style="margin:0;flex:1" value="${t.reply||""}" placeholder="Write admin reply..."><button type="button" class="btn gold btn-sm" onclick="admReplyTicket(${ti})">Reply</button></div></div>`).join(""):`<div class="empty-st">No support doubts yet.</div>`;
 }
+function admApplyLogoUrl(){
+  const u=admLogoUrl.value.trim();
+  if(!u) return notify("Enter a logo image URL first.","err");
+  saveSiteCfg({logoUrl:u}); notify("Logo updated.");
+}
+function admOnLogoFile(e){
+  const f=e.target.files&&e.target.files[0]; if(!f) return;
+  if(!f.type.startsWith("image/")||f.size>4*1024*1024) return notify("Select an image under 4MB.","err");
+  const r=new FileReader();
+  r.onload=ev=>{ admLogoUrl.value=ev.target.result; saveSiteCfg({logoUrl:ev.target.result}); notify("Logo uploaded."); };
+  r.readAsDataURL(f);
+}
+function admResetLogo(){ saveSiteCfg({logoUrl:DEF_LOGO}); admLogoUrl.value=DEF_LOGO; notify("Logo reset to default."); }
+function admPushBellNotif(){
+  const kind=(admNKind.value||"Update").trim(), title=admNTitle.value.trim(), body=admNBody.value.trim();
+  if(!title||!body) return notify("Enter notification title and message.","err");
+  pushNotif(kind,title,body); admNTitle.value=admNBody.value=""; notify("Notification added to bell icon.");
+}
+function admSaveContactQr(){
+  const waNumber=(admWaNum.value||"").replace(/\D/g,"")||"916289841691";
+  const upiId=(admUpiId.value||"").trim()||"millionaireskills@upi";
+  const customQrUrl=(admQrUrl.value||"").trim();
+  saveSiteCfg({waNumber,upiId,customQrUrl}); notify("WhatsApp number & QR settings saved.");
+}
+function admOnQrFile(e){
+  const f=e.target.files&&e.target.files[0]; if(!f) return;
+  if(!f.type.startsWith("image/")||f.size>4*1024*1024) return notify("Select a QR image under 4MB.","err");
+  const r=new FileReader();
+  r.onload=ev=>{ admQrUrl.value=ev.target.result; saveSiteCfg({customQrUrl:ev.target.result}); notify("Custom QR image uploaded."); };
+  r.readAsDataURL(f);
+}
+function admResetContactQr(){
+  saveSiteCfg({...DEF_SITE_CFG,logoUrl:getSiteCfg().logoUrl});
+  renderAdminPanel(); notify("WhatsApp & QR reset to default.");
+}
+function admPickCoursePhoto(i){ editingCoursePhotoIdx=i; admCoursePhotoFile.click(); }
+function admOnCoursePhotoFile(e){
+  const f=e.target.files&&e.target.files[0]; if(!f||editingCoursePhotoIdx===null) return;
+  if(!f.type.startsWith("image/")||f.size>4*1024*1024) return notify("Select an image under 4MB.","err");
+  const r=new FileReader();
+  r.onload=ev=>{
+    const list=getCourses();
+    if(list[editingCoursePhotoIdx]){ list[editingCoursePhotoIdx].img=ev.target.result; wJ(K.courses,list); pushCloud(); renderCourses(); notify("Course photo updated."); }
+    editingCoursePhotoIdx=null; admCoursePhotoFile.value="";
+  };
+  r.readAsDataURL(f);
+}
 function admAddCourse(){
-  const title=admCTitle.value.trim(), cat=admCCat.value, price=parseInt(admCPrice.value,10)||999, mod=admCMod.value.trim()||"12 Modules";
+  const title=admCTitle.value.trim(), cat=admCCat.value, price=parseInt(admCPrice.value,10)||999, mod=admCMod.value.trim()||"12 Modules", img=(admCImg.value||"").trim()||DEF_COURSES[0].img;
   if(title.length<2) return notify("Enter course title.","err");
   const list=getCourses();
-  list.push({id:"c-"+Date.now(),cat,level:"All Levels",duration:"Self-Paced",img:DEF_COURSES[0].img,badge:cat.toUpperCase(),save:"NEW",title,desc:"Structured skill track added in Admin Demo.",modules:mod,price,oldPrice:price*2,vip:cat==="bundle",rating:4.8,popularity:80,createdAt:Date.now()});
-  wJ(K.courses,list); pushCloud(); admCTitle.value=admCPrice.value=""; renderCourses(); renderAdminPanel(); notify("Course added (Demo).");
+  list.push({id:"c-"+Date.now(),cat,level:"All Levels",duration:"Self-Paced",img,badge:cat.toUpperCase(),save:"NEW",title,desc:"Structured skill track added in Admin Demo.",modules:mod,price,oldPrice:price*2,vip:cat==="bundle",rating:4.8,popularity:80,createdAt:Date.now()});
+  wJ(K.courses,list); pushCloud(); admCTitle.value=admCPrice.value=admCImg.value=""; renderCourses(); renderAdminPanel(); notify("Course added (Demo).");
 }
 function admEditCourse(i){
   const list=getCourses(), c=list[i]; if(!c) return;
+  const nt=prompt("Course Title:",c.title);
+  if(nt!==null&&nt.trim().length>=2) c.title=nt.trim();
   const np=prompt("New Price (₹):",String(c.price));
-  if(np!==null&&!isNaN(parseInt(np,10))){ c.price=Math.max(0,parseInt(np,10)); wJ(K.courses,list); pushCloud(); renderCourses(); renderAdminPanel(); notify("Course updated."); }
+  if(np!==null&&!isNaN(parseInt(np,10))) c.price=Math.max(0,parseInt(np,10));
+  const ni=prompt("Course Photo URL (or leave as-is):",c.img);
+  if(ni!==null&&ni.trim()) c.img=ni.trim();
+  wJ(K.courses,list); pushCloud(); renderCourses(); renderAdminPanel(); notify("Course updated.");
 }
 function admDelCourse(i){
   const list=getCourses(); list.splice(i,1); wJ(K.courses,list); pushCloud(); renderCourses(); renderAdminPanel(); notify("Course deleted.");
@@ -1471,7 +1595,7 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeModal(); tog
 document.addEventListener("gesturestart",e=>e.preventDefault(),{passive:false});
 
 yrSpan.textContent=String(new Date().getFullYear());
-applyTheme(); renderAuthBannerPhoto(); renderCourses(); renderFaq(); syncHeader(); syncNotifBadge(); renderReviewsSection();
+applyTheme(); applySiteCfg(); renderAuthBannerPhoto(); renderCourses(); renderFaq(); syncHeader(); syncNotifBadge(); renderReviewsSection();
 preloader.classList.add("hide");
 pullCloud();
 </script>

@@ -87,7 +87,6 @@ body{background:var(--bg);color:var(--text);line-height:1.5;padding:16px 14px 48
     <button class="tab" data-t="theme" onclick="setTab('theme')">Theme &amp; Security</button>
   </div>
 
-  <!-- TAB 1: USERS -->
   <div id="tab-users" class="box active">
     <h3>Add New User</h3>
     <div class="grid2">
@@ -125,13 +124,11 @@ body{background:var(--bg);color:var(--text);line-height:1.5;padding:16px 14px 48
     <div id="usersList"></div>
   </div>
 
-  <!-- TAB 2: ORDERS / UTR -->
   <div id="tab-orders" class="box">
     <h3>Payment &amp; UTR Verification Queue</h3>
     <div id="ordersList"></div>
   </div>
 
-  <!-- TAB 3: COURSES -->
   <div id="tab-courses" class="box">
     <h3>Edit Mastery Package Rates</h3>
     <div id="coursesList"></div>
@@ -140,7 +137,6 @@ body{background:var(--bg);color:var(--text);line-height:1.5;padding:16px 14px 48
     <div id="cMsg" class="msg"></div>
   </div>
 
-  <!-- TAB 4: THEME & SECURITY -->
   <div id="tab-theme" class="box">
     <h3>Panel Theme</h3>
     <select id="themeSel" class="sel" onchange="applyTheme(this.value)">
@@ -180,7 +176,7 @@ const DEF_COURSES = [
 
 const ZERO_EARN = { today:"₹0", sevenDays:"₹0", thirtyDays:"₹0", allTime:"₹0", industrial:"₹0", wallet:"₹0" };
 
-const readJ = (k, fb) => { try { return JSON.parse(localStorage.getItem(k)) || fb; } catch { return fb; } };
+const readJ = (k, fb) => { try { const v = JSON.parse(localStorage.getItem(k)); return v !== null && v !== undefined ? v : fb; } catch { return fb; } };
 const writeJ = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 const showMsg = (id, text, ok=true) => {
   const el = document.getElementById(id);
@@ -192,14 +188,14 @@ function getAdmin() { return readJ(K.admin, { email:"admin@tms.com", password:"a
 function getUsers() {
   let u = readJ(K.users, null);
   if (!Array.isArray(u) || !u.length) {
-    u = [{ studentId:"TMS-STU-1001", name:"Akshh", tag:"[G.O.D]", email:"student1@tms.com", phone:"6289841691", password:"pass1", earnings:{...ZERO_EARN}, orders:[{ pkg:"Finance Mastery", amt:14999, reqId:"TMS-FIN01", status:"Active" }], team:[] }];
+    u = [{ studentId:"TMS-STU-1001", name:"Akshh", tag:"[G.O.D]", email:"student1@tms.com", phone:"6289841691", password:"pass1", photo:"", earnings:{...ZERO_EARN}, orders:[{ pkg:"Finance Mastery", amt:14999, reqId:"TMS-FIN01", status:"Active" }], team:[] }];
     writeJ(K.users, u);
   }
   return u;
 }
 function getCourses() {
   let c = readJ(K.courses, null);
-  if (!Array.isArray(c) || !c.length) { c = structuredClone(DEF_COURSES); writeJ(K.courses, c); }
+  if (!Array.isArray(c) || !c.length) { c = DEF_COURSES.map(x => ({...x})); writeJ(K.courses, c); }
   return c;
 }
 
@@ -217,7 +213,7 @@ function doAdminLogin() {
   const em = document.getElementById("lEmail").value.trim().toLowerCase();
   const pw = document.getElementById("lPass").value;
   const adm = getAdmin();
-  if (em === adm.email.toLowerCase() && pw === adm.password) {
+  if (em === String(adm.email || "").trim().toLowerCase() && pw === adm.password) {
     sessionStorage.setItem(K.auth, "1");
     bootPanel();
   } else {
@@ -274,7 +270,7 @@ function renderAll() {
     <div class="row">
       <div>
         <b>${r.pkg} — ₹${r.amt} <span class="badge ${r.status === "Active" ? "b-ok" : "b-wait"}">${r.status}</span></b>
-        <small>User: ${r.uName} (${r.uEmail}) • Req ID: ${r.reqId}</small>
+        <small>User: ${r.uName} (${r.uEmail}) • Req ID: ${r.reqId}${r.utr ? " • UTR: " + r.utr : ""}</small>
       </div>
       <div style="display:flex;gap:6px">
         <button class="btn btn-green" onclick="setOrderStatus('${r.uEmail}',${r.idx},'Active')">Approve</button>
@@ -306,7 +302,7 @@ function addUser() {
   const users = getUsers();
   if (users.some(x => x.email.toLowerCase() === email))
     return showMsg("uAddMsg", "Email already exists", false);
-  users.push({ studentId:"TMS-STU-" + Math.floor(1000+Math.random()*9000), name, tag:"", email, phone:phone||"9000000000", password, earnings:{...ZERO_EARN}, orders:[], team:[] });
+  users.push({ studentId:"TMS-STU-" + Math.floor(1000+Math.random()*9000), name, tag:"", email, phone:phone||"9000000000", password, photo:"", earnings:{...ZERO_EARN}, orders:[], team:[] });
   writeJ(K.users, users);
   ["uName","uEmail","uPhone","uPass"].forEach(id => document.getElementById(id).value = "");
   showMsg("uAddMsg", "User created: " + email, true);
@@ -396,7 +392,7 @@ function saveCourses() {
 }
 
 function resetCourses() {
-  writeJ(K.courses, structuredClone(DEF_COURSES));
+  writeJ(K.courses, DEF_COURSES.map(x => ({...x})));
   renderAll();
   showMsg("cMsg", "Default rates restored", true);
 }
